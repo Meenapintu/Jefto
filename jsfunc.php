@@ -228,7 +228,6 @@ var online_promotion = new Array("jefto flicker");
 var offline_promotion = new Array("TV","Radio","Newspaper");
 var currency = new Array("USD","INR","GBP","EUR","AUD");
 var age_group = new Array("11 below ", "12-18 Years old","18-25 Years old","25-40 Years old","40-65 Years old","65 above");
-
 //var audience_number = new Array("less than 100","100-500","500-1000","1000-5000","5000-10000","10000-20000"," more than 20,000");
 var audience_number = new Array(100,500,1000,5000,10000,20000,20,000);
 var social_media =  new Array('google.com','Facebook.com','linkdin.com');

@@ -52,14 +52,6 @@
 	<button type="button" name="social_media" id="medial_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 	</div>
 	</div>
-<script type="text/javascript"> 
-	//document.write("<div class='input-field col s12 col-md-12'>"); 
-	//document.write(multiform_radio("Currency  ","currency__",currency)); 
-	//document.write("</div>");
-	//====================================================================================
-	//document.write(subform("event_name","this field is going to be resigned with offer.png","text","input")); 
-	//document.write(subform("event_name","this need to be redesigned with offer.png","text","input"));
-	</script>
 	<?php require_once('offer.php');?>
 	<script type="text/javascript">
 	//====================================================================================

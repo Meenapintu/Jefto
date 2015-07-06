@@ -44,9 +44,6 @@
 	</div>
 	</div>
    <script type="text/javascript">  
-   // $val = array("cat1 ","cat2","middle east science adace forbid ");
-	//multiform("Your target audience  ","event_name",$target_audience, "check_call"); 
-	//subform("event_name","","text","input","placeholder= 'Expected Attendance'");
 	document.write("<div class='input-field col s12 col-md-12'>");
 	document.write(subform_range("gender_ratio__","Male female ratio"));
 	document.write("</div>"); 
