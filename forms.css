@@ -1,0 +1,82 @@
+.input-field label{
+font-size:large;
+ margin: 0%;
+ padding: 0%;
+}
+.input-field textarea{
+font-size: medium;
+}
+.input-field input{
+font-size: medium;
+margin: 0px;
+}
+.msg{
+font-size: x-large;
+color:#26A69A;
+padding: 0px;
+margin: 0%;
+}
+
+.input-field {
+margin-bottom: 20px;
+
+}
+
+[type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
+margin: 0px;
+margin-right: 20px;
+margin-bottom: 2px;
+top:2px;
+padding-left: 20px;
+font-size:large;
+}
+
+.input-field input[type=checkbox]+label{
+margin: 0px;
+margin-right: 20px;
+margin-bottom: 2px;
+top:2px;
+padding-left: 20px;
+font-size:large;
+}
+
+.filled-in{
+margin: 0px;
+height: 0px;
+width:0px;
+}
+
+input[type=checkbox]+label:before{
+background: transparent;
+border-color: #9E9E9E;
+width: 15px;
+height: 15px;
+top:2px;
+}
+
+input[type=checkbox]:checked+label:before{
+background: transparent;
+width: 9px;
+height: 20px;
+
+}
+
+.container{
+	width: 70%;
+	margin-top: 10px;
+}
+@media only screen and (max-device-width: 480px) {
+	.container{
+	width: 99%;
+}
+}
+form{
+	/*background:rgba(10,100,0,0.7);*/
+	padding: 10px;
+}
+li a{
+	font-size: medium;
+}
+footer.page-footer,.nav-wrapper{
+    background: rgba(45,123,126,1);
+  }
