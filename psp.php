@@ -28,7 +28,7 @@ class dbms{
 			link_for_req	text ,
 			description  	varchar(1500) not null,   /*   this is event description */ 
 			team_descritpion 	varchar(1500),
-			budget 				int,
+			budget 				bigint,
 			tags 				varchar(100)
 		)";
 

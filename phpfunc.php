@@ -42,18 +42,18 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
         echo"</br> THERE IS ERROR IN INSERT 1 </br>";
         die("Can't prepare '$sql': " . pg_last_error());
         echo false;
-    }
+    }/*
     else{
-        echo "</br>INSERTION DONE 1</br> ";
-        echo true;
-    }
+       // echo "</br>INSERTION DONE 1</br> ";
+        //echo true;
+    }*/
 
     $sql = sprintf('DEALLOCATE "%s"',pg_escape_string($sqlName));
     if(!pg_query($sql))
     {
         die("Can't query '$sql': " . pg_last_error());
     }
-    echo " all done single";
+    echo true;
 }
 
 ?>
