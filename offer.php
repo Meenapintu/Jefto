@@ -3,13 +3,13 @@
 <head>
   <title>Jefto.com </title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+ // <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="forms.css">
-<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.js"></script>-->
 <style>
 table, th, td {
     border: 1px solid black;
@@ -223,41 +223,7 @@ function add_benefit(){
 </head>
 <body>
 
-<table style="width:100%">
-	<tr>
-  		<th>
-  			<div>BENEFITS</div>
-  			<div>$10000</div>
-  		</th>
- 
-    	<script type="text/javascript">
-        document.write(pack_core(pack_class_name(),pack_name(pack_next)));
-        </script>		
-    <!-- ############################################    -->
 
-
-    	<th id="add_package" onclick="add_package()">
-    		<div>+<div>
-    		<div >Add package  </div>
-    	</th>
-    </tr>
-  	
- <!--  benefit  row  ##################################################### -->
-
-  <script type="text/javascript">
-    deliver_next++;
-    deliver_array.push(deliver_next)
-   // alert(pack_register(pack_class_name_deliver(pack_array[0]),element_name(pack_array[0],deliver_next)));
-  document.write(add_benefit_help(deliver_name(deliver_next)));
-  </script>
-  
- <!-- ################################################################   -->
-    <tr>
-    	<td>
-    		<button type="button" onclick="add_benefit()"> Add Benefit </button>
-    	</td>
-    </tr>
-</table>
  <link rel="stylesheet" href="forms.css">
 </body>
 </html>

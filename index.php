@@ -163,5 +163,4 @@ $(function () {
  <!--  This part for  most trading categories  (#END ) -->
   <!--  Begining of footer part  (# START) -->
 <?PHP require_once("footer.php"); ?>
-</body>
 </html>

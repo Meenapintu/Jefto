@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php 	  require_once("options.php");
-	  require_once("func.php");
+<?php 	  //require_once("options.php");
+	  //require_once("func.php");
 	  require_once('jsfunc.php');
 	  require_once("header.php");
 	  ?>
+	  <link rel="stylesheet" href="forms.css">
 <body>
-<link rel="stylesheet" href="forms.css">
- <!--  END of of Navbar header  part  (# ENDT) -->
-  <!--  This part for  most Form fill up  (#START) -->
-
 </style>
 <div class="container" >
 <form method="post" action="controller3.php"role="form" >
@@ -52,7 +49,36 @@
 	<button type="button" name="social_media" id="medial_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 	</div>
 	</div>
-	<?php require_once('offer.php');?>
+	<table style="width:100%">
+	<tr>
+  		<th>
+  			<div>BENEFITS</div>
+  			<div>$10000</div>
+  		</th>
+ 
+    	<script type="text/javascript">
+        document.write(pack_core(pack_class_name(),pack_name(pack_next)));
+        </script>		
+    <!-- ############################################    -->
+    	<th id="add_package" onclick="add_package()">
+    		<div>+<div>
+    		<div >Add package  </div>
+    	</th>
+    </tr>
+ <!--  benefit  row  ##################################################### -->
+  <script type="text/javascript">
+    deliver_next++;
+    deliver_array.push(deliver_next)
+   // alert(pack_register(pack_class_name_deliver(pack_array[0]),element_name(pack_array[0],deliver_next)));
+  document.write(add_benefit_help(deliver_name(deliver_next)));
+  </script>
+ <!-- ################################################################   -->
+    <tr>
+    	<td>
+    		<button type="button" onclick="add_benefit()"> Add Benefit </button>
+    	</td>
+    </tr>
+	</table>
 	<script type="text/javascript">
 	//====================================================================================
 	document.write("<div class='input-field col s12 col-md-12'>");
@@ -75,12 +101,10 @@
     </div>
     </div>
 </form>
-
 </div>
-
-
+</body>
 
  <!--  This part for  form fill up   (#END ) -->
 <?PHP require_once("footer.php"); ?>
-</body>
+
 </html>
