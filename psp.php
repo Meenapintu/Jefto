@@ -11,7 +11,7 @@ class dbms{
 		$this->conn = $connection;
 		
 	$query = "CREATE TABLE IF NOT EXISTS event(		/*  for long time these fields are going to update rarely */
-			event_id    int not null primary key,
+			event_id   	bigserial not null primary key,
 			name 		varchar(100) not null,
 			category 	varchar(30) not null,
 			genre		varchar(30) not null,
@@ -40,7 +40,7 @@ class dbms{
 	   }
 
 	$query = " CREATE TABLE IF NOT EXISTS  eventplus(				/* These fields may change every time */
-			event_id   		varchar(50)  REFERENCES event ON DELETE CASCADE,
+			event_id   		bigserial  REFERENCES event ON DELETE CASCADE,
 			logo			text ,
 			currency 			varchar(5) not null,
 			total_audience   	int,
@@ -54,7 +54,7 @@ class dbms{
 	      echo "Table  event plus created successfully\n";
 	   }
 	 $query = " CREATE TABLE IF NOT EXISTS age_group(
-	 		event_id		varchar(50) REFERENCES event ON DELETE CASCADE,
+	 		event_id		bigserial REFERENCES event ON DELETE CASCADE,
 	 		low_age         int,
 	 		up_age			int,
 	 		ratio 			int
@@ -66,7 +66,7 @@ class dbms{
 	      echo "Table  event plus created successfully\n";
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS demographics(    /* there are name and count of them fields like key values */
-			event_id 			varchar(50)  REFERENCES event ON DELETE CASCADE,
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
 			type_name  			varchar(50),
 			type_count 			int
 		)";
@@ -78,7 +78,7 @@ class dbms{
 	      echo "Table  demographics created successfully\n";
 	   }
 	 $query = "CREATE TABLE IF NOT EXISTS audience_demographics(    /* there are name and count of them fields like key values */
-			event_id 			varchar(50)  REFERENCES event ON DELETE CASCADE,
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
 			type_name  			varchar(50),
 			type_value			varchar(50)
 		)";
@@ -90,7 +90,7 @@ class dbms{
 	      echo "Table  demographics created successfully\n";
 	   }
    $query = "CREATE TABLE IF NOT EXISTS online_profile(	/*  there are two fields one site  and their link */
-			event_id 			varchar(50) REFERENCES event ON DELETE CASCADE,
+			event_id 			bigserial REFERENCES event ON DELETE CASCADE,
 			site_name 			varchar(50) ,
 			link  				text
 		)";
@@ -102,7 +102,7 @@ class dbms{
 	   }
 
 	$query = "CREATE TABLE IF NOT EXISTS onlinepromotion(	/*  there are two fields one site  and their link */
-			event_id 			varchar(50) REFERENCES event ON DELETE CASCADE,
+			event_id 			bigserial REFERENCES event ON DELETE CASCADE,
 			site_name 			varchar(50) ,
 			link  				text
 		)";
@@ -114,7 +114,7 @@ class dbms{
 	   }
 
 	$query = "CREATE TABLE IF NOT EXISTS offlinepromotion(  /* There are  names for string of off line  medial news paper and some description of them also if */ 
-			event_id 			varchar(50) REFERENCES event ON DELETE CASCADE,
+			event_id 			bigserial REFERENCES event ON DELETE CASCADE,
 			names 				varchar(500),
 			description  		varchar(1500)
 		)";
@@ -125,7 +125,7 @@ class dbms{
 	      echo "Table off line promo created successfully\n";
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS event_contact(  /*  the contact information that have to be filled up as event require part */
-			event_id  varchar(50) REFERENCES event ON DELETE CASCADE,
+			event_id  bigserial REFERENCES event ON DELETE CASCADE,
 			password varchar(20),
 			contact_name varchar(30) not null,
 			contact_email	varchar(50) not null,
@@ -139,7 +139,7 @@ class dbms{
 	      echo "Table  event_contact created successfully\n";
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS event_contactplus(   /* user can add more contact information if he wish to do ..*/
-			event_id varchar(50) REFERENCES event ON DELETE CASCADE,
+			event_id bigserial REFERENCES event ON DELETE CASCADE,
 			user_info_name	varchar(50),
 			user_info_value	text	
 		)";
@@ -183,7 +183,7 @@ class dbms{
 	   }
 		*/
 	$query = "CREATE TABLE IF NOT EXISTS offers(
-		event_id varchar(50)REFERENCES event ON DELETE CASCADE,
+		event_id bigserial REFERENCES event ON DELETE CASCADE,
 		offer_name varchar(15),
 		cost		int,
 		currency    varchar(5),
@@ -198,7 +198,7 @@ class dbms{
 	      echo "Table offers  created successfully\n";
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS deliverable(
-		event_id varchar(50)REFERENCES event ON DELETE CASCADE,
+		event_id bigserial REFERENCES event ON DELETE CASCADE,
 		deliverable_name  varchar(30),
 		description  varchar(50),
 		deliverable_image text
@@ -210,7 +210,7 @@ class dbms{
 	      echo "Table offers  created successfully\n";
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS offer_deliver(
-		event_id varchar(50) REFERENCES event ON DELETE CASCADE,
+		event_id bigserial REFERENCES event ON DELETE CASCADE,
 		offer_name varchar(30),
 		deliverable_name varchar(30),
 		quantity  int 
