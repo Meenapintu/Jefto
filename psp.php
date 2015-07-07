@@ -10,8 +10,9 @@ class dbms{
 	{
 		$this->conn = $connection;
 		
+		
 	$query = "CREATE TABLE IF NOT EXISTS event(		/*  for long time these fields are going to update rarely */
-			event_id   	bigserial not null primary key,
+			event_id   	bigserial  primary key,
 			name 		varchar(100) not null,
 			category 	varchar(30) not null,
 			genre		varchar(30) not null,
@@ -31,7 +32,7 @@ class dbms{
 			budget 				bigint,
 			tags 				varchar(100)
 		)";
-
+	
 	$psql = pg_query($this->conn, $query) or die(pg_errormessage());
 	   if(!$psql){
 	      echo pg_last_error($this->conn);
@@ -39,6 +40,7 @@ class dbms{
 	      echo "Table  event created successfully\n";
 	   }
 
+	 
 	$query = " CREATE TABLE IF NOT EXISTS  eventplus(				/* These fields may change every time */
 			event_id   		bigserial  REFERENCES event ON DELETE CASCADE,
 			logo			text ,

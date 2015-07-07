@@ -37,3 +37,11 @@ email
 alter_email
 fb/linkin
 
+
+
+
+
+///////////////////////===================================
+
+
+drop schema public cascade; [drop all table psql]

@@ -73,7 +73,7 @@ $i=0;
             //eventplus audience_age , //audience_demographics 
         	    $event_id = $_SESSION["event_id"];
                 $logo  = $_SESSION["logo"];
-                echo $logo;
+                echo $logo.'logo</br>';
                 $currency = $_SESSION["currency"];
 
         		$total_audience = (int)$_POST['total_audience_count__'];
@@ -105,10 +105,12 @@ $i=0;
             pg_prepare_multi_insert($conn, $query,$insert_array);
 
             function insert_arr_psql($conn,$event_id,$values,$type_name){
-                $exp_value = explode("___ ", $values);
+                $exp_value = preg_split("___", $values);
                 $insert_array = array();
+                echo sizeof($exp_value).size;
                 $query = "INSERT INTO audience_demographics(event_id,type_name,type_value)VALUES($1,$2,$3)";
                 foreach ($exp_value as $key => $value) {
+                    echo$value;
                     $sub_insert = array($event_id,$type_name,$value);
                     array_push($insert_array,$sub_insert);
                 }

@@ -81,7 +81,7 @@ require_once('phpfunc.php');
 
                 $address  = $address."__".$pincode;
         		$event_id = $name;
-                $_SESSION["event_id"] = $event_id;
+               
                 $_SESSION["currency"] = pg_escape_string($_POST['currency__']);
         		echo $event_id;
 
@@ -98,15 +98,19 @@ if(isset($_FILES['logo__'])){
 
             $_SESSION["logo"] = $pathToImage;
            // echo $pathToImage;
-        }
+             }
+             else{
+                $_SESSION["logo"] = "event_logos/default_logo.png";
+             }
      }
-   }
+   }        
                  
-            $insert_array = array($event_id,$name,$category,$genre,$city,$address,$country,$scope,$frequency,$website,$email,$organizer,$start_date,$end_date,$link_for_req,$description,$team_descritpion,$budget,$tags);
+            $insert_array = array($name,$category,$genre,$city,$address,$country,$scope,$frequency,$website,$email,$organizer,$start_date,$end_date,$link_for_req,$description,$team_descritpion,$budget,$tags);
            
-            $query = "insert into event (event_id,name,category,genre,city,address,country,scope,frequency,website,email,organizer,start_date,end_date,link_for_req,description,team_descritpion,budget,tags) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19)";
+            $query = "insert into event (name,category,genre,city,address,country,scope,frequency,website,email,organizer,start_date,end_date,link_for_req,description,team_descritpion,budget,tags) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)RETURNING event_id";
        		
-            pg_prepare_single_insert($conn, $query,$insert_array);
+             $_SESSION["event_id"] = pg_prepare_single_insert_v1($conn, $query,$insert_array);
+             echo $_SESSION['event_id'];
             
 echo"done everything";
 

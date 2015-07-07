@@ -42,7 +42,7 @@
 	 	<div class="file-field input-field row">
      		<div class="btn col s3 m2  l2">
         		<span>Logo</span>
-        		<input type="file"name='logo__' />
+        		<input type="file" name='logo__' />
       		</div>
       		<div class=" fint col s9 m10  l10">
       			<input class="file-path validate" type="text" placeholder='Upload Your Event Logo '/>
