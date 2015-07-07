@@ -5,6 +5,7 @@
 	  //require_once("func.php");
 	  require_once('jsfunc.php');
 	  require_once("header.php");
+	  require_once 'offer.php';
 	  ?>
 	  <link rel="stylesheet" href="forms.css">
 <body>

@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Jefto.com </title>
-  <meta charset="utf-8">
- <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="index.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- // <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="forms.css">
-<script src="http://code.jquery.com/jquery-2.1.4.js"></script>-->
+<meta charset="utf-8">
 <style>
 table, th, td {
     border: 1px solid black;
@@ -18,25 +7,7 @@ table, th, td {
 th, td {
     padding: 0px;
 }
-/*.col-md-6 , .col-md-3 {
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	
-	display: inline-block;
-}
-.col-md-12{
 
-}
-.row{
-	padding: 0px;
-	margin: 0px;
-}
-input{
-	position: relative;
-	margin: 0px;
-	width: 100%;
-}*/
 #add_pack,.register_pack,#add_benifit{
     display: none;
 }
@@ -48,21 +19,6 @@ input{
  var deliver_count =1;
  var pack_array = [];
  var deliver_array =[];
- /*
- this the while matrix has only one data reference to send 
- suppose offers
-     p1   p2   p3   p4  p5   p6
- d1  p1d1
- d2  p1d2
- d3
- d4
- d5
- d6
-
- why don't keep class name as pack reference and id as deliver reference :
- yes it could be a best algorithm to handle remove and add element * yeah it good 
- */
-
 
  var packs = new Array('Gold','Silver','Platinum');
  var delivers = new Array("Banners","Special Gate","Dedicated stand", "Spacial announcement" ,"Announcement on TV Radio","name on Tshirt","Name of promotional event","Special social network post", "name on brochure / pamphlet","name on bus ");
@@ -133,18 +89,6 @@ function care_deliver(number){
   }
 }
 
-// 
-
-/*
-need to create 2D array of input value as required 
-or name depend on value of opper offername and 
-so what should i do ?
-single array of element's right 
-function care_delive(e){
-    for (var i = 0; i < pack_count; i++) {
-      $()
-    };
-}*/
 function add_package(){
     //alert("adding");
     var cnme = pack_class_name();
@@ -173,7 +117,7 @@ function rmdel(e){
 };
 
 function relation_fix_help(e,untill){
-        alert($(e).attr('class'));
+        //alert($(e).attr('class'));
         //alert($(e).next().attr('class') +" "+$(untill).attr('class'));
         if($(e).next().attr('class') != $(untill).attr('class'))
           relation_fix_help($(e).next(),untill);
@@ -188,13 +132,13 @@ function relation_fix (e) {
 
 function add_benefit_help(delname){
 	var benefit = "<tr> <td> <div class='row'>";	
-              benefit+= "<div class='col-md-6'>"; 
+              benefit+= "<div class='col m6'>"; 
 				    	benefit+= "<input type='text' name='"+delname+"' onclick='relation_fix(this)'></input>";
 				    	benefit+= "</div>";
-				    	benefit+= "<div class='col-md-3'>";
-				    	benefit+= "<input type='text' name='image_"+delname+"'></input>";
+				    	benefit+= "<div class='col m3'>";
+				    	benefit+= "<input type=int name='image_"+delname+"'></input>";
 				    	benefit+= "</div>";
-				    	benefit+= "<div class='col-md-3'>";
+				    	benefit+= "<div class='col m3'>";
 				    	benefit+= "<input type='text' name='descritpion_"+delname+"'></input>";
 				    	benefit+= "</div>";
 				benefit+= "</div></td>";
@@ -220,10 +164,3 @@ function add_benefit(){
 }
 
 </script>
-</head>
-<body>
-
-
- <link rel="stylesheet" href="forms.css">
-</body>
-</html>

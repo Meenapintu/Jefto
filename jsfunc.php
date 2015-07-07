@@ -127,11 +127,11 @@ function multiform_radio(msg,name,val){
 		mform+= "<div class = 'row'style='margin:0px;padding:0px;'>"
 				for (var i = val.length - 1; i >= 0; i--) {
 					mform+= "<div class = 'input-field col s12 col-md-12'style='margin:0px;padding:0px;'>"
-					mform+= checkform_radio(val[i],"single");
+					mform+= checkform_radio(val[i],name+'_delete');
 					mform+= "</div>";
 				}
 		mform+= "<div class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;'>"
-		mform+= "<input type = 'radio' id='"+name+msg+"' name = 'single' value= '"+msg+"' onchange = 'other_input(this);'>";
+		mform+= "<input type = 'radio' id='"+name+msg+"' name = '"+name+"_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>";
 		mform+= "<div id ='other' class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
@@ -155,13 +155,13 @@ function multiform(msg,name,val){
 				for (var i = val.length - 1; i >= 0; i--) {
 					//alert(mform);
 					mform+= "<div class = 'col s12 col-md-12 wrap'style='margin:0px;padding:0px;'>";
-					mform+= checkform(val[i],i);
+					mform+= checkform(val[i],i+'_delete');
 					mform+= "</div>";
 					
 				}
 
 		mform+= "<div class = 'col s12 col-md-12'style='margin:0px;padding:0px;'>"
-		mform+= "<input type = 'checkbox' id='"+name+msg+"' name = 'other' value= '"+msg+"' onchange = 'other_input(this);'>";
+		mform+= "<input type = 'checkbox' id='"+name+msg+"' name = 'other_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>"
 		mform+= "<div id ='other' class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
@@ -211,6 +211,10 @@ function add_feild(e){
 		$(e).siblings("#"+e.id).attr('value',e.value);
 
 	}
+//====================================================================================================
+
+
+
 
 
 //====================================================================================================

@@ -29,15 +29,25 @@
 	document.write("</div>");
 
 	</script>
-	<div class='input-field  col s12 m12 col-md-12' >
-	<div class="file-field">
-      <input class="file-path validate" type="text"/>
-      <div class="btn">
+	<style type="text/css">
+	.btn, .fint{
+		
+
+		margin:0px;
+		
+
+	}
+	</style>
+	<div class='col s12 m12 col-md-12' >
+	 <div class="file-field input-field row">
+      <div class="btn col s3 m2  l2">
         <span>Logo</span>
-        <input type="file" name='logo__' />
+        <input type="file"name='logo__' />
       </div>
+      <div class=" fint col s9 m10  l10">
+      <input class="file-path validate" type="text" placeholder='Upload Your Event Logo '/>
     </div>
-	</div>
+    </div>
 	<script>
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
 	document.write(multiform_radio("Category  ","category__",category));
@@ -96,7 +106,7 @@
 
 	document.write("<div class='input-field col s12 m12 col-md-12 '>");
 	//document.write(subform("tags__","'Tags related to your form'"));
-	document.write("<input type= 'text' name='tags__' id='tags__' data-role='materialtags' /><label for='tags__'>Tags related to your Event</label>");
+	document.write("<input type= 'text' name='tags__' id='tags__' data-role='materialtags' onkeypress='return event.keyCode != 13;' /><label for='tags__'>Tags related to your Event</label>");
 	document.write("</div>"); 
 	//multiform("Happens in every   ","event_name",$val,  "check_call");
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
@@ -108,18 +118,6 @@
 	 <div class="row">
 	 <p class="msg"> Key Number </p>
 	 <input type="hidden" name="key_numbers" >
-	 <script type="text/javascript">
-	 var global_key_count =0;
-	 $("#tags__").materialtags('tags__');
-	  $('#tags__').tokenfield({
-  		autocomplete: {
-    		source: ['red','blue','green','yellow','violet','brown','purple','black','white'],
-   			 delay: 100
-  			},
-  			showAutocompleteOnFocus: true
-		});
-
-	 </script>
 	<script type="text/javascript">
 	//document.write("<div class='input-field col s12'>");
 	//document.write("<div class='row'>");
