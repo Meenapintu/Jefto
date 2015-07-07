@@ -39,14 +39,15 @@
 	}
 	</style>
 	<div class='col s12 m12 col-md-12' >
-	 <div class="file-field input-field row">
-      <div class="btn col s3 m2  l2">
-        <span>Logo</span>
-        <input type="file"name='logo__' />
-      </div>
-      <div class=" fint col s9 m10  l10">
-      <input class="file-path validate" type="text" placeholder='Upload Your Event Logo '/>
-    </div>
+	 	<div class="file-field input-field row">
+     		<div class="btn col s3 m2  l2">
+        		<span>Logo</span>
+        		<input type="file"name='logo__' />
+      		</div>
+      		<div class=" fint col s9 m10  l10">
+      			<input class="file-path validate" type="text" placeholder='Upload Your Event Logo '/>
+    		</div>
+    	</div>
     </div>
 	<script>
 	document.write("<div class='input-field col s12 m12 col-md-12'>");

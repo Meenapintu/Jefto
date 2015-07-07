@@ -105,7 +105,7 @@ $i=0;
             pg_prepare_multi_insert($conn, $query,$insert_array);
 
             function insert_arr_psql($conn,$event_id,$values,$type_name){
-                $exp_value = explode("_&&&_ ", $values);
+                $exp_value = explode("___ ", $values);
                 $insert_array = array();
                 $query = "INSERT INTO audience_demographics(event_id,type_name,type_value)VALUES($1,$2,$3)";
                 foreach ($exp_value as $key => $value) {
@@ -113,7 +113,9 @@ $i=0;
                     array_push($insert_array,$sub_insert);
                 }
               pg_prepare_multi_insert($conn, $query,$insert_array);
+
             }
+               
                 insert_arr_psql($conn,$event_id,pg_escape_string($_POST['edu_background__']),"edu_background");
                 insert_arr_psql($conn,$event_id,pg_escape_string($_POST['profession__']),"profession");
                 insert_arr_psql($conn,$event_id,pg_escape_string($_POST['income_level__']),"income_level");

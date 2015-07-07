@@ -71,7 +71,7 @@ function select_mult(e){
 			if($(val[i]).attr('type') == 'checkbox'){
 				if($(val[i]).is(':checked')){
 					newval += val[i].value;
-					newval += "&&ND";
+					newval += "___";
 				}
 			}
 
@@ -79,7 +79,7 @@ function select_mult(e){
 				if(typeof(val[i]) != "undefined"){
 					alert('here');
 					newval += val[i].value;
-					newval += "&&ND";
+					newval += "___";
 				//$(e).parent().siblings().children('#valtext').attr('value',val+'&'+e.value);
 				}
 			}
@@ -165,7 +165,7 @@ function multiform(msg,name,val){
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>"
 		mform+= "<div id ='other' class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
-		mform+= "<input type='text' name='other' class='checkboxmult' onblur='select_one(this)' >"
+		mform+= "<input type='text' name='other' class='checkboxmult' onblur='select_mult(this)' >"
 		mform+= "</div>"
 		mform+= "<div  class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
