@@ -5,7 +5,6 @@ $connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
 $conn = pg_connect($connection_string);
 if($conn){ echo"done ";}
 else echo"there is error";
-
 require_once('phpfunc.php');
 $i=0;
 
@@ -15,11 +14,12 @@ $i=0;
 
           $target_audience = (int)$_POST['target_audience'];
           $age_group    = (int)$_POST['age_group'];
- 			$_POST['total_audience_count__'] 	= htmlspecialchars($_POST['total_audience_count__']);
+ 			$total_audience	= (int)$_POST['total_audience_count__'];
+            echo '$total_audience'.$total_audience;
             for ($i=0; $i < $target_audience; $i+=2) { 
                 # code...//demographics
                 $_POST['audience__'][$i]    = htmlspecialchars($_POST['audience__'][$i]);
-                $_POST['audience__'][$i+1]    = htmlspecialchars($_POST['audience__'][$i+1]);
+                //$_POST['audience__'][$i+1]    = htmlspecialchars($_POST['audience__'][$i+1]);
             }
             $age_limit = array();
             for ($i=0; $i <$age_group ; $i+=2) { 
@@ -46,24 +46,24 @@ $i=0;
 
                     array_push($age_limit,65,100);
                   } 
-                $_POST['age_range__'][$i+1]       = htmlspecialchars($_POST['age_range__'][$i+1]);
+               // $_POST['age_range__'][$i+1]       = htmlspecialchars($_POST['age_range__'][$i+1]);
             }
-            $_POST['gender_ratio__'] = htmlspecialchars($_POST['gender_ratio__']);
+            //$_POST['gender_ratio__'] = htmlspecialchars($_POST['gender_ratio__']);
             $_POST['edu_background__']	= htmlspecialchars($_POST['edu_background__']);
             $_POST['profession__'] 	= htmlspecialchars($_POST['profession__']);
             $_POST['income_level__'] 		= htmlspecialchars($_POST['income_level__']);
             $_POST['audience_description__'] 	= htmlspecialchars($_POST['audience_description__']);
 
     if(get_magic_quotes_gpc()){
-            $_POST['total_audience_count__'] 	= stripslashes($_POST['total_audience_count__']);
+          
             for ($i=0; $i < $target_audience; $i+=2) { 
             $_POST['audience__'][$i]	= stripslashes($_POST['audience__'][$i]);
-            $_POST['audience__'][$i+1]    = stripslashes($_POST['audience__'][$i+1]);
+           // $_POST['audience__'][$i+1]    = stripslashes($_POST['audience__'][$i+1]);
             }
-            for ($i=0; $i <$age_group ; $i++) {
-            $_POST['age_range__'][$i+1]       = stripslashes($_POST['age_range__'][$i+1]);
-            }
-            $_POST['gender_ratio__'] = stripslashes($_POST['gender_ratio__']);
+            //for ($i=0; $i <$age_group ; $i++) {
+            //$_POST['age_range__'][$i+1]       = stripslashes($_POST['age_range__'][$i+1]);
+            //}
+            //$_POST['gender_ratio__'] = stripslashes($_POST['gender_ratio__']);
             $_POST['edu_background__'] 	= stripslashes($_POST['edu_background__']);
             $_POST['profession__'] 	= stripslashes($_POST['profession__']);
             $_POST['income_level__'] 		= stripslashes($_POST['income_level__']);
@@ -76,7 +76,7 @@ $i=0;
                 echo $logo.'logo</br>';
                 $currency = $_SESSION["currency"];
 
-        		$total_audience = (int)$_POST['total_audience_count__'];
+        		
         		$gender_ratio = (int)$_POST['gender_ratio__'];
         		$audience_description 	  = pg_escape_string($_POST['audience_description__']);
             $query = "insert INTO eventplus(event_id,logo,currency,total_audience,gender_ratio,audience_description)VALUES($1,$2,$3,$4,$5,$6)";
@@ -105,14 +105,17 @@ $i=0;
             pg_prepare_multi_insert($conn, $query,$insert_array);
 
             function insert_arr_psql($conn,$event_id,$values,$type_name){
-                $exp_value = preg_split("___", $values);
+                $exp_value = explode("___", $values);
+                //$words = explode("___", $str);
                 $insert_array = array();
-                echo sizeof($exp_value).size;
+                //echo sizeof($exp_value).size;
                 $query = "INSERT INTO audience_demographics(event_id,type_name,type_value)VALUES($1,$2,$3)";
-                foreach ($exp_value as $key => $value) {
+                foreach ($exp_value as $value) {
                     echo$value;
+                    if($value !=''){
                     $sub_insert = array($event_id,$type_name,$value);
                     array_push($insert_array,$sub_insert);
+                    }
                 }
               pg_prepare_multi_insert($conn, $query,$insert_array);
 

@@ -13,7 +13,7 @@
   				<div class="msg"> Total Audience Expected</div>
    				<script type="text/javascript"> 
    					document.write("<div class='input-field col s12 col-md-12'>"); 
-    					document.write(selectform("total_audience_count__ ",audience_number));
+    					document.write(selectform_int("total_audience_count__ ",audience_number));
     				document.write("</div>");
    				</script>
   				<div class='input-field col s12 col-md-12'>

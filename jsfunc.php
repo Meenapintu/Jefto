@@ -70,6 +70,7 @@ function select_mult(e){
 		for (var i = 0; i < val.length; i++) {
 			if($(val[i]).attr('type') == 'checkbox'){
 				if($(val[i]).is(':checked')){
+					alert('here000000000');
 					newval += val[i].value;
 					newval += "___";
 				}
@@ -77,13 +78,33 @@ function select_mult(e){
 
 			else{
 				if(typeof(val[i]) != "undefined"){
-					alert('here');
+					alert('here sibling');
 					newval += val[i].value;
 					newval += "___";
 				//$(e).parent().siblings().children('#valtext').attr('value',val+'&'+e.value);
 				}
 			}
 		}
+
+			//=====================================
+
+			if($(e).attr('type') == 'checkbox'){
+				if($(e).is(':checked')){
+					alert('here1check');
+					newval += e.value;
+					newval += "___";
+				}
+			}
+			else{
+				if(typeof(e) != "undefined"){
+					alert('here1');
+					newval += e.value;
+					newval += "___";
+				//$(e).parent().siblings().children('#valtext').attr('value',val+'&'+e.value);
+				}
+
+			}
+
 		$(e).parent().siblings().children('#valtext').attr('value',newval);
 		alert($(e).parent().siblings().children('#valtext').attr('value'));
 
@@ -112,9 +133,13 @@ function checkform_radio(msg,name){
 function other_input(e){
 	// body...
 	if($(e).is(':checked')){
-	$(e).parent().siblings("#other").show();
+		$(e).parent().siblings("#other").show();
+		$(e).parent().siblings("#other").children().attr('class','checkbox');
 	}
-	else{$(e).parent().siblings("#other").hide();}
+	else{
+		$(e).parent().siblings("#other").hide();
+		$(e).parent().siblings("#other").children().attr('class','NOTCHECKD');
+	}
 
 }
 
@@ -165,7 +190,7 @@ function multiform(msg,name,val){
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>"
 		mform+= "<div id ='other' class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
-		mform+= "<input type='text' name='other' class='checkboxmult' onblur='select_mult(this)' >"
+		mform+= "<input type='text' name='other' class='NOTCHECKD' onblur='select_mult(this)' >"
 		mform+= "</div>"
 		mform+= "<div  class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
@@ -179,6 +204,18 @@ function selectform(name,option){
 	var sform= "<select name= '"+name+"' class='browser-default'>";
 	for (var i = option.length - 1; i >= 0; i--) {
 		sform+= "<option value = '"+option[i]+"'>"+option[i]+"</option>";
+	}
+	sform+= "</select>";
+	//sform+= "<label>Materialize Select</label>";
+	return sform;
+}
+
+
+function selectform_int(name,option){
+
+	var sform= "<select name= '"+name+"' class='browser-default'>";
+	for (var i = option.length - 1; i >= 0; i--) {
+		sform+= "<option value = "+option[i]+">"+option[i]+"</option>";
 	}
 	sform+= "</select>";
 	//sform+= "<label>Materialize Select</label>";
