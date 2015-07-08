@@ -29,7 +29,7 @@ require_once('phpfunc.php');
             $_POST['team_description__'] = htmlspecialchars($_POST['team_description__']);
             $_POST['budget__']		= htmlspecialchars($_POST['budget__']);
             $_POST['sponsors__'] 	= htmlspecialchars($_POST['sponsors__']);
-            $_POST['finance_price__'] = htmlspecialchars($_POST['finance_price__']);
+            //$_POST['finance_price__'] = htmlspecialchars($_POST['finance_price__']);
 
 	if(get_magic_quotes_gpc()){
             $_POST['event_name__'] 	= stripslashes($_POST['event_name__']);
@@ -51,7 +51,7 @@ require_once('phpfunc.php');
             $_POST['team_description__'] = stripslashes($_POST['team_description__']);
             $_POST['budget__'] 		= stripslashes($_POST['budget__']);
             $_POST['sponsors__'] 	= stripslashes($_POST['sponsors__']);
-            $_POST['finance_price__'] = stripslashes($_POST['finance_price__']);
+            //$_POST['finance_price__'] = stripslashes($_POST['finance_price__']);
             $_POST['currency__'] = stripslashes($_POST['currency__']);
             $_POST['pincode__'] = stripcslashes($_POST['pincode__']);
         }
@@ -80,18 +80,27 @@ require_once('phpfunc.php');
                 $pincode  = pg_escape_string($_POST['pincode__']);
 
                 $address  = $address."__".$pincode;
-        		$event_id = $name;
+        		//$event_id = $name;
                
                 $_SESSION["currency"] = pg_escape_string($_POST['currency__']);
-        		echo $event_id;
+        		//echo $event_id;
+
+        
+                 
+            $insert_array = array($name,$category,$genre,$city,$address,$country,$scope,$frequency,$website,$email,$organizer,$start_date,$end_date,$link_for_req,$description,$team_descritpion,$budget,$tags);
+           
+            $query = "insert into event (name,category,genre,city,address,country,scope,frequency,website,email,organizer,start_date,end_date,link_for_req,description,team_descritpion,budget,tags) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)RETURNING event_id";
+       		
+             $_SESSION["event_id"] = pg_prepare_single_insert_v1($conn, $query,$insert_array);
+             $event_id= $_SESSION['event_id'];
 
 if(isset($_FILES['logo__'])){
         $valid_file_extensions = array(".jpg", ".jpeg", ".gif", ".png");
         $file_extension = strrchr($_FILES['logo__']["name"], ".");
        // $event_id
         if (in_array($file_extension, $valid_file_extensions)) {
-            $unique = date('YmdHisTU');
-            $img = $event_id.$unique.$file_extension;
+            //$unique = date('YmdHisTU');
+            $img = $event_id.$file_extension;
             //$img->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
             $pathToImage = "event_logos/$img";
             if(move_uploaded_file($_FILES['logo__']['tmp_name'], $pathToImage)){
@@ -103,14 +112,40 @@ if(isset($_FILES['logo__'])){
                 $_SESSION["logo"] = "event_logos/default_logo.png";
              }
      }
-   }        
-                 
-            $insert_array = array($name,$category,$genre,$city,$address,$country,$scope,$frequency,$website,$email,$organizer,$start_date,$end_date,$link_for_req,$description,$team_descritpion,$budget,$tags);
-           
-            $query = "insert into event (name,category,genre,city,address,country,scope,frequency,website,email,organizer,start_date,end_date,link_for_req,description,team_descritpion,budget,tags) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)RETURNING event_id";
-       		
-             $_SESSION["event_id"] = pg_prepare_single_insert_v1($conn, $query,$insert_array);
-             echo $_SESSION['event_id'];
+   }
+   else{
+    $_SESSION["logo"] = "event_logos/default_logo.png";
+   }
+
+
+//need to insert sponcer field 
+
+
+    function insert_arr_psql_custom($conn,$event_id,$values){
+                $exp_value = explode("___", $values);
+                //$words = explode("___", $str);
+                $insert_array = array();
+                //$insert_finance = array();
+                //echo sizeof($exp_value).size;
+                $query = "INSERT INTO sponsorship(event_id,type)VALUES($1,$2)";
+                foreach ($exp_value as $value) {
+                    //echo$value;
+                    if($value !='' && $value !='Financial'){
+                    $sub_insert = array($event_id,$value);
+                    array_push($insert_array,$sub_insert);
+                    }
+                    if($value =='Financial'){
+                        $insert_finance = array($event_id,$value,(int)$_POST['finance_price__']);
+                        $query_ = "INSERT INTO sponsorship_finance(event_id,type,type_value)VALUES($1,$2,$3)";
+                        pg_prepare_single_insert($conn,$query_,$insert_finance);
+                    }
+                }
+              pg_prepare_multi_insert($conn, $query,$insert_array);
+
+            }
+
+        insert_arr_psql_custom($conn,$event_id,pg_escape_string($_POST['sponsors__']));
+
             
 echo"done everything";
 

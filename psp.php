@@ -55,6 +55,32 @@ class dbms{
 	   } else {
 	      echo "Table  event plus created successfully\n";
 	   }
+
+	   	$query = "CREATE TABLE IF NOT EXISTS sponsorship(    /* there are name and count of them fields like key values */
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
+			type  			varchar(50)
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  demographics created successfully\n";
+	   }
+
+	   $query = "CREATE TABLE IF NOT EXISTS sponsorship_finance(    /* there are name and count of them fields like key values */
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
+			type  			varchar(50),
+			fund           bigint
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  demographics created successfully\n";
+	   }
+
 	 $query = " CREATE TABLE IF NOT EXISTS age_group(
 	 		event_id		bigserial REFERENCES event ON DELETE CASCADE,
 	 		low_age         int,
