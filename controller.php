@@ -29,6 +29,12 @@ require_once('phpfunc.php');
             $_POST['team_description__'] = htmlspecialchars($_POST['team_description__']);
             $_POST['budget__']		= htmlspecialchars($_POST['budget__']);
             $_POST['sponsors__'] 	= htmlspecialchars($_POST['sponsors__']);
+            $key_numbers = (int)$_POST['key_number'];
+             for ($i=0; $i < $key_numbers; $i+=2) { 
+                # code...//demographics
+                $_POST['key_numbers__'][$i]    = htmlspecialchars($_POST['key_numbers__'][$i]);
+                //$_POST['audience__'][$i+1]    = htmlspecialchars($_POST['audience__'][$i+1]);
+            }
             //$_POST['finance_price__'] = htmlspecialchars($_POST['finance_price__']);
 
 	if(get_magic_quotes_gpc()){
@@ -54,6 +60,11 @@ require_once('phpfunc.php');
             //$_POST['finance_price__'] = stripslashes($_POST['finance_price__']);
             $_POST['currency__'] = stripslashes($_POST['currency__']);
             $_POST['pincode__'] = stripcslashes($_POST['pincode__']);
+            for ($i=0; $i < $key_numbers; $i+=2) { 
+                # code...//demographics
+                $_POST['key_numbers__'][$i]    = stripcslashes($_POST['key_numbers__'][$i]);
+                //$_POST['audience__'][$i+1]    = htmlspecialchars($_POST['audience__'][$i+1]);
+            }
         }
 
 
@@ -145,6 +156,21 @@ if(isset($_FILES['logo__'])){
             }
 
         insert_arr_psql_custom($conn,$event_id,pg_escape_string($_POST['sponsors__']));
+
+
+             $query = "INSERT INTO key_numbers(event_id,type_name,type_count)VALUES ($1,$2,$3)";
+               $insert_array = array();
+            for ($i=0; $i < $key_numbers; $i+=2) {
+                echo"</br>";
+                echo $key_numbers;
+                    $type_name =pg_escape_string($_POST['key_numbers__'][$i]);
+                    $type_count =(int)$_POST['key_numbers__'][$i+1];
+                $sub_insert = array($event_id,$type_name,$type_count);
+                array_push($insert_array,$sub_insert);
+            }
+
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+
 
             
 echo"done everything";

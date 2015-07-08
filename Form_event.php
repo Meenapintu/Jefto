@@ -125,6 +125,7 @@
 	document.write(key_numbers(key_number,"key_numbers__[0]","key_numbers__[1]","How Many"));
 	//document.write("</div>"); 
 	</script>
+	<input type="hidden" name="key_number" id="key_numbers__" onclick="add_feild(this)" value=2>
 	<button type="button" name="key_number" id="key_numbers__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another field</button>
 	</div>
 	</div>

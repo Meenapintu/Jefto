@@ -93,6 +93,19 @@ class dbms{
 	   } else {
 	      echo "Table  event plus created successfully\n";
 	   }
+
+	   $query = "CREATE TABLE IF NOT EXISTS key_numbers(    /* there are name and count of them fields like key values */
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
+			type_name  			varchar(50),
+			type_count 			int
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  demographics created successfully\n";
+	   }
 	$query = "CREATE TABLE IF NOT EXISTS demographics(    /* there are name and count of them fields like key values */
 			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
 			type_name  			varchar(50),
