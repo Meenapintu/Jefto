@@ -70,7 +70,7 @@ function select_mult(e){
 		for (var i = 0; i < val.length; i++) {
 			if($(val[i]).attr('type') == 'checkbox'){
 				if($(val[i]).is(':checked')){
-					alert('here000000000');
+					//alert('here000000000');
 					newval += val[i].value;
 					newval += "___";
 				}
@@ -78,7 +78,7 @@ function select_mult(e){
 
 			else{
 				if(typeof(val[i]) != "undefined"){
-					alert('here sibling');
+					//alert('here sibling');
 					newval += val[i].value;
 					newval += "___";
 				//$(e).parent().siblings().children('#valtext').attr('value',val+'&'+e.value);
@@ -90,14 +90,14 @@ function select_mult(e){
 
 			if($(e).attr('type') == 'checkbox'){
 				if($(e).is(':checked')){
-					alert('here1check');
+					//alert('here1check');
 					newval += e.value;
 					newval += "___";
 				}
 			}
 			else{
 				if(typeof(e) != "undefined"){
-					alert('here1');
+					//alert('here1');
 					newval += e.value;
 					newval += "___";
 				//$(e).parent().siblings().children('#valtext').attr('value',val+'&'+e.value);

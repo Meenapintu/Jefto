@@ -125,8 +125,6 @@ if(isset($_FILES['logo__'])){
                 $exp_value = explode("___", $values);
                 //$words = explode("___", $str);
                 $insert_array = array();
-                //$insert_finance = array();
-                //echo sizeof($exp_value).size;
                 $query = "INSERT INTO sponsorship(event_id,type)VALUES($1,$2)";
                 foreach ($exp_value as $value) {
                     //echo$value;
