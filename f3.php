@@ -26,7 +26,7 @@
 	<div class="msg"> Non Media Exposer </div>
 	<script type="text/javascript">  
 	document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(selectform("non_media_explorer__ ",audience_number));
+	document.write(selectform("non_media_explorer__",audience_number));
 	document.write("</div>"); 
     document.write("<div class='input-field col s12 col-md-12'>");
 	document.write(subform("tele__","Television Coverage"));

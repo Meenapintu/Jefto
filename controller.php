@@ -7,7 +7,7 @@ if($conn){ echo "done ";}
 
 require_once('phpfunc.php');
 //if(isset($_POST['category__'],$_POST['genre__'],$_POST['description__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['address__'],$_POST['tags__'],$_POST['scope__'],$_POST['key_numbers__'],$_POST['frequency__'],$_POST['team_description__'],$_POST['budget__'],$_POST['sponsors__'],$_POST['finance_price__'])and $_POST['event_name__']){
-
+            echo$_POST['genre__'];
  			$_POST['event_name__'] 	= htmlspecialchars($_POST['event_name__']);
             $_POST['category__'] 	= htmlspecialchars($_POST['category__']);
             $_POST['genre__'] 		= htmlspecialchars($_POST['genre__']);
@@ -86,7 +86,9 @@ require_once('phpfunc.php');
         		//echo $event_id;
 
         
-                 
+                 echo $genre;
+                 echo "</br>";
+                 echo$category;
             $insert_array = array($name,$category,$genre,$city,$address,$country,$scope,$frequency,$website,$email,$organizer,$start_date,$end_date,$link_for_req,$description,$team_descritpion,$budget,$tags);
            
             $query = "insert into event (name,category,genre,city,address,country,scope,frequency,website,email,organizer,start_date,end_date,link_for_req,description,team_descritpion,budget,tags) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)RETURNING event_id";
@@ -134,7 +136,7 @@ if(isset($_FILES['logo__'])){
                     }
                     if($value =='Financial'){
                         $insert_finance = array($event_id,$value,(int)$_POST['finance_price__']);
-                        $query_ = "INSERT INTO sponsorship_finance(event_id,type,type_value)VALUES($1,$2,$3)";
+                        $query_ = "INSERT INTO sponsorship_finance(event_id,type,fund)VALUES($1,$2,$3)";
                         pg_prepare_single_insert($conn,$query_,$insert_finance);
                     }
                 }
