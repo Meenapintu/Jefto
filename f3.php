@@ -11,7 +11,7 @@
 <body>
 </style>
 <div class="container" >
-<form method="post" action="controller3.php"role="form" >
+<form method="post" action="controller3.php"role="form" class="card-panel" >
 
 	<div class="row">
 	<div class='input-field col s12 col-md-12'>

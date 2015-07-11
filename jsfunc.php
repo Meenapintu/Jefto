@@ -106,7 +106,7 @@ function select_mult(e){
 			}
 
 		$(e).parent().siblings().children('#valtext').attr('value',newval);
-		alert($(e).parent().siblings().children('#valtext').attr('value'));
+		//alert($(e).parent().siblings().children('#valtext').attr('value'));
 
 }
 

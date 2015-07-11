@@ -28,7 +28,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><img src="def_img/jefto.png" style="height:64px;position:relative" /></a>
+      <a href="#!" class="brand-logo"><img src="def_img/jefto.png" id='logo' style="height:100%;position:relative" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.php">Home</a></li>
@@ -41,5 +41,11 @@
 
 <script >
    $(".button-collapse").sideNav();
+  $(document).ready(function(){
+    $(window).resize(function(){
+        $('#logo').css('height',($(".nav-wrapper").height()+'px'));
+    });
+});
+  $('#logo').css('height',($(".nav-wrapper").height()+'px'));
 </script>
   <link rel="stylesheet" href="forms.css">

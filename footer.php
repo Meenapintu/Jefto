@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="forms.css">
-<footer class="page-footer">
+
+<footer class="page-footer" style='margin-top:0px;'>
   <div class="row">
     <div class="col l6 s12">
       <h5 class="white-text">Jefto.com</h5>

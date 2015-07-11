@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="forms.css">
 <body>
 	<div class="container" >
-		<form method="post" action="controller2.php" role="form">
+		<form method="post" action="controller2.php" role="form" class="card-panel" >
   			<div class="row">
   				<div class="msg"> Total Audience Expected</div>
    				<script type="text/javascript"> 

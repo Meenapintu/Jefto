@@ -18,7 +18,7 @@
 
 
 <div class="container" >
-<form  enctype="multipart/form-data" method="post" action="controller.php"role="form" class="row">
+<form  enctype="multipart/form-data" method="post" action="controller.php"role="form" class="row card-panel">
 
    <script type="text/javascript"> 
     //$val = array("cat1 ","cat2","middle east science adace forbid ");
