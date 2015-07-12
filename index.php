@@ -15,9 +15,7 @@
 .white-t{
 	color: white;
 }
-.bg-trance{
-	background: transparent;
-}
+
 .border-me select{
 	border:none;
 }

@@ -20,9 +20,9 @@ th, td {
  var pack_array = [];
  var deliver_array =[];
 
- var packs = new Array('Gold','Silver','Platinum');
- var delivers = new Array("Banners","Special Gate","Dedicated stand", "Spacial announcement" ,"Announcement on TV Radio","name on Tshirt","Name of promotional event","Special social network post", "name on brochure / pamphlet","name on bus ");
-var pack_next=0;
+var packs = new Array('Platinum', 'Gold', 'Silver');
+ var delivers = new Array("Banners", "Special gate", "Dedicated stand", "Special announcement from stage" ,"Announcement on TV / Radio", "Name on T-shirts", "Name on promotional occasion of Event", "Special post on online social profiles", "Name on brochure / pamphlet");
+ var pack_next=0;
 var deliver_next=0;
 
 function save_me(e){
@@ -60,7 +60,7 @@ function setdrop(e){
 
   
     
-var desc1 = "<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'> <div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'> description of packege </div>";
+var desc1 = "<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'> <div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'></div>";
       desc1+="<div  id='desc' class='col s12 m12 s12' contentEditable=true onblur='save_me(this);' style='word-wrap: break-word;background:white;'> Write Your Description </div>";
       desc1+="<div class='col s12 m12 s12' id ='state'> ";
       desc1+="<button onclick='hide(this);'>Done</button>" ;    
@@ -80,7 +80,7 @@ function pack_core(stri,packn){
 
       pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of packege  </div>";
       pack+= "<input type='hidden' id='packnum' name='pack_number_"+packn+"' ></input>";
-      pack+=  "<button type='button' id='remove_package' onclick='rmpack(this)' class='btn btn-success red accent-4' > Delete package</button>";
+      pack+=  "<i id='remove_package' onclick='rmpack(this)' class='waves-effect waves-light btn-tiny center  bg-trance material-icons right'> delete</i>";
     	pack+= "</th>";
       pack+= "<th id ='add_pack'></th>";
     return pack;
@@ -176,7 +176,7 @@ function relation_fix (e) {
 }
 
 function add_benefit_help(delname,value){
-	var benefit = "<tr class='bc'> <td> <div class='row'>";	
+	var benefit = "<tr class='bc margin-0 pd-0'> <td> <div class='row margin-0 pd-0'>";	
               benefit+= "<div class='col m12'>"; 
 				    	benefit+= "<input type='text' name='"+delname+"' onclick='relation_fix(this)' value='"+value+"' ></input>";
 				    	benefit+= "</div>";
@@ -190,7 +190,7 @@ function add_benefit_help(delname,value){
                     benefit+= pack_register(pack_class_name_deliver(pack_array[0]),element_name(pack_array[0],deliver_next));
                 
                 benefit+= "<td id='remove_button' class='testing'><div>";
-				    	benefit+= "<button type='button' id='remove_deliver' onclick='rmdel(this)' class='"+delname+" btn btn-success red'> Delete deliver</button>";
+				    	benefit+= "<i id='remove_deliver' onclick='rmdel(this)' class='"+delname+" waves-effect waves-light btn-tiny center  bg-trance material-icons center'>delete</i>";
 				benefit+= "</div></td>";
     	benefit+= "</tr>";
 

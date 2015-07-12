@@ -63,8 +63,7 @@
         </script>		
     <!-- ############################################    -->
     	<th id="add_package" onclick="add_package()">
-    		<div>+<div>
-    		<div >Add package  </div>
+	   		<i class="material-icons  center ">library_add</i>
     	</th>
     </tr>
  <!--  benefit  row  ##################################################### -->
@@ -77,7 +76,7 @@
  <!-- ################################################################   -->
     <tr>
     	<td>
-    		<button type="button" onclick="add_benefit('Deliver Name')" class="btn btn-success green"> Add Benefit </button>
+    		<i type="button" onclick="add_benefit('Deliver Name')" class="material-icons  center ">note_add</i>
     	</td>
     </tr>
 	</table>
