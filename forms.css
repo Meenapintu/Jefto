@@ -77,6 +77,39 @@ form{
 li a{
 	font-size: medium;
 }
-footer.page-footer,.nav-wrapper{
+.nav-wrapper{
     background: rgba(45,123,126,1);
   }
+
+footer.page-footer{
+ 	background: rgba(0,0,0,0.9);
+}
+ body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main{
+    flex: 1 0 auto;
+  }
+
+
+.bc{
+min-width: 340px;
+}
+.pc{
+min-width: 135px;
+}
+@media only screen and (max-device-width: 480px) {
+	.bc{
+		min-width: 200px;
+	}
+	.pc{
+		min-width: 100px;
+	}
+}
+
+.hide{
+	display: none;
+}

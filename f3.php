@@ -50,11 +50,12 @@
 	<button type="button" name="social_media" id="medial_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 	</div>
 	</div>
-	<table style="width:100%">
+	<div class='input-field col s12 col-md-12' style="overflow-x: scroll;">
+	<table style="width:100%;margin-bottom:10px;">
 	<tr>
-  		<th>
-  			<div>BENEFITS</div>
-  			<div>$10000</div>
+  		<th style="bc">
+  			<div >Deliverables Offering</div>
+  			<div></div>
   		</th>
  
     	<script type="text/javascript">
@@ -71,15 +72,16 @@
     deliver_next++;
     deliver_array.push(deliver_next)
    // alert(pack_register(pack_class_name_deliver(pack_array[0]),element_name(pack_array[0],deliver_next)));
-  document.write(add_benefit_help(deliver_name(deliver_next)));
+  document.write(add_benefit_help(deliver_name(deliver_next),delivers[0]));
   </script>
  <!-- ################################################################   -->
     <tr>
     	<td>
-    		<button type="button" onclick="add_benefit()"> Add Benefit </button>
+    		<button type="button" onclick="add_benefit('Deliver Name')" class="btn btn-success green"> Add Benefit </button>
     	</td>
     </tr>
 	</table>
+	</div>
 	<script type="text/javascript">
 	//====================================================================================
 	document.write("<div class='input-field col s12 col-md-12'>");
@@ -108,4 +110,10 @@
  <!--  This part for  form fill up   (#END ) -->
 <?PHP require_once("footer.php"); ?>
 
+<script >
+del_len = delivers.length;
+for (var i = 1; i < del_len; i++) {
+ add_benefit(delivers[i]);
+}
+</script>
 </html>
