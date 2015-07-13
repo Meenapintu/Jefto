@@ -16,6 +16,7 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
       <script type="text/javascript" src="./materialize/js/materialize.min.js"></script>
      <script type="text/javascript" src="./materialize/js/typehead.js"></script>
       <!--<link rel="stylesheet" href="materialize-tags.min.css">-->
@@ -31,10 +32,14 @@
       <a href="#!" class="brand-logo"><img src="def_img/jefto.png" id='logo' style="height:100%;position:relative" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="index.php">Home</a></li>
+        <li><a href="Form.php">Submit Event</a></li>
+        <li><a href="contact.php">What We Do </a></li>
+        <li><a href="Form.php">Contact</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="index.php">Home</a></li>
+         <li><a href="Form.php">Submit Event</a></li>
+         <li><a href="contact.php">What We Do </a></li>
+        <li><a href="Form.php">Contact</a></li>
       </ul>
     </div>
   </nav>

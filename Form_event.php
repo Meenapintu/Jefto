@@ -18,6 +18,9 @@
 
 
 <div class="container" >
+ <div class="row " >
+ 	<p class='flow-text center white-t font-ml' style="color:#26A69A;margin:0px;" >Submit Event: Part 1 of 3 </p>
+ </div>
 <form  enctype="multipart/form-data" method="post" action="controller.php"role="form" class="row card-panel">
 
    <script type="text/javascript"> 
@@ -25,17 +28,15 @@
 
    
     document.write("<div class='input-field  col s12 m12 col-md-12' >");
-	document.write(subform("event_name__","Event Name")); 
+	document.write(subform("event_name__","Event Name","text")); 
 	document.write("</div>");
 
 	</script>
 	<style type="text/css">
 	.btn, .fint{
 		
-
 		margin:0px;
 		
-
 	}
 	</style>
 	<div class='col s12 m12 col-md-12' >
@@ -90,11 +91,11 @@
 	</div>
     <script type="text/javascript">
     document.write("<div class='input-field col s12 m12 col-md-12'>");
-	document.write(subform("city__","City"));
+	document.write(subform("city__","City","text"));
 	document.write("</div>"); 
 
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
-	document.write(subform("address__"," Address")); 
+	document.write(subform("address__"," Address","text")); 
 	document.write("</div>");
 	
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
@@ -102,7 +103,7 @@
 	document.write("</div>");
 
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
-	document.write(subform("pincode__"," Pin Code")); 
+	document.write(subform("pincode__"," Pin Code","number")); 
 	document.write("</div>");
 
 	document.write("<div class='input-field col s12 m12 col-md-12 '>");
@@ -122,7 +123,7 @@
 	<script type="text/javascript">
 	//document.write("<div class='input-field col s12'>");
 	//document.write("<div class='row'>");
-	document.write(key_numbers(key_number,"key_numbers__[0]","key_numbers__[1]","How Many"));
+	document.write(key_numbers(key_number,"key_numbers__[0]","key_numbers__[1]","How Many","number"));
 	//document.write("</div>"); 
 	</script>
 	<input type="hidden" name="key_number" id="key_numbers__" onclick="add_feild(this)" value=2>
@@ -137,24 +138,24 @@
  	//<script type="text/javascript">  
     //$val = array("cat1 ","cat2","middle east science adace forbid ");
     document.write("<div class='input-field col s12 m12 col-md-12'>");
-	document.write(subform("organization__"," Organization Group")); 
+	document.write(subform("organization__"," Organization Group","text")); 
 	document.write("</div>");
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
-	document.write(subform("event_site__","Event Website")); 
+	document.write(subform("event_site__","Event Website","text")); 
 	document.write("</div>");
 	
 	//subform("event_name","","text","input","placeholder= 'Contact person's name'"); 
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
-	document.write(subform("event_email__"," Email address")); 
+	document.write(subform("event_email__"," Email address",'email')); 
 	document.write("</div>");
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
-	document.write(subform("reg_link__","Link for Registration"));
+	document.write(subform("reg_link__","Link for Registration","text"));
 	document.write("</div>");
 	document.write("<div class='input-field col s12 m12 col-md-12'>"); 
 	document.write(subform_textarea("team_description__"," Team Description"));
 	document.write("</div>");
 	document.write("<div class='input-field col s12 m12 col-md-12'>");
- 	document.write(subform("budget__","Budget  "));
+ 	document.write(subform("budget__","Budget  ","number"));
  	document.write("</div>");
  	//===================
  	document.write("<div class='input-field col s12 col-md-12'>"); 
@@ -167,17 +168,10 @@
 
 
 	 </script>
-	 <div class="input-field col s12">
-	 <select  name="finance_price__"class="browser-default" id = 'finance_price__'>
-	 	<option value = '1000'> 1000</option>
-	 	<option value = '5000'> 5000</option>
-	 	<option value = '8000'> 8000</option>
-	 	<option value = '9000'> 000</option>
-	 </select>
-	 </div>
+	 
 	 
 	 <div class="input-field col s12 col-md-12">
-    <input type="submit" style="align-self:center" >
+    <button type="submit" class="waves-effect waves-light btn-large center" style="align-self:center" > <i class="material-icons  right">send</i> Continue to Part 2 of 3</button>
     </div>
 </form>
 </div>
@@ -189,3 +183,24 @@
 <?PHP require_once("footer.php"); ?>
 </body>
 </html>
+<script >
+
+$('#4_deleteFinancial').on('change',function () {
+	if($(this).is(':checked')){
+		var h ="<div class='input-field col s6 m6 l6' id = 'finance_price_div' style='margin:0px;padding:0px;' >";
+		 	h+="<input type='number' id = 'finance_price__' name='finance_price__' >";
+	  		h+="<label for='finance_price__'> How much </label></div>";
+
+	  	$(this).parent().attr('class','input-field col s6 m6 l6 wrap');
+
+		$(this).parent().after(h);
+		$('#finance_price_div').css('height',($(this).parent().height()+'px'));
+	}
+	else{
+		$('#finance_price_div').remove();
+		$(this).parent().attr('class','input-field col s12 m12 l12 wrap');
+		}
+});
+
+
+</script>

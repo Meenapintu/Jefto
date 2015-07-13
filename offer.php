@@ -61,25 +61,22 @@ function setdrop(e){
   
     
 var desc1 = "<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'> <div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'></div>";
-      desc1+="<div  id='desc' class='col s12 m12 s12' contentEditable=true onblur='save_me(this);' style='word-wrap: break-word;background:white;'> Write Your Description </div>";
+      desc1+="<div  id='desc' class='col s12 m12 s12' contentEditable=true onblur='save_me(this);' style='word-wrap: break-word;background:white;'> Write Your Description here </div>";
       desc1+="<div class='col s12 m12 s12' id ='state'> ";
       desc1+="<button onclick='hide(this);'>Done</button>" ;    
       desc1+="</div></div>";
  
 function pack_core(stri,packn){
 	var pack = "<th id ='packth' class='"+stri+"' style='min-width: 135px;@media only screen and (max-device-width: 480px) { min-width: 100px;}' >";
-        pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>package name</div>";
+        pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>Package Name</div>";
         pack+= "<input type='hidden' id ='packname' name='"+packn+"' ></input>";
-	    pack+= "<div contentEditable=true id='pack_price' onblur='setval(this);'>  price </div>";
+	    pack+= "<div contentEditable=true id='pack_price' onblur='setval(this);'>  Price </div>";
       pack+= "<input type='hidden'  id='pack_price' name='price_"+packn+"' ></input>";
-
-      pack+= "<div onclick='setdrop(this);' ><i class='material-icons dp48'>description</i> description ";
-      pack+= "<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>"+desc1+"</div></div>";
-
-      pack+= "<input type='hidden' id = 'description' name='descritpion_"+packn+"' ></input>";
-
-      pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of packege  </div>";
+      pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of Packages  </div>";
       pack+= "<input type='hidden' id='packnum' name='pack_number_"+packn+"' ></input>";
+       pack+= "<div onclick='setdrop(this);' ><i class='material-icons '>description</i> Description ";
+      pack+= "<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>"+desc1+"</div></div>";
+      pack+= "<input type='hidden' id = 'description' name='descritpion_"+packn+"' ></input>";
       pack+=  "<i id='remove_package' onclick='rmpack(this)' class='waves-effect waves-light btn-tiny center  bg-trance material-icons right'> delete</i>";
     	pack+= "</th>";
       pack+= "<th id ='add_pack'></th>";
@@ -177,7 +174,7 @@ function relation_fix (e) {
 
 function add_benefit_help(delname,value){
 	var benefit = "<tr class='bc margin-0 pd-0'> <td> <div class='row margin-0 pd-0'>";	
-              benefit+= "<div class='col m12'>"; 
+              benefit+= "<div class='col m12 dn'>"; 
 				    	benefit+= "<input type='text' name='"+delname+"' onclick='relation_fix(this)' value='"+value+"' ></input>";
 				    	benefit+= "</div>";
 				    	benefit+= "<div class='col m3 hide'>";
@@ -208,5 +205,16 @@ function add_benefit(value){
     };
 }
 
+$('#matrix').onchange({
+      //var v = $('.dn');
+       alert(445);
+      var max = 0;
+      for (var i = v.length - 1; i >= 0; i--) {
+        if ($(v[i]).scrollWidth > max) max =$(v[i]).scrollWidth;
+
+      alert('runnih');
+      };
+      
+});
 
 </script>

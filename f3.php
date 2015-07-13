@@ -11,6 +11,9 @@
 <body>
 </style>
 <div class="container" >
+<div class="row " >
+ 	<p class='flow-text center white-t font-ml' style="color:#26A69A;margin:0px;" >Submit Event: Part 3 of 3 </p>
+ </div>
 <form method="post" action="controller3.php"role="form" class="card-panel" >
 
 	<div class="row">
@@ -18,7 +21,7 @@
 	<div class="row">
 	 <p class="msg"> Your Social media  </p>
 	<script type="text/javascript">  
-	  document.write(key_numbers(social_media,"social_media__[0]","social_media__[1]","https://")) ;
+	  document.write(key_numbers(social_media,"social_media__[0]","social_media__[1]","https://","text")) ;
 	</script>
 	<button type="button" name="social_media" id="social_media__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another field</button>
 	</div>
@@ -29,13 +32,13 @@
 	document.write(selectform("non_media_explorer__",audience_number));
 	document.write("</div>"); 
     document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(subform("tele__","Television Coverage"));
+	document.write(subform("tele__","Television Coverage","text"));
 	document.write("</div>");
 	document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(subform("radio__","Radio Coverage"));
+	document.write(subform("radio__","Radio Coverage","text"));
 	document.write("</div>");
 	document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(subform("print__","Print Media Coverage"));
+	document.write(subform("print__","Print Media Coverage","text"));
 	document.write("</div>");
 	document.write("<div class='input-field col s12 col-md-12'>");
 	document.write(multiform("Off Line Promotion   ","off_line_promo__",offline_promotion));
@@ -45,13 +48,13 @@
 	<div class="row">
 	 <p class="msg"> Online Media Coverage  </p>
 	<script type="text/javascript">  
-	  document.write(key_numbers(social_media,"media_name__[0]","media_name__[1]","https://")) ;
+	  document.write(key_numbers(social_media,"media_name__[0]","media_name__[1]","https://","text")) ;
 	</script>
 	<button type="button" name="social_media" id="medial_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 	</div>
 	</div>
 	<div class='input-field col s12 col-md-12' style="overflow-x: scroll;">
-	<table style="width:100%;margin-bottom:10px;">
+	<table style="width:100%;margin-bottom:10px;" id='matrix'>
 	<tr>
   		<th style="bc">
   			<div >Deliverables Offering</div>
@@ -84,23 +87,23 @@
 	<script type="text/javascript">
 	//====================================================================================
 	document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(subform("contact_name__","Your Name")); 
+	document.write(subform("contact_name__","Your Name","text")); 
 	document.write("</div>");
 	document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(subform("contact_mob__","Your Contact")); 
+	document.write(subform("contact_mob__","Your Contact","text")); 
 	document.write("</div>");
 	document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(subform("contact_email__"," Email Address"));
+	document.write(subform("contact_email__"," Email Address","email"));
 	document.write("</div>"); 
 
 	//subform("event_name","","text","input","placeholder= 'alter email id '"); 
 	document.write("<div class='input-field col s12 col-md-12'>");
-	document.write(subform("office___","Office Contact")); 
+	document.write(subform("office___","Office Contact","text")); 
 	document.write("</div>");
 	 </script>
-	 <div class='input-field col s12 col-md-12'>
-    <input type="submit" style="align-self:center" >
-    </div>
+		<div class="input-field col s12 col-md-12">
+    		<button type="submit" class="waves-effect waves-light btn-large center" style="align-self:center" ><i class="material-icons  right">send</i> Submit</button>
+    	</div>
     </div>
 </form>
 </div>

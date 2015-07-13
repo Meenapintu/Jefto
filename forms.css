@@ -78,7 +78,7 @@ li a{
 	font-size: medium;
 }
 .nav-wrapper{
-    background: rgba(45,123,126,1);
+    background: indigo;
   }
 
 footer.page-footer{
@@ -101,6 +101,15 @@ min-width: 340px;
 .pc{
 min-width: 135px;
 }
+.font-ml{
+	font-size:x-large;
+}
+.font-med{
+	font-size:large;
+}
+.star{
+	width: 70%;
+}
 @media only screen and (max-device-width: 480px) {
 	.bc{
 		min-width: 200px;
@@ -108,6 +117,16 @@ min-width: 135px;
 	.pc{
 		min-width: 100px;
 	}
+	.font-med{
+		font-size:medium;
+	}
+	.font-ml{
+		font-size:medium;
+	}
+	.star{
+	width:100%;
+}
+
 }
 
 .hide{
@@ -121,4 +140,8 @@ min-width: 135px;
 }
 .bg-trance{
 	background: transparent;
+}
+
+.bott-margin-0{
+	margin-bottom: 0px;
 }

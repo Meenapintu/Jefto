@@ -14,6 +14,7 @@
 }
 .white-t{
 	color: white;
+
 }
 
 .border-me select{
@@ -65,7 +66,7 @@ $(function () {
  <body >
  <div class="container-fluid">
  <div class="row" style="margin:0px;">
-	<div class='col s12 m12 l12' style="background: rgba(53,65,13,0.8);">
+	<div class='col s12 m12 l12' style="background:#607D8B;">
 		<div class="container" >
 			<div class="row">
 				<div class="col s12 m12 l12 card-panel bg-trance ">
@@ -73,7 +74,7 @@ $(function () {
 						<!-- <div class="col s12 m2 l2 center">
 							<p style="font-size:x-large"> </p>
 						</div> -->
-						<div class="col s12 m12 l12 center" style="font-size:large;margin:0px;margin-bottom:5px;width:100%" >
+						<div class="col s12 m12 l12 center font-med white-t flow-text" style="margin:0px;margin-bottom:5px;margin-top:5px;width:100%" >
 							We are event listing company who analyse the data of an event and make it easier for 
 							sponsors to advertise their product.Today there are so many events that companies find 
 							it hard to which they should sponsor We make the sponsorship process easier for both 
@@ -84,11 +85,11 @@ $(function () {
 						
 				</div>
 				<div class="col s12 m12 l12 center card-panel bg-trance">
-					<div class="row" >
-						<div class="col s12 m12 l12 center">
-							<div style="width:90%;" class="center " onclick="resize(this)">
+					<div class="row center"  >
+						<div class="col s12 m12 l12 center ">
+							<div style="width:80%;" class="center " onclick="resize(this)">
 								<div class=" video-container no-controls ">
-			         			 <iframe class="center"  src="https://www.youtube.com/embed/7TpD92HEGlI" frameborder="0" allowfullscreen></iframe>
+			         			 <iframe class="center"  src="https://www.youtube.com/embed/7TpD92HEGlI?rel=0" frameborder="0" rel="0" allowfullscreen></iframe>
 			        			</div> 
 	        				</div>
 	        			</div>
@@ -99,33 +100,33 @@ $(function () {
 	</div>
 	<div class='col s12 m12 l12' style="background: rgba(100,13,140,0.9);">
 		<div class="container " >
-			<div class="row">
+			<div class="row bott-margin-0">
 				<div class="col s12 m12 l12 center card-panel bg-trance">
-					<div class="row">
-					   <div class="col s12 m12 l12">
-					   						<div class="home_col center ">
-					   							<p style="font-size:x-large display:inline">Cool figures which we compute after analyzing</p>
-					   						</div>
+					<div class="row bott-margin-0">
+					   <div class="col s12 m12 l12  center">
+					   						<!--<div class="home_col center "> </div>-->
+					   							<p class="flow-text center white-t font-ml">Cool figures which we compute after analyzing</p>
+					   						
 					   </div>
-					   <div class="col s12 m12 l12">
-					   					<div class="row">
+					   <div class="col s12 m12 l12"> 
+					   					<div class="row ">
 					   						<div class="home_col center bg-trance col s4 m4 l4" >
 					   							<div class=" row">
 					   								<div class="col s12 m12 l12 center">
-					   									<img src="def_img/star.gif" alt="star" style="width:100%;">
+					   									<img src="def_img/star.png" alt="star" class="star">
 					   								</div>
 					   								<div class="col s12 m12 l12 center ">
-					   									<p class="center">Event Effectiveness Index</p>
+					   									<p class="center font-med " style="color:#9E9E9B;">Event Effectiveness Index</p>
 					   								</div>
 					   							</div>
 					   						</div>
 					   						<div class="home_col center bg-trance col s4 m4 l4 " >
 					   							<div class=" row">
 					   								<div class="col s12 m12 l12 center">
-					   									<img src="def_img/star.gif" alt="star" style="width:100%;">
+					   									<img src="def_img/star.png" alt="star" class="star" >
 					   								</div>
 					   								<div class="col s12 m12 l12 center">
-					   									<p class="center">Audience Richness</p>
+					   									<p class="center font-med" style="color:#9E9E9B;">Audience Richness</p>
 					   								</div>
 					   							</div>
 					   						</div>
@@ -134,10 +135,10 @@ $(function () {
 					   						<div class="home_col center bg-trance col s4 m4 l4"  >
 					   							<div class=" row">
 					   								<div class="col s12 m12 l12 center">
-					   									<img src="def_img/star.gif" alt="star" style="width:100%;">
+					   									<img src="def_img/star.png" alt="star" class="star">
 					   								</div>
 					   								<div class="col s12 m12 l12 center">
-					   									<p class="center"> Sponsorship Readiness Index</p>
+					   									<p class="center font-med " style="color:#9E9E9B;"> Sponsorship Readiness Index</p>
 					   								</div>
 					   							</div>
 					   						</div>
@@ -158,19 +159,19 @@ $(function () {
 						<div class=" col s12 m12 l12 center">
 								<p class="flow-text center white-t">Liked the idea? Wanna get in Touch? </p>
 						</div>
-					   <div class="input-field col s12 m4 l4 "style="margin-left:0px;padding:0px; min-width:45px;">
-					   	<input type='email' name='whoami' class="validate" id='whoami'style="margin:0px;padding:0px;width:100%;" />
+					   <div class="input-field col s12 m4 l4 ">
+					   	<input type='email' name='whoami' class="validate" id='whoami' />
 					   	<label for='whoami'style="margin:0px;padding:0px;" >Your Email</label>
 					   </div>
-					   <div class="input-field col s6 m3  l4 bg-trance border-sel"  id='select' style="margin-right:0px;margin-left:0px;padding:0px;min-width:45px; border-bottom:#9E9E9E 1px solid; border-radius:0px;" >
-					   	<select name='whoami_type' class="browser-default bg-trance select-me  validate " style="width:100%;border:none;margin:0px;">
+					   <div class="input-field col s6 m3  l4 "  id='select'  >
+					   	<select name='whoami_type' id='select'>
 					   	 	<option value=1>Sponsor</option>
 					   	 	<option value=2>Organizer</option>
 					   	 	<option value=3>Event Visitor</option>
 					   	</select>
 					   </div>
-					   <div class="input-field col s6 m2 l2"  id ='button' style="margin-right:0px;padding:0px; min-width:45px;border-bottom:#9E9E9E 1px solid; border-radius:0px;" >
-					   	<input type="submit" class="btn btn-success" name='submit' style="margin:0px;padding:0px;width:100%;height:100%">
+					   <div class="input-field col s6 m2 l2"  id ='button'  >
+					   	<input type="submit" class="btn btn-success" name='submit' >
 					   </div>
 					</form>
 				</div>
@@ -221,4 +222,7 @@ $(function () {
 					// body...
 					$(this).css('border-color','#26A69A');
 				});
+				$(document).ready(function() {
+   				 $('select').material_select();
+ 				 });
 </script>
