@@ -202,7 +202,7 @@ function multiform(msg,name,val){
 		return mform;
 }
 
-function selectform(name,option){
+function selectform1(name,option){
 
 	var sform= "<select name= '"+name+"' class='browser-default'>";
 	for (var i = option.length - 1; i >= 0; i--) {
@@ -213,6 +213,44 @@ function selectform(name,option){
 	return sform;
 }
 
+function selectform(name,option){
+	var sform = "<input type='text' id='select_in' name='"+name+"' onclick='showop(this)' ></input>";
+		sform+= "<div class='row card s-div' style='display:none;overflow-y:scroll;max-height:200px;margin:0px;'>";
+	for (var i = option.length - 1; i >= 0; i--) {
+		sform+= "<div class='col s12 m12 l12 hover_eff' >";
+		sform+= "<p  class='active font-med  margin-0 hover_eff'id='select_data' onclick='setv(this);' style='margin-left:5%;' >"+option[i]+"</p>";
+		sform+= "</div>";
+		//sform+= "<option value = '"+option[i]+"' >"+option[i]+"</option>";
+	}
+	sform+="</div>";
+	return sform;
+}
+
+$(document).ready( function(){
+
+
+$(document).click(function(e){
+	if($(e.target).attr('id')!='select_in'){
+ 		$('.s-div').hide();
+ 	}
+});
+});	
+
+$('#select_in').keypress(function(){
+	$('.s-div').hide();
+});
+
+
+
+
+function showop(e) {
+	$(e).siblings('.s-div').show();
+}
+
+function setv(e) {
+	$(e).parent().parent().siblings("#select_in").attr('value',$(e).html());
+	$('.s-div').hide();
+};
 
 function selectform_int(name,option){
 
@@ -254,6 +292,9 @@ function add_feild(e){
 		$(e).siblings("#"+e.id).attr('value',e.value);
 
 	}
+
+
+
 //====================================================================================================
 
 

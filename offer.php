@@ -205,7 +205,7 @@ function add_benefit(value){
     };
 }
 
-$('#matrix').onchange({
+/*$('#matrix').onchange({
       //var v = $('.dn');
        alert(445);
       var max = 0;
@@ -215,6 +215,6 @@ $('#matrix').onchange({
       alert('runnih');
       };
       
-});
+});*/
 
 </script>

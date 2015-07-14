@@ -145,3 +145,12 @@ min-width: 135px;
 .bott-margin-0{
 	margin-bottom: 0px;
 }
+.hover_eff{
+	color:#9E9E9E;
+	margin:0px;
+	padding:0px;
+}
+
+.hover_eff:hover{
+	background-color:#cfd8dc;
+}

@@ -2,8 +2,9 @@
 <html lang="en">
 
 <?php 
-	require_once('jsfunc.php');
 	require_once("header.php");  
+	require_once('jsfunc.php');
+
 ?>
 <link rel="stylesheet" href="forms.css">
 <body>
@@ -23,7 +24,7 @@
 					<div class="row">
 		 				<p class="msg"> Audience Type </p>
 						<script type="text/javascript"> 
-		 					document.write(key_numbers(target_audience,"audience__[0]","audience__[1] ","How Many","number")); 
+		 					document.write(key_numbers(target_audience,"audience__[0]","audience__[1] ","How much ( write % )","number")); 
 		 				</script>
 						<input type="hidden" name="target_audience" id="audience__" onclick="add_feild(this)" value=2>
 						<button type="button" name="target_audience" id="audience__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
