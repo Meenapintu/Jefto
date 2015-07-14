@@ -27,8 +27,8 @@ function subform(name,msg,type){
 
 function subform_range(name,msg){
 	var input = "<div class='row'>";
-			input+="<div class='col s3'>Male </div>";
-			input+="<div class='col s1' style='float:right'>Female </div>";
+			input+="<div class='col s6' >Male </div>";
+			input+="<div class='col s3 m2 l1 right' ><p>Female </p></div>";
 			input+="<div class='col s12'> ";
 				input+= "<p class='range-field'>";
 				input+="<input type='range' id="+name+" name='"+name+"' min='0' max='100' />";
@@ -227,7 +227,12 @@ function selectform(name,option){
 }
 
 $(document).ready( function(){
-
+$('#gender_ratio__').mousemove(function(event){
+//gender_ratio__
+	//alert("herge");
+	//alert($(this).val());
+	$('.value').html($(this).val());
+});
 
 $(document).click(function(e){
 	if($(e.target).attr('id')!='select_in'){
@@ -281,8 +286,12 @@ function add_feild(e){
 			var placeholder = 'https://';
 			type = "text";
 		}
+		else if (e.name == 'key_number'){
+			var placeholder ='How Many ';
+			type = "number";
+		}
 		else{
-			var placeholder ='How many ';
+			var placeholder ='How much ( write % ) ';
 			type = "number";
 			
 		}
@@ -292,6 +301,7 @@ function add_feild(e){
 		$(e).siblings("#"+e.id).attr('value',e.value);
 
 	}
+//var j =0;
 
 
 
@@ -344,5 +354,5 @@ var age_group = new Array("11 below ", "12-18 Years old","18-25 Years old","25-4
 var audience_number = new Array(100,500,1000,5000,10000,20000,20,000);
 var social_media =  new Array('google.com','Facebook.com','linkdin.com');
 var key_number = new Array('Speakers','Events','Conference','Competition');
-
+var non_media_exposure = new Array('Bags', 'Conference Badges');
 </script>

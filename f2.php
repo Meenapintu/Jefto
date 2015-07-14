@@ -34,7 +34,7 @@
 					<div class="row">
 		 				<p class="msg"> Age Based Ratio  </p>
 						<script type="text/javascript"> 
-		 					document.write(key_numbers(age_group,"age_range__[0]","age_range__[1]","How Many","number"));  
+		 					document.write(key_numbers(age_group,"age_range__[0]","age_range__[1]","How much ( write % )","number"));  
 		 				</script>
 		 				<input type="hidden" name="age_group" id="age_range__" onclick="add_feild(this)" value=2> 
 						<button type="button" name="age_group" id="age_range__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>

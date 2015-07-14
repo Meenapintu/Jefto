@@ -20,7 +20,7 @@ th, td {
  var pack_array = [];
  var deliver_array =[];
 
-var packs = new Array('Platinum', 'Gold', 'Silver');
+var packs = new Array('Title', 'Gold', 'Silver');
  var delivers = new Array("Banners", "Special gate", "Dedicated stand", "Special announcement from stage" ,"Announcement on TV / Radio", "Name on T-shirts", "Name on promotional occasion of Event", "Special post on online social profiles", "Name on brochure / pamphlet");
  var pack_next=0;
 var deliver_next=0;
@@ -66,10 +66,10 @@ var desc1 = "<div class='row' style='background:rgba(34,53,53,0.4);overflow:none
       desc1+="<button onclick='hide(this);'>Done</button>" ;    
       desc1+="</div></div>";
  
-function pack_core(stri,packn){
+function pack_core(stri,packn,hname){
 	var pack = "<th id ='packth' class='"+stri+"' style='min-width: 135px;@media only screen and (max-device-width: 480px) { min-width: 100px;}' >";
-        pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>Package Name</div>";
-        pack+= "<input type='hidden' id ='packname' name='"+packn+"' ></input>";
+        pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>"+hname+"</div>";
+        pack+= "<input type='hidden' id ='packname' value='"+hname+"' name='"+packn+"' ></input>";
 	    pack+= "<div contentEditable=true id='pack_price' onblur='setval(this);'>  Price </div>";
       pack+= "<input type='hidden'  id='pack_price' name='price_"+packn+"' ></input>";
       pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of Packages  </div>";
@@ -131,10 +131,10 @@ function care_deliver(number){
   }
 }
 
-function add_package(){
+function add_package(hname){
     //alert("adding");
     var cnme = pack_class_name();
-    $("#add_pack").replaceWith(pack_core(cnme,pack_name(pack_next)));
+    $("#add_pack").replaceWith(pack_core(cnme,pack_name(pack_next),hname));
 
       var i=0;
     $(".register_pack").each(function(){
@@ -174,8 +174,8 @@ function relation_fix (e) {
 
 function add_benefit_help(delname,value){
 	var benefit = "<tr class='bc margin-0 pd-0'> <td> <div class='row margin-0 pd-0'>";	
-              benefit+= "<div class='col m12 dn'>"; 
-				    	benefit+= "<input type='text' name='"+delname+"' onclick='relation_fix(this)' value='"+value+"' ></input>";
+              benefit+= "<div class='col  s12 m12 dn'>"; 
+				    	benefit+= "<input type='text' col='1' name='"+delname+"' onclick='relation_fix(this)' value='"+value+"' style='wrap:break-word;white-space:pre-wrap;' ></input>";
 				    	benefit+= "</div>";
 				    	benefit+= "<div class='col m3 hide'>";
 				    	benefit+= "<input type='number' name='image_"+delname+"'></input>";
