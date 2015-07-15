@@ -100,6 +100,7 @@ $(function () {
 	</div>
 	<div class='col s12 m12 l12' style="background: rgba(100,13,140,0.9);">
 		<div class="container " >
+		<a name="whatwedo"></a>
 			<div class="row bott-margin-0">
 				<div class="col s12 m12 l12 center card-panel bg-trance">
 					<div class="row bott-margin-0">
@@ -177,8 +178,8 @@ $(function () {
 				</div>
 
 				<div class="col s12 m12 l12 center  card-panel bg-trance" style="margin-top:20px;" >
-					<a href="Form.php" > 
-					   	<button class=" waves-effect waves-light btn-large center" type="submit" name="action">
+					<a href="form.php" > 
+					   <button  class=" waves-effect waves-light btn-large center" type="button" name="action">
 	   						<i class="material-icons  right">send</i> Submit Event
 	  					</button>
 	  				</a>

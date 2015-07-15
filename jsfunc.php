@@ -7,12 +7,8 @@
 
 
 <script type="text/javascript">
-function date_pic(){
-$('.datepicker').pickadate({
-selectMonths: true, // Creates a dropdown to control month
-selectYears: 15 // Creates a dropdown of 15 years to control year
-});
-}
+
+
 
 
 function subform(name,msg,type){
@@ -51,7 +47,7 @@ function subform_textarea(name,msg){
 
 function subform_date(name,msg){
 	 var input ="";
-	 	 input+="<input type='date' class='datepicker' name="+name+" onclick='date_pic();'>";
+	 	 input+="<input type='date' class='datepicker' name="+name+" placeholder='mm/dd/yyyy'>";
 	 	 //input+="<span class='highlight'></span> <span class='bar'></span> <label>"+msg+"</label>";
 	 	 input+="";
 	 	 //alert(input);
@@ -154,18 +150,18 @@ function multiform_radio(msg,name,val){
 		//mform+=	"<input type='hidden' class= 'hidden' name="+name+" value='yes'></input>";
 		mform+= "<div class = 'row'style='margin:0px;padding:0px;'>"
 				for (var i = 0; i < val.length ; i++) {
-					mform+= "<div class = 'input-field col s12 col-md-12'style='margin:0px;padding:0px;'>"
+					mform+= "<div class = 'input-field col s12 m12'style='margin:0px;padding:0px;'>"
 					mform+= checkform_radio(val[i],name+'_delete');
 					mform+= "</div>";
 				}
-		mform+= "<div class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;'>"
+		mform+= "<div class = 'input-field col s12 m12' style='margin:0px;padding:0px;'>"
 		mform+= "<input type = 'radio' id='"+name+msg+"' name = '"+name+"_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>";
-		mform+= "<div id ='other' class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div id ='other' class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name='other' onblur='select_one(this)'>"
 		mform+= "</div>" ;
-		mform+= "<div class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
 		mform+= "</div>"
 		mform+= "</div>";
@@ -182,20 +178,20 @@ function multiform(msg,name,val){
 		mform+= "<div class = 'row'style='margin:0px;padding:0px;'>"
 				for (var i = 0; i < val.length ; i++) {
 					//alert(mform);
-					mform+= "<div class = ' input-field col s12 col-md-12 wrap'style='margin:0px;padding:0px;'>";
+					mform+= "<div class = ' input-field col s12 m12 wrap'style='margin:0px;padding:0px;'>";
 					mform+= checkform(val[i],i+'_delete');
 					mform+= "</div>";
 					
 				}
 
-		mform+= "<div class = 'col s12 col-md-12'style='margin:0px;padding:0px;'>"
+		mform+= "<div class = 'col s12 m12'style='margin:0px;padding:0px;'>"
 		mform+= "<input type = 'checkbox' id='"+name+msg+"' name = 'other_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>"
-		mform+= "<div id ='other' class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div id ='other' class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name='other' class='NOTCHECKD' onblur='select_mult(this)' >"
 		mform+= "</div>"
-		mform+= "<div  class = 'input-field col s12 col-md-12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div  class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
 		mform+= "</div></div>";
 		
@@ -270,9 +266,9 @@ function selectform_int(name,option){
 
 function key_numbers(option,key_name,key_numbers,ext,type){
 	
-	var keyn = "<div class='input-field col s12 l6 col-md-6'>";
+	var keyn = "<div class='input-field col s12 l6 m6'>";
 	keyn+= selectform(key_name,option);
-	keyn+= "</div> <div class = 'input-field col s12 l6 col-md-6'>";
+	keyn+= "</div> <div class = 'input-field col s12 l6 m6'>";
 	keyn+= subform(key_numbers,ext,type);
 	keyn+= "</div>";
 	keyn+=	"<div id='replace_me' ></div>";

@@ -1,0 +1,448 @@
+<?php
+session_start();
+$connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
+$conn = pg_connect($connection_string);
+if($conn){ echo "done ";}
+	else echo " there is error ";
+
+require_once('phpfunc.php');
+$i=0;
+//if(isset($_POST['category__'],$_POST['genre__'],$_POST['description__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['address__'],$_POST['tags__'],$_POST['scope__'],$_POST['key_numbers__'],$_POST['frequency__'],$_POST['team_description__'],$_POST['budget__'],$_POST['sponsors__'],$_POST['finance_price__'])and $_POST['event_name__']){
+            echo$_POST['genre__'];
+ 			$_POST['event_name__'] 	= htmlspecialchars($_POST['event_name__']);
+            $_POST['category__'] 	= htmlspecialchars($_POST['category__']);
+            $_POST['genre__'] 		= htmlspecialchars($_POST['genre__']);
+            $_POST['description__'] = htmlspecialchars($_POST['description__']);
+            $_POST['startdate__']	= htmlspecialchars($_POST['startdate__']);
+            $_POST['enddate__'] 	= htmlspecialchars($_POST['enddate__']);
+            $_POST['city__'] 		= htmlspecialchars($_POST['city__']);
+            $_POST['country__'] 	= htmlspecialchars($_POST['country__']);
+            $_POST['address__'] 	= htmlspecialchars($_POST['address__']);
+            $_POST['tags__'] 		= htmlspecialchars($_POST['tags__']);
+            $_POST['scope__'] 		= htmlspecialchars($_POST['scope__']);
+            $_POST['currency__'] = htmlspecialchars($_POST['currency__']);
+            $_POST['pincode__'] = htmlspecialchars($_POST['pincode__']);
+            $_POST['frequency__'] 	= htmlspecialchars($_POST['frequency__']);
+            $_POST['organization__'] = htmlspecialchars($_POST['organization__']);
+            $_POST['event_site__']	= htmlspecialchars($_POST['event_site__']);
+            $_POST['event_email__'] = htmlspecialchars($_POST['event_email__']);
+            $_POST['reg_link__']	= htmlspecialchars($_POST['reg_link__']);
+            $_POST['team_description__'] = htmlspecialchars($_POST['team_description__']);
+            $_POST['budget__']		= htmlspecialchars($_POST['budget__']);
+            $_POST['sponsors__'] 	= htmlspecialchars($_POST['sponsors__']);
+            $key_numbers = (int)$_POST['key_number'];
+             for ($i=0; $i < $key_numbers; $i+=2) { 
+                # code...//demographics
+                $_POST['key_numbers__'][$i]    = htmlspecialchars($_POST['key_numbers__'][$i]);
+                //$_POST['audience__'][$i+1]    = htmlspecialchars($_POST['audience__'][$i+1]);
+            }
+            //$_POST['finance_price__'] = htmlspecialchars($_POST['finance_price__']);
+
+	if(get_magic_quotes_gpc()){
+            $_POST['event_name__'] 	= stripslashes($_POST['event_name__']);
+            $_POST['category__']	= stripslashes($_POST['category__']);
+            $_POST['genre__']		= stripslashes($_POST['genre__']);
+            $_POST['description__'] = stripslashes($_POST['description__']);
+            $_POST['startdate__'] 	= stripslashes($_POST['startdate__']);
+            $_POST['enddate__'] 	= stripslashes($_POST['enddate__']);
+            $_POST['city__'] 		= stripslashes($_POST['city__']);
+            $_POST['country__'] 	= stripslashes($_POST['country__']);
+            $_POST['address__'] 	= stripslashes($_POST['address__']);
+            $_POST['tags__'] 		= stripslashes($_POST['tags__']);
+            $_POST['scope__'] 		= stripslashes($_POST['scope__']);
+            $_POST['frequency__'] 	= stripslashes($_POST['frequency__']);
+            $_POST['organization__'] = stripcslashes($_POST['organization__']);
+            $_POST['event_site__']	= stripcslashes($_POST['event_site__']);
+            $_POST['event_email__']	= stripcslashes($_POST['event_email__']);
+            $_POST['reg_link__']	= stripcslashes($_POST['reg_link__']);
+            $_POST['team_description__'] = stripslashes($_POST['team_description__']);
+            $_POST['budget__'] 		= stripslashes($_POST['budget__']);
+            $_POST['sponsors__'] 	= stripslashes($_POST['sponsors__']);
+            //$_POST['finance_price__'] = stripslashes($_POST['finance_price__']);
+            $_POST['currency__'] = stripslashes($_POST['currency__']);
+            $_POST['pincode__'] = stripcslashes($_POST['pincode__']);
+            for ($i=0; $i < $key_numbers; $i+=2) { 
+                # code...//demographics
+                $_POST['key_numbers__'][$i]    = stripcslashes($_POST['key_numbers__'][$i]);
+                //$_POST['audience__'][$i+1]    = htmlspecialchars($_POST['audience__'][$i+1]);
+            }
+        }
+
+
+        	
+        		$name = pg_escape_string($_POST['event_name__']);
+        		//$logo image save form condition //
+        		$category = pg_escape_string($_POST['category__']);
+        		$genre 	  = pg_escape_string($_POST['genre__'])	;
+        		$city 	  = pg_escape_string($_POST['city__']);
+        		$address 	  = pg_escape_string($_POST['address__']);
+        		$country 	  = pg_escape_string($_POST['country__']);
+        		$scope 	  = pg_escape_string($_POST['scope__']);
+        		$frequency 	  = pg_escape_string($_POST['frequency__']);
+        		$website 	  = pg_escape_string($_POST['event_site__']);
+        		$email 	  = pg_escape_string($_POST['event_email__']);
+        		$organizer 	  = pg_escape_string($_POST['organization__']);
+        		$start_date 	  = pg_escape_string($_POST['startdate__']);
+        		$end_date 	  = pg_escape_string($_POST['enddate__']);
+        		$link_for_req 	  = pg_escape_string($_POST['reg_link__']);
+        		$description 	  = pg_escape_string($_POST['description__']);
+        		$team_descritpion 	  = pg_escape_string($_POST['team_description__']);
+        		$budget	  = pg_escape_string($_POST['budget__']);
+        		$tags 	  = pg_escape_string($_POST['tags__']);
+                $pincode  = pg_escape_string($_POST['pincode__']);
+
+                $address  = $address."__".$pincode;
+        		//$event_id = $name;
+               
+                $_SESSION["currency"] = pg_escape_string($_POST['currency__']);
+        		//echo $event_id;
+
+        
+                 echo $genre;
+                 echo "</br>";
+                 echo$category;
+            $insert_array = array($name,$category,$genre,$city,$address,$country,$scope,$frequency,$website,$email,$organizer,$start_date,$end_date,$link_for_req,$description,$team_descritpion,$budget,$tags);
+           
+            $query = "insert into event (name,category,genre,city,address,country,scope,frequency,website,email,organizer,start_date,end_date,link_for_req,description,team_descritpion,budget,tags) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)RETURNING event_id";
+       		
+             $_SESSION["event_id"] = pg_prepare_single_insert_v1($conn, $query,$insert_array);
+             $event_id= $_SESSION['event_id'];
+
+if(isset($_FILES['logo__'])){
+        $valid_file_extensions = array(".jpg", ".jpeg", ".gif", ".png");
+        $file_extension = strrchr($_FILES['logo__']["name"], ".");
+       // $event_id
+        if (in_array($file_extension, $valid_file_extensions)) {
+            //$unique = date('YmdHisTU');
+            $img = $event_id.$file_extension;
+            //$img->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
+            $pathToImage = "event_logos/$img";
+            if(move_uploaded_file($_FILES['logo__']['tmp_name'], $pathToImage)){
+
+            $_SESSION["logo"] = $pathToImage;
+           // echo $pathToImage;
+             }
+             else{
+                $_SESSION["logo"] = "event_logos/default_logo.png";
+             }
+     }
+   }
+   else{
+    $_SESSION["logo"] = "event_logos/default_logo.png";
+   }
+
+
+//need to insert sponcer field 
+
+
+    function insert_arr_psql_custom($conn,$event_id,$values){
+                $exp_value = explode("___", $values);
+                //$words = explode("___", $str);
+                $insert_array = array();
+                $query = "INSERT INTO sponsorship(event_id,type)VALUES($1,$2)";
+                foreach ($exp_value as $value) {
+                    //echo$value;
+                    if($value !='' && $value !='Financial'){
+                    $sub_insert = array($event_id,$value);
+                    array_push($insert_array,$sub_insert);
+                    }
+                    if($value =='Financial'){
+                        $insert_finance = array($event_id,$value,(int)$_POST['finance_price__']);
+                        $query_ = "INSERT INTO sponsorship_finance(event_id,type,fund)VALUES($1,$2,$3)";
+                        pg_prepare_single_insert($conn,$query_,$insert_finance);
+                    }
+                }
+              pg_prepare_multi_insert($conn, $query,$insert_array);
+
+            }
+
+        insert_arr_psql_custom($conn,$event_id,pg_escape_string($_POST['sponsors__']));
+
+
+             $query = "INSERT INTO key_numbers(event_id,type_name,type_count)VALUES ($1,$2,$3)";
+               $insert_array = array();
+            for ($i=0; $i < $key_numbers; $i+=2) {
+                echo"</br>";
+                echo $key_numbers;
+                    $type_name =pg_escape_string($_POST['key_numbers__'][$i]);
+                    $type_count =(int)$_POST['key_numbers__'][$i+1];
+                $sub_insert = array($event_id,$type_name,$type_count);
+                array_push($insert_array,$sub_insert);
+            }
+
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+
+
+            
+echo"done everything";
+
+
+
+//if(isset($_POST['category__'],$_POST['genre__'],$_POST['description__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['address__'],$_POST['tags__'],$_POST['scope__'],$_POST['key_numbers__'],$_POST['frequency__'],$_POST['team_description__'],$_POST['budget__'],$_POST['sponsors__'],$_POST['finance_price__'])and $_POST['event_name__']){
+
+
+          $target_audience = (int)$_POST['target_audience'];
+          $age_group    = (int)$_POST['age_group'];
+            $total_audience = (int)$_POST['total_audience_count__'];
+            echo '$total_audience'.$total_audience;
+            for ($i=0; $i < $target_audience; $i+=2) { 
+                # code...//demographics
+                $_POST['audience__'][$i]    = htmlspecialchars($_POST['audience__'][$i]);
+                //$_POST['audience__'][$i+1]    = htmlspecialchars($_POST['audience__'][$i+1]);
+            }
+            $age_limit = array();
+            for ($i=0; $i <$age_group ; $i+=2) { 
+                # code... audience_age
+                if(substr($_POST['age_range__'][$i],0,2)=='11'){
+                    array_push($age_limit,0,11);
+                }
+                elseif (substr($_POST['age_range__'][$i],0,2)=='12') {
+                    array_push($age_limit,12,18);
+                  }  
+                elseif (substr($_POST['age_range__'][$i],0,2)=='18') {
+
+                    array_push($age_limit,18,25);
+                  } 
+                elseif (substr($_POST['age_range__'][$i],0,2)=='25') {
+
+                    array_push($age_limit,25,40);
+                  }
+                elseif (substr($_POST['age_range__'][$i],0,2)=='40') {
+
+                    array_push($age_limit,40,65);
+                  } 
+                elseif (substr($_POST['age_range__'][$i],0,2)=='65') {
+
+                    array_push($age_limit,65,100);
+                  } 
+               // $_POST['age_range__'][$i+1]       = htmlspecialchars($_POST['age_range__'][$i+1]);
+            }
+            //$_POST['gender_ratio__'] = htmlspecialchars($_POST['gender_ratio__']);
+            $_POST['edu_background__']  = htmlspecialchars($_POST['edu_background__']);
+            $_POST['profession__']  = htmlspecialchars($_POST['profession__']);
+            $_POST['income_level__']        = htmlspecialchars($_POST['income_level__']);
+            $_POST['audience_description__']    = htmlspecialchars($_POST['audience_description__']);
+
+    if(get_magic_quotes_gpc()){
+          
+            for ($i=0; $i < $target_audience; $i+=2) { 
+            $_POST['audience__'][$i]    = stripslashes($_POST['audience__'][$i]);
+           // $_POST['audience__'][$i+1]    = stripslashes($_POST['audience__'][$i+1]);
+            }
+            //for ($i=0; $i <$age_group ; $i++) {
+            //$_POST['age_range__'][$i+1]       = stripslashes($_POST['age_range__'][$i+1]);
+            //}
+            //$_POST['gender_ratio__'] = stripslashes($_POST['gender_ratio__']);
+            $_POST['edu_background__']  = stripslashes($_POST['edu_background__']);
+            $_POST['profession__']  = stripslashes($_POST['profession__']);
+            $_POST['income_level__']        = stripslashes($_POST['income_level__']);
+            $_POST['audience_description__']    = stripslashes($_POST['audience_description__']);
+        }
+
+            //eventplus audience_age , //audience_demographics 
+                $event_id = $_SESSION["event_id"];
+                $logo  = $_SESSION["logo"];
+                echo $logo.'logo</br>';
+                $currency = $_SESSION["currency"];
+
+                
+                $gender_ratio = (int)$_POST['gender_ratio__'];
+                $audience_description     = pg_escape_string($_POST['audience_description__']);
+            $query = "insert INTO eventplus(event_id,logo,currency,total_audience,gender_ratio,audience_description)VALUES($1,$2,$3,$4,$5,$6)";
+            $insert_array = array($event_id,$logo,$currency,$total_audience,$gender_ratio,$audience_description);
+            pg_prepare_single_insert($conn, $query,$insert_array);
+
+             $query = "INSERT INTO demographics(event_id,type_name,type_count)VALUES ($1,$2,$3)";
+               $insert_array = array();
+            for ($i=0; $i < $target_audience; $i+=2) {
+                    $type_name =pg_escape_string($_POST['audience__'][$i]);
+                    $type_count =(int)$_POST['audience__'][$i+1];
+                $sub_insert = array($event_id,$type_name,$type_count);
+                array_push($insert_array,$sub_insert);
+            }
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+
+              $insert_array = array();
+               echo"we are here";
+            $query = "INSERT INTO age_group(event_id,low_age,up_age,ratio)VALUES($1,$2,$3,$4)";
+             echo"we are here";
+              for ($i=0; $i < $age_group; $i+=2) { 
+                $ratio =  (int)$_POST['age_range__'][$i+1];
+                $sub_insert = array($event_id,$age_limit[$i],$age_limit[$i+1],$ratio);
+                array_push($insert_array,$sub_insert);
+            }
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+
+            function insert_arr_psql($conn,$event_id,$values,$type_name){
+                $exp_value = explode("___", $values);
+                //$words = explode("___", $str);
+                $insert_array = array();
+                //echo sizeof($exp_value).size;
+                $query = "INSERT INTO audience_demographics(event_id,type_name,type_value)VALUES($1,$2,$3)";
+                foreach ($exp_value as $value) {
+                    echo$value;
+                    if($value !=''){
+                    $sub_insert = array($event_id,$type_name,$value);
+                    array_push($insert_array,$sub_insert);
+                    }
+                }
+              pg_prepare_multi_insert($conn, $query,$insert_array);
+
+            }
+               
+                insert_arr_psql($conn,$event_id,pg_escape_string($_POST['edu_background__']),"edu_background");
+                insert_arr_psql($conn,$event_id,pg_escape_string($_POST['profession__']),"profession");
+                insert_arr_psql($conn,$event_id,pg_escape_string($_POST['income_level__']),"income_level");
+
+                       
+            echo"</br>";
+            echo "everything working ";
+            echo"</br>";
+
+
+
+
+        foreach ($_POST['social_media__'] as $key => $value) {
+       
+            $_POST['social_media__'][$key] = htmlspecialchars($value);
+        }
+
+        $_POST['non_media_explorer__'] = htmlspecialchars($_POST['non_media_explorer__']);
+        $_POST['tele__'] = htmlspecialchars($_POST['tele__']);
+        $_POST['radio__'] = htmlspecialchars($_POST['radio__']);
+        $_POST['print__'] = htmlspecialchars($_POST['print__']);
+        $_POST['off_line_promo__'] = htmlspecialchars($_POST['off_line_promo__']);
+         
+        foreach ($_POST['media_name__'] as $key => $value) {
+            $_POST['media_name__'][$key] = htmlspecialchars($value);
+        }  
+ 
+        foreach ($_POST['package___'] as $key => $value) {
+            $_POST['package___'][$key] = htmlspecialchars($value);
+            $_POST['price_package___'][$key] = htmlspecialchars($_POST['price_package___'][$key]);
+            $_POST['descritpion_package___'][$key] = htmlspecialchars($_POST['descritpion_package___'][$key]);
+            $_POST['pack_number_package___'][$key] = htmlspecialchars($_POST['pack_number_package___'][$key]);
+        }
+
+        foreach ($_POST['deliver___'] as $key => $value) {
+            $_POST['deliver___'][$key] = htmlspecialchars($value);
+            $_POST['image_deliver___'][$key] = htmlspecialchars($_POST['image_deliver___'][$key]);
+            $_POST['descritpion_deliver___'][$key] = htmlspecialchars($_POST['descritpion_deliver___'][$key]);
+           
+        }
+        foreach ($_POST['element___'] as $key2d => $value2d) {
+            foreach ($value2d as $key => $value) {
+                $_POST['element___'][$key2d][$key] = (int)$value;
+            }
+        }
+        $_POST['contact_name__'] = htmlspecialchars($_POST['contact_name__']);
+        $_POST['contact_email__'] = htmlspecialchars($_POST['contact_email__']);
+        $_POST['contact_mob__'] = htmlspecialchars($_POST['contact_mob__']);
+        $_POST['office___'] = htmlspecialchars($_POST['office___']);
+
+        if(get_magic_quotes_gpc()){
+            foreach ($_POST['social_media__'] as $key => $value) {
+                $_POST['social_media__'][$key] = stripslashes($value);
+            }
+            $_POST['non_media_explorer__'] = stripslashes($_POST['non_media_explorer__']);
+            $_POST['tele__'] = stripslashes($_POST['tele__']);
+            $_POST['radio__'] = stripslashes($_POST['radio__']);
+            $_POST['print__'] = stripslashes($_POST['print__']);
+            $_POST['off_line_promo__'] = stripslashes($_POST['off_line_promo__']);
+            foreach ($_POST['media_name__'] as $key => $value) {
+                $_POST['media_name__'][$key] = stripslashes($value);
+            }  
+            foreach ($_POST['package___'] as $key => $value) {
+                $_POST['package___'][$key] = stripslashes($value);
+                $_POST['price_package___'][$key] = stripslashes($_POST['price_package___'][$key]);
+                $_POST['descritpion_package___'][$key] = stripslashes($_POST['descritpion_package___'][$key]);
+                $_POST['pack_number_package___'][$key] = stripslashes($_POST['pack_number_package___'][$key]);
+            }
+            foreach ($_POST['deliver___'] as $key => $value) {
+                $_POST['deliver___'][$key] = stripslashes($value);
+                $_POST['image_deliver___'][$key] = stripslashes($_POST['image_deliver___'][$key]);
+                $_POST['descritpion_deliver___'][$key] = stripslashes($_POST['descritpion_deliver___'][$key]);
+               
+            }
+
+            foreach ($_POST['element___'] as $key2d => $value2d) {
+
+                foreach ($value2d as $key => $value) {
+
+                    $_POST['element___'][$key2d][$key] = (int)$value;
+
+                }
+            }
+
+            $_POST['contact_name__'] = stripslashes($_POST['contact_name__']);
+            $_POST['contact_email__'] = stripslashes($_POST['contact_email__']);
+            $_POST['contact_mob__'] = stripslashes($_POST['contact_mob__']);
+            $_POST['office___'] = stripslashes($_POST['office___']);
+        }
+
+
+            $event_id = $_SESSION["event_id"];
+             $insert_array = array();
+            $query = "INSERT INTO online_profile(event_id,site_name,link)VALUES($1,$2,$3)";
+            $length = sizeof($_POST['social_media__']);
+            echo $length;
+            for ($i=0; $i <$length; $i+=2) { 
+                $sub_insert = array($event_id,$_POST['social_media__'][$i],$_POST['social_media__'][$i+1]);
+                array_push($insert_array,$sub_insert);
+           }
+           pg_prepare_multi_insert($conn, $query,$insert_array);
+             $insert_array = array();
+            $query = "INSERT INTO offlinepromotion(event_id,names,description)VALUES($1,$2,$3)";
+            $sub_insert =array($event_id,'Non_media',$_POST['non_media_explorer__']);
+            array_push($insert_array,$sub_insert);
+            $sub_insert =array($event_id,'television',$_POST['tele__']);
+            array_push($insert_array,$sub_insert);
+            $sub_insert =array($event_id,'radio',$_POST['radio__']);
+            array_push($insert_array,$sub_insert);
+            $sub_insert =array($event_id,'print',$_POST['print__']);
+            array_push($insert_array,$sub_insert);
+            $sub_insert =array($event_id,'offline',$_POST['off_line_promo__']);
+            array_push($insert_array,$sub_insert);
+             pg_prepare_multi_insert($conn, $query,$insert_array);
+            foreach ($_POST['media_name__'] as $key => $value) {
+                $_POST['media_name__'][$key] = stripslashes($value);
+            }  
+             $insert_array = array();
+            $query = "INSERT INTO onlinepromotion(event_id,site_name,link)VALUES($1,$2,$3)";
+            $length = sizeof($_POST['media_name__']);
+            for ($i=0; $i <$length; $i=$i+2) { 
+                $sub_insert =array($event_id,$_POST['media_name__'][$i],$_POST['media_name__'][$i+1]);
+               array_push($insert_array,$sub_insert);
+            }
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+             $insert_array = array();
+            $query = "INSERT INTO offers(event_id,offer_name,cost,currency,description,total)VALUES($1,$2,$3,$4,$5,$6)";
+            foreach ($_POST['package___'] as $key => $value) {
+            $sub_insert =array($event_id,$value,(int)$_POST['price_package___'][$key],$_SESSION['currency'],$_POST['descritpion_package___'][$key],(int)$_POST['pack_number_package___'][$key]);
+            array_push($insert_array,$sub_insert);
+            }
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+             $insert_array = array();
+            $query = "INSERT INTO deliverable(event_id,deliverable_name,description,deliverable_image)VALUES($1,$2,$3,$4)";
+            foreach ($_POST['deliver___'] as $key => $value) {
+            $sub_insert =array($event_id,$value,$_POST['descritpion_deliver___'][$key],$_POST['image_deliver___'][$key]);
+            array_push($insert_array,$sub_insert);
+            }
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+             $insert_array = array();
+            $query="INSERT INTO offer_deliver(event_id,offer_name,deliverable_name,quantity)VALUES($1,$2,$3,$4)";
+            foreach ($_POST['element___'] as $key2d => $value2d) {
+                foreach ($value2d as $key => $value) {
+                $sub_insert =array($event_id,$key2d,$key,(int)$value);
+                array_push($insert_array,$sub_insert);
+                }
+            }
+            pg_prepare_multi_insert($conn, $query,$insert_array);
+            $query = "INSERT INTO event_contact(event_id,password,contact_name,contact_email,contact_mobile,contact_office)VALUES($1,$2,$3,$4,$5,$6)";
+            $insert_array =array($event_id,null,$_POST['contact_name__'],$_POST['contact_email__'],$_POST['contact_mob__'],$_POST['office___']);
+             pg_prepare_single_insert($conn, $query,$insert_array);
+
+            echo"</br>";
+            echo "everything working WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
+            echo"</br>";
+?>
