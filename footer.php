@@ -1,7 +1,6 @@
 
 <footer class="page-footer"  style='margin-top:0px;'>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 <a name='contact' ></a>
   <div class=" container row" >
     <div class="col l6 s12 m6">
@@ -38,9 +37,10 @@
     </div>
   </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 <script >
 
-
+$('#logo').css('height',($(".nav-wrapper").height()+'px'));
 function select_one(e){
   $(e).parent().siblings().children('#valtext').attr('value',e.value);
   $(e).parent().siblings("#other").hide();  

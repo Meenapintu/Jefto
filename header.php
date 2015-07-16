@@ -12,17 +12,12 @@
       <!--Import materialize.css-->
       <!-- <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.min.css"  media="screen,projection"/>-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"  media="screen,projection" />
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+      <link rel="stylesheet" href="forms.css">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <!--Import jQuery before materialize.js-->
-    
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
-       
-      <!-- <script type="text/javascript" src="./materialize/js/materialize.min.js"></script>
-     <script type="text/javascript" src="./materialize/js/typehead.js"></script> -->
-      <!--<link rel="stylesheet" href="materialize-tags.min.css">-->
-     <link rel="stylesheet" href="forms.css">
-    
+
 
 </head>
  <!--  Begining of Navbar Header part  (# START) -->
@@ -48,5 +43,5 @@
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script >
    
-  $('#logo').css('height',($(".nav-wrapper").height()+'px'));
+  
 </script>
