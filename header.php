@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <title>Jefto.com </title>
+  <link rel="icon" type="image/png" href="def_img/favicon.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
- 
+  <meta name="author" content="Pintu LAl Meena">
+  <meta name="devloper" content="Pintu Lal meena">
+  <meta name="copyright" content="jefto.com">
 
   <html>
  
@@ -29,7 +31,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="/Jefto-1.0/" class="brand-logo"><img src="def_img/jefto.png" id='logo' style="height:100%; max-height:64px;max-width:171px;position:relative" /></a>
+      <a href="/" class="brand-logo"><img src="def_img/jefto.png" id='logo' style="height:100%; max-height:64px;max-width:171px;position:relative" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="form.php">Submit Event</a></li>
