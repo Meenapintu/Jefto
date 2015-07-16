@@ -8,7 +8,7 @@
   <meta name="author" content="Pintu LAl Meena">
   <meta name="devloper" content="Pintu Lal meena">
   <meta name="copyright" content="jefto.com">
-
+    
       <!--Import materialize.css-->
       <!-- <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.min.css"  media="screen,projection"/>-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"  media="screen,projection" />
@@ -18,7 +18,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <!--Import jQuery before materialize.js-->
 
-
+      <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
  <!--  Begining of Navbar Header part  (# START) -->
 
@@ -40,8 +40,3 @@
       </ul>
     </div>
   </nav>
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script >
-   
-  
-</script>
