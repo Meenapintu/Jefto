@@ -22,7 +22,7 @@
      <script type="text/javascript" src="./materialize/js/typehead.js"></script> -->
       <!--<link rel="stylesheet" href="materialize-tags.min.css">-->
      <link rel="stylesheet" href="forms.css">
-     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    
 
 </head>
  <!--  Begining of Navbar Header part  (# START) -->
@@ -45,9 +45,8 @@
       </ul>
     </div>
   </nav>
-
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script >
-  
+   
   $('#logo').css('height',($(".nav-wrapper").height()+'px'));
 </script>
-  <link rel="stylesheet" href="forms.css">

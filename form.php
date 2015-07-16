@@ -13,7 +13,6 @@
 		display: none;
 	}
 </style>
-<link rel="stylesheet" href="forms.css">
 
  <!--  END of of Navbar header  part  (# ENDT) -->
   <!--  This part for  most Form fill up  (#START) -->
