@@ -31,7 +31,7 @@
  <div class="row current" id=3 >
  	<p class='flow-text center white-t font-ml' style="color:#26A69A;margin:0px;" >Submit Event: Part 3 of 3 </p>
  </div>
-<form  enctype="multipart/form-data" method="post" action="controller.php"role="form"  class="card-panel">
+<form  enctype="multipart/form-data" method="post" role="form"  class="card-panel">
 	<div class="row active-f" id=1>
    		<script type="text/javascript"> 
     	document.write("<div class='input-field  col s12 m12 l12' >");
@@ -356,13 +356,9 @@ for (var i = 1; i < def_pack; i++) {
 	add_package(packs[i]);
 };
 
-function back(curr_id,e){
-	$(".active-f").attr('class','row current');
-	$('input[id=back-b]').each(function(){$(this).attr('class','waves-effect waves-light btn-large center');
-			});
-	$('div[id=' + curr_id +']').each(function(){$(this).attr('class','row active-f');
-			});
-}
+
+
+
 
 $('#4_deleteFinancial').on('change',function () {
 	if($(this).is(':checked')){
@@ -381,9 +377,29 @@ $('#4_deleteFinancial').on('change',function () {
 		}
 });
 
+var freq1 = "input[name=event_name__ ],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
+var freq2 = "input[name=total_audience_count__]";
+var freq3 = "input[name=contact_name__],input[name=contact_mob__],input[name=contact_email__],input[name=description__]";
+$(freq1).attr('required',true);
+
+function back(curr_id,e){
+	$(".active-f").attr('class','row current');
+
+	$('input[id=back-b]').each(function(){$(this).attr('class','waves-effect waves-light btn-large center');
+			});
+	$('div[id=' + curr_id +']').each(function(){$(this).attr('class','row active-f');
+			});
+	$(eval('freq'+curr_id.toString())).attr('required',true)
+	$(eval('freq'+ ++curr_id.toString())).attr('required',false)
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+
+}
+
+
 $('form').on('submit', function (e) {
 	e.preventDefault();   //page not relaoding
-	var curr_id= parseInt($(this).children(".active-f").attr('id'));
+	var thisid = $(this).children(".active-f").attr('id');
+	var curr_id= parseInt(thisid);
 	if(curr_id==3){
 		$.ajax({
             type: 'post',
@@ -393,8 +409,9 @@ $('form').on('submit', function (e) {
             	//$('#modal1').closeModal();
             	  if(data){
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
+            	  	header('Location: Done.php');
             	  }
-            	  header('Location: Done.php');
+            	  
             	  else{
             	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
             	  $('#Error1').openModal();
@@ -403,21 +420,16 @@ $('form').on('submit', function (e) {
           });
 	}
 	$(".active-f").attr('class','row current');
-
+	$(eval('freq'+thisid)).attr('required',false)
 	$('div[id=' + ++curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
+	$(eval('freq'+curr_id.toString())).attr('required',true)
+	 $("html, body").animate({ scrollTop: 0 }, "slow");
 });
 
 
-if($(browser).mozilla){
-	alert('dggdgdg');
- $('.datepicker').pickadate({
-selectMonths: true, // Creates a dropdown to control month
-selectYears: 15 // Creates a dropdown of 15 years to control year
-});
 
-}
-  if ( $.browser.webkit ) {
-    alert( "This is WebKit!" );
+  if ( $.browser ) {
+    alert( $.browser );
   }
 </script>

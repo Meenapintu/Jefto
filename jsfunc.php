@@ -11,10 +11,10 @@
 
 
 
-function subform(name,msg,type){
-	 //var input ="";
-	 var input ="<input type= '"+type+"' name= "+name+" id='"+name+"'  >";
-	 	 input+="<label for='"+name+"'>"+msg+"</label>"
+function subform(name,msg,type,req){
+	 //var input ="";req for required or not 
+	 var input ="<input type= '"+type+"' name= "+name+" id='"+name+"' class='validate' >";
+	 	 input+="<label data-error='wrong input' for='"+name+"'>"+msg+"</label>"
 	 	 //input+="";
 	 	 //alert(input);
 	 return input;
