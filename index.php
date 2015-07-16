@@ -25,9 +25,6 @@
 </style>
 
 <script>
-	function resize (e) {
-		alert("gfg");
-	}
 $(function () {
 
         $('form').on('submit', function (e) {

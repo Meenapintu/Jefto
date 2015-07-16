@@ -12,8 +12,6 @@
 	.current{
 		display: none;
 	}
-
-	
 </style>
 <link rel="stylesheet" href="forms.css">
 
@@ -415,7 +413,7 @@ $('form').on('submit', function (e) {
             	  else{
             	  	alert("Sorry we got some error!");
             	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
-            	  $('#Error1').openModal();
+            	 	 header('Location: error.php');
             	  }
             }
           });
