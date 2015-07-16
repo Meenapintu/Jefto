@@ -10,8 +10,9 @@ class dbms{
 	{
 		$this->conn = $connection;
 		
+		
 	$query = "CREATE TABLE IF NOT EXISTS event(		/*  for long time these fields are going to update rarely */
-			event_id   	bigserial not null primary key,
+			event_id   	bigserial  primary key,
 			name 		varchar(100) not null,
 			category 	varchar(30) not null,
 			genre		varchar(30) not null,
@@ -31,7 +32,7 @@ class dbms{
 			budget 				bigint,
 			tags 				varchar(100)
 		)";
-
+	
 	$psql = pg_query($this->conn, $query) or die(pg_errormessage());
 	   if(!$psql){
 	      echo pg_last_error($this->conn);
@@ -39,6 +40,7 @@ class dbms{
 	      echo "Table  event created successfully\n";
 	   }
 
+	 
 	$query = " CREATE TABLE IF NOT EXISTS  eventplus(				/* These fields may change every time */
 			event_id   		bigserial  REFERENCES event ON DELETE CASCADE,
 			logo			text ,
@@ -53,6 +55,32 @@ class dbms{
 	   } else {
 	      echo "Table  event plus created successfully\n";
 	   }
+
+	   	$query = "CREATE TABLE IF NOT EXISTS sponsorship(    /* there are name and count of them fields like key values */
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
+			type  			varchar(50)
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  demographics created successfully\n";
+	   }
+
+	   $query = "CREATE TABLE IF NOT EXISTS sponsorship_finance(    /* there are name and count of them fields like key values */
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
+			type  			varchar(50),
+			fund           bigint
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  demographics created successfully\n";
+	   }
+
 	 $query = " CREATE TABLE IF NOT EXISTS age_group(
 	 		event_id		bigserial REFERENCES event ON DELETE CASCADE,
 	 		low_age         int,
@@ -64,6 +92,19 @@ class dbms{
 	      echo pg_last_error($this->conn);
 	   } else {
 	      echo "Table  event plus created successfully\n";
+	   }
+
+	   $query = "CREATE TABLE IF NOT EXISTS key_numbers(    /* there are name and count of them fields like key values */
+			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,
+			type_name  			varchar(50),
+			type_count 			int
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  demographics created successfully\n";
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS demographics(    /* there are name and count of them fields like key values */
 			event_id 			bigserial  REFERENCES event ON DELETE CASCADE,

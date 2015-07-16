@@ -16,5 +16,5 @@ $email = pg_escape_string($_POST['whoami']);
 $query = "INSERT INTO subscription(email,user_type)VALUES($1,$2)";
 $insert_array = array($email,$type);
 pg_prepare_single_insert($conn, $query,$insert_array);
-
+//echo TRUE;
 ?>

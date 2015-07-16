@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Jefto.com </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="index.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="forms.css">
-<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+<meta charset="utf-8">
 <style>
 table, th, td {
     border: 1px solid black;
@@ -18,25 +7,7 @@ table, th, td {
 th, td {
     padding: 0px;
 }
-/*.col-md-6 , .col-md-3 {
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	
-	display: inline-block;
-}
-.col-md-12{
 
-}
-.row{
-	padding: 0px;
-	margin: 0px;
-}
-input{
-	position: relative;
-	margin: 0px;
-	width: 100%;
-}*/
 #add_pack,.register_pack,#add_benifit{
     display: none;
 }
@@ -48,46 +19,73 @@ input{
  var deliver_count =1;
  var pack_array = [];
  var deliver_array =[];
- /*
- this the while matrix has only one data reference to send 
- suppose offers
-     p1   p2   p3   p4  p5   p6
- d1  p1d1
- d2  p1d2
- d3
- d4
- d5
- d6
 
- why don't keep class name as pack reference and id as deliver reference :
- yes it could be a best algorithm to handle remove and add element * yeah it good 
- */
-
-
- var packs = new Array('Gold','Silver','Platinum');
- var delivers = new Array("Banners","Special Gate","Dedicated stand", "Spacial announcement" ,"Announcement on TV Radio","name on Tshirt","Name of promotional event","Special social network post", "name on brochure / pamphlet","name on bus ");
-var pack_next=0;
+var packs = new Array('Title', 'Gold', 'Silver');
+ var delivers = new Array("Banners", "Special gate", "Dedicated stand", "Special announcement from stage" ,"Announcement on TV / Radio", "Name on T-shirts", "Name on promotional occasion of Event", "Special post on online social profiles", "Name on brochure / pamphlet");
+ var pack_next=0;
 var deliver_next=0;
 
-function pack_core(stri,packn){
-	var pack = "<th id ='packth' class='"+stri+"'>";
-        pack+= "<div contentEditable=true  >package name</div>";
-        pack+= "<input type='hidden' name='"+packn+"' ></input>";
-	    pack+= "<div contentEditable=true>  price </div>";
-      pack+= "<input type='hidden' name='price_"+packn+"' ></input>";
-      pack+= "<div >  package description </div>";
-      pack+= "<input type='hidden' name='descritpion_"+packn+"' ></input>";
-      pack+= "<div>  No of packege  </div>";
-      pack+= "<input type='hidden' name='pack_number_"+packn+"' ></input>";
-      pack+=  "<button type='button' id='remove_package' onclick='rmpack(this)' > Delete package</button>";
+function save_me(e){
+  // save description 
+  //event.preventDefault();
+  //$(e).siblings().children().attr('contentEditable','true');
+
+  $(e).parent().parent().parent().siblings('#description').attr('value',e.innerHTML)
+  //alert($(e).parent().parent().siblings('#description').attr('value'));
+  //e.innerHTML = 'Save';
+}
+function hide(e) {
+  event.preventDefault();
+  //alert($(e).parent().parent().parent().attr('id'));
+  $(e).parent().parent().parent().fadeOut();
+}
+function setval (e) {
+  $(e).siblings('#'+$(e).attr('id')).attr('value',e.innerHTML);
+}
+
+function setdrop(e){
+      $(e).children('#descme').css('width',($("#packth").width()+'px'));
+      $(e).children('#descme').css('display','block');
+      //$(e).children('#descme').focus();
+   /*$(e).dropdown({
+      inDuration: 30,
+      outDuration: 225,
+      constrain_width: true, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 1, // Spacing from edge
+      belowOrigin: false // Displays dropdown below the button
+    }
+  );*/
+}
+
+  
+    
+var desc1 = "<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'> <div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'></div>";
+      desc1+="<div  id='desc' class='col s12 m12 s12' contentEditable=true onblur='save_me(this);' style='word-wrap: break-word;background:white;'> Write Your Description here </div>";
+      desc1+="<div class='col s12 m12 s12' id ='state'> ";
+      desc1+="<button onclick='hide(this);'>Done</button>" ;    
+      desc1+="</div></div>";
+ 
+function pack_core(stri,packn,hname){
+	var pack = "<th id ='packth' class='"+stri+"' style='min-width: 135px;@media only screen and (max-device-width: 480px) { min-width: 100px;}' >";
+        pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>"+hname+"</div>";
+        pack+= "<input type='hidden' id ='packname' value='"+hname+"' name='"+packn+"' ></input>";
+	    pack+= "<div contentEditable=true id='pack_price' onblur='setval(this);'>  Price </div>";
+      pack+= "<input type='hidden'  id='pack_price' name='price_"+packn+"' ></input>";
+      pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of Packages  </div>";
+      pack+= "<input type='hidden' id='packnum' name='pack_number_"+packn+"' ></input>";
+       pack+= "<div onclick='setdrop(this);' ><i class='material-icons '>description</i> Description ";
+      pack+= "<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>"+desc1+"</div></div>";
+      pack+= "<input type='hidden' id = 'description' name='descritpion_"+packn+"' ></input>";
+      pack+=  "<i id='remove_package' onclick='rmpack(this)' class='waves-effect waves-light btn-tiny center  bg-trance material-icons right'> delete</i>";
     	pack+= "</th>";
-        pack+= "<th id ='add_pack'></th>";
+      pack+= "<th id ='add_pack'></th>";
     return pack;
 }
 function pack_register(stri,name){
 	var pack_deliver = "<td id='pack_del_td' class='"+stri+"'>";
         pack_deliver+= "<div>";
-        pack_deliver+= "<input type='int'placeholder='0' name='"+name+"' onclick='pack_name(this)'></input>";
+        pack_deliver+= "<input type='number'placeholder='0' name='"+name+"' onclick='pack_name(this)'></input>";
     	pack_deliver+= "</div>";
         pack_deliver+= "</td>";
         pack_deliver+= "<td class = 'register_pack' id='register_pack'></td>";
@@ -133,22 +131,10 @@ function care_deliver(number){
   }
 }
 
-// 
-
-/*
-need to create 2D array of input value as required 
-or name depend on value of opper offername and 
-so what should i do ?
-single array of element's right 
-function care_delive(e){
-    for (var i = 0; i < pack_count; i++) {
-      $()
-    };
-}*/
-function add_package(){
+function add_package(hname){
     //alert("adding");
     var cnme = pack_class_name();
-    $("#add_pack").replaceWith(pack_core(cnme,pack_name(pack_next)));
+    $("#add_pack").replaceWith(pack_core(cnme,pack_name(pack_next),hname));
 
       var i=0;
     $(".register_pack").each(function(){
@@ -173,7 +159,7 @@ function rmdel(e){
 };
 
 function relation_fix_help(e,untill){
-        alert($(e).attr('class'));
+        //alert($(e).attr('class'));
         //alert($(e).next().attr('class') +" "+$(untill).attr('class'));
         if($(e).next().attr('class') != $(untill).attr('class'))
           relation_fix_help($(e).next(),untill);
@@ -186,22 +172,22 @@ function relation_fix (e) {
     relation_fix_help($(e).next(),untill);
 }
 
-function add_benefit_help(delname){
-	var benefit = "<tr> <td> <div class='row'>";	
-              benefit+= "<div class='col-md-6'>"; 
-				    	benefit+= "<input type='text' name='"+delname+"' onclick='relation_fix(this)'></input>";
+function add_benefit_help(delname,value){
+	var benefit = "<tr class='bc margin-0 pd-0'> <td> <div class='row margin-0 pd-0'>";	
+              benefit+= "<div class='col  s12 m12 dn'>"; 
+				    	benefit+= "<input type='text' col='1' name='"+delname+"' onclick='relation_fix(this)' value='"+value+"' style='wrap:break-word;white-space:pre-wrap;' ></input>";
 				    	benefit+= "</div>";
-				    	benefit+= "<div class='col-md-3'>";
-				    	benefit+= "<input type='text' name='image_"+delname+"'></input>";
+				    	benefit+= "<div class='col m3 hide'>";
+				    	benefit+= "<input type='number' name='image_"+delname+"'></input>";
 				    	benefit+= "</div>";
-				    	benefit+= "<div class='col-md-3'>";
+				    	benefit+= "<div class='col m3 hide'>";
 				    	benefit+= "<input type='text' name='descritpion_"+delname+"'></input>";
 				    	benefit+= "</div>";
 				benefit+= "</div></td>";
                     benefit+= pack_register(pack_class_name_deliver(pack_array[0]),element_name(pack_array[0],deliver_next));
                 
                 benefit+= "<td id='remove_button' class='testing'><div>";
-				    	benefit+= "<button type='button' id='remove_deliver' onclick='rmdel(this)' class='"+delname+"'> Delete deliver</button>";
+				    	benefit+= "<i id='remove_deliver' onclick='rmdel(this)' class='"+delname+" waves-effect waves-light btn-tiny center  bg-trance material-icons center'>delete</i>";
 				benefit+= "</div></td>";
     	benefit+= "</tr>";
 
@@ -209,55 +195,26 @@ function add_benefit_help(delname){
     return benefit;
 }
 
-function add_benefit(){
+function add_benefit(value){
        deliver_next++;
         deliver_array.push(deliver_next)
-        $("#add_benefit").replaceWith(add_benefit_help(deliver_name(deliver_next)));
+        $("#add_benefit").replaceWith(add_benefit_help(deliver_name(deliver_next),value));
         for (var i = 1; i < pack_array.length; i++) {
 
         $(".register_pack ").last().replaceWith(pack_register(pack_class_name_deliver(pack_array[i]),element_name(pack_array[i],deliver_next)));
     };
 }
 
+/*$('#matrix').onchange({
+      //var v = $('.dn');
+       alert(445);
+      var max = 0;
+      for (var i = v.length - 1; i >= 0; i--) {
+        if ($(v[i]).scrollWidth > max) max =$(v[i]).scrollWidth;
+
+      alert('runnih');
+      };
+      
+});*/
+
 </script>
-</head>
-<body>
-
-<table style="width:100%">
-	<tr>
-  		<th>
-  			<div>BENEFITS</div>
-  			<div>$10000</div>
-  		</th>
- 
-    	<script type="text/javascript">
-        document.write(pack_core(pack_class_name(),pack_name(pack_next)));
-        </script>		
-    <!-- ############################################    -->
-
-
-    	<th id="add_package" onclick="add_package()">
-    		<div>+<div>
-    		<div >Add package  </div>
-    	</th>
-    </tr>
-  	
- <!--  benefit  row  ##################################################### -->
-
-  <script type="text/javascript">
-    deliver_next++;
-    deliver_array.push(deliver_next)
-   // alert(pack_register(pack_class_name_deliver(pack_array[0]),element_name(pack_array[0],deliver_next)));
-  document.write(add_benefit_help(deliver_name(deliver_next)));
-  </script>
-  
- <!-- ################################################################   -->
-    <tr>
-    	<td>
-    		<button type="button" onclick="add_benefit()"> Add Benefit </button>
-    	</td>
-    </tr>
-</table>
- <link rel="stylesheet" href="forms.css">
-</body>
-</html>
