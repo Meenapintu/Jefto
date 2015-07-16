@@ -1,7 +1,6 @@
 
 <footer class="page-footer"  style='margin-top:0px;'>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 <a name='contact' ></a>
   <div class=" container row" >
