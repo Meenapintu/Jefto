@@ -23,8 +23,7 @@
 
 
 </style>
-<link rel="stylesheet" href="forms.css">
-<link rel="stylesheet" type="text/css" href="wegdet.css">
+
 <script>
 	function resize (e) {
 		alert("gfg");

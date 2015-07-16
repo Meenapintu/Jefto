@@ -1,9 +1,3 @@
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.js"></script>
 
 
 <script type="text/javascript">
