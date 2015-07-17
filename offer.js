@@ -1,20 +1,4 @@
-<meta charset="utf-8">
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 0px;
-}
 
-#add_pack,.register_pack,#add_benifit{
-    display: none;
-}
-</style>
-
-<script type="text/javascript">
- 
  //var pack_count =0;
  var deliver_count =1;
  var pack_array = [];
@@ -26,19 +10,13 @@ var packs = new Array('Title', 'Gold', 'Silver');
 var deliver_next=0;
 
 function save_me(e){
-  // save description 
-  //event.preventDefault();
-  //$(e).siblings().children().attr('contentEditable','true');
-
-  $(e).parent().parent().parent().siblings('#description').attr('value',e.innerHTML)
-  //alert($(e).parent().parent().siblings('#description').attr('value'));
-  //e.innerHTML = 'Save';
+  $(e).parent().parent().parent().siblings('#description').attr('value',e.innerHTML);
 }
 function hide(e) {
   event.preventDefault();
-  //alert($(e).parent().parent().parent().attr('id'));
   $(e).parent().parent().parent().fadeOut();
 }
+
 function setval (e) {
   $(e).siblings('#'+$(e).attr('id')).attr('value',e.innerHTML);
 }
@@ -46,16 +24,6 @@ function setval (e) {
 function setdrop(e){
       $(e).children('#descme').css('width',($("#packth").width()+'px'));
       $(e).children('#descme').css('display','block');
-      //$(e).children('#descme').focus();
-   /*$(e).dropdown({
-      inDuration: 30,
-      outDuration: 225,
-      constrain_width: true, // Does not change width of dropdown to that of the activator
-      hover: true, // Activate on hover
-      gutter: 1, // Spacing from edge
-      belowOrigin: false // Displays dropdown below the button
-    }
-  );*/
 }
 
   
@@ -70,23 +38,23 @@ function pack_core(stri,packn,hname){
 	var pack = "<th id ='packth' class='"+stri+"' style='min-width: 135px;@media only screen and (max-device-width: 480px) { min-width: 100px;}' >";
         pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>"+hname+"</div>";
         pack+= "<input type='hidden' id ='packname' value='"+hname+"' name='"+packn+"' ></input>";
-	    pack+= "<div contentEditable=true id='pack_price' onblur='setval(this);'>  Price </div>";
-      pack+= "<input type='hidden'  id='pack_price' name='price_"+packn+"' ></input>";
-      pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of Packages  </div>";
-      pack+= "<input type='hidden' id='packnum' name='pack_number_"+packn+"' ></input>";
-       pack+= "<div onclick='setdrop(this);' ><i class='material-icons '>description</i> Description ";
-      pack+= "<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>"+desc1+"</div></div>";
-      pack+= "<input type='hidden' id = 'description' name='descritpion_"+packn+"' ></input>";
-      pack+=  "<i id='remove_package' onclick='rmpack(this)' class='waves-effect waves-light btn-tiny center  bg-trance material-icons right'> delete</i>";
-    	pack+= "</th>";
-      pack+= "<th id ='add_pack'></th>";
+  	    pack+= "<div contentEditable=true id='pack_price' onblur='setval(this);'>  Price </div>";
+        pack+= "<input type='hidden'  id='pack_price' name='price_"+packn+"' ></input>";
+        pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of Packages  </div>";
+        pack+= "<input type='hidden' id='packnum' name='pack_number_"+packn+"' ></input>";
+        pack+= "<div onclick='setdrop(this);' ><i class='material-icons '>description</i> Description ";
+        pack+= "<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>"+desc1+"</div></div>";
+        pack+= "<input type='hidden' id = 'description' name='descritpion_"+packn+"' ></input>";
+        pack+=  "<i id='remove_package' onclick='rmpack(this)' class='waves-effect waves-light btn-tiny center  bg-trance material-icons right'> delete</i>";
+      	pack+= "</th>";
+        pack+= "<th id ='add_pack'></th>";
     return pack;
 }
 function pack_register(stri,name){
 	var pack_deliver = "<td id='pack_del_td' class='"+stri+"'>";
         pack_deliver+= "<div>";
         pack_deliver+= "<input type='number'placeholder='0' name='"+name+"' onclick='pack_name(this)'></input>";
-    	pack_deliver+= "</div>";
+        pack_deliver+= "</div>";
         pack_deliver+= "</td>";
         pack_deliver+= "<td class = 'register_pack' id='register_pack'></td>";
     return pack_deliver;
@@ -205,16 +173,5 @@ function add_benefit(value){
     };
 }
 
-/*$('#matrix').onchange({
-      //var v = $('.dn');
-       alert(445);
-      var max = 0;
-      for (var i = v.length - 1; i >= 0; i--) {
-        if ($(v[i]).scrollWidth > max) max =$(v[i]).scrollWidth;
 
-      alert('runnih');
-      };
-      
-});*/
 
-</script>

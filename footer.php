@@ -1,5 +1,6 @@
 
 <footer class="page-footer"  style='margin-top:0px;'>
+
 <a name='contact' ></a>
   <div class=" container row" >
     <div class="col l6 s12 m6">
@@ -36,3 +37,116 @@
     </div>
   </div>
 </footer>
+<script src="materialize/js/materialize.min.js"></script>
+<script >
+
+$('#logo').css('height',($(".nav-wrapper").height()+'px'));
+function select_one(e){
+  $(e).parent().siblings().children('#valtext').attr('value',e.value);
+  $(e).parent().siblings("#other").hide();  
+}
+
+function select_mult(e){
+  var val = $(e).parent().siblings().children('.checkbox');
+  var newval ='';
+  for (var i = 0; i < val.length; i++) {
+    if($(val[i]).attr('type') == 'checkbox'){
+      if($(val[i]).is(':checked')){
+        newval += val[i].value;
+        newval += "___";
+      }
+    }
+    else{
+      if(typeof(val[i]) != "undefined"){
+        newval += val[i].value;
+        newval += "___";
+      }
+    }
+  }
+  if($(e).attr('type') == 'checkbox'){
+    if($(e).is(':checked')){
+      newval += e.value;
+      newval += "___";
+    }
+  }
+  else{
+    if(typeof(e) != "undefined"){
+      newval += e.value;
+      newval += "___";
+    }
+  }
+  $(e).parent().siblings().children('#valtext').attr('value',newval);
+}
+
+function other_input(e){
+  if($(e).is(':checked')){
+    $(e).parent().siblings("#other").show();
+    $(e).parent().siblings("#other").children().attr('class','checkbox');
+  }
+  else{
+    $(e).parent().siblings("#other").hide();
+    $(e).parent().siblings("#other").children().attr('class','NOTCHECKD');
+  }
+}
+
+
+function selectform1(name,option){
+  var sform= "<select name= '"+name+"' class='browser-default'>";
+    for (var i = option.length - 1; i >= 0; i--) {
+      sform+= "<option value = '"+option[i]+"' >"+option[i]+"</option>";
+    }
+    sform+= "</select>";
+  return sform;
+}
+
+
+function add_feild(e){
+  if (e.name =='social_media'){
+    var placeholder = 'https://';
+      type = "text";
+  }
+  else if (e.name == 'key_number'){
+    var placeholder ='How Many ';
+      type = "number";
+  }
+  else{
+    var placeholder ='How much ( write % ) ';
+      type = "number";  
+  }
+  $(e).siblings("#replace_me").replaceWith(key_numbers(eval(e.name),e.id+"["+ e.value++ +"]",e.id+"["+e.value++ +"]",placeholder,type
+    ));
+  $(e).siblings("#"+e.id).attr('value',e.value);
+}
+ 
+
+$('#select_in').keypress(function(){
+  $('.s-div').hide();
+});
+
+function showop(e) {
+  $(e).siblings('.s-div').show();
+}
+
+function setv(e) {
+  $(e).parent().parent().siblings("#select_in").attr('value',$(e).html());
+  $('.s-div').hide();
+};
+
+$(".button-collapse").sideNav();
+
+$(document).ready( function(){
+  $('#gender_ratio__').mousemove(function(event){
+    $('.value').html($(this).val());
+  });
+
+  $(window).resize(function(){
+        $('#logo').css('height',($(".nav-wrapper").height()+'px'));
+    });
+
+  $(document).click(function(e){
+    if($(e.target).attr('id')!='select_in'){
+      $('.s-div').hide();
+    }
+  });
+});
+</script>

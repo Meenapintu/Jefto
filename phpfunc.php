@@ -43,10 +43,9 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
         //die("Can't prepare '$sql': " . pg_last_error());
         echo false;
     }
-    else{
-        //echo "</br>INSERTION DONE 1</br> ";
         echo true;
     }
+
 
     $sql = sprintf('DEALLOCATE "%s"',pg_escape_string($sqlName));
     if(!pg_query($sql))
@@ -85,8 +84,8 @@ function pg_prepare_single_insert_v1($conn, $query,$insert_array)
         
 
     }
+
     return $v['event_id']; 
-    //echo TRUE;
 }
 
 ?>
