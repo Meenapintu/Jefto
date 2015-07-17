@@ -383,7 +383,7 @@ $('form').on('submit', function (e) {
             data: $('form').serialize(),
             success: function (data) {
             	//$('#modal1').closeModal();
-            	alert(data);
+            	//alert(data);
             	  if(data){
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
             	  	header('Location: Done.php');
@@ -392,7 +392,7 @@ $('form').on('submit', function (e) {
             	  else{
             	  	alert("Sorry we got some error!");
             	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
-            	 	// header('Location: error.php');
+            	 	 header('Location: error.php');
             	  }
             }
           });
