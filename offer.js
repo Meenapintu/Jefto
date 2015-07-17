@@ -68,15 +68,15 @@ function pack_class_name(){
 
 function pack_name (next) {
   //return "package___"+next;
-  return "package___[p"+next+"]";
+  return "package___["+next+"]";
 }
 function deliver_name(next){
-  return "deliver___[d"+next+"]";
+  return "deliver___["+next+"]";
   //return "deliver___"+next;
 }
 function element_name (p,d) {
   //alert(p+" "+d);
-  return "element___[p"+p+"][d"+d+"]";
+  return "element___["+p+"]["+d+"]";
   //return pack_name(p)+"___"+deliver_name(d);
 }
 function pack_class_name_deliver(addnum){
