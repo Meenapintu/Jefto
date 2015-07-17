@@ -1,11 +1,9 @@
-<script src="jsfunc.js"></script>
-<script src="offer.js"></script>
+
 <?php 
 	require_once("header.php");
-
-	   //require_once('offer.php');
-	 // require_once('jsfunc.php');  
 ?>
+<script src="jsfunc.js"></script>
+<script src="offer.js"></script>
 
 <div class="container" >
  <div class="row active-f" id=1 >
