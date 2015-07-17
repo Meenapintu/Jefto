@@ -386,13 +386,15 @@ $('form').on('submit', function (e) {
             	//alert(data);
             	  if(data){
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
-            	  	header('Location: Done.php');
+            	  	//header('Location: Done.php');
+            	  	$(location).attr('href','http://www.jefto.com/Done.php');
             	  }
             	  
             	  else{
             	  	alert("Sorry we got some error!");
             	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
-            	 	 header('Location: error.php');
+            	 	 //header('Location: error.php');
+            	 	 $(location).attr('href','http://www.jefto.com/error.php');
             	  }
             }
           });
