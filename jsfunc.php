@@ -1,6 +1,6 @@
 
 
-<script type="text/javascript">
+
 
 function subform(name,msg,type){
 	var input ="<input type= '"+type+"' name= "+name+" id='"+name+"' class='validate'>";
@@ -140,4 +140,3 @@ var audience_number = new Array(100,500,1000,5000,10000,20000,20,000);
 var social_media =  new Array('google.com','Facebook.com','linkdin.com');
 var key_number = new Array('Speakers','Events','Conference','Competition');
 var non_media_exposure = new Array('Bags', 'Conference Badges');
-</script>

@@ -1,65 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<?PHP require_once("header.php"); ?>
-<style type="text/css">
-.center {
-	margin: auto;
-	text-align:center;
-}
 
-.home_col{
-	background: rgba(34,35,75,0.7);
-
-}
-.white-t{
-	color: white;
-
-}
-
-.border-me select{
-	border:none;
-}
-
-
-</style>
-
-<script>
-$(function () {
-
-        $('form').on('submit', function (e) {
-
-          e.preventDefault();
-          $('#modal1').openModal();
-        });
-
-        $("#agree").on('click',function(){
-        	$.ajax({
-            type: 'post',
-            url: 'subs.php',
-            data: $('form').serialize(),
-            success: function (data) {
-            	//$('#modal1').closeModal();
-            	  if(data){
-					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
-            	  }
-            	  else{
-            	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
-            	  $('#Error1').openModal();
-            	  }
-            }
-          });
-        });
-
-});
-
-</script>
-</head>
  <!-- Butten start div (#START) -->
-
+<?PHP require_once("header.php"); ?>
 <!-- End of button Div (#END) -->
-  <!--  This part for  most trading categories  (#START) -->
- <body >
+
  <div class="container-fluid">
  <div class="row" style="margin:0px;">
 	<div class='col s12 m12 l12' style="background:#607D8B;">
@@ -185,7 +128,7 @@ $(function () {
 	</div>
 </div>
 </div>
-</body>
+
 
 <?PHP require_once("footer.php"); ?>
 
@@ -211,9 +154,40 @@ $(function () {
 	    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id='disagree'>OKAY</a>
 	    </div>
 	  </div>
-
+	  
+</body>
 </html>
 <script >
+
+$(function () {
+
+        $('form').on('submit', function (e) {
+
+          e.preventDefault();
+          $('#modal1').openModal();
+        });
+
+        $("#agree").on('click',function(){
+        	$.ajax({
+            type: 'post',
+            url: 'subs.php',
+            data: $('form').serialize(),
+            success: function (data) {
+            	//$('#modal1').closeModal();
+            	  if(data){
+					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
+            	  }
+            	  else{
+            	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
+            	  $('#Error1').openModal();
+            	  }
+            }
+          });
+        });
+
+});
+
+
 				$("#button").css('height',($("#select").height()+'px'));
 				$("#select").on('hover',function () {
 					// body...

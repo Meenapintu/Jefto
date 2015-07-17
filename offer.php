@@ -13,7 +13,7 @@ th, td {
 }
 </style>
 
-<script type="text/javascript">
+
  
  //var pack_count =0;
  var deliver_count =1;
@@ -190,4 +190,4 @@ function add_benefit(value){
 }
 
 
-</script>
+

@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <?php 
 	require_once("header.php");
-	   require_once('offer.php');
-	  require_once('jsfunc.php');  
+	
+	   //require_once('offer.php');
+	 // require_once('jsfunc.php');  
 ?>
-
-<body>
-<style type="text/css">
-	.current{
-		display: none;
-	}
-</style>
-
- <!--  END of of Navbar header  part  (# ENDT) -->
-  <!--  This part for  most Form fill up  (#START) -->
-
 
 <div class="container" >
  <div class="row active-f" id=1 >
@@ -335,13 +323,12 @@
 </form>
 </div>
 
-
-
-
  <!--  This part for  form fill up   (#END ) -->
 <?PHP require_once("footer.php"); ?>
 </body>
 </html>
+
+
 <script >
 del_len = delivers.length;
 for (var i = 1; i < del_len; i++) {
@@ -352,9 +339,6 @@ def_pack = packs.length;
 for (var i = 1; i < def_pack; i++) {
 	add_package(packs[i]);
 };
-
-
-
 
 
 $('#4_deleteFinancial').on('change',function () {

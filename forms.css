@@ -155,4 +155,37 @@ min-width: 135px;
 	background-color:#cfd8dc;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 0px;
+}
 
+#add_pack,.register_pack,#add_benifit{
+    display: none;
+}
+
+.center {
+	margin: auto;
+	text-align:center;
+}
+
+.home_col{
+	background: rgba(34,35,75,0.7);
+
+}
+.white-t{
+	color: white;
+
+}
+
+.border-me select{
+	border:none;
+}
+
+
+.current{
+		display: none;
+	}
