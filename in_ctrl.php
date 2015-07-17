@@ -417,14 +417,14 @@ echo"done everything";
             }
             pg_prepare_multi_insert($conn, $query,$insert_array);
              $insert_array = array();
-            $query = "INSERT INTO offers(event_id,offer_id,offer_name,cost,currency,description,total)VALUES($1,$2,$3,$4,$5,$6)";
+            $query = "INSERT INTO offers(event_id,offer_id,offer_name,cost,currency,description,total)VALUES($1,$2,$3,$4,$5,$6,$7)";
             foreach ($_POST['package___'] as $key => $value) {
             $sub_insert =array($event_id,$key,$value,(int)$_POST['price_package___'][$key],$_SESSION['currency'],$_POST['descritpion_package___'][$key],(int)$_POST['pack_number_package___'][$key]);
             array_push($insert_array,$sub_insert);
             }
             pg_prepare_multi_insert($conn, $query,$insert_array);
              $insert_array = array();
-            $query = "INSERT INTO deliverable(event_id,deliverable_id,deliverable_name,description,deliverable_image)VALUES($1,$2,$3,$4)";
+            $query = "INSERT INTO deliverable(event_id,deliverable_id,deliverable_name,description,deliverable_image)VALUES($1,$2,$3,$4,$5)";
             foreach ($_POST['deliver___'] as $key => $value) {
             $sub_insert =array($event_id,$key,$value,$_POST['descritpion_deliver___'][$key],$_POST['image_deliver___'][$key]);
             array_push($insert_array,$sub_insert);
