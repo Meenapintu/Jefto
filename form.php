@@ -396,17 +396,14 @@ $('form').on('submit', function (e) {
             }
           });
 	}
+	else{
 	$(".active-f").attr('class','row current');
 	$(eval('freq'+thisid)).attr('required',false)
 	$('div[id=' + ++curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
 	$(eval('freq'+curr_id.toString())).attr('required',true)
 	 $("html, body").animate({ scrollTop: 0 }, "slow");
+	}
 });
 
-
-
-  if ( $.browser ) {
-    alert( $.browser );
-  }
 </script>

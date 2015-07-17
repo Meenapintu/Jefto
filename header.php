@@ -16,16 +16,6 @@
 
   <script src="materialize/js/jquery-2.1.4.min.js"></script> 
 
-
-
-
-
-
-
-
-
-
-
 </head>
 <body>
   <nav>
