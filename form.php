@@ -1,7 +1,8 @@
-
+<script src="jsfunc.js"></script>
+<script src="offer.js"></script>
 <?php 
 	require_once("header.php");
-	
+
 	   //require_once('offer.php');
 	 // require_once('jsfunc.php');  
 ?>
@@ -316,10 +317,6 @@
     		<button type="submit" class="waves-effect waves-light btn-large center" style="align-self:center" ><i class="material-icons  right">send</i> Submit</button>
     	</div>
     </div>
-
-
-
-
 </form>
 </div>
 
