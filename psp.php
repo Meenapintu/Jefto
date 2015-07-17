@@ -225,7 +225,8 @@ class dbms{
 		*/
 	$query = "CREATE TABLE IF NOT EXISTS offers(
 		event_id bigserial REFERENCES event ON DELETE CASCADE,
-		offer_name varchar(15),
+		offer_id  int,
+		offer_name varchar(30),
 		cost		int,
 		currency    varchar(5),
 		description  varchar(1500),
@@ -240,7 +241,8 @@ class dbms{
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS deliverable(
 		event_id bigserial REFERENCES event ON DELETE CASCADE,
-		deliverable_name  varchar(30),
+		deliverable_id  int,
+		deliverable_name  varchar(50),
 		description  varchar(50),
 		deliverable_image text
 	)";
@@ -252,8 +254,8 @@ class dbms{
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS offer_deliver(
 		event_id bigserial REFERENCES event ON DELETE CASCADE,
-		offer_name varchar(30),
-		deliverable_name varchar(30),
+		offer_id  int,
+		deliverable_id int,
 		quantity  int 
 	)";
 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
