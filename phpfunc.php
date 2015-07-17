@@ -44,14 +44,14 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
         echo false;
     }
         echo true;
-    }
+    //}
 
 
     $sql = sprintf('DEALLOCATE "%s"',pg_escape_string($sqlName));
     if(!pg_query($sql))
     {
         //die("Can't query '$sql': " . pg_last_error());
-
+        return false;
 
     }
     //echo TRUE;
