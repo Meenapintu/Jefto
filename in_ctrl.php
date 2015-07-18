@@ -4,9 +4,10 @@ $connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
 $conn = pg_connect($connection_string);
 if($conn){ echo "done ";}
 	else echo " there is error ";
-
+echo "entering 0";
 require_once('phpfunc.php');
-  echo "entering 1";
+
+ echo "entering 1";
 $i=0;
 //if(isset($_POST['category__'],$_POST['genre__'],$_POST['description__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['address__'],$_POST['tags__'],$_POST['scope__'],$_POST['key_numbers__'],$_POST['frequency__'],$_POST['team_description__'],$_POST['budget__'],$_POST['sponsors__'],$_POST['finance_price__'])and $_POST['event_name__']){
             echo$_POST['genre__'];
