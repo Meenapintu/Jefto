@@ -88,4 +88,40 @@ function pg_prepare_single_insert_v1($conn, $query,$insert_array)
     return $v['event_id']; 
 }
 
+
+//=========================select stmt function ======================
+
+//
+function pg_prepare_select($conn,$query,$event_id){
+
+    $sqlName = 'event_insert_q';
+    if (!pg_prepare ($conn,$sqlName, $query))
+    {
+        die("Can't prepare '$sql': " . pg_last_error());
+    }
+    $rs = pg_execute($conn,$sqlName,$event_id);
+    if($rs == FALSE){
+        //echo"</br> THERE IS ERROR IN INSERT 1 </br>";
+        die("Can't prepare '$sql': " . pg_last_error());
+        echo false;
+    }
+    else{
+
+        $v =pg_fetch_all($rs);
+         //pg_fetch_all
+    }
+
+    $sql = sprintf('DEALLOCATE "%s"',pg_escape_string($sqlName));
+    if(!pg_query($sql))
+    {
+        die("Can't query '$sql': " . pg_last_error());
+        
+
+    }
+    return $v;
+}
+
+
+
+
 ?>

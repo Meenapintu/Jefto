@@ -5,8 +5,8 @@
   <link rel="icon" type="image/png" href="def_img/favicon.png"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Pintu LAl Meena">
-  <meta name="devloper" content="Pintu Lal meena">
+  <meta name="author" content="">
+  <meta name="devloper" content="">
   <meta name="copyright" content="jefto.com">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
   <link rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection" />

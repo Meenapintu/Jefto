@@ -141,6 +141,7 @@ $(document).ready( function(){
 
   $(window).resize(function(){
         $('#logo').css('height',($(".nav-wrapper").height()+'px'));
+        //alert($(".p0_segmentMainLabel-outer").attr('id'));
     });
 
   $(document).click(function(e){
