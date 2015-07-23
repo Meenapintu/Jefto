@@ -172,10 +172,10 @@ $query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver wh
 	<div class="col m12 red card-panel">
 		<div class="row">
 			<div class="col m12 ">
-				<h5>Description about event</h5>
+				<h5>Description about atendee</h5>
 			</div>
 			<div class="col m12 ">
-				<p><?PHP echo $event[0][description] ?></p>
+				<p><?PHP echo $event[0][audience_description] ?></p>
 			</div>
 		</div>
 		
@@ -195,13 +195,16 @@ $query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver wh
 							</div>
 						</div>	
 					</div> 
-					<div class="col m6 over green">
+					<div class="col m6 over ">
 						<div class="row">
 							<div class="col m12 center ">
 								<h5>ATTENDEE GENDER</h5>
 							</div>
-							<div class="col m12 center ">
-								<h5><?php echo $event[0][gender_ratio]?></h5>
+							<div class="col s6 m6 l6 red  center ">
+								<h5><?php echo $event[0][gender_ratio];?></h5>
+							</div>
+							<div class="col s6 m6 l6 blue center ">
+								<h5><?php echo 100-(int)$event[0][gender_ratio];?></h5>
 							</div>
 						</div>	
 					</div>
@@ -302,6 +305,29 @@ function rel_fire($oid,$did,$rel){
 	return null;
 }
 
+function json_encode_strval($v){
+	$content = array();
+	$l =  sizeof($v);
+   	for ($i=0; $i < $l; $i++) { 
+	//$label = array('label' =>$v[$i][type_name] ,"value" =>$v[$i][type_value],"color"=>"red" );
+	//array_push($content, $label);
+	array_push($content,array('label' =>$v[$i][type_name] ,"value" =>(int)$v[$i][type_count],"color"=>"red") );
+	}	
+	return $content;				
+}
+
+function json_encode_ageval($v){
+	$age_rel = array("0"=>"11 below ","12"=>"12-18 Years old","18"=>"18-25 Years old","25"=>"25-40 Years old","40"=>"40-65 Years old","65"=>"65 above");
+	$content = array();
+	$l =  sizeof($v);
+   	for ($i=0; $i < $l; $i++) { 
+	//$label = array('label' =>$v[$i][type_name] ,"value" =>$v[$i][type_count],"color"=>"red" );
+	array_push($content,array("label" =>$age_rel[$v[$i][low_age]] ,"value" =>(int)$v[$i][ratio],"color"=>"red"));
+	}
+	return $content;					
+}
+
+
 ?>
 
 
@@ -320,7 +346,8 @@ $(document).ready( function(){
     });
 });
 
-function setup(id){
+
+function setup(id,json){
 var pie = new d3pie( id, {
 	"header": {
 		"title": {
@@ -350,29 +377,7 @@ var pie = new d3pie( id, {
 	},
 	"data": {
 		"sortOrder": "value-desc",
-		"content": [
-			{
-				"label": "JavaScript",
-				"value": 264131,
-				"color": "red"
-			},
-			
-			{
-				"label": "Scheme fotirekok  iwert9 wi",
-				"value": 67706,
-				"color": "#e65414"
-			},
-			{
-				"label": "Rust",
-				"value": 36344,
-				"color": "#8b6834"
-			},
-			{
-				"label": "FoxPro",
-				"value": 32170,
-				"color": "#248838"
-			}
-		]
+		 "content":json
 	},
 	"labels": {
 		"outer": {
@@ -434,9 +439,12 @@ var pie = new d3pie( id, {
 });
 return pie;
 }
+var sjson= <?php echo json_encode(json_encode_strval($demo)); ?>;
+var ijson= <?php echo json_encode(json_encode_ageval($age_group)); ?>;
+console.log(sjson);
 
-setup("pieChart");
-setup("pieChart_age");
+setup("pieChart",sjson);
+setup("pieChart_age",ijson);
 
 
 </script>
