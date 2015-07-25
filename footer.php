@@ -41,6 +41,7 @@
 <script >
 
 $('#logo').css('height',($(".nav-wrapper").height()+'px'));
+$('.dh').css('height',$('.udh').height());
 function select_one(e){
   $(e).parent().siblings().children('#valtext').attr('value',e.value);
   $(e).parent().siblings("#other").hide();  
@@ -141,6 +142,7 @@ $(document).ready( function(){
 
   $(window).resize(function(){
         $('#logo').css('height',($(".nav-wrapper").height()+'px'));
+        $('.dh').css('height',$('.udh').height());
         //alert($(".p0_segmentMainLabel-outer").attr('id'));
     });
 

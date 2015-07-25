@@ -252,9 +252,9 @@
 	<div class="row">
 	 <p class="msg"> Online Media Coverage  </p>
 	<script type="text/javascript">  
-	  document.write(key_numbers(social_media,"media_name__[0]","media_name__[1]","https://","text")) ;
+	  document.write(key_numbers(online_promotion,"media_name__[0]","media_name__[1]","https://","text")) ;
 	</script>
-	<button type="button" name="social_media" id="medial_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
+	<button type="button" name="online_promotion" id="medial_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 	</div>
 	</div>
 	<div class='input-field col s12 m12 bott-margin-0'>

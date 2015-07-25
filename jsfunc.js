@@ -117,7 +117,7 @@ function key_numbers(option,key_name,key_numbers,ext,type){
 //====================================================================================================
 //====================================================================================================
 //=======================================================================================================
-
+/*
 var category = new Array("College Festival","Corporate Event","Social Event","Sport Event","Road Show");
 var genre = new Array("Cultural","Technical","Sport","Art");
 var happens_every= new Array("Year","Month","Week","One Time Event");
@@ -138,3 +138,27 @@ var audience_number = new Array(100,500,1000,5000,10000,20000,20,000);
 var social_media =  new Array('google.com','Facebook.com','linkdin.com');
 var key_number = new Array('Speakers','Events','Conference','Competition');
 var non_media_exposure = new Array('Bags', 'Conference Badges');
+*/
+
+var category = new Array("College Festival","Corporate Event","Social Event","Sport Event","Road Show");
+var genre = new Array("Cultural","Technical","Sport","Art");
+var happens_every= new Array("Year","Month","Week","One Time Event");
+var sponsor_needed = new Array("Venue","Food","In media","In kind","Financial","Labor");
+var scope = new Array("Local","Regional","National","Global");
+var country = new Array("USA","UK","Canada","India","Australia");
+var target_audience = new Array("Webdesigner","Webdeveloper","Business guys");
+var education_background = new Array("In school","In some college","Graduate","Post graduate");
+var audience_category = new Array("Unemployed","Employed","Self owned business person");
+var income_level = new Array("Low","Medium","High");
+var online_promotion = new Array("VentureBeat","TechCrunch","Forbes","Huffington Post","Yourstory");
+var offline_promotion = new Array("TV","Radio","Newspaper");
+var currency = new Array("USD","GBP","CAD","EUR","INR","AUD");
+var age_group = new Array("11 below ", "12-18 Years old","18-25 Years old","25-40 Years old","40-65 Years old","65 above");
+
+//var audience_number = new Array("less than 100","100-500","500-1000","1000-5000","5000-10000","10000-20000"," more than 20,000");
+var audience_number = new Array(100,500,1000,5000,10000,20000,20,000);
+var social_media =  new Array('google.com','facebook.com','linkdin.com','twitter.com');
+var key_number = new Array('Speakers','Events','Conference','Competition');
+var non_media_exposure = new Array('Bags', 'Conference Badges');
+
+

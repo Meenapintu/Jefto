@@ -3,6 +3,14 @@
 <?PHP
 	require_once("header.php");
 	require_once("ep_ctrl.php");
+	//$acolor = array("#226666","#A8383B","#AAA239","#363376","#AA7039","#5D2971","#3C8C2F","#882E61","#EA0B8C","#f15725","#fdee20","#00a587","#20a8e0","#00ff1a");
+ 	$acolor = array("#f15725","#20a8e0","#00a587","#fdee20","#00ff1a","#EA0B8C","#882E61","#3C8C2F","#5D2971","#AA7039","#363376","#AAA239","#A8383B","#226666");
+ 	$clenth =  sizeof($acolor)-1;
+ 	function css_gen($l,$r){
+	echo ".grad-gen{background: -webkit-linear-gradient(right, rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: -o-linear-gradient(right,rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: -moz-linear-gradient(right,rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: linear-gradient(to right, rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%)";	
+	}
+
+
  ?>
 
  <?php
@@ -29,18 +37,14 @@ $query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver wh
 
 
 <style type="text/css">
+
 	.profile{
 		height: 261px
 	}
 	.profile img{
 		width: 100%;
 	}
-	.over{
-		height: 191px
-	}
-	.over2{
-		height: 70px
-	}
+
 	.mfix{
 		margin-bottom: 5px;
 	}
@@ -51,110 +55,228 @@ $query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver wh
 	.p0_lineGroups{
 		margin: 0px;
 	}
-</style>
+	.icon{
+		position: relative;
+	}
+	
+	.icon  img{
+		width: 100%;
+		height: 100%;
+	}
+	.icon-t{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top:0%;
+	}
+	.icon-t p{
+		margin-top: 50%;
 
+	}
+	.abs{
+		position: absolute;
+		top:0%;
+	}
+	.center_ml{
+		margin-right:4.166%;
+		margin-left:4.166%;
+	}
+	@media only screen and (max-device-width:480px){
+		.center_ml{
+			margin-left:0%;
+			margin-right:0%;
+		}
+	}
+	p span{
+		font-size: large;
+	}
+	.w100{
+		width: 100%;
+	}
+
+	.p0_pieChart{
+		width: 100%;
+		
+		
+	}
+  	.chrt li:before {
+  	content: "";
+  	display: inline-block;
+   	width: 10px;
+   	height: 10px;
+   	margin-right: 1px;
+}
+.pd0{
+	padding: 0px;
+}
+.grad-gen{
+	background: -webkit-linear-gradient(left, #59D61F  , #FF5000);
+	background: -o-linear-gradient(right,#59D61F  ,#FF5000);
+	background: -moz-linear-gradient(right,#59D61F , #FF5000 );
+	background: linear-gradient(to right,#59D61F   ,#FF5000 );
+}
+div img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.hc{
+	color:#20a8e0;
+}
+
+</style>
+<script >
+var sjson= <?php echo json_encode(json_encode_strval($demo)); ?>;
+var ijson= <?php echo json_encode(json_encode_ageval($age_group)); ?>;
+function chart_rel(json) {
+	var r = "<ul class=' chrt margin-0 pd0'>";
+	var l = json.length;
+	for (var i = 0; i < l; i++) {
+		r+= "<style type='text/css'> .list"+i+":before{ background-color:"+json[i]['color']+"} </style>";
+		r+="<li class='list"+i+"' style='margin:0px;padding:0px;color:"+json[i]['color']+"  '>"+json[i]['label']+"</li>";
+	};
+	r+="</ul>";
+	return r;
+}
+
+</script>
 <div class="container " >
 
 <div class="row card-panel">
 	<div class="col m12 card-panel margin-0">
-		<div class="row">
+		<div class="row margin-0 pd0 ">
 			<div class="col m12 s12 l12 card-panel margin-0" >
-				<h5 style="color:green"><?php echo  $event[0][name] ?></h5>
+				<h5 class="font-ml  flow-text" style=" font-size:xx-large;color:#26A69A"><?php echo  $event[0][name] ?></h5>
 			</div> 
-			<div class="col m4">
-				<div class="row">
-					<div class="col s6 m6 l6">
-				 		<p> Start Date</p>
+			<div class="col s12 m4 l4 " style="margin-top:1rem">
+				<div class="row margin-0 " > 
+					<div class="col s5 m5 l5 " style="padding:0px;margin:0px;">
+						<div class="margin-0 icon pd0"style="left:2px;"> 
+							<img src="def_img/sd_icon.png">
+							<div class="icon-t " > 
+									<?php $time = time_fire($event[0][end_date]);  ?> 
+									<?php $times = time_fire($event[0][start_date]);  ?> 
+									<div class="row abs margin-0 pd0 " style="margin-top:30.86%;margin-left:8.2%;">
+										<div class="col s12 m12 l12 margin-0 pd0 ">
+											<h5 class=" margin-0 pd0" ><?PHP echo $times->format('d'); ?></h5>
+										</div>
+										<div class="col s12 m12 l12 margin-0 pd0 ">
+											<h6 class="margin-0 pd0" ><?PHP echo $times->format('M'); ?></h6>
+										</div>
+									</div>
+								
+							</div>
+				 		</div>
 				 	</div>
-					 <div class="col s6 m6 l6">
-						<p><?php echo  $event[0][start_date] ?></p>
-					</div>
-					<div class="col s6 m6 l6">
-				 		<p> End Date</p>
+				 	<div class="col s2 m2 l2 dh "style='position:relative;padding:0px;margin:0px;' >
+				 		
+				 		<h6 style='position:absolute;bottom:45%;'><?php $d = $time->diff($times); echo ($d->format('%d')+1).' days';?></h6>
+				 		<div class="col s2 m2 l2 grad-gen"style='position:absolute;top:56%;height:2px;padding:0px;margin:0px;width:100%;'></div>
+				 		<h6 class='center'style='position:absolute;top:60%;'><?php $d = $time->diff($times); if(!$d->format('%y')){echo $times->format('Y');}else{echo $times->format('Y').'-'.$time->format('y');} ?></h6>
 				 	</div>
-					 <div class="col s6 m6 l6">
-						<p><?php echo  $event[0][end_date] ?></p>
-					</div>
+					<div class="col s5 m5 l5 right udh pd0" style="padding:0px;margin:0px;">
+				 		<div class="margin-0 pd0 icon">
+				 			<img src="def_img/ed_icon.png">
+				 			<div class="icon-t "> 
+								
+			
+									<div class="row abs margin-0 pd0" style="margin-top:30.86%;margin-left:49.5%">
+										<div class="col s12 m12 l12 margin-0 pd0 ">
+											<h5 class=" margin-0 pd0"><?PHP echo $time->format('d'); ?></h5>
+										</div>
+										<div class="col s12 m12 l12 margin-0 pd0 ">
+											<h6 class="margin-0 pd0"><?PHP echo $time->format('M'); ?></h6>
+										</div>
+									</div>
+								
+							</div>
+				 		</div>
+				 	</div>
+				 	
 				</div>
 			</div> 
-			<div class="col m4">
-				<div class="row">
-					<div class="col s12 m12 l12">
-						<h5> Event Budget</h5>
-					</div>
-					<div class="col s12 m12 l12">
-						<p><?php echo  $event[0][budget]." " .$event[0][currency] ?></p>
+			
+			<div class="col s12 m4 l4 " style="margin-top:1rem" >
+				<div class="row center_ml">
+					<div class="col s12 m12 l12 center ">
+						<h5 class="font-ml  flow-text hc"> <span> Expected Attendees </span></h5>
+						<h5>~<?php echo $event[0][total_audience] ?></h5>
 					</div>
 				</div>
 			</div>
-			<div class="col m4 ">
-				<div class="row">
-					<div class="col m12 green ">
-						<p><?php echo  $event[0][city]."," .$event[0][country] ?></p>
+
+			<div class="col s12 m4 l4  right" style="margin-top:1rem" >
+				<div class="row margin-0 pd0">
+					<div class="col s12 m12 l12  ">
+						<h5 class="font-ml  flow-text" style="display:inline-block;"> <span class='hc'>City : </span></h5><?php echo  $event[0][city]." , " .$event[0][country] ?>
 					</div>
-					<div class="col m12  yellow">
-						<p><?php echo  $event[0][address] ?></p>
+					<div class="col s12 m12 l12 ">
+						 <h5 class="font-ml  flow-text" style="display:inline-block;margin:0px;"><span class='hc' >Address :</span></h5> <?php echo  $event[0][address] ?>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	<div class="col m12 card-panel">
 		<div class="row">
-			<div class="col m4 green profile">
+			<div class="col m4  profile">
 				<img src="<?php echo $event[0][logo] ?>">
 			</div>
 			<div class="col m8">
 				<div class="row">
-					<div class="col m12 yellow over center">
-						<p  ><?PHP echo $event[0][description] ?></p>
+					<div class="col m12  over center">
+						<h5 class="font-ml  flow-text hc">Event Description</h5>
 					</div>
-					<div class="col m12 over2 red">
+					<div class="col m12  over center">
+						<p style="margin-top:0px;"><?PHP echo $event[0][description] ?></p>
+					</div>
+					<div class="col m12  over center">
+						<h5 class="font-ml  flow-text hc">Key Numbers</h5>
+					</div>
+					<div class="col m12 over2 ">
 						<div class="row">
-							<div class="col m4">
-								15
-							</div>
-							<div class="col m4">
-								25
-							</div>
-							<div class="col m4">
-								8
-							</div>
+							<?php key_fire($keyn);?>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col m12 blue card-panel">
+	<div class="col m12  card-panel">
 		<div class="row">
-			<div class="col m3">
-				Jefto Score
+			<div class="col s12 m12 l12 center" style="margin-bottom:30px;">
+				<h5 class="font-ml  center flow-text hc ">Jefto Specials</h5>
+				<h6 class="center ">(will come soon)</h6>
 			</div> 
-			<div class="col m3">
-				Price index
+			<div class="col s12 m4 l4 center ">
+				<img src="def_img/jefto_score.png" >
+				<h5>Jefto Score</h5>
 			</div> 
-			<div class="col m3">
-				successing predicting model
+			<div class="col s12 m4 l4 center ">
+				<img src="def_img/Audience Richness.png" >
+				<h5>Audience Richness</h5>
 			</div>
-			<div class="col m3">
-				Audience Richness
+			<div class="col  s12 m4 l4 center ">
+				<img src="def_img/Sponsors Happiness Index.png" >
+				<h5>Sponsor's Happiness Index</h5>
 			</div>
+			
 		</div>
 	</div>
-	<div class="col m12 green card-panel">
+	<div class="col m12  card-panel">
 		<div class="row">
-			<div class="col m12 center"> <h5>Our Needs </h5> </div> 
+			<div class="col m12 center"> <h5 class="font-ml  flow-text hc ">Sponsorship needs </h5> </div> 
 			<div class="col m12 center"> 
 			<?php 
 			$i=0;
 			foreach ($spon as $key => $value) {
 					
-					if( $i <1 &&$value[ftype] != NULL){
-					echo "<div class='col m3 '>  <h5>".$value[ftype]."</h5><h5>".$value[fund]."</h5><p>".$event[0][currency]."</p></div>";
+					if( $i <1 &&$value[ftype] == 'Financial'){
+
+					echo "<div class='col s6 m3 l3 '><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value[ftype]."(".currency_fire($event[0][currency]).' '.$value[fund].")</h6></div></div></div>";
 					$i++;
 					}
-					echo "<div class='col m3' > <h5> ".$value[type]."</h5></div>";
+					echo "<div class='col s6 m3 l3' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".$value[type].".png'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
 			
 			}
 		
@@ -165,70 +287,73 @@ $query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver wh
 		
 	</div>
 
-	<div class="col m12 blue card-panel">
-		ATTENDEE DEMOGRAPHICS
-	</div>
+	
 
-	<div class="col m12 red card-panel">
+	<div class="col m12  card-panel">
 		<div class="row">
-			<div class="col m12 ">
-				<h5>Description about atendee</h5>
+			<div class="col m12 blue hc">
+				 <h5 class="font-ml  flow-text white-t bold ">Attendee's Demographics </h5> 
 			</div>
-			<div class="col m12 ">
+			<div class="col m12 center card-panel ">
+				<h5 class="font-med  flow-text hc ">Attendee's Description </h5>
+			
 				<p><?PHP echo $event[0][audience_description] ?></p>
 			</div>
-		</div>
 		
-	</div>
-
-	<div class="col m12 card-panel">
-		<div class="row">
-			<div class="col m12 ">
-				<div class="row">
-					<div class="col m6 over blue" style="background:url(def_img/world-map.png);background-repeat:no-repeat;">
+			<div class="col s12 m12 l12 card-panel">
+				<div class="row  pd0 ">
+					<div class="col s12 m6 l6 over center  " >
 						<div class="row">
-							<div class="col m12 center ">
-								<h5>Expected Attandance</h5>
+							<div class="col s12 m12 l12 center ">
+								<h5 class="font-ml  flow-text center ">Expected Attandance</h5>
 							</div>
-							<div class="col m12 center ">
+							<div class="col s12 m12 l12 center ">
 								<h5><?php echo $event[0][total_audience]?></h5>
 							</div>
 						</div>	
 					</div> 
-					<div class="col m6 over ">
-						<div class="row">
-							<div class="col m12 center ">
-								<h5>ATTENDEE GENDER</h5>
+					<div class="col s12 m6 l6  ">
+						<div class="row " >
+							<div class="col s12 m12 l12 center  ">
+								<h5 class="font-ml  flow-text center ">Gender Ratio</h5>
 							</div>
-							<div class="col s6 m6 l6 red  center ">
-								<h5><?php echo $event[0][gender_ratio];?></h5>
+							<div class="col s6 m6 l6 center " style=" padding-right:0px;">
+								<img class="center " src="def_img/male.png">
+								<h6  style="margin:0px;"> Male <?php echo $event[0][gender_ratio];?>%</h6>
 							</div>
-							<div class="col s6 m6 l6 blue center ">
-								<h5><?php echo 100-(int)$event[0][gender_ratio];?></h5>
+							<div class="col s6 m6 l6 center "style="padding-left:0px">
+								<img  class="center " src="def_img/female.png">
+								<h6 style="margin:0px;"> Female <?php echo 100-(int)$event[0][gender_ratio];?>%</h6>
 							</div>
 						</div>	
 					</div>
 				</div>
 			</div>
 			<div class="col m12 s12 ">
-				<div class="row">
-					<div class="col m6 s12  chart" >
-						<div class="row">
-							<div class="col m12 s12 blue center ">
-								<p> ATTENDEE PROFILE  </p>
+				<div class="row margin-0 pd0">
+					<div class="col m6 s12 margin-0 pd0 " >
+						<div class="row margin-0 pd0" style="position:relative;">
+							<div class="col m12 s12  center " >
+								<h5 class="font-ml  flow-text center ">Profile</h5>
 							</div>
-							<div class="col m12  s12 center ">
-								<div id="pieChart"></div>
+							<div class="col m8 s8 l8 chart" style="margin:0px;padding:0px" >
+								<div id="pieChart" ></div>
+							</div>
+							<div class="col s4 m4 l4 clist" style="margin:0px;padding:0px;position:absolute;bottom:0;right:0px;">
+								<script> document.write(chart_rel(sjson)); </script>
 							</div>
 						</div>
 					</div>
-					<div class="col m6 chart">
-						<div class="row">
-							<div class="col m12 s12 blue center ">
-								<p> ATTENDEE AGE </p>
+					<div class="col m6  margin-0 pd0">
+						<div class="row margin-0 pd0" style="position:relative;">
+							<div class="col m12 s12  center margin-0 pd0">
+								<h5 class="font-ml  flow-text center ">Age</h5>
 							</div>
-							<div class="col m12  s12 center ">
+							<div class="col m8  s8 l8 center chart" style="margin:0px;padding:0px">
 								<div id="pieChart_age"></div>
+							</div>
+							<div class="col s4 m4 l4 clist" style="margin:0px;padding:0px;position:absolute;bottom:0;right:0px;">
+								<script>document.write(chart_rel(ijson)); </script>
 							</div>
 						</div>
 					</div>
@@ -239,46 +364,174 @@ $query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver wh
 	</div>
 	<div class="col m12 card-panel  ">
 		<div class="row">
-			<div class="col m12 red">
-				<p>marketing</p>
+			<div class="col m12 blue hc">
+				 <h5 class="font-ml  flow-text white-t bold ">Event Promotion</h5> 
 			</div>
-			<div class="col m6 green">
-				<p>Online</p>
+			<div class="col m6 center">
+				<h5 class="font-ml  flow-text center ">Online</h5>
+				<div class="row " style="margin:0px;margin-top:20px;">
+					<?php link_fire($olp,4); ?>
+				</div>
 			</div>
-			<div class="col m6 yellow">
-				<p>Offline</p>
+			<div class="col m6  center ">
+				<h5 class="font-ml  flow-text center ">Offline</h5>
+				<div class="row " style="margin:0px;margin-top:20px;">
+					<?php link_fire($olp,4); ?>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col m12  green card-panel">
-	our links 
+	<div class="col m12 card-panel  ">
+		<div class="row">
+			<div class="col s12 m12 l12  blue  hc" >
+				 <h5 class="font-ml  flow-text white-t bold ">Our Links</h5> 
+			</div>
+			<div class="col s12 m12 l12 " >
+				<div class="row " style="margin:0px;margin-top:20px;">
+					<?php link_fire($op,3); ?>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="col m12 card-panel">
 		<div class="row">
-
-	   <?php offer_fire($offer,$der,$od); ?>
+			<div class="col s12 m12 l12  blue  hc" >
+				 <h5 class="font-ml  flow-text white-t bold ">Offers </h5> 
+			</div>
+	   			<?php offer_fire($offer,$der,$od); ?>
 	   </div>
 	</div>
+
+	<div class="col m12  center">
+	<a class="waves-effect waves-light btn modal-trigger center" href="#cont_model">Contacts The Organisor</a>
+	</div>
+	<div id="cont_model" class="modal  modal-fixed-footer " >
+	    <div class="modal-content"  style="margin:0px;padding:0px;">
+	      <div class="row"  style="margin:0px;padding:0px;">
+	      	<div class="col m12 green center  ">
+	      		<h5>Contact <?php echo $event[0][name] ?></h5>
+	      	</div>
+	      	<div class="col m6 ">
+	      		<div class="row">
+	      			<div class=" col s12 m12 center ">
+	      				<img class='cimg'src="<?php echo $event[0][logo] ?>">
+	      			</div>
+	      			<div class="col s1 m1 center  ">
+	      				<i class="material-icons">profile</i> 
+	      			</div>
+	      			<div class="col s11 m11 center  ">
+	      				<h6> <?php echo $event[0][contact_name] ?></h6>
+	      				<h6> <?php echo $event[0][contact_mobile] ?></h6>
+	      				<h6> <?php echo $event[0][contact_office] ?></h6>
+	      			</div>
+	      		</div>
+	      	</div>
+	      	<style type="text/css">
+	      		.input-field{
+	      		margin: 0px;
+	      		padding
+	      	}
+	      	.input-field input{
+	      		margin: 0px;
+	      	}
+	      	.cimg{
+	      		width:50%;
+	      	}
+	      	</style>
+	      	<div class="col m6 ">
+	      		<form class="row" action="">
+	      			<div class="input-field col s12 m12 ">
+          				<input placeholder="Name" name='name' id="first_name" type="text" class="validate">
+          				<label for="first_name" data-error="wrong"></label>
+       				 </div>
+       				 <div class="input-field col s12 m12 ">
+          				<input placeholder="Subject"name='subject' id="subject" type="text" class="validate">
+          				<label for="subject" data-error="wrong" ></label>
+       				 </div>
+       				 <div class="input-field col s12 m12 ">
+          				<input placeholder="Email Address" name='email' id="email" type="email" class="validate">
+          				<label for="email" data-error="wrong"></label>
+       				 </div>
+       				 <div class="input-field col s12 m12 ">
+          				<input placeholder="Company Name" name='company' id="comp" type="text" class="validate">
+          				<label for="comp" data-error="wrong" ></label>
+       				 </div>
+       				 <div class="input-field col s12 m12 ">
+          				<textarea placeholder="Message" name='message' id="message" type="text" class=" materialize-textarea validate"></textarea>
+          				<label for="message" data-error="wrong"></label>
+       				 </div>
+       				 <div class="input-field col s12 m12 ">
+          				<input placeholder="Company Name"  id="first_name" type="submit" class="validate">
+       				 </div>
+	      		</form>
+	      	</div>
+	      </div>
+	    </div>
+	    <div class="modal-footer">
+     		 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    	</div>
+	  </div>
+
+
+
 
 </div>
 
 
 </div>
 <?php
+function link_fire($v,$s){
+	$l =  sizeof($v);
+	for ($i=0; $i < $l; $i++) { 
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href=".$v[$i][link]." target='_blank' ><img src='def_img/".$v[$i][site_name].".png'><h6 >".$v[$i][site_name]."</h6> </a></div>";
+	}			
+}
+
+function time_fire($d){
+	$date = new DateTime($d);
+	return $date;
+}
+
+function currency_fire($cr){
+	$c= array("USD"=>"$","GBP"=>"&#8364","CAD"=>"CA$","EUR"=>"&#8364","INR"=>"&#8377","AUD"=>"A$");
+	return $c[$cr];
+}
+
+function key_fire($v){
+	$l =  sizeof($v);
+	//if($l > )
+   for ($i=0; $i < $l; $i++) { 
+   		key_fire_help($v[$i][type_count],$v[$i][type_name]);
+   }
+}
+
+function key_fire_help($num,$name){ ?>
+	<div class="col s4 m4 l4 ">
+		<div class="row  ">
+			<div class="col s12 m12 l12 center">
+				<h5 class="margin-0  font-ml  flow-text center"><?php echo $num; ?></h5>
+			</div>
+			<div class="col s12 m12 l12 center">
+				<h5 class="margin-0 font-ml  flow-text center"><?php echo $name ;?></h5>
+			</div>
+		</div>
+	</div>
+<?php }
+
 function offer_fire( $v ,$der,$rel){
    $l =  sizeof($v);
    for ($i=0; $i < $l; $i++) { 
    	?>
    	<div class="col m6">
    	<ul class="collection with-header">
-        <li class="collection-header blue">
+        <li class="  collection-header  " style="background-color:#8d6e63;">
         	<div class="row center">
         		<div class="col m12 ">
-        			<h5><?php echo $v[$i][offer_name];?></h5>
+        			<h5 class="font-ml flow-text center white-t"><?php echo $v[$i][offer_name];?></h5>
         		</div>
         		<div class="col m12 ">
-        			<h6><?php echo $v[$i][cost]." ".$v[$i][currency];?></h6>
+        			<h6><?php echo currency_fire($v[$i][currency]).' '.$v[$i][cost];?></h6>
         		</div>
         	</div>
         </li>
@@ -305,13 +558,15 @@ function rel_fire($oid,$did,$rel){
 	return null;
 }
 
+
 function json_encode_strval($v){
 	$content = array();
 	$l =  sizeof($v);
    	for ($i=0; $i < $l; $i++) { 
+   		//echo $GLOBALS['clenth']/($i+1)  . "  DIVIDI   ";
 	//$label = array('label' =>$v[$i][type_name] ,"value" =>$v[$i][type_value],"color"=>"red" );
 	//array_push($content, $label);
-	array_push($content,array('label' =>$v[$i][type_name] ,"value" =>(int)$v[$i][type_count],"color"=>"red") );
+	array_push($content,array('label' =>$v[$i][type_name] ,"value" =>(int)$v[$i][type_count],"color"=>$GLOBALS['acolor'][$i]  ));
 	}	
 	return $content;				
 }
@@ -322,10 +577,13 @@ function json_encode_ageval($v){
 	$l =  sizeof($v);
    	for ($i=0; $i < $l; $i++) { 
 	//$label = array('label' =>$v[$i][type_name] ,"value" =>$v[$i][type_count],"color"=>"red" );
-	array_push($content,array("label" =>$age_rel[$v[$i][low_age]] ,"value" =>(int)$v[$i][ratio],"color"=>"red"));
+	array_push($content,array("label" =>$age_rel[$v[$i][low_age]] ,"value" =>(int)$v[$i][ratio],"color"=>$GLOBALS['acolor'][$i]  ));
 	}
 	return $content;					
 }
+
+
+
 
 
 ?>
@@ -339,12 +597,52 @@ function json_encode_ageval($v){
 <script src="d3pie.min.js"></script>
 <script>
 var width= $(".chart").width();
-var height = 350;
+var height = width;
 $(document).ready( function(){
   $(window).resize(function(){
       var width= $(".chart").width();  
     });
 });
+
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+    $('input#input_text, textarea#textarea1').characterCounter();
+  });
+     
+
+$(function () {
+
+        $('form').on('submit', function (e) {
+
+          e.preventDefault();
+        	$.ajax({
+            type: 'post',
+            url: 'subs.php',
+            data: $('form').serialize(),
+            success: function (data) {
+            	//$('#modal1').closeModal();
+            	  if(data){
+					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
+            	  }
+            	  else{
+            	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
+            	  $('#Error1').openModal();
+            	  }
+            }
+        });
+});
+});
+
+
+
+
+
+
+
+
+
+
 
 
 function setup(id,json){
@@ -365,6 +663,7 @@ var pie = new d3pie( id, {
 		"titleSubtitlePadding": 1
 	},
 	"footer": {
+		"display":"none",
 		"color": "#999999",
 		"fontSize": 10,
 		"font": "open sans",
@@ -373,7 +672,7 @@ var pie = new d3pie( id, {
 	"size": {
 		"canvasWidth": width,
 		"canvasHeight":height,
-		"pieOuterRadius": "70%"
+		"pieOuterRadius": "100%"
 	},
 	"data": {
 		"sortOrder": "value-desc",
@@ -439,13 +738,40 @@ var pie = new d3pie( id, {
 });
 return pie;
 }
-var sjson= <?php echo json_encode(json_encode_strval($demo)); ?>;
-var ijson= <?php echo json_encode(json_encode_ageval($age_group)); ?>;
-console.log(sjson);
 
-setup("pieChart",sjson);
-setup("pieChart_age",ijson);
 
+
+
+$('.clist').hide();
+var done = true;
+$(window).scroll(function(event) {
+	if($("#pieChart").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
+    	if(done){
+	    	setup("pieChart",sjson);
+			setup("pieChart_age",ijson);
+			$('.clist').show();
+	    	done=false;
+    	}
+	} else {
+    // something when the .target div invisible
+	}
+});
+
+if($("#pieChart").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
+    if(done){
+	    setup("pieChart",sjson);
+		setup("pieChart_age",ijson);
+		$('.clist').show();
+	    done=false;
+    }
+   
+}
+$(window).ready(function(){
+	//$("svg").attr('class','pd0 margin-0 w100');
+	console.log($(".pieChart").children('.p0_pieChart'));
+	//$("svg").children('g')[0].attr('class',$("svg").children('g')[0].attr('class')+'pd0 margin-0 w100');
+
+})
 
 </script>
 
