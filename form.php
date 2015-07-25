@@ -383,11 +383,11 @@ $('form').on('submit', function (e) {
             data: $('form').serialize(),
             success: function (data) {
             	//$('#modal1').closeModal();
-            	//alert(data);
+            	alert(data);
             	  if(data){
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
             	  	//header('Location: Done.php');
-            	  	$(location).attr('href','http://www.jefto.com/Done.php');
+            	  	//$(location).attr('href','http://www.jefto.com/Done.php');
             	  }
             	  
             	  else{
