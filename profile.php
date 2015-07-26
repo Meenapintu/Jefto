@@ -376,7 +376,7 @@ function chart_rel(json) {
 			<div class="col m6  center ">
 				<h5 class="font-ml  flow-text center ">Offline</h5>
 				<div class="row " style="margin:0px;margin-top:20px;">
-					<?php link_fire($olp,4); ?>
+					<?php offline_fire($olf,4); ?>
 				</div>
 			</div>
 		</div>
@@ -485,6 +485,13 @@ function link_fire($v,$s){
 	$l =  sizeof($v);
 	for ($i=0; $i < $l; $i++) { 
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href=".$v[$i][link]." target='_blank' ><img src='def_img/".$v[$i][site_name].".png'><h6 >".$v[$i][site_name]."</h6> </a></div>";
+	}			
+}
+
+function offline_fire($v,$s){
+	$l =  sizeof($v);
+	for ($i=0; $i < $l; $i++) { 
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href=".$v[$i][name]." target='_blank' ><img src='def_img/".$v[$i][name].".png'><h6 >".$v[$i][name]."</h6> </a></div>";
 	}			
 }
 
@@ -600,7 +607,8 @@ var width= $(".chart").width();
 var height = width;
 $(document).ready( function(){
   $(window).resize(function(){
-      var width= $(".chart").width();  
+      var width= $(".chart").width(); 
+      location.reload(); 
     });
 });
 
