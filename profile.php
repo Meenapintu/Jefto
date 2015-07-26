@@ -403,13 +403,14 @@ function chart_rel(json) {
 	   </div>
 	</div>
 
-	<div class="col m12  center">
-	<a class="waves-effect waves-light btn modal-trigger center" href="#cont_model">Contacts The Organisor</a>
+  
+	<div class="col m12  center"  >
+	<a class="waves-effect waves-light btn-large modal-trigger  " href="#cont_model"> <i class="material-icons left">contacts</i> Contact The Organizer</a>
 	</div>
 	<div id="cont_model" class="modal  modal-fixed-footer " >
 	    <div class="modal-content"  style="margin:0px;padding:0px;">
 	      <div class="row"  style="margin:0px;padding:0px;">
-	      	<div class="col m12 green center  ">
+	      	<div class="col s12 m12  blue white-t center  " style="margin:0px;">
 	      		<h5>Contact <?php echo $event[0][name] ?></h5>
 	      	</div>
 	      	<div class="col m6 ">
@@ -417,13 +418,15 @@ function chart_rel(json) {
 	      			<div class=" col s12 m12 center ">
 	      				<img class='cimg'src="<?php echo $event[0][logo] ?>">
 	      			</div>
-	      			<div class="col s1 m1 center  ">
-	      				<i class="material-icons">profile</i> 
+	      			
+	      			<div class="col s12 m12 center  ">
+	      				<h6><i class="material-icons left ">perm_identity</i><i class='left' style="width:111px" ><i class='right'  style="margin:0px">Name :</i></i><i class='left' ><?php echo $event[0][contact_name] ?></i></h6>
 	      			</div>
-	      			<div class="col s11 m11 center  ">
-	      				<h6> <?php echo $event[0][contact_name] ?></h6>
-	      				<h6> <?php echo $event[0][contact_mobile] ?></h6>
-	      				<h6> <?php echo $event[0][contact_office] ?></h6>
+	      			<div class="col s12 m12 center  ">
+	      				<h6><i class="material-icons left ">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Personal Contact:</i></i><i class='left' ><?php echo $event[0][contact_mobile] ?></i></h6>
+	      			</div>
+	      			<div class="col s12 m12 center  ">
+	      				<h6><i class="material-icons left">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Office Contact:</i></i><i class='left' ><?php echo $event[0][contact_office] ?></i></h6>
 	      			</div>
 	      		</div>
 	      	</div>
@@ -445,10 +448,7 @@ function chart_rel(json) {
           				<input placeholder="Name" name='name' id="first_name" type="text" class="validate">
           				<label for="first_name" data-error="wrong"></label>
        				 </div>
-       				 <div class="input-field col s12 m12 ">
-          				<input placeholder="Subject"name='subject' id="subject" type="text" class="validate">
-          				<label for="subject" data-error="wrong" ></label>
-       				 </div>
+       				
        				 <div class="input-field col s12 m12 ">
           				<input placeholder="Email Address" name='email' id="email" type="email" class="validate">
           				<label for="email" data-error="wrong"></label>
@@ -462,14 +462,14 @@ function chart_rel(json) {
           				<label for="message" data-error="wrong"></label>
        				 </div>
        				 <div class="input-field col s12 m12 ">
-          				<input placeholder="Company Name"  id="first_name" type="submit" class="validate">
+          				<button class="waves-effect waves-light btn"  id="first_name" type="submit" class="validate"><i class="material-icons right ">send</i>Send</button>
        				 </div>
 	      		</form>
 	      	</div>
 	      </div>
 	    </div>
 	    <div class="modal-footer">
-     		 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+     		 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Exit</a>
     	</div>
 	  </div>
 
