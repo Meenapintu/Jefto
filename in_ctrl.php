@@ -118,19 +118,21 @@ if(isset($_FILES['logo__'])){
             //$unique = date('YmdHisTU');
             $img = $event_id.$file_extension;
             //$img->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
-            echo $_FILES['logo__']["name"];
+            echo "image is loaded";
             $pathToImage = "event_logos/$img";
             if(move_uploaded_file($_FILES['logo__']['tmp_name'], $pathToImage)){
 
             $_SESSION["logo"] = $pathToImage;
-            echo $pathToImage;
+            echo $pathToImage." moved file";
              }
              else{
+		echo "file not moved ";
                 $_SESSION["logo"] = "event_logos/default_logo.png";
              }
      }
    }
    else{
+	echo"file not loaded";
     $_SESSION["logo"] = "event_logos/default_logo.png";
    }
 

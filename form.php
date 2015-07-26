@@ -15,7 +15,7 @@
  <div class="row current" id=3 >
  	<p class='flow-text center white-t font-ml' style="color:#26A69A;margin:0px;" >Submit Event: Part 3 of 3 </p>
  </div>
-<form  enctype="multipart/form-data" method="post" role="form"  class="card-panel">
+<form  enctype="multipart/form-data" method="post" action="in_ctrl.php" role="form"  class="card-panel">
 	<div class="row active-f" id=1>
    		<script type="text/javascript"> 
     	document.write("<div class='input-field  col s12 m12 l12' >");
@@ -373,10 +373,10 @@ function back(curr_id,e){
 
 
 $('form').on('submit', function (e) {
-	e.preventDefault();   //page not relaoding
+//	e.preventDefault();   //page not relaoding
 	var thisid = $(this).children(".active-f").attr('id');
 	var curr_id= parseInt(thisid);
-	if(curr_id==3){
+	/*if(curr_id==3){
 		$.ajax({
             type: 'post',
             url: 'in_ctrl.php',
@@ -398,15 +398,18 @@ $('form').on('submit', function (e) {
             	  }
             }
           });
-	}
-	else{
+	}*/
+	if(curr_id != 3){
+	e.preventDefault();
 	$(".active-f").attr('class','row current');
 //	$(eval('freq'+thisid)).attr('required',false);
 	$('div[id=' + ++curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
 //	$(eval('freq'+curr_id.toString())).attr('required',true);
 	 $("html, body").animate({ scrollTop: 0 }, "slow");
+	return false;
 	}
+	else{return true;}
 });
 
 </script>
