@@ -477,6 +477,6 @@ if(isset($_FILES['logo__'])){
             //echo"</br>";
             //echo "everything working WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
             //echo"</br>";
-
+             echo "redirecting";
             header("Location: http://www.jefto.com/profile.php?e=".$event_id);
 ?>

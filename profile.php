@@ -552,8 +552,26 @@ function offer_fire( $v ,$der,$rel){
         		<div class="col m12 ">
         			<h5 class="font-ml flow-text center white-t"><?php echo $v[$i][offer_name];?></h5>
         		</div>
-        		<div class="col m12 ">
+        		<div class="col m12 white-t">
         			<h6><?php echo currency_fire($v[$i][currency]).' '.$v[$i][cost];?></h6>
+        		</div>
+        		<div class="col m12 white-t">
+        			<div onclick='setdrop(this);' >
+        				<i class='material-icons '>description</i> 
+        				<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>
+							<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'>
+								<div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'>
+								</div>
+							    <div  id='desc' class='col s12 m12 s12'   style='word-wrap: break-word;'> 
+							    	<?php echo $v[$i][description] ?> 
+							    </div>
+							    <div class='col s12 m12 s12' id ='state'> 
+							     	<button onclick='hide(this);'>Okay</button> 
+							    </div>
+							</div>
+        				</div>
+        			</div>
+        			<h6><?php //echo $v[$i][description];?></h6>
         		</div>
         	</div>
         </li>
@@ -563,6 +581,12 @@ function offer_fire( $v ,$der,$rel){
 <?php
    }
 }
+
+
+
+
+
+
 
 function del_fire($v,$rel,$pk){
  $l =  sizeof($v);
@@ -798,4 +822,4 @@ $(window).ready(function(){
 
 </script>
 
-
+<script src="offer.js"></script>

@@ -10,7 +10,7 @@ var packs = new Array('Title', 'Gold', 'Silver');
 var deliver_next=0;
 
 function save_me(e){
-  $(e).parent().parent().parent().siblings('#description').attr('value',e.innerHTML);
+  $(e).parent().parent().parent().siblings('#description').attr('value',$(e).html());
 }
 function hide(e) {
   event.preventDefault();
