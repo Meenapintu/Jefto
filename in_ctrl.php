@@ -1,16 +1,31 @@
+
+
+<?php
+    require_once("header.php");
+    require_once('find.php');
+    require_once('footer.php');
+?>
+
+
+
+
+
+
+
+
 <?php
 session_start();
 $connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
 $conn = pg_connect($connection_string);
-if($conn){ echo "done ";}
+if(!$conn){//echo "done ";}
 	else echo " there is error ";
-echo "entering 0";
+//echo "entering 0";
 require_once('phpfunc.php');
 
- echo "entering 1";
+ //echo "entering 1";
 $i=0;
 //if(isset($_POST['category__'],$_POST['genre__'],$_POST['description__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['address__'],$_POST['tags__'],$_POST['scope__'],$_POST['key_numbers__'],$_POST['frequency__'],$_POST['team_description__'],$_POST['budget__'],$_POST['sponsors__'],$_POST['finance_price__'])and $_POST['event_name__']){
-            echo$_POST['genre__'];
+            //echo$_POST['genre__'];
  			$_POST['event_name__'] 	= htmlspecialchars($_POST['event_name__']);
             $_POST['category__'] 	= htmlspecialchars($_POST['category__']);
             $_POST['genre__'] 		= htmlspecialchars($_POST['genre__']);
@@ -97,12 +112,12 @@ $i=0;
         		//$event_id = $name;
                
                 $_SESSION["currency"] = pg_escape_string($_POST['currency__']);
-        		//echo $event_id;
+        		////echo $event_id;
 
         
-                 echo $genre;
-                 echo "</br>";
-                 echo$category;
+                 //echo $genre;
+                 //echo "</br>";
+                 //echo$category;
             $insert_array = array($name,$category,$genre,$city,$address,$country,$scope,$frequency,$website,$email,$organizer,$start_date,$end_date,$link_for_req,$description,$team_descritpion,$budget,$tags);
            
             $query = "insert into event (name,category,genre,city,address,country,scope,frequency,website,email,organizer,start_date,end_date,link_for_req,description,team_descritpion,budget,tags) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)RETURNING event_id";
@@ -118,21 +133,21 @@ if(isset($_FILES['logo__'])){
             //$unique = date('YmdHisTU');
             $img = $event_id.$file_extension;
             //$img->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
-            echo "image is loaded";
+            //echo "image is loaded";
             $pathToImage = "event_logos/$img";
             if(move_uploaded_file($_FILES['logo__']['tmp_name'], $pathToImage)){
 
             $_SESSION["logo"] = $pathToImage;
-            echo $pathToImage." moved file";
+            //echo $pathToImage." moved file";
              }
              else{
-		echo "file not moved ";
+		//echo "file not moved ";
                 $_SESSION["logo"] = "event_logos/default_logo.png";
              }
      }
    }
    else{
-	echo"file not loaded";
+	//echo"file not loaded";
     $_SESSION["logo"] = "event_logos/default_logo.png";
    }
 
@@ -146,7 +161,7 @@ if(isset($_FILES['logo__'])){
                 $insert_array = array();
                 $query = "INSERT INTO sponsorship(event_id,type)VALUES($1,$2)";
                 foreach ($exp_value as $value) {
-                    //echo$value;
+                    ////echo$value;
                     if($value !='' && $value !='Financial'){
                     $sub_insert = array($event_id,$value);
                     array_push($insert_array,$sub_insert);
@@ -167,8 +182,8 @@ if(isset($_FILES['logo__'])){
              $query = "INSERT INTO key_numbers(event_id,type_name,type_count)VALUES ($1,$2,$3)";
                $insert_array = array();
             for ($i=0; $i < $key_numbers; $i+=2) {
-                echo"</br>";
-                echo $key_numbers;
+                //echo"</br>";
+                //echo $key_numbers;
                     $type_name =pg_escape_string($_POST['key_numbers__'][$i]);
                     $type_count =(int)$_POST['key_numbers__'][$i+1];
                 $sub_insert = array($event_id,$type_name,$type_count);
@@ -179,7 +194,7 @@ if(isset($_FILES['logo__'])){
 
 
             
-echo"done everything";
+//echo"done everything";
 
 
 
@@ -189,7 +204,7 @@ echo"done everything";
           $target_audience = (int)$_POST['target_audience'];
           $age_group    = (int)$_POST['age_group'];
             $total_audience = (int)$_POST['total_audience_count__'];
-            echo '$total_audience'.$total_audience;
+            //echo '$total_audience'.$total_audience;
             for ($i=0; $i < $target_audience; $i+=2) { 
                 # code...//demographics
                 $_POST['audience__'][$i]    = htmlspecialchars($_POST['audience__'][$i]);
@@ -247,7 +262,7 @@ echo"done everything";
             //eventplus audience_age , //audience_demographics 
                 $event_id = $_SESSION["event_id"];
                 $logo  = $_SESSION["logo"];
-                echo $logo.'logo</br>';
+                //echo $logo.'logo</br>';
                 $currency = $_SESSION["currency"];
 
                 
@@ -268,9 +283,9 @@ echo"done everything";
             pg_prepare_multi_insert($conn, $query,$insert_array);
 
               $insert_array = array();
-               echo"we are here";
+               //echo"we are here";
             $query = "INSERT INTO age_group(event_id,low_age,up_age,ratio)VALUES($1,$2,$3,$4)";
-             echo"we are here";
+             //echo"we are here";
               for ($i=0; $i < $age_group; $i+=2) { 
                 $ratio =  (int)$_POST['age_range__'][$i+1];
                 $sub_insert = array($event_id,$age_limit[$i],$age_limit[$i+1],$ratio);
@@ -282,10 +297,10 @@ echo"done everything";
                 $exp_value = explode("___", $values);
                 //$words = explode("___", $str);
                 $insert_array = array();
-                //echo sizeof($exp_value).size;
+                ////echo sizeof($exp_value).size;
                 $query = "INSERT INTO audience_demographics(event_id,type_name,type_value)VALUES($1,$2,$3)";
                 foreach ($exp_value as $value) {
-                    echo$value;
+                    //echo$value;
                     if($value !=''){
                     $sub_insert = array($event_id,$type_name,$value);
                     array_push($insert_array,$sub_insert);
@@ -300,9 +315,9 @@ echo"done everything";
                 insert_arr_psql($conn,$event_id,pg_escape_string($_POST['income_level__']),"income_level");
 
                        
-            echo"</br>";
-            echo "everything working ";
-            echo"</br>";
+            //echo"</br>";
+            //echo "everything working ";
+            //echo"</br>";
 
 
 
@@ -390,7 +405,7 @@ echo"done everything";
              $insert_array = array();
             $query = "INSERT INTO online_profile(event_id,site_name,link)VALUES($1,$2,$3)";
             $length = sizeof($_POST['social_media__']);
-            echo $length;
+            //echo $length;
             for ($i=0; $i <$length; $i+=2) { 
                 $sub_insert = array($event_id,$_POST['social_media__'][$i],$_POST['social_media__'][$i+1]);
                 array_push($insert_array,$sub_insert);
@@ -402,7 +417,7 @@ echo"done everything";
 
             $exp_value = explode("___", $_POST['non_media_explorer__']);
              foreach ($exp_value as $value) {
-                    //echo$value;
+                    ////echo$value;
                     if($value !=''){
                     $sub_insert = array($event_id,$value,"No description");
                     array_push($insert_array,$sub_insert);
@@ -459,7 +474,9 @@ echo"done everything";
             $insert_array =array($event_id,null,$_POST['contact_name__'],$_POST['contact_email__'],$_POST['contact_mob__'],$_POST['office___']);
              pg_prepare_single_insert($conn, $query,$insert_array);
 
-            echo"</br>";
-            echo "everything working WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
-            echo"</br>";
+            //echo"</br>";
+            //echo "everything working WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
+            //echo"</br>";
+
+            header("Location: http://www.jefto.com/profile.php?e=".$event_id);
 ?>
