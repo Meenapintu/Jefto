@@ -145,7 +145,7 @@ function chart_rel(json) {
 </script>
 <div class="container " >
 
-<div class="row card-panel">
+<div class="row card-panel" style="background:#EEEEEE;">
 	<div class="col m12 card-panel margin-0">
 		<div class="row margin-0 pd0 ">
 			<div class="col m12 s12 l12 card-panel margin-0" >
@@ -153,13 +153,27 @@ function chart_rel(json) {
 			</div> 
 			<div class="col s12 m4 l4 " style="margin-top:1rem">
 				<div class="row margin-0 " > 
-					<div class="col s5 m5 l5 " style="padding:0px;margin:0px;">
+					<div class="col s2 m2 l2 "style='padding-right:0px;margin-right:0px;' >
 						<div class="margin-0 icon pd0"style="left:2px;"> 
 							<img src="def_img/sd_icon.png">
-							<div class="icon-t " > 
 									<?php $time = time_fire($event[0][end_date]);  ?> 
 									<?php $times = time_fire($event[0][start_date]);  ?> 
-									<div class="row abs margin-0 pd0 " style="margin-top:30.86%;margin-left:8.2%;">
+				 		</div>
+				 	</div>
+				 	<div class="col s8 m8 l8 dh center  "style='position:relative;padding:0px;margin:0px;' >
+				 		
+				 		<h6   align="center"><?php $d = $time->diff($times); echo ($d->format('%d')+1).' days';?></h6>
+				 		<div class="col s12 m12 l12 grad-gen"style='position:absolute;top:52%;height:2px;padding:0px;margin:0px;width:100%;'></div>
+				 		<h6 class='center'align="center"><?php $d = $time->diff($times); if(!$d->format('%y')){echo $times->format('Y');}else{echo $times->format('Y').'-'.$time->format('y');} ?></h6>
+				 	</div>
+					<div class="col s2 m2 l2 right udh pd0"style='padding-left:0px;margin-left:0px;' >
+				 		<div class="margin-0 pd0 icon">
+				 			<img src="def_img/ed_icon.png">
+				 			
+				 		</div>
+				 	</div>
+				 	<div class="col s2 m2 l2  udh " >
+				 	<div class="row  " >
 										<div class="col s12 m12 l12 margin-0 pd0 ">
 											<h5 class=" margin-0 pd0" ><?PHP echo $times->format('d'); ?></h5>
 										</div>
@@ -167,23 +181,10 @@ function chart_rel(json) {
 											<h6 class="margin-0 pd0" ><?PHP echo $times->format('M'); ?></h6>
 										</div>
 									</div>
-								
-							</div>
-				 		</div>
+
 				 	</div>
-				 	<div class="col s2 m2 l2 dh "style='position:relative;padding:0px;margin:0px;' >
-				 		
-				 		<h6 style='position:absolute;bottom:45%;'><?php $d = $time->diff($times); echo ($d->format('%d')+1).' days';?></h6>
-				 		<div class="col s2 m2 l2 grad-gen"style='position:absolute;top:56%;height:2px;padding:0px;margin:0px;width:100%;'></div>
-				 		<h6 class='center'style='position:absolute;top:60%;'><?php $d = $time->diff($times); if(!$d->format('%y')){echo $times->format('Y');}else{echo $times->format('Y').'-'.$time->format('y');} ?></h6>
-				 	</div>
-					<div class="col s5 m5 l5 right udh pd0" style="padding:0px;margin:0px;">
-				 		<div class="margin-0 pd0 icon">
-				 			<img src="def_img/ed_icon.png">
-				 			<div class="icon-t "> 
-								
-			
-									<div class="row abs margin-0 pd0" style="margin-top:30.86%;margin-left:49.5%">
+				 	<div class="col s2 m2 l2 right udh " >
+				 		<div class="row  " >
 										<div class="col s12 m12 l12 margin-0 pd0 ">
 											<h5 class=" margin-0 pd0"><?PHP echo $time->format('d'); ?></h5>
 										</div>
@@ -191,10 +192,9 @@ function chart_rel(json) {
 											<h6 class="margin-0 pd0"><?PHP echo $time->format('M'); ?></h6>
 										</div>
 									</div>
-								
-							</div>
-				 		</div>
 				 	</div>
+
+
 				 	
 				</div>
 			</div> 
