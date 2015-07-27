@@ -17,7 +17,7 @@ function subform_range(name,msg){
 }
 
 function subform_textarea(name,msg){
-	var input ="<textarea id='"+name+"'  name= "+name+" length='120' class='materialize-textarea'></textarea>";
+	var input ="<textarea id='"+name+"'  name= "+name+"  class='materialize-textarea'></textarea>";
 	 	input+="<label for='"+name+"'>"+msg+"</label>";
 	return input;
 }
@@ -85,11 +85,15 @@ function multiform(msg,name,val){
 }
 
 function selectform(name,option){
-	var sform = "<input type='text' id='select_in' name='"+name+"' onclick='showop(this)' ></input>";
+	var tc = name.split('[');
+	 tc[1] = tc[1].split(']');
+	//alert(tc[0]+tc[1][0]);
+	var id = tc[0]+tc[1][0];
+	var sform = "<input type='text' id='select_in' class='s"+id+"' name='"+name+"' onclick='showop(this)' ></input>";
 		sform+= "<div class='row card s-div' style='display:none;overflow-y:scroll;max-height:200px;margin:0px;'>";
 		for (var i = option.length - 1; i >= 0; i--) {
 			sform+= "<div class='col s12 m12 l12 hover_eff' >";
-			sform+= "<p  class='active font-med  margin-0 hover_eff'id='select_data' onclick='setv(this);' style='margin-left:5%;' >"+option[i]+"</p>";
+			sform+= '<p  class="active font-med  margin-0 hover_eff" id="select_data" onclick= setv(this,"s'+id+'") style="margin-left:5%;" >'+option[i]+'</p>';
 			sform+= "</div>";
 		}
 		sform+="</div>";

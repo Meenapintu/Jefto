@@ -121,15 +121,31 @@ function add_feild(e){
  
 
 $('#select_in').keypress(function(){
+ 
   $('.s-div').hide();
 });
 
+$('#select_in').on('focus',function(){
+   //console.log($(this).attr('value',this.value));
+});
+$('#select_in').on('input',function(){
+   //console.log(this.value);
+   //this.value='text101';
+});
 function showop(e) {
   $(e).siblings('.s-div').show();
 }
 
-function setv(e) {
-  $(e).parent().parent().siblings("#select_in").attr('value',$(e).html());
+function setv(th,e) {
+      //   e.parentElement.nodeName.parentElement.nodeName.previousSibling
+  //var ptr = $(e).parent().parent().siblings("#select_in").attr('value',$(e).html());
+       // $(e).parent().parent().siblings("#select_in").attr('',$(e).html());
+    //ptr.value = $(e).html();
+   // $(e).parent().parent().siblings("#select_in").value='test102';
+  //alert(e);
+ //alert(e);
+    document.getElementsByClassName(e)[0].value = $(th).html()
+ //console.log();
   $('.s-div').hide();
 };
 

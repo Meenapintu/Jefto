@@ -87,7 +87,7 @@
 		document.write("</div>");
 
 		document.write("<div class='input-field col s12 m12 l12'>");
-		document.write(subform("pincode__"," Pin Code","number")); 
+		document.write(subform("pincode__","ZIP code/PIN Code","number")); 
 		document.write("</div>");
 
 		document.write("<div class='input-field col s12 m12 l12 '>");
@@ -244,9 +244,9 @@
 	document.write("<div class='input-field col s12 m12'>");
 	document.write(subform("print__","Print Media Coverage","text"));
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
-	document.write(multiform("Off Line Promotion   ","off_line_promo__",offline_promotion));
-	document.write("</div>"); 
+	//document.write("<div class='input-field col s12 m12'>");
+	//document.write(multiform("Off Line Promotion   ","off_line_promo__",offline_promotion));
+	//document.write("</div>"); 
 	</script>
 	<div class='input-field col s12 m12'>
 	<div class="row">
@@ -335,6 +335,8 @@ for (var i = 1; i < def_pack; i++) {
 	add_package(packs[i]);
 };
 
+//var carr = array('1_deleteRadio',0_deleteTV,2_deleteNewspaper);
+$(".sage_range__0").attr("readonly",true);
 
 $('#4_deleteFinancial').on('change',function () {
 	if($(this).is(':checked')){
@@ -376,7 +378,17 @@ $('form').on('submit', function (e) {
 //	e.preventDefault();   //page not relaoding
 	var thisid = $(this).children(".active-f").attr('id');
 	var curr_id= parseInt(thisid);
-	/*if(curr_id==3){
+	if(curr_id==3){
+		//e.preventDefault();
+		var inputs = document.getElementsByTagName("input");
+		for (var i = 0; i < inputs.length; i++) {
+ 			if(inputs[i].id.indexOf("delete") > 0)
+    		$(inputs[i]).remove();
+			}
+		return true;
+	}
+
+		/*
 		$.ajax({
 	   //page not relaoding
 	var thisid = $(this).children(".active-f").attr('id');

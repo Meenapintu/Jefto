@@ -316,7 +316,7 @@ echo"done everything";
         $_POST['tele__'] = htmlspecialchars($_POST['tele__']);
         $_POST['radio__'] = htmlspecialchars($_POST['radio__']);
         $_POST['print__'] = htmlspecialchars($_POST['print__']);
-        $_POST['off_line_promo__'] = htmlspecialchars($_POST['off_line_promo__']);
+       // $_POST['off_line_promo__'] = htmlspecialchars($_POST['off_line_promo__']);
          
         foreach ($_POST['media_name__'] as $key => $value) {
             $_POST['media_name__'][$key] = htmlspecialchars($value);
@@ -353,7 +353,7 @@ echo"done everything";
             $_POST['tele__'] = stripslashes($_POST['tele__']);
             $_POST['radio__'] = stripslashes($_POST['radio__']);
             $_POST['print__'] = stripslashes($_POST['print__']);
-            $_POST['off_line_promo__'] = stripslashes($_POST['off_line_promo__']);
+            //$_POST['off_line_promo__'] = stripslashes($_POST['off_line_promo__']);
             foreach ($_POST['media_name__'] as $key => $value) {
                 $_POST['media_name__'][$key] = stripslashes($value);
             }  
@@ -398,15 +398,25 @@ echo"done everything";
            pg_prepare_multi_insert($conn, $query,$insert_array);
              $insert_array = array();
             $query = "INSERT INTO offlinepromotion(event_id,names,description)VALUES($1,$2,$3)";
-            $sub_insert =array($event_id,'Non_media',$_POST['non_media_explorer__']);
+            //$sub_insert =array($event_id,'Non_media',$_POST['non_media_explorer__']);
+
+            $exp_value = explode("___", $_POST['non_media_explorer__']);
+             foreach ($exp_value as $value) {
+                    //echo$value;
+                    if($value !=''){
+                    $sub_insert = array($event_id,$value,"No description");
+                    array_push($insert_array,$sub_insert);
+                    }
+                }
+
             array_push($insert_array,$sub_insert);
-            $sub_insert =array($event_id,'television',$_POST['tele__']);
+            $sub_insert =array($event_id,'airplay',$_POST['tele__']);
             array_push($insert_array,$sub_insert);
             $sub_insert =array($event_id,'radio',$_POST['radio__']);
             array_push($insert_array,$sub_insert);
-            $sub_insert =array($event_id,'print',$_POST['print__']);
+            $sub_insert =array($event_id,'Newspaper',$_POST['print__']);
             array_push($insert_array,$sub_insert);
-            $sub_insert =array($event_id,'offline',$_POST['off_line_promo__']);
+            //$sub_insert =array($event_id,'offline',$_POST['off_line_promo__']);
             array_push($insert_array,$sub_insert);
              pg_prepare_multi_insert($conn, $query,$insert_array);
             foreach ($_POST['media_name__'] as $key => $value) {
@@ -438,8 +448,10 @@ echo"done everything";
             $query="INSERT INTO offer_deliver(event_id,offer_id,deliverable_id,quantity)VALUES($1,$2,$3,$4)";
             foreach ($_POST['element___'] as $key2d => $value2d) {
                 foreach ($value2d as $key => $value) {
+                    if((int)$value >0){
                 $sub_insert =array($event_id,(int)$key2d,(int)$key,(int)$value);
                 array_push($insert_array,$sub_insert);
+                    }
                 }
             }
             pg_prepare_multi_insert($conn, $query,$insert_array);

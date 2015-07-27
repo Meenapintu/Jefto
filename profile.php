@@ -10,6 +10,10 @@
 	echo ".grad-gen{background: -webkit-linear-gradient(right, rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: -o-linear-gradient(right,rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: -moz-linear-gradient(right,rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: linear-gradient(to right, rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%)";	
 	}
 
+$social_media =  array('google.com','facebook.com','linkdin.com','twitter.com','Facebook.com','def'=>'online site default');
+$online_promotion = array("VentureBeat","TechCrunch","Forbes","Huffington Post","Yourstory",'def'=>'online site default');
+$sponsor_needed =  array("Venue","Food","In media","In kind","Financial","Labor",'def'=>'sponsorship');
+$offline_promotion = array("airplay","radio","Newspaper",'def'=>'online site default');	
 
  ?>
 
@@ -370,13 +374,13 @@ function chart_rel(json) {
 			<div class="col m6 center">
 				<h5 class="font-ml  flow-text center ">Online</h5>
 				<div class="row " style="margin:0px;margin-top:20px;">
-					<?php link_fire($olp,4); ?>
+					<?php link_fire($olp,4,$online_promotion); ?>
 				</div>
 			</div>
 			<div class="col m6  center ">
 				<h5 class="font-ml  flow-text center ">Offline</h5>
 				<div class="row " style="margin:0px;margin-top:20px;">
-					<?php offline_fire($olf,4); ?>
+					<?php offline_fire($olf,4,$offline_promotion); ?>
 				</div>
 			</div>
 		</div>
@@ -388,7 +392,7 @@ function chart_rel(json) {
 			</div>
 			<div class="col s12 m12 l12 " >
 				<div class="row " style="margin:0px;margin-top:20px;">
-					<?php link_fire($op,3); ?>
+					<?php link_fire($op,3,$social_media); ?>
 				</div>
 			</div>
 		</div>
@@ -481,18 +485,29 @@ function chart_rel(json) {
 
 </div>
 <?php
-function link_fire($v,$s){
+function link_fire($v,$s,$aimg){
 	$l =  sizeof($v);
 	for ($i=0; $i < $l; $i++) { 
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href=".$v[$i][link]." target='_blank' ><img src='def_img/".$v[$i][site_name].".png'><h6 >".$v[$i][site_name]."</h6> </a></div>";
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='".$v[$i][name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 	}			
 }
 
-function offline_fire($v,$s){
+function offline_fire($v,$s,$aimg){
 	$l =  sizeof($v);
 	for ($i=0; $i < $l; $i++) { 
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href=".$v[$i][name]." target='_blank' ><img src='def_img/".$v[$i][name].".png'><h6 >".$v[$i][name]."</h6> </a></div>";
+
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
 	}			
+}
+
+
+function img_linker($name,$array){
+		//echo"<script>alert('".$name.$array."')</script>";
+	if (in_array($name, $array)) {
+		//echo'<script>alert('.$name.')</script>';
+		return $name.'.png';
+   	}
+   	else return $array[def].'.png';
 }
 
 function time_fire($d){
