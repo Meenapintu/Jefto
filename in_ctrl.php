@@ -17,7 +17,7 @@
 session_start();
 $connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
 $conn = pg_connect($connection_string);
-if(!$conn){echo "working on .... ";}
+if($conn){echo "working on .... ";}
 	else echo " there is error ";
 //echo "entering 0";
 require_once('phpfunc.php');
