@@ -86,9 +86,9 @@ function multiform(msg,name,val){
 
 function selectform(name,option){
 	var tc = name.split('[');
-	 tc[1] = tc[1].split(']');
-	//alert(tc[0]+tc[1][0]);
-	var id = tc[0]+tc[1][0];
+	 //tc[1] = tc[1].split(']');
+	//alert(tc[0]);
+	var id = tc[0];
 	var sform = "<input type='text' id='select_in' class='s"+id+"' name='"+name+"' onclick='showop(this)' ></input>";
 		sform+= "<div class='row card s-div' style='display:none;overflow-y:scroll;max-height:200px;margin:0px;'>";
 		for (var i = option.length - 1; i >= 0; i--) {

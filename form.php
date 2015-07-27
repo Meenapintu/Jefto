@@ -336,7 +336,7 @@ for (var i = 1; i < def_pack; i++) {
 };
 
 //var carr = array('1_deleteRadio',0_deleteTV,2_deleteNewspaper);
-$(".sage_range__0").attr("readonly",true);
+ $(".sage_range__").attr("readonly",true);
 
 $('#4_deleteFinancial').on('change',function () {
 	if($(this).is(':checked')){
@@ -355,10 +355,10 @@ $('#4_deleteFinancial').on('change',function () {
 		}
 });
 
-var freq1 = "input[name=event_name__ ],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
+var freq1 = "input[name=event_name__ ],input[name=startdate__],input[name=enddate__],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
 var freq2 = "input[name=total_audience_count__]";
 var freq3 = "input[name=contact_name__],input[name=contact_mob__],input[name=contact_email__],input[name=description__]";
-//$(freq1).attr('required',true);
+$(freq1).attr('required',true);
 
 function back(curr_id,e){
 	$(".active-f").attr('class','row current');
@@ -419,10 +419,10 @@ $('form').on('submit', function (e) {
 	if(curr_id!=3){
 	e.preventDefault();
 	$(".active-f").attr('class','row current');
-//	$(eval('freq'+thisid)).attr('required',false);
+	$(eval('freq'+thisid)).attr('required',false);
 	$('div[id=' + ++curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
-//	$(eval('freq'+curr_id.toString())).attr('required',true);
+	$(eval('freq'+curr_id.toString())).attr('required',true);
 	 $("html, body").animate({ scrollTop: 0 }, "slow");
 	return false;
 	}
