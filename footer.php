@@ -121,7 +121,7 @@ function add_feild(e){
   $(e).siblings("#replace_me").replaceWith(key_numbers(eval(e.name),e.id+"["+ e.value++ +"]",e.id+"["+e.value++ +"]",placeholder,type
     ));
   $(e).siblings("#"+e.id).attr('value',e.value);
-  $(".sage_range__").attr("readonly",true);
+  $(".sage_range__").each( function(){$(this).siblings('input').attr("readonly",true)});
   //$( "input[name^='age_range__']" ).attr("readonly",true);
 }
  
