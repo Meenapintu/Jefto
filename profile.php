@@ -488,7 +488,7 @@ function chart_rel(json) {
 function link_fire($v,$s,$aimg){
 	$l =  sizeof($v);
 	for ($i=0; $i < $l; $i++) { 
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='".$v[$i][name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='".$v[$i][name_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 	}			
 }
 
