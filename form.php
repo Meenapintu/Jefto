@@ -358,7 +358,7 @@ $('#4_deleteFinancial').on('change',function () {
 var freq1 = "input[name=event_name__ ],input[name=startdate__],input[name=enddate__],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
 var freq2 = "input[name=total_audience_count__]";
 var freq3 = "input[name=contact_name__],input[name=contact_mob__],input[name=contact_email__],input[name=description__]";
-//$(freq1).attr('required',true);
+$(freq1).attr('required',true);
 
 function back(curr_id,e){
 	$(".active-f").attr('class','row current');
