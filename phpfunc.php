@@ -19,12 +19,14 @@
     }
     else{
         //echo "</br>INSERTION DONE</br> ";
-        //echo true;
+        echo true;
     } 
     }
     $sql = sprintf('DEALLOCATE "%s"', pg_escape_string($sqlName));
     if(!pg_query($sql))
     {
+
+         die("We are facing some technical difficulties, please bear with us.");
         //die("Can't query '$sql': " . pg_last_error());
     }
     //echo" add done multi";
@@ -75,7 +77,7 @@ function pg_prepare_single_insert_v1($conn, $query,$insert_array)
     if($rs == FALSE){
         ////echo"</br> THERE IS ERROR IN INSERT 1 </br>";
        // die("Can't prepare '$sql': " . pg_last_error());
-         die("Sorry we caugh an error");
+         //die("Sorry we caugh an error");
         //echo false;
           die("We are facing some technical difficulties, please bear with us.");
     }
@@ -126,7 +128,7 @@ function pg_prepare_select($conn,$query,$event_id){
     {
        // die("Can't query '$sql': " . pg_last_error());
         
-        // die("We are facing some technical difficulties, please bear with us.");
+         die("We are facing some technical difficulties, please bear with us.");
     }
     return $v;
 }

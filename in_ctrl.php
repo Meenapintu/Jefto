@@ -420,7 +420,7 @@ if(isset($_FILES['logo__'])){
                     }
                 }
 
-            array_push($insert_array,$sub_insert);
+            //array_push($insert_array,$sub_insert);
             $sub_insert =array($event_id,'airplay',$_POST['tele__']);
             array_push($insert_array,$sub_insert);
             $sub_insert =array($event_id,'radio',$_POST['radio__']);
@@ -428,7 +428,7 @@ if(isset($_FILES['logo__'])){
             $sub_insert =array($event_id,'Newspaper',$_POST['print__']);
             array_push($insert_array,$sub_insert);
             //$sub_insert =array($event_id,'offline',$_POST['off_line_promo__']);
-            array_push($insert_array,$sub_insert);
+           // array_push($insert_array,$sub_insert);
              pg_prepare_multi_insert($conn, $query,$insert_array);
             foreach ($_POST['media_name__'] as $key => $value) {
                 $_POST['media_name__'][$key] = stripslashes($value);
