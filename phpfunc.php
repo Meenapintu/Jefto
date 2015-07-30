@@ -29,6 +29,7 @@
          //die("We are facing some technical difficulties, please bear with us.");
         die("Can't query '$sql': " . pg_last_error());
     }
+    echo"inserted in mult";
     //echo" add done multi";
     
 }
@@ -63,7 +64,7 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
        // return false;
            return false;
     }
-
+    echo"inserted in single";
     return true;
 }
 
@@ -97,7 +98,7 @@ function pg_prepare_single_insert_v1($conn, $query,$insert_array)
         //die("We are facing some technical difficulties, please bear with us.");
 
     }
-
+    echo"inserted in single v1";
     return $v['event_id']; 
 }
 
