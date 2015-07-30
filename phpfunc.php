@@ -48,6 +48,7 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
         ////echo"</br> THERE IS ERROR IN INSERT 1 </br>";
         //die("Can't prepare '$sql': " . pg_last_error());
         //echo false;
+        return false;
          die("We are facing some technical difficulties, please bear with us.");
     }
         //echo true;
@@ -58,9 +59,10 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
     if(!pg_query($sql))
     {
         //die("Can't query '$sql': " . pg_last_error());
-        return false;
-
+       // return false;
+           return false;
     }
+
     return true;
 }
 
