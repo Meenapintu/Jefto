@@ -370,13 +370,21 @@ function insert_arr_psql($conn,$event_id,$values,$type_name)
                         array_push($insert_array,$sub_insert);
                     }
                 }
-
-                $sub_insert =array($event_id,'airplay',$_POST['tele__']);
-                array_push($insert_array,$sub_insert);
-                $sub_insert =array($event_id,'radio',$_POST['radio__']);
-                array_push($insert_array,$sub_insert);
-                $sub_insert =array($event_id,'Newspaper',$_POST['print__']);
-                array_push($insert_array,$sub_insert);
+                if($_POST['tele__'] !='')
+                {
+                    $sub_insert =array($event_id,'airplay',$_POST['tele__']);
+                    array_push($insert_array,$sub_insert);
+                }
+                if($_POST['radio__'] !='')
+                {
+                    $sub_insert =array($event_id,'radio',$_POST['radio__']);
+                    array_push($insert_array,$sub_insert);
+                }
+                if($_POST['print__'] !='')
+                {
+                    $sub_insert =array($event_id,'Newspaper',$_POST['print__']);
+                    array_push($insert_array,$sub_insert);
+                }
                 pg_prepare_multi_insert($conn, $query,$insert_array);
                 foreach ($_POST['media_name__'] as $key => $value)
                 {
