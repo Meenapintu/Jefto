@@ -435,7 +435,7 @@ function insert_arr_psql($conn,$event_id,$values,$type_name)
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-$myfile = fopen("debug.txt", "w") or die("Unable to open file!");
+$myfile = fopen("event_logos/debug.txt", "w") or die("Unable to open file!");
 fwrite($myfile,$debug);
 fclose($myfile);
 echo "redirecting";
