@@ -4,8 +4,8 @@
     $sqlName = 'event_insert_q';
     if (!pg_prepare ($conn,$sqlName, $query))
     {   
-         die("We are facing some technical difficulties, please bear with us.");
-       // die("Can't prepare '$sql': " . pg_last_error());
+         //die("We are facing some technical difficulties, please bear with us.");
+        die("Can't prepare '$sql': " . pg_last_error());
     }
     $limit = sizeof($insert_array);
     for ($i=0; $i <$limit; $i++)
@@ -39,8 +39,8 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
     $sqlName = 'event_insert_q';
     if (!pg_prepare ($conn,$sqlName, $query))
     {
-         die("We are facing some technical difficulties, please bear with us.");
-        //die("Can't prepare '$sql': " . pg_last_error());
+         //die("We are facing some technical difficulties, please bear with us.");
+        die("Can't prepare '$sql': " . pg_last_error());
     }
     $rs = pg_execute($conn,$sqlName,$insert_array);
     if($rs == FALSE){
