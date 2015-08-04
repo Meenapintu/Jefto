@@ -4,6 +4,8 @@
 
 
 ?>
+<div class="container" >
+
 <table>
         <thead>
           <tr>
@@ -17,7 +19,35 @@
 
         <tbody>
           <tr>
-            <td>Alvin</td>
+            <td>
+            	<div class="row">
+            		<div class="col s6 m6 l6">
+            		   <img src="def_img/jefto.png" style="background:rgba(34,43,34,0.5)">
+            		 </div>
+            		<div class="col s6 m6 l6"> 
+            			<div class="row">
+            				<div class="col s12 m12 l12">
+            				<i class="large material-icons">location_on</i>
+            				</div>
+            				<div class="col s12 m12 l12">
+            						<img src="def_img/flag.svg" style="background:rgba(34,43,34,0.5)">
+            				</div>
+            				<div class="col s12 m12 l12">
+            					<i class="large material-icons green">verified_user</i>
+            				</div>
+            				<div class="col s12 m12 l12">
+            				<i class="large material-icons green">today</i>
+            				<i class="large material-icons green">public</i>
+            				</div>
+            			</div>
+            		</div>
+            		<div class="col s12 m12 l12">
+            			EVENT NAME
+            		</div>
+            	</div>
+            </td>
+
+
             <td>Eclair</td>
             <td>$0.87</td>
           </tr>
@@ -33,3 +63,5 @@
           </tr>
         </tbody>
       </table>
+</div>
+</body>

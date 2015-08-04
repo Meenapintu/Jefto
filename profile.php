@@ -119,10 +119,7 @@ $query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver wh
 	background: -moz-linear-gradient(right,#59D61F , #FF5000 );
 	background: linear-gradient(to right,#59D61F   ,#FF5000 );
 }
-div img{
-	max-width: 100%;
-	max-height: 100%;
-}
+
 .hc{
 	color:#20a8e0;
 }
