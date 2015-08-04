@@ -615,7 +615,7 @@ function rel_fire($oid,$did,$rel){
 		if($rel[$i][offer_id] == $oid && $rel[$i][deliverable_id] == $did )
 			return $rel[$i][quantity];
 	}
-	return null;
+	return 0;
 }
 
 
