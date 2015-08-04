@@ -271,14 +271,19 @@ function chart_rel(json) {
 			<div class="col m12 center"> 
 			<?php 
 			$i=0;
+			$l = sizeof($spon);
+			$s = 3;
+			if($l < $s){
+				$s = 12/$l;
+			}
 			foreach ($spon as $key => $value) {
 					
 					if( $i <1 &&$value[ftype] == 'Financial'){
 
-					echo "<div class='col s6 m3 l3 '><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value[ftype]."(".currency_fire($event[0][currency]).' '.$value[fund].")</h6></div></div></div>";
+					echo "<div class='col s6 m".$s." l".$s." '><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value[ftype]."(".currency_fire($event[0][currency]).' '.$value[fund].")</h6></div></div></div>";
 					$i++;
 					}
-					echo "<div class='col s6 m3 l3' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".$value[type].".png'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
+					echo "<div class='col  s6 m".$s." l".$s." ' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".$value[type].".png'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
 			
 			}
 		
