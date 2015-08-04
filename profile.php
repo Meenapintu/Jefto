@@ -532,13 +532,17 @@ function currency_fire($cr){
 function key_fire($v){
 	$l =  sizeof($v);
 	//if($l > )
+	$s =4;
+	if($l < $s){
+		$s = 12/$l;
+	}
    for ($i=0; $i < $l; $i++) { 
-   		key_fire_help($v[$i][type_count],$v[$i][type_name]);
+   		key_fire_help($v[$i][type_count],$v[$i][type_name],$s);
    }
 }
 
-function key_fire_help($num,$name){ ?>
-	<div class="col s4 m4 l4 ">
+function key_fire_help($num,$name,$s){ ?>
+	<div class="col "<?php echo 's".$s."  m".$s."  l".$s."' ;?>" ">
 		<div class="row  ">
 			<div class="col s12 m12 l12 center">
 				<h5 class="margin-0  font-ml  flow-text center"><?php echo $num; ?></h5>
