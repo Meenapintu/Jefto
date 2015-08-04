@@ -569,10 +569,10 @@ function offer_fire( $v ,$der,$rel){
         		<div class="col m12 white-t">
         			<h6><?php echo currency_fire($v[$i][currency]).' '.$v[$i][cost];?></h6>
         		</div>
-        		<div class="col m12 white-t">
+        		<div class="col m12 white-t pd0 margin-0">
         			<div onclick='setdrop(this);' >
         				<i class='material-icons '>description</i> 
-        				<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>
+        				<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;left:0px;z-index:2'>
 							<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'>
 								<div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'>
 								</div>
