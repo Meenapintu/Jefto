@@ -541,8 +541,9 @@ function key_fire($v){
    }
 }
 
-function key_fire_help($num,$name,$s){ ?>
-	<div class="col "<?php echo "s".$s."  m".$s."  l".$s."" ;?>" ">
+function key_fire_help($num,$name,$s){ 
+	echo "<div class='col s".$s."  m".$s."  l".$s." '> ";
+	?>
 		<div class="row  ">
 			<div class="col s12 m12 l12 center">
 				<h5 class="margin-0  font-ml  flow-text center"><?php echo $num; ?></h5>
