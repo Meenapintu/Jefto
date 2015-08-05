@@ -494,7 +494,6 @@ function site_link_fire($v,$s,$aimg,$event){
 	if($l < $s){
 		$s = 12/$l;
 	}
-	echo $event[website].'ffffffffffffffffffffffffffffffff';
 	if(!empty($event[website])){
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/online site default.png' ><h6 >".$event[website]."</h6> </a></div>";
 	}
