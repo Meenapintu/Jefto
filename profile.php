@@ -395,7 +395,7 @@ function chart_rel(json) {
 			</div>
 			<div class="col s12 m12 l12 " >
 				<div class="row " style="margin:0px;margin-top:20px;">
-					<?php site_link_fire($op,3,$social_media); ?>
+					<?php site_link_fire($op,3,$social_media,$event[0]); ?>
 				</div>
 			</div>
 		</div>
@@ -489,14 +489,14 @@ function chart_rel(json) {
 </div>
 <?php
 
-function site_link_fire($v,$s,$aimg){
+function site_link_fire($v,$s,$aimg,$event){
 	$l =  sizeof($v);
 	if($l < $s){
 		$s = 12/$l;
 	}
-	echo $event[0][website].'ffffffffffffffffffffffffffffffff';
-	if(!empty($event[0][website])){
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[0][website]."' target='_blank' ><img src='def_img/online site default.png' ><h6 >".$event[0][website]."</h6> </a></div>";
+	echo $event[website].'ffffffffffffffffffffffffffffffff';
+	if(!empty($event[website])){
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/online site default.png' ><h6 >".$event[website]."</h6> </a></div>";
 	}
 	for ($i=0; $i < $l; $i++) { 
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
