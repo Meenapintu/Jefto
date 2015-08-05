@@ -183,6 +183,7 @@ function chart_rel(json) {
 
 				 	</div>
 				 	<div class="col s8 m8 l8   " >
+				 			<p> </p>
 				 	</div>
 				 	<div class="col s2 m2 l2   " >
 				 		<div class="row  " >
