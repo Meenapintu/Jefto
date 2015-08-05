@@ -494,9 +494,9 @@ function site_link_fire($v,$s,$aimg){
 	if($l < $s){
 		$s = 12/$l;
 	}
-	//if($event[website]!=''){
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/".$event[website]."' ><h6 >".$event[website]."</h6> </a></div>";
-	//}
+	if($event[website]!=''){
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/online site default.png' ><h6 >".$event[website]."</h6> </a></div>";
+	}
 	for ($i=0; $i < $l; $i++) { 
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 	}
