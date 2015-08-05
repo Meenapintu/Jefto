@@ -496,7 +496,7 @@ function site_link_fire($v,$s,$aimg,$event){
 		if($l+1 < $s){
 			$s = 12/$l+1;
 		}
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/online site default.png' ><h6 >".$event[website]."</h6> </a></div>";
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/online site default.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
 	}
 	else{
 		if($l < $s){
