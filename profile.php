@@ -158,16 +158,6 @@ function chart_rel(json) {
 									<?php $time = time_fire($event[0][end_date]);  ?> 
 									<?php $times = time_fire($event[0][start_date]);  ?> 
 				 		</div>
-				 		<div class="row  " >
-										<div class="col s12 m12 l12 margin-0 pd0 ">
-											<h5 class=" margin-0 pd0" ><?PHP echo $times->format('d'); ?></h5>
-										</div>
-										<div class="col s12 m12 l12 margin-0 pd0 ">
-											<h6 class="margin-0 pd0" ><?PHP echo $times->format('M'); ?></h6>
-										</div>
-									</div>
-
-				 	</div>
 				 	</div>
 				 	<div class="col s8 m8 l8 dh center  "style='padding:0px;margin:0px;' >
 				 		
@@ -180,17 +170,11 @@ function chart_rel(json) {
 				 			<img src="def_img/ed_icon.png">
 				 			
 				 		</div>
-				 		<div class="row  " >
-										<div class="col s12 m12 l12 margin-0 pd0 ">
-											<h5 class=" margin-0 pd0"><?PHP echo $time->format('d'); ?></h5>
-										</div>
-										<div class="col s12 m12 l12 margin-0 pd0 ">
-											<h6 class="margin-0 pd0"><?PHP echo $time->format('M'); ?></h6>
-										</div>
-									</div>
 				 	</div>
+				 	<div class="col s12 m12 l12 ">
+				 			
 				 	</div>
-				 	<div class="col s2 m2 l2 "style='padding-right:0px;margin-right:0px;'>
+				 	<div  class="col s2 m2 l2 "style='padding-right:0px;margin-right:0px;' >
 				 	<div class="row  " >
 										<div class="col s12 m12 l12 margin-0 pd0 ">
 											<h5 class=" margin-0 pd0" ><?PHP echo $times->format('d'); ?></h5>
@@ -201,7 +185,8 @@ function chart_rel(json) {
 									</div>
 
 				 	</div>
-
+				 	<div class="col s8 m8 l8 dh center  "style='padding:0px;margin:0px;' >
+				 	</div>
 				 	<div class="col s2 m2 l2 right udh pd0"style='padding-left:0px;margin-left:0px;' >
 				 		<div class="row  " >
 										<div class="col s12 m12 l12 margin-0 pd0 ">
