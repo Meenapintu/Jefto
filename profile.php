@@ -161,9 +161,9 @@ function chart_rel(json) {
 				 	</div>
 				 	<div class="col s8 m8 l8 dh center  "style='position:relative;padding:0px;margin:0px;' >
 				 		
-				 		<h6   align="center"><?php $d = $time->diff($times); echo ($d->format('%d')+1).' days';?></h6>
+				 		<h6   align="center"><?php $d = $time->diff($times); echo ($d->format('%d')+1).' days remaining';?></h6>
 				 		<!-- <div class="col s12 m12 l12 grad-gen " id='dline'style='position:absolute;top:52%;height:2px;padding:0px;margin:0px;width:100%;display:none;'></div>-->
-				 		<h6 class='center'align="center"><?php $d = $time->diff($times); if(!$d->format('%y')){echo $times->format('Y');}else{echo $times->format('Y').'-'.$time->format('y');} ?></h6>
+				 		<h6 class='center'align="center">Year: <?php $d = $time->diff($times); if(!$d->format('%y')){echo $times->format('Y');}else{echo $times->format('Y').'-'.$time->format('y');} ?></h6>
 				 	</div>
 					<div class="col s2 m2 l2 right udh pd0"style='padding-left:0px;margin-left:0px;' >
 				 		<div class="margin-0 pd0 icon">
