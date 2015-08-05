@@ -171,7 +171,7 @@ function chart_rel(json) {
 				 			
 				 		</div>
 				 	</div>
-				 	<div class="col s2 m2 l2  " >
+				 	<div class="col s2 m2 l2 left " >
 				 	<div class="row  " >
 										<div class="col s12 m12 l12 margin-0 pd0 ">
 											<h5 class=" margin-0 pd0" ><?PHP echo $times->format('d'); ?></h5>
@@ -182,10 +182,8 @@ function chart_rel(json) {
 									</div>
 
 				 	</div>
-				 	<div class="col s8 m8 l8   " >
-				 			<p> </p>
-				 	</div>
-				 	<div class="col s2 m2 l2   " >
+
+				 	<div class="col s2 m2 l2 right  " >
 				 		<div class="row  " >
 										<div class="col s12 m12 l12 margin-0 pd0 ">
 											<h5 class=" margin-0 pd0"><?PHP echo $time->format('d'); ?></h5>
