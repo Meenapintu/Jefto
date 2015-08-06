@@ -192,6 +192,22 @@ class dbms{
 	   }
 
 	   //
+	   $query = "CREATE TABLE IF NOT EXISTS contact_mail(   /* user can add more contact information if he wish to do ..*/
+			event_id bigserial REFERENCES event ON DELETE CASCADE,
+			name	varchar(50),
+			mobile	varchar(15),
+			email	varchar(50),
+			company	varchar(50),
+			message	text	
+		)";
+	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  event_contactplus created successfully\n";
+	   }
+
+
 
 	  $query = "CREATE TABLE IF NOT EXISTS subscription(
 	  	email  varchar(50),

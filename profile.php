@@ -456,7 +456,7 @@ function chart_rel(json) {
 	      	}
 	      	</style>
 	      	<div class="col m6 ">
-	      		<form class="row" action="">
+	      		<form class="row">
 	      			<div class="input-field col s12 m12 ">
           				<input placeholder="Name" name='name' id="first_name" type="text" class="validate">
           				<label for="first_name" data-error="wrong"></label>
@@ -475,14 +475,22 @@ function chart_rel(json) {
           				<label for="message" data-error="wrong"></label>
        				 </div>
        				 <div class="input-field col s12 m12 ">
-          				<button class="waves-effect waves-light btn"  id="first_name" type="submit" class="validate"><i class="material-icons right ">send</i>Send</button>
+          				<button class="waves-effect waves-light btn"  id="send" type="submit" class="validate"><i class="material-icons right ">send</i>Send</button>
        				 </div>
 	      		</form>
 	      	</div>
+	      	<div class="col s12 m12 l12" style="color:red;margin:0px;" id="Error1" >
+		      <h5>ERROR </h5>
+		      <p>SORRY WE ARE NOT ABLE TO PROCESS YOUR REQUEST .</p>
+		      <p>  THANK YOU , it will be more responsive soon  .</p>
+		    </div>
 	      </div>
 	    </div>
-	    <div class="modal-footer">
-     		 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Exit</a>
+
+	    
+
+	    <div class="modal-footer"  >
+     		 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " >Exit</a>
     	</div>
 	  </div>
 
@@ -490,7 +498,17 @@ function chart_rel(json) {
 
 
 </div>
-
+ <!-- 	<div id="Error1" class="modal">
+	    <div class="modal-content" style="background:red;">
+	      <h4>ERROR </h4>
+	      <p>SORRY WE ARE NOT ABLE TO PROCESS YOUR REQUEST .</p>
+	      <p>There might be a case that you already registed or some internal error .</p>
+	      <p>  THANK YOU , it will be more responcive soon  .</p>
+	    </div>
+	    <div class="modal-footer">
+	    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id='disagree'>OKAY</a>
+	    </div>
+	</div>-->
 
 </div>
 <?php
@@ -697,7 +715,7 @@ $(document).ready( function(){
     $('input#input_text, textarea#textarea1').characterCounter();
   });
      
-
+$('#Error1').hide();
 $(function () {
 
         $('form').on('submit', function (e) {
@@ -705,16 +723,19 @@ $(function () {
           e.preventDefault();
         	$.ajax({
             type: 'post',
-            url: 'subs.php',
+            url: 'contact.php',
             data: $('form').serialize(),
             success: function (data) {
             	//$('#modal1').closeModal();
-            	  if(data){
+            	//alert(data);
+            	  if(data=='true'){
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
+            	  	$('#cont_model').closeModal();
             	  }
             	  else{
             	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
-            	  $('#Error1').openModal();
+            	  $('#Error1').show();
+            	  $('.modal-footer').css('background-color','red');
             	  }
             }
         });

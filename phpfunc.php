@@ -64,8 +64,9 @@ function pg_prepare_single_insert($conn, $query,$insert_array)
        // return false;
            return false;
     }
-    echo"inserted in single";
-    return true;
+    //echo"inserted in single";
+    return "true";
+
 }
 
 
