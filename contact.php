@@ -24,9 +24,9 @@ if(get_magic_quotes_gpc()){
 	$_POST['company'] 	= pg_escape_string($_POST['company']);
 	$_POST['message'] 	= pg_escape_string($_POST['message']);
  $event_id = $_SESSION['event_id'];
-$query = "INSERT INTO contact_mail(event_id,name,mobile,email,company,message)VALUES($1,$2,$3,$4,$5,$6)";
+$query = "INSERT INTO contact_mail(event_id,name,email,company,message)VALUES($1,$2,$3,$4,$5)";
 
-$insert_array = array($event_id,$_POST['name'],'',$_POST['email'],$_POST['company'],$_POST['message']);
+$insert_array = array($event_id,$_POST['name'],$_POST['email'],$_POST['company'],$_POST['message']);
 echo pg_prepare_single_insert($conn, $query,$insert_array);
 //echo TRUE;
 ?>
