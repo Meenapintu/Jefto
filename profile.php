@@ -729,8 +729,10 @@ $(function () {
             	//$('#modal1').closeModal();
             	//alert(data);
             	  if(data=='true'){
-					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
+            	  	$('.modal-footer').css('background-color','#000000');
             	  	$('#cont_model').closeModal();
+					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
+            	  	
             	  }
             	  else{
             	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
