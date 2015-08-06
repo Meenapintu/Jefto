@@ -174,7 +174,7 @@ $(function () {
             data: $('form').serialize(),
             success: function (data) {
             	//$('#modal1').closeModal();
-            	alert(data=='true');
+            	//alert(data=='true');
             	  if(data=='true'){
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
             	  }
