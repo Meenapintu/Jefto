@@ -207,7 +207,7 @@ function chart_rel(json) {
 				<div class="row center_ml">
 					<div class="col s12 m12 l12 center ">
 						<h5 class="font-ml  flow-text hc"> <span> Expected Attendees </span></h5>
-						<h5>~<?php echo $event[0][total_audience] ?></h5>
+						<h5><?php echo $event[0][total_audience] ?></h5>
 					</div>
 				</div>
 			</div>
@@ -218,7 +218,7 @@ function chart_rel(json) {
 						<h5 class="font-ml  flow-text" style="display:inline-block;"> <span class='hc'>City : </span></h5><?php echo  $event[0][city]." , " .$event[0][country] ?>
 					</div>
 					<div class="col s12 m12 l12 ">
-						 <h5 class="font-ml  flow-text" style="display:inline-block;margin:0px;"><span class='hc' >Address :</span></h5> <?php echo  $event[0][address] ?>
+						 <h5 class="font-ml  flow-text" style="display:inline-block;margin:0px;"><span class='hc' >Address :</span></h5> <?php  $exp = explode("___", $event[0][address]);echo $exp[0].", ".$exp[1]; ?>
 					</div>
 				</div>
 			</div>
