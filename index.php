@@ -97,7 +97,7 @@
 				<div class="col s12 m12 l12 center card-panel " style="background:transparent;">
 					<form class="row" style="background:transparent;">
 						<div class=" col s12 m12 l12 center">
-								<p class="flow-text center white-t">Liked the idea? Wanna get in Touch? </p>
+								<p class="flow-text center white-t">Liked the idea? Wanna get in touch? </p>
 						</div>
 					   <div class="input-field col s12 m4 l4 ">
 					   	<input type='email' name='whoami' class="validate" id='whoami' />
