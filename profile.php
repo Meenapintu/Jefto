@@ -281,19 +281,19 @@ function chart_rel(json) {
 			$s = 3;
 			if($l <= $s){
 				$s = 12/$l;
-				echo $l.",".$s.",".sizeof($spon);
 			}
 			foreach ($spon as $key => $value) {
 					
 					if( $i <1 &&$value[ftype] == 'Financial'){
-
+						if($l+1 <= $s){
+								$s = 12/($l+1);
+							}
 					echo "<div class='col s6 m".$s." l".$s." '><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value[ftype]."(".currency_fire($event[0][currency]).' '.$value[fund].")</h6></div></div></div>";
 					$i++;
 					}
-					else
-					{
+					
 					echo "<div class='col  s6 m".$s." l".$s." ' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".$value[type].".png'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
-					}
+					
 			}
 		
 			 ?>
@@ -523,37 +523,47 @@ function site_link_fire($v,$s,$aimg,$event){
 		if($l+1 <= $s){
 			$s = 12/$l+1;
 		}
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/online site default.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/site.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
 	}
 	else{
 		if($l <= $s){
 		$s = 12/$l;
 	}
 	}
+	
 	for ($i=0; $i < $l; $i++) { 
+		if ($v[$i][site_name] != '')
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 	}
+	
 
 }
 function link_fire($v,$s,$aimg){
 	$l =  sizeof($v);
+
 	if($l <= $s){
 		$s = 12/$l;
 	}
+
 	for ($i=0; $i < $l; $i++) { 
+		if ($v[$i][site_name] != '')
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
-	}			
+	}
+				
 }
 
 function offline_fire($v,$s,$aimg){
 	$l =  sizeof($v);
+	
+		echo $v;
 	if($l <= $s){
 		$s = 12/$l;
 	}
 	for ($i=0; $i < $l; $i++) { 
-
+		if ($v[$i][names] != '')
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
-	}			
+	}	
+			
 }
 
 
