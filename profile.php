@@ -555,7 +555,7 @@ function link_fire($v,$s,$aimg){
 function offline_fire($v,$s,$aimg){
 	$l =  sizeof($v);
 	
-		echo $v;
+		
 	if($l <= $s){
 		$s = 12/$l;
 	}
