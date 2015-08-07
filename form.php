@@ -429,4 +429,38 @@ $('form').on('submit', function (e) {
 	else{return true;}
 });
 
+//========================================================additional ===
+//window.onbeforeunload = function(event ) { e.preventDefault(); };
+
+
+$(window).on("back", function (event, data) {
+  var direction = data.state.direction;
+  if (direction == 'back') {
+    var thisid = $(".active-f").attr('id');
+    var curr_id= parseInt(thisid);
+    alert(curr_id);
+    if(curr_id==2){
+    	e.preventDefault();
+      back_nav(1);
+    }
+    else if (curr_id==3) {
+    	e.preventDefault();
+    	back_nav(2);
+    }
+  }
+});
+
+
+function back_nav(curr_id){
+	$(".active-f").attr('class','row current');
+
+	$('input[id=back-b]').each(function(){$(this).attr('class','waves-effect waves-light btn-large center');
+			});
+	$('div[id=' + curr_id +']').each(function(){$(this).attr('class','row active-f');
+			});
+	$(eval('freq'+curr_id.toString())).attr('required',true);
+	$(eval('freq'+ ++curr_id.toString())).attr('required',false);
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+
+}
 </script>

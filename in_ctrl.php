@@ -442,9 +442,9 @@ function insert_arr_psql($conn,$event_id,$values,$type_name)
                 //==================================================================
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-//$myfile = fopen("event_logos/debug.txt", "w") or die("Unable to open file!");
-//fwrite($myfile,$debug);
-//fclose($myfile);
+$myfile = fopen("event_logos/debug.txt", "wa+") or die("Unable to open file!");
+fwrite($myfile,$debug);
+fclose($myfile);
 echo "redirecting";
 header("Location: http://www.jefto.com/profile.php?e=".$unique);
 ?>
