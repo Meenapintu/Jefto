@@ -279,8 +279,9 @@ function chart_rel(json) {
 			$i=0;
 			$l = sizeof($spon);
 			$s = 3;
-			if($l < $s){
+			if($l <= $s){
 				$s = 12/$l;
+				echo $l.",".$s;
 			}
 			foreach ($spon as $key => $value) {
 					
@@ -517,13 +518,13 @@ function site_link_fire($v,$s,$aimg,$event){
 	$l =  sizeof($v);
 	
 	if(!empty($event[website])){
-		if($l+1 < $s){
+		if($l+1 <= $s){
 			$s = 12/$l+1;
 		}
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/online site default.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
 	}
 	else{
-		if($l < $s){
+		if($l <= $s){
 		$s = 12/$l;
 	}
 	}
@@ -534,7 +535,7 @@ function site_link_fire($v,$s,$aimg,$event){
 }
 function link_fire($v,$s,$aimg){
 	$l =  sizeof($v);
-	if($l < $s){
+	if($l <= $s){
 		$s = 12/$l;
 	}
 	for ($i=0; $i < $l; $i++) { 
@@ -544,7 +545,7 @@ function link_fire($v,$s,$aimg){
 
 function offline_fire($v,$s,$aimg){
 	$l =  sizeof($v);
-	if($l < $s){
+	if($l <= $s){
 		$s = 12/$l;
 	}
 	for ($i=0; $i < $l; $i++) { 
