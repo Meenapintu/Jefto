@@ -16,7 +16,7 @@ $temp = pg_prepare_SELECT($conn,$query,$temp_id);
 
 if(!$temp){
 	//echo $temp;
-	header("Location: http://www.jefto.com/e404.php?e=".$temp_id[0]);
+	//header("Location: http://www.jefto.com/e404.php?e=".$temp_id[0]);
 }
 $event_id = array($temp[0][event_id]);
 $_SESSION["event_id"] =$event_id;

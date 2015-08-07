@@ -342,8 +342,8 @@ function chart_rel(json) {
 					</div>
 				</div>
 			</div>
-			<div class="col m12 s12 ">
-				<div class="row margin-0 pd0">
+			<div class="col m12 s12 l12">
+				<div class="row margin-0 pd0 " id='notchart'>
 					<div class="col m6 s12 margin-0 pd0 " >
 						<div class="row margin-0 pd0" style="position:relative;">
 							<div class="col m12 s12  center " >
@@ -857,10 +857,16 @@ var done = true;
 $(window).scroll(function(event) {
 	if($("#pieChart").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
     	if(done){
+    		//alert(sjson.length );
+    		if((sjson[0]['label']  !=null && sjson[0]['label'].length >0)  || (ijson[0]['label']  !=null && ijson[0]['label'].length >0)){
 	    	setup("pieChart",sjson);
 			setup("pieChart_age",ijson);
 			$('.clist').show();
 	    	done=false;
+	    	}
+	    	else{
+	    		$('#notchart').hide();
+	    	}
     	}
 	} else {
     // something when the .target div invisible
@@ -869,10 +875,15 @@ $(window).scroll(function(event) {
 
 if($("#pieChart").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
     if(done){
+    	if((sjson[0]['label']  !=null && sjson[0]['label'].length >0)  || (ijson[0]['label']  !=null && ijson[0]['label'].length >0)){
 	    setup("pieChart",sjson);
 		setup("pieChart_age",ijson);
 		$('.clist').show();
 	    done=false;
+		}
+		else{
+			$('#notchart').hide();
+		}
     }
    
 }
