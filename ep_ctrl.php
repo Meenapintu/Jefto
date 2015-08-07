@@ -9,8 +9,17 @@ if(!$conn)//{ //echo "done ";}
 require_once('phpfunc.php');
 
 //user inner if 3 table required entry for this 
-$event_id = array((int)$_GET['e']);
-$_SESSION["event_id"] = (int)$_GET['e'];
+$temp_id = array((int)$_GET['e']);
+
+$query = "SELECT event_id  FROM temp_rel where temp_id=$1";
+$temp = pg_prepare_SELECT($conn,$query,$temp_id);
+
+if(!$temp){
+	//echo $temp;
+	header("Location: http://www.jefto.com/e404.php?e=".$temp_id[0]);
+}
+$event_id = array($temp[0][event_id]);
+$_SESSION["event_id"] =$event_id;
 $query = "SELECT event.event_id,event.name,event.city,event.address,event.country,event.frequency,event.website,event.email,event.organizer,event.start_date,event.end_date,event.link_for_req,event.description,event.team_descritpion,event.budget,event.tags,eventplus.logo,eventplus.currency,eventplus.total_audience,eventplus.gender_ratio,eventplus.audience_description,event_contact.contact_name,event_contact.contact_email,event_contact.contact_mobile,event_contact.contact_office   FROM event left  JOIN eventplus ON event.event_id = eventplus.event_id left  JOIN event_contact ON event_contact.event_id=event.event_id WHERE event.event_id=$1";
 $event = pg_prepare_SELECT($conn,$query,$event_id);
 

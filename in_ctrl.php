@@ -239,7 +239,7 @@ $debug;
                 $file_extension = strrchr($_FILES['logo__']["name"], ".");
                 if (in_array($file_extension, $valid_file_extensions))
                 {
-                    //$unique = date('YmdHisTU');
+                    
                     $img = $event_id.$file_extension;
                     //$img->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
                     $pathToImage = "event_logos/$img";
@@ -433,11 +433,18 @@ function insert_arr_psql($conn,$event_id,$values,$type_name)
                 $insert_array =array($event_id,null,$_POST['contact_name__'],$_POST['contact_email__'],$_POST['contact_mob__'],$_POST['office___']);
                 pg_prepare_single_insert($conn, $query,$insert_array);
 
+                //===================================================================
+                        //$unique = date('YmdHisTU')+;
+                            $unique = 10000+($event_id*9);
+                        $query = "INSERT INTO temp_rel(event_id,temp_id)VALUES($1,$2)";
+                        $insert_array = array($event_id,$unique);
+                        pg_prepare_single_insert($conn, $query,$insert_array);
+                //==================================================================
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-$myfile = fopen("event_logos/debug.txt", "w") or die("Unable to open file!");
-fwrite($myfile,$debug);
-fclose($myfile);
+//$myfile = fopen("event_logos/debug.txt", "w") or die("Unable to open file!");
+//fwrite($myfile,$debug);
+//fclose($myfile);
 echo "redirecting";
-header("Location: http://www.jefto.com/profile.php?e=".$event_id);
+header("Location: http://www.jefto.com/profile.php?e=".$unique);
 ?>
