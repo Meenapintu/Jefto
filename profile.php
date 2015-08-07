@@ -616,7 +616,7 @@ function offer_fire( $v ,$der,$rel){
    $l =  sizeof($v);
    for ($i=0; $i < $l; $i++) { 
    	?>
-   	<div class="col s12 m6 l12">
+   	<div class="col s12 m6 l6">
    	<ul class="collection with-header">
         <li class="  collection-header  " style="background-color:#8d6e63;">
         	<div class="row center">
