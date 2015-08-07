@@ -7,9 +7,9 @@ function subform(name,msg,type){
 
 function subform_range(name,msg){
 	var input = "<div class='row'>";
-		input+="<div class='col s6' >Male </div>";
+		input+="<div class='col s6 m2 l1' >Male </div>";
 		input+="<div class='col s3 m2 l1 right' ><p>Female </p></div>";
-		input+="<div class='col s12'> ";
+		input+="<div class='col s12 m12 l12'> ";
 		input+= "<p class='range-field'>";
 		input+="<input type='range' id="+name+" name='"+name+"' min='0' max='100' />";
 		input+="</p></div></div>";
@@ -44,18 +44,18 @@ function multiform_radio(msg,name,val){
 		mform+=	"<p class='msg'> "+msg+"</p>";
 		mform+= "<div class = 'row'style='margin:0px;padding:0px;'>"
 			for (var i = 0; i < val.length ; i++) {
-				mform+= "<div class = 'input-field col s12 m12'style='margin:0px;padding:0px;'>"
+				mform+= "<div class = 'input-field col s12 m12 l12'style='margin:0px;padding:0px;'>"
 				mform+= checkform_radio(val[i],name+'_delete');
 				mform+= "</div>";
 			}
-		mform+= "<div class = 'input-field col s12 m12' style='margin:0px;padding:0px;'>"
+		mform+= "<div class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;'>"
 		mform+= "<input type = 'radio' id='"+name+msg+"' name = '"+name+"_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>";
-		mform+= "<div id ='other' class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div id ='other' class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name='other' onblur='select_one(this)'>"
 		mform+= "</div>" ;
-		mform+= "<div class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
 		mform+= "</div>"
 		mform+= "</div>";
@@ -67,18 +67,18 @@ function multiform(msg,name,val){
 		mform+=	"<p class='msg'> "+msg+"</p>";
 		mform+= "<div class = 'row'style='margin:0px;padding:0px;'>"
 			for (var i = 0; i < val.length ; i++) {
-				mform+= "<div class = ' input-field col s12 m12 wrap'style='margin:0px;padding:0px;'>";
+				mform+= "<div class = ' input-field col s12 m12 l12 wrap'style='margin:0px;padding:0px;'>";
 				mform+= checkform(val[i],i+'_delete');
 				mform+= "</div>";	
 			}
-		mform+= "<div class = 'col s12 m12'style='margin:0px;padding:0px;'>"
+		mform+= "<div class = 'col s12 m12 l12 'style='margin:0px;padding:0px;'>"
 		mform+= "<input type = 'checkbox' id='"+name+msg+"' name = 'other_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>"
-		mform+= "<div id ='other' class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div id ='other' class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name='other' class='NOTCHECKD' onblur='select_mult(this)' >"
 		mform+= "</div>"
-		mform+= "<div  class = 'input-field col s12 m12' style='margin:0px;padding:0px;display:none;'>"
+		mform+= "<div  class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
 		mform+= "</div></div>";
 	return mform;

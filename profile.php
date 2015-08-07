@@ -145,7 +145,7 @@ function chart_rel(json) {
 <div class="container " >
 
 <div class="row card-panel" style="background:#EEEEEE;">
-	<div class="col m12 card-panel margin-0">
+	<div class="col s12 m12 m12 card-panel margin-0">
 		<div class="row margin-0 pd0 ">
 			<div class="col m12 s12 l12 card-panel margin-0" >
 				<h5 class="font-ml  flow-text" style=" font-size:xx-large;color:#26A69A"><?php echo  $event[0][name] ?></h5>
@@ -225,23 +225,23 @@ function chart_rel(json) {
 
 		</div>
 	</div>
-	<div class="col m12 card-panel">
+	<div class="col  s12 m12 l12 card-panel">
 		<div class="row">
-			<div class="col m4  profile">
+			<div class="col s12 m4 l4 profile">
 				<img src="<?php echo $event[0][logo] ?>">
 			</div>
-			<div class="col m8">
+			<div class="col s12 m8 l8">
 				<div class="row">
-					<div class="col m12  over center">
+					<div class="col s12 m12 l12 over center">
 						<h5 class="font-ml  flow-text hc">Event Description</h5>
 					</div>
-					<div class="col m12  over center">
+					<div class="col  s12 m12 l12 over center">
 						<p style="margin-top:0px;"><?PHP echo $event[0][description] ?></p>
 					</div>
-					<div class="col m12  over center">
+					<div class="col s12 m12 l12 over center">
 						<h5 class="font-ml  flow-text hc">Key Numbers</h5>
 					</div>
-					<div class="col m12 over2 ">
+					<div class="col s12 m12 l12 over2 ">
 						<div class="row">
 							<?php key_fire($keyn);?>
 						</div>
@@ -250,7 +250,7 @@ function chart_rel(json) {
 			</div>
 		</div>
 	</div>
-	<div class="col m12  card-panel">
+	<div class="col  s12 m12 l12 card-panel">
 		<div class="row">
 			<div class="col s12 m12 l12 center" style="margin-bottom:30px;">
 				<h5 class="font-ml  center flow-text hc ">Jefto Specials</h5>
@@ -271,10 +271,10 @@ function chart_rel(json) {
 			
 		</div>
 	</div>
-	<div class="col m12  card-panel">
+	<div class="col s12 m12 l12 card-panel">
 		<div class="row">
-			<div class="col m12 center"> <h5 class="font-ml  flow-text hc ">Sponsorship needs </h5> </div> 
-			<div class="col m12 center"> 
+			<div class="col s12 m12 l12 center"> <h5 class="font-ml  flow-text hc ">Sponsorship needs </h5> </div> 
+			<div class="col s12 m12 l12 center"> 
 			<?php 
 			$i=0;
 			$l = sizeof($spon);
@@ -305,12 +305,12 @@ function chart_rel(json) {
 
 	
 
-	<div class="col m12  card-panel">
+	<div class="col s12 m12 l12 card-panel">
 		<div class="row">
-			<div class="col m12 blue hc">
+			<div class="col s12  m12  m12 blue hc">
 				 <h5 class="font-ml  flow-text white-t bold ">Attendee's Demographics </h5> 
 			</div>
-			<div class="col m12 center card-panel ">
+			<div class="col s12 m12 l12 center card-panel ">
 				<h5 class="font-med  flow-text hc ">Attendee's Description </h5>
 			
 				<p><?PHP echo $event[0][audience_description] ?></p>
@@ -347,9 +347,9 @@ function chart_rel(json) {
 			</div>
 			<div class="col m12 s12 l12">
 				<div class="row margin-0 pd0 " id='notchart'>
-					<div class="col m6 s12 margin-0 pd0 " >
+					<div class="col s12 m6 l6 margin-0 pd0 " >
 						<div class="row margin-0 pd0" style="position:relative;">
-							<div class="col m12 s12  center " >
+							<div class="col  s12 m12 l12  center " >
 								<h5 class="font-ml  flow-text center ">Profile</h5>
 							</div>
 							<div class="col m8 s8 l8 chart" style="margin:0px;padding:0px" >
@@ -360,9 +360,9 @@ function chart_rel(json) {
 							</div>
 						</div>
 					</div>
-					<div class="col m6  margin-0 pd0">
+					<div class="col s12 m6 l6 margin-0 pd0">
 						<div class="row margin-0 pd0" style="position:relative;">
-							<div class="col m12 s12  center margin-0 pd0">
+							<div class="col s12 m12 s12  center margin-0 pd0">
 								<h5 class="font-ml  flow-text center ">Age</h5>
 							</div>
 							<div class="col m8  s8 l8 center chart" style="margin:0px;padding:0px">
@@ -378,18 +378,18 @@ function chart_rel(json) {
 			</div>
 		</div>
 	</div>
-	<div class="col m12 card-panel  ">
+	<div class="col s12 m12 m12 card-panel  ">
 		<div class="row">
-			<div class="col m12 blue hc">
+			<div class="col s12  m12 l12 blue hc">
 				 <h5 class="font-ml  flow-text white-t bold ">Event Promotion</h5> 
 			</div>
-			<div class="col m6 center">
+			<div class="col s12 m6 l6 center">
 				<h5 class="font-ml  flow-text center ">Online</h5>
 				<div class="row " style="margin:0px;margin-top:20px;">
 					<?php link_fire($olp,4,$online_promotion); ?>
 				</div>
 			</div>
-			<div class="col m6  center ">
+			<div class="col s12 m6 l6 center ">
 				<h5 class="font-ml  flow-text center ">Offline</h5>
 				<div class="row " style="margin:0px;margin-top:20px;">
 					<?php offline_fire($olf,4,$offline_promotion); ?>
@@ -397,7 +397,7 @@ function chart_rel(json) {
 			</div>
 		</div>
 	</div>
-	<div class="col m12 card-panel  ">
+	<div class="col s12 m12 l12 card-panel  ">
 		<div class="row">
 			<div class="col s12 m12 l12  blue  hc" >
 				 <h5 class="font-ml  flow-text white-t bold ">Our Links</h5> 
@@ -410,7 +410,7 @@ function chart_rel(json) {
 		</div>
 	</div>
 
-	<div class="col m12 card-panel">
+	<div class="col  s12 m12 l12 card-panel">
 		<div class="row">
 			<div class="col s12 m12 l12  blue  hc" >
 				 <h5 class="font-ml  flow-text white-t bold ">Offers </h5> 
@@ -420,28 +420,28 @@ function chart_rel(json) {
 	</div>
 
   
-	<div class="col m12  center"  >
+	<div class="col s12 m12 l12 center"  >
 	<a class="waves-effect waves-light btn-large modal-trigger  " href="#cont_model"> <i class="material-icons left">contacts</i> Contact The Organizer</a>
 	</div>
 	<div id="cont_model" class="modal  modal-fixed-footer " >
 	    <div class="modal-content"  style="margin:0px;padding:0px;">
 	      <div class="row"  style="margin:0px;padding:0px;">
-	      	<div class="col s12 m12  blue white-t center  " style="margin:0px;">
+	      	<div class="col s12 m12 l12  blue white-t center  " style="margin:0px;">
 	      		<h5>Contact <?php echo $event[0][name] ?></h5>
 	      	</div>
-	      	<div class="col m6 ">
+	      	<div class="col s6 m6 l6">
 	      		<div class="row">
-	      			<div class=" col s12 m12 center ">
+	      			<div class=" col s12 m12 l12 center ">
 	      				<img class='cimg'src="<?php echo $event[0][logo] ?>">
 	      			</div>
 	      			
-	      			<div class="col s12 m12 center  ">
+	      			<div class="col s12 m12 l12 center  ">
 	      				<h6><i class="material-icons left ">perm_identity</i><i class='left' style="width:111px" ><i class='right'  style="margin:0px">Name :</i></i><i class='left' ><?php echo $event[0][contact_name] ?></i></h6>
 	      			</div>
-	      			<div class="col s12 m12 center  ">
+	      			<div class="col s12 m12  l12 center  ">
 	      				<h6><i class="material-icons left ">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Personal Contact:</i></i><i class='left' ><?php echo $event[0][contact_mobile] ?></i></h6>
 	      			</div>
-	      			<div class="col s12 m12 center  ">
+	      			<div class="col s12 m12 l12 center  ">
 	      				<h6><i class="material-icons left">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Office Contact:</i></i><i class='left' ><?php echo $event[0][contact_office] ?></i></h6>
 	      			</div>
 	      		</div>
@@ -458,26 +458,26 @@ function chart_rel(json) {
 	      		width:50%;
 	      	}
 	      	</style>
-	      	<div class="col m6 ">
+	      	<div class="col s6 m6 l6 ">
 	      		<form class="row">
-	      			<div class="input-field col s12 m12 ">
+	      			<div class="input-field col s12 m12 l12 ">
           				<input placeholder="Name" name='name' id="first_name" type="text" class="validate">
           				<label for="first_name" data-error="wrong"></label>
        				 </div>
        				
-       				 <div class="input-field col s12 m12 ">
+       				 <div class="input-field col s12 m12 l12 ">
           				<input placeholder="Email Address" name='email' id="email" type="email" class="validate">
           				<label for="email" data-error="wrong"></label>
        				 </div>
-       				 <div class="input-field col s12 m12 ">
+       				 <div class="input-field col s12 m12 l12 ">
           				<input placeholder="Company Name" name='company' id="comp" type="text" class="validate">
           				<label for="comp" data-error="wrong" ></label>
        				 </div>
-       				 <div class="input-field col s12 m12 ">
+       				 <div class="input-field col s12 m12 l12 ">
           				<textarea placeholder="Message" name='message' id="message" type="text" class=" materialize-textarea validate"></textarea>
           				<label for="message" data-error="wrong"></label>
        				 </div>
-       				 <div class="input-field col s12 m12 ">
+       				 <div class="input-field col s12 m12 l12 ">
           				<button class="waves-effect waves-light btn"  id="send" type="submit" class="validate"><i class="material-icons right ">send</i>Send</button>
        				 </div>
 	      		</form>
@@ -616,17 +616,17 @@ function offer_fire( $v ,$der,$rel){
    $l =  sizeof($v);
    for ($i=0; $i < $l; $i++) { 
    	?>
-   	<div class="col m6">
+   	<div class="col s12 m6 l12">
    	<ul class="collection with-header">
         <li class="  collection-header  " style="background-color:#8d6e63;">
         	<div class="row center">
-        		<div class="col m12 ">
+        		<div class="col s12 m12 l12">
         			<h5 class="font-ml flow-text center white-t"><?php echo $v[$i][offer_name];?></h5>
         		</div>
-        		<div class="col m12 white-t">
+        		<div class="col  s12 m12  l12 white-t">
         			<h6><?php echo currency_fire($v[$i][currency]).' '.$v[$i][cost];?></h6>
         		</div>
-        		<div class="col m12 white-t pd0 margin-0">
+        		<div class="col s12 m12 l12 white-t pd0 margin-0">
         			<div onclick='setdrop(this);' >
         				<i class='material-icons '>description</i> 
         				<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;left:0px;z-index:2'>

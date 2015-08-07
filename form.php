@@ -51,7 +51,7 @@
 		 </script>
 	    <div class=" col s12 m12 l12">
 	    <div class="row">
-	    <div class='col m6 l6'>
+	    <div class='col s12 m6 l6'>
 	    <div class="row">
 	    <div class="col s12 m12 l12 msg"> Start Date</div>
 		<script type="text/javascript"> 
@@ -61,7 +61,7 @@
 		</script>
 		</div>
 		</div>
-		<div class='col m6 l6'>
+		<div class='col s12 m6 l6'>
 		<div class="row">
 		<div class="col s12 m12 l12 msg right" style='float:right'> End Date</div>
 		<script type="text/javascript"> 
@@ -160,11 +160,11 @@
   			<div class="row current" id=2 >
   				<div class="msg"> Number of  Audience Expected</div>
    				<script type="text/javascript"> 
-   					document.write("<div class='input-field col s12 l12'>"); 
+   					document.write("<div class='input-field col s12  m12 l12'>"); 
     					document.write(subform("total_audience_count__","Number","number"));
     				document.write("</div>");
    				</script>
-  				<div class='input-field col s12 l12'>
+  				<div class='input-field col s12  m12 l12'>
 					<div class="row">
 		 				<p class="msg"> Audience Type </p>
 						<script type="text/javascript"> 
@@ -174,7 +174,7 @@
 						<button type="button" name="target_audience" id="audience__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 					</div>
 				</div>
-				<div class='input-field col s12 l12'>
+				<div class='input-field col s12 m12 l12'>
 					<div class="row">
 		 				<p class="msg"> Age Based Ratio  </p>
 						<script type="text/javascript"> 
@@ -185,19 +185,19 @@
 					</div>
 				</div>
    				<script type="text/javascript">  
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12 m12 l12'>");
 						document.write(subform_range("gender_ratio__","Male female ratio"));
 					document.write("</div>"); 
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12 m12 l12'>");
 						document.write(multiform("Education Background  ","edu_background__",education_background)); 
 					document.write("</div>");
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12  m12 l12'>");
 						document.write(multiform("Professional Level  ","profession__",audience_category)); 
 					document.write("</div>");
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12  m12 l12'>");
 						document.write(multiform("Income Level   ","income_level__",income_level)); 
 					document.write("</div>");
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12 m12 l12'>");
 						document.write(subform_textarea("audience_description__","Target Audience Description"));
 					document.write("</div>");
 				</script>
@@ -215,7 +215,7 @@
 
 
     <div class="row current" id=3>
-	<div class='input-field col s12 m12'>
+	<div class='input-field col s12 m12 l12'>
 	<div class="row">
 	 <p class="msg"> Your Social media links </p>
 	<script type="text/javascript">  
@@ -231,24 +231,24 @@
 	//document.write(selectform("non_media_explorer__",audience_number));
 	//document.write("</div>");
 
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(multiform("Non Media Exposure   ","non_media_explorer__",non_media_exposure));
 	document.write("</div>");
 
-    document.write("<div class='input-field col s12 m12'>");
+    document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("tele__","Television Coverage","text"));
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("radio__","Radio Coverage","text"));
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("print__","Print Media Coverage","text"));
 	document.write("</div>");
 	//document.write("<div class='input-field col s12 m12'>");
 	//document.write(multiform("Off Line Promotion   ","off_line_promo__",offline_promotion));
 	//document.write("</div>"); 
 	</script>
-	<div class='input-field col s12 m12'>
+	<div class='input-field col s12 m12 l12'>
 	<div class="row">
 	 <p class="msg"> Online Media Coverage  </p>
 	<script type="text/javascript">  
@@ -257,10 +257,10 @@
 	<button type="button" name="online_promotion" id="media_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 	</div>
 	</div>
-	<div class='input-field col s12 m12 bott-margin-0'>
+	<div class='input-field col s12 m12  l12 bott-margin-0'>
 		<p class="msg"> Available Offers  </p>
 	</div>
-	<div class='input-field col s12 m12' style="overflow-x: scroll;">
+	<div class='input-field col s12 m12 l12' style="overflow-x: scroll;">
 	<table style="width:100%;margin-bottom:10px;" id='matrix'>
 	<tr>
   		<th class ="bc">
@@ -293,18 +293,18 @@
 	</div>
 	<script type="text/javascript">
 	//====================================================================================
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("contact_name__","Your Name","text")); 
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("contact_mob__","Your Contact","text")); 
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("contact_email__"," Email Address","email"));
 	document.write("</div>"); 
 
 	//subform("event_name","","text","input","placeholder= 'alter email id '"); 
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("office___","Office Contact","text")); 
 	document.write("</div>");
 	 </script>
