@@ -429,7 +429,7 @@ function chart_rel(json) {
 	      	<div class="col s12 m12 l12  blue white-t center  " style="margin:0px;">
 	      		<h5>Contact <?php echo $event[0][name] ?></h5>
 	      	</div>
-	      	<div class="col s6 m6 l6">
+	      	<div class="col s12 m6 l6">
 	      		<div class="row">
 	      			<div class=" col s12 m12 l12 center ">
 	      				<img class='cimg'src="<?php echo $event[0][logo] ?>">
@@ -458,7 +458,7 @@ function chart_rel(json) {
 	      		width:50%;
 	      	}
 	      	</style>
-	      	<div class="col s6 m6 l6 ">
+	      	<div class="col s12 m6 l6 ">
 	      		<form class="row">
 	      			<div class="input-field col s12 m12 l12 ">
           				<input placeholder="Name" name='name' id="first_name" type="text" class="validate">
