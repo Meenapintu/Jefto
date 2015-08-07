@@ -277,7 +277,7 @@ function chart_rel(json) {
 			<div class="col m12 center"> 
 			<?php 
 			$i=0;
-			$l = sizeof($spon);
+			$l = sizeof($spon[0]);
 			$s = 3;
 			if($l <= $s){
 				$s = 12/$l;
