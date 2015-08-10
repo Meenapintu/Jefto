@@ -13,7 +13,7 @@
 $social_media =  array('google.com','facebook.com','linkdin.com','twitter.com','Facebook.com','def'=>'site');
 $online_promotion = array("VentureBeat","TechCrunch","Forbes","Huffington Post","Yourstory",'def'=>'online site default');
 $sponsor_needed =  array("Venue","Food","In media","In kind","Financial","Labor",'def'=>'sponsorship');
-$offline_promotion = array("airplay","radio","Newspaper",'def'=>'exposure default');	
+$offline_promotion = array("airplay","radio","Newspaper",'Bags','Conference Badges','def'=>'exposure default');	
 
  ?>
 
