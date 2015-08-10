@@ -391,7 +391,7 @@ function chart_rel(json) {
 			</div>
 			<div class="col s12 m6 l6 center ">
 				<h5 class="font-ml  flow-text center ">Offline</h5>
-				<div class="row " style="margin:0px;margin-top:20px;clear:both;">
+				<div class="row " style="margin:0px;margin-top:20px;">
 					<?php offline_fire($olf,4,$offline_promotion); ?>
 				</div>
 			</div>
