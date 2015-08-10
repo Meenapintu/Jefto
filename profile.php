@@ -517,16 +517,13 @@ function chart_rel(json) {
 <?php
 
 function site_link_fire($v,$s,$aimg,$event){
-	$l =  sizeof($v);
+	
 	
 	if(!empty($event[website])){
-		$l++;
-		
 		$t_0 = array("site_name"=>$event[website]);
 		array_unshift($v,$t_0);
-		//echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/site.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
 	}
-	
+	$l =  sizeof($v);
 	if($l <= $s){
 		$s = 12/$l;
 	}
@@ -550,14 +547,14 @@ function link_help($v,$s,$aimg,$l,$rs,$ap)
 	if($rs <= $s){
 		$s = 12/$rs;
 	} 
-	
+	echo $rs."RSSSSSSSSSSSSSSSSlink";
 	$next=0;
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
 		if ($v[$i][site_name] != ''){
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 		$next = $next+$s;
-		if($next ==12){ echo "</div></div>" ;link_help($v,$s,$aimg,$l,$l-($i+1),$i+1);
+		if($next ==12){ echo "</div></div>" ; $i++;link_help($v,$s,$aimg,$l,$l-$i,$i);
 		$i=$l;}
 	}
 	}
@@ -582,14 +579,14 @@ function offline_help($v,$s,$aimg,$l,$rs,$ap)
 	if($rs <= $s){
 		$s = 12/$rs;
 	}
-	
+	echo $rs."RSSSSSSSSSSSSSSSS";
 	$next=0;
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
 		if ($v[$i][names] != ''){
 		echo"<div class='col s".$s."  m".$s."  l".$s." left' ><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
 		$next = $next+$s;
-		if($next ==12){ echo "</div></div>" ;offline_help($v,$s,$aimg,$l,$l-($i+1),$i+1);
+		if($next ==12){ echo "</div></div>" ;$i++;offline_help($v,$s,$aimg,$l,$l-$i,$i);
 		$i=$l;}
 	}
 	}
