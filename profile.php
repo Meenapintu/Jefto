@@ -10,7 +10,7 @@
 	echo ".grad-gen{background: -webkit-linear-gradient(right, rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: -o-linear-gradient(right,rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: -moz-linear-gradient(right,rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%);background: linear-gradient(to right, rgb(89, 214, 31,1) ".$l."% , rgb(255, 80, 0,1) ".$r."%)";	
 	}
 
-$social_media =  array('google.com','facebook.com','linkdin.com','twitter.com','Facebook.com','def'=>'online site default');
+$social_media =  array('google.com','facebook.com','linkdin.com','twitter.com','Facebook.com','def'=>'site');
 $online_promotion = array("VentureBeat","TechCrunch","Forbes","Huffington Post","Yourstory",'def'=>'online site default');
 $sponsor_needed =  array("Venue","Food","In media","In kind","Financial","Labor",'def'=>'sponsorship');
 $offline_promotion = array("airplay","radio","Newspaper",'def'=>'exposure default');	
@@ -391,7 +391,7 @@ function chart_rel(json) {
 			</div>
 			<div class="col s12 m6 l6 center ">
 				<h5 class="font-ml  flow-text center ">Offline</h5>
-				<div class="row " style="margin:0px;margin-top:20px;">
+				<div class="row " style="margin:0px;margin-top:20px;clear:both;">
 					<?php offline_fire($olf,4,$offline_promotion); ?>
 				</div>
 			</div>
@@ -520,21 +520,20 @@ function site_link_fire($v,$s,$aimg,$event){
 	$l =  sizeof($v);
 	
 	if(!empty($event[website])){
-		if($l+1 <= $s){
-			$s = 12/$l+1;
+		$l++;
+		if($l <= $s){
+			$s = 12/$l;
 		}
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/site.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
+		$temp = array("site_name"=>$event[website]);
+		array_unshift($v,$temp);
+		//echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/site.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
 	}
 	else{
 		if($l <= $s){
 		$s = 12/$l;
 	}
 	}
-	
-	for ($i=0; $i < $l; $i++) { 
-		if ($v[$i][site_name] != '')
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
-	}
+	link_help($v,$s,$aimg,$l,$l,0);
 	
 
 }
@@ -545,11 +544,26 @@ function link_fire($v,$s,$aimg){
 		$s = 12/$l;
 	}
 
-	for ($i=0; $i < $l; $i++) { 
-		if ($v[$i][site_name] != '')
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
-	}
+	link_help($v,$s,$aimg,$l,$l,0);
 				
+}
+function link_help($v,$s,$aimg,$l,$rs,$ap)
+{	if($rs >0){
+	if($rs <= $s){
+		$s = 12/$rs;
+	} 
+	
+	$next=0;
+		echo "<div class='col s12 m12 l12'> <div class='row'>";
+	for ($i=$ap; $i < $l; $i++) { 
+		if ($v[$i][site_name] != ''){
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
+		$next = $next+$s;
+		if($next ==12){ echo "</div></div>" ;link_help($v,$s,$aimg,$l,$l-($i+1),$i+1);
+		break;}
+	}
+	}
+	}	
 }
 
 function offline_fire($v,$s,$aimg){
@@ -559,11 +573,29 @@ function offline_fire($v,$s,$aimg){
 	if($l <= $s){
 		$s = 12/$l;
 	}
-	for ($i=0; $i < $l; $i++) { 
-		if ($v[$i][names] != '')
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
-	}	
+		offline_help($v,$s,$aimg,$l,$l,0);
 			
+}
+
+// write recursion for them 
+function offline_help($v,$s,$aimg,$l,$rs,$ap)
+{
+	if($rs >0){ 
+	if($rs <= $s){
+		$s = 12/$rs;
+	}
+	
+	$next=0;
+		echo "<div class='col s12 m12 l12'> <div class='row'>";
+	for ($i=$ap; $i < $l; $i++) { 
+		if ($v[$i][names] != ''){
+		echo"<div class='col s".$s."  m".$s."  l".$s." left' ><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
+		$next = $next+$s;
+		if($next ==12){ echo "</div></div>" ;offline_help($v,$s,$aimg,$l,$l-($i+1),$i+1);
+		break;}
+	}
+	}
+	}	
 }
 
 
@@ -629,15 +661,15 @@ function offer_fire( $v ,$der,$rel){
         		<div class="col s12 m12 l12 white-t pd0 margin-0">
         			<div onclick='setdrop(this);' >
         				<i class='material-icons '>description</i> 
-        				<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;left:0px;z-index:2'>
-							<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'>
-								<div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'>
+        				<div class="card-panel" id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;left:0px;z-index:2'>
+							<div class='row card-panel' style='background:rgba(34,53,53,0);overflow:none;width:100%;margin:0px;padding:0px;'>
+								<div class='col s12 m12 s12' style='background:rgba(34,53,3,0); color:green;margin-bottom:10px;'>
 								</div>
-							    <div  id='desc' class='col s12 m12 s12'   style='word-wrap: break-word;'> 
+							    <div  id='desc' class='col s12 m12 s12 card-panel'   style='word-wrap: break-word;'> 
 							    	<?php echo $v[$i][description] ?> 
 							    </div>
-							    <div class='col s12 m12 s12' id ='state'> 
-							     	<button onclick='hide(this);'>Okay</button> 
+							    <div class='col s12 m12 s12 center ' id ='state'> 
+							     	<button style="" onclick='hide(this);' class="btn">Okay</button> 
 							    </div>
 							</div>
         				</div>
