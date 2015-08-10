@@ -522,8 +522,8 @@ function site_link_fire($v,$s,$aimg,$event){
 	if(!empty($event[website])){
 		$l++;
 		
-		$temp = array("site_name"=>$event[website]);
-		array_unshift($v,$temp);
+		$t_0 = array("site_name"=>$event[website]);
+		array_unshift($v,$t_0);
 		//echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$event[website]."' target='_blank' ><img src='def_img/site.png' style='max-width:35px;max-height:35px;' ><h6 >".$event[website]."</h6> </a></div>";
 	}
 	
@@ -558,7 +558,7 @@ function link_help($v,$s,$aimg,$l,$rs,$ap)
 		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 		$next = $next+$s;
 		if($next ==12){ echo "</div></div>" ;link_help($v,$s,$aimg,$l,$l-($i+1),$i+1);
-		break;}
+		$i=$l;}
 	}
 	}
 	}	
@@ -590,7 +590,7 @@ function offline_help($v,$s,$aimg,$l,$rs,$ap)
 		echo"<div class='col s".$s."  m".$s."  l".$s." left' ><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
 		$next = $next+$s;
 		if($next ==12){ echo "</div></div>" ;offline_help($v,$s,$aimg,$l,$l-($i+1),$i+1);
-		break;}
+		$i=$l;}
 	}
 	}
 	}	
