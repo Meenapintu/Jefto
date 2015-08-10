@@ -518,12 +518,15 @@ function chart_rel(json) {
 
 function site_link_fire($v,$s,$aimg,$event){
 	
-	
+	if ($v[0][site_name] != ''){
+		$l =  sizeof($v);
+	}
 	if(!empty($event[website])){
 		$t_0 = array("site_name"=>$event[website]);
 		array_unshift($v,$t_0);
+		$l++;
 	}
-	$l =  sizeof($v);
+	
 	if($l <= $s){
 		$s = 12/$l;
 	}
@@ -534,20 +537,20 @@ function site_link_fire($v,$s,$aimg,$event){
 }
 function link_fire($v,$s,$aimg){
 	$l =  sizeof($v);
-
+	if ($v[0][site_name] != ''){
 	if($l <= $s){
 		$s = 12/$l;
 	}
 
 	link_help($v,$s,$aimg,$l,$l,0);
-				
+	}		
 }
 function link_help($v,$s,$aimg,$l,$rs,$ap)
 {	if($rs >0){
 	if($rs <= $s){
 		$s = 12/$rs;
 	} 
-	echo $rs."RSSSSSSSSSSSSSSSSlink";
+	
 	$next=0;
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
@@ -562,14 +565,15 @@ function link_help($v,$s,$aimg,$l,$rs,$ap)
 }
 
 function offline_fire($v,$s,$aimg){
+	if ($v[0][names] != ''){	
 	$l =  sizeof($v);
 	
-		
+	
 	if($l <= $s){
 		$s = 12/$l;
 	}
 		offline_help($v,$s,$aimg,$l,$l,0);
-			
+		}	
 }
 
 // write recursion for them 
@@ -579,7 +583,7 @@ function offline_help($v,$s,$aimg,$l,$rs,$ap)
 	if($rs <= $s){
 		$s = 12/$rs;
 	}
-	echo $rs."RSSSSSSSSSSSSSSSS";
+	
 	$next=0;
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
