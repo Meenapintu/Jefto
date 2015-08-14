@@ -2,16 +2,19 @@
 session_start();
 $connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
 $conn = pg_connect($connection_string);
-if($conn){echo "working on .... ";}
+if($conn){}//echo "working on .... ";}
 	else echo " there is error ";
-
+require_once("header.php");
 require_once('phpfunc.php');
 
 $i=0;
 $debug;
+echo"<div class='container' style='height:100vh'>";
 
-//if(isset($_POST['event_name__'],$_POST['category__'],$_POST['genre__'],$_POST[''],$_POST[''],$_POST[''],$_POST['']))
-//==================Form First DATA EXCEPT IMAGE ========================================
+//if(isset($_POST['event_name__'],$_POST['category__'],$_POST['genre__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['scope__'],$_POST['frequency__'],$_POST['organization__'],$_POST['event_email__'],$_POST['currency__'],$_POST['sponsors__'],$_POST['total_audience_count__'],$_POST['contact_name__'],$_POST['contact_email__'],$_POST['contact_mob__']) )
+if(!empty($_POST['event_name__'])&&!empty($_POST['category__'])&&!empty($_POST['genre__'])&&!empty($_POST['startdate__'])&&!empty($_POST['enddate__'])&&!empty($_POST['city__'])&&!empty($_POST['country__'])&&!empty($_POST['scope__'])&&!empty($_POST['frequency__'])&&!empty($_POST['organization__'])&&!empty($_POST['event_email__'])&&!empty($_POST['currency__'])&&!empty($_POST['sponsors__'])&&!empty($_POST['total_audience_count__'])&&!empty($_POST['contact_name__'])&&!empty($_POST['contact_email__'])&&!empty($_POST['contact_mob__']))
+{
+//=================Form First DATA EXCEPT IMAGE ========================================
  			$_POST['event_name__'] 	= htmlspecialchars($_POST['event_name__']);
             $_POST['category__'] 	= htmlspecialchars($_POST['category__']);
             $_POST['genre__'] 		= htmlspecialchars($_POST['genre__']);
@@ -291,8 +294,10 @@ function insert_arr_psql_custom($conn,$event_id,$values)
             {
                 $type_name =pg_escape_string($_POST['key_numbers__'][$i]);
                 $type_count =(int)$_POST['key_numbers__'][$i+1];
-                $sub_insert = array($event_id,$type_name,$type_count);
-                array_push($insert_array,$sub_insert);
+                if($type_count >0){
+                    $sub_insert = array($event_id,$type_name,$type_count);
+                    array_push($insert_array,$sub_insert);
+                }
             }
             pg_prepare_multi_insert($conn, $query,$insert_array);
 
@@ -312,8 +317,10 @@ function insert_arr_psql_custom($conn,$event_id,$values)
                 {
                     $type_name =pg_escape_string($_POST['audience__'][$i]);
                     $type_count =(int)$_POST['audience__'][$i+1];
-                    $sub_insert = array($event_id,$type_name,$type_count);
-                    array_push($insert_array,$sub_insert);
+                    if($type_count >0){
+                        $sub_insert = array($event_id,$type_name,$type_count);
+                        array_push($insert_array,$sub_insert);
+                    }
                 }
                 pg_prepare_multi_insert($conn, $query,$insert_array);
 
@@ -322,8 +329,10 @@ function insert_arr_psql_custom($conn,$event_id,$values)
                 for ($i=0; $i < $age_group; $i+=2)
                 { 
                     $ratio =  (int)$_POST['age_range__'][$i+1];
-                    $sub_insert = array($event_id,$age_limit[$i],$age_limit[$i+1],$ratio);
-                    array_push($insert_array,$sub_insert);
+                    if($ratio>0){
+                        $sub_insert = array($event_id,$age_limit[$i],$age_limit[$i+1],$ratio);
+                        array_push($insert_array,$sub_insert);
+                    }
                 }
                 pg_prepare_multi_insert($conn, $query,$insert_array);
 
@@ -435,7 +444,7 @@ function insert_arr_psql($conn,$event_id,$values,$type_name)
 
                 //===================================================================
                         //$unique = date('YmdHisTU')+;
-                            $unique = 10000+($event_id*9);
+                            $unique = 1000+($event_id);
                         $query = "INSERT INTO temp_rel(event_id,temp_id)VALUES($1,$2)";
                         $insert_array = array($event_id,$unique);
                         pg_prepare_single_insert($conn, $query,$insert_array);
@@ -445,6 +454,134 @@ function insert_arr_psql($conn,$event_id,$values,$type_name)
 $myfile = fopen("event_logos/debug.txt", "wa+") or die("Unable to open file!");
 fwrite($myfile,$debug);
 fclose($myfile);
+
 echo "redirecting";
 header("Location: http://www.jefto.com/profile.php?e=".$unique);
+}
+
+else{
+    echo "<div class='row error card-panel' >";
+    echo "<div class='col s12 m12 l12  center ' style='background:transparent;color:red;'>";
+    echo "Sorry ! we caught an error Field not valid or empty please complete form by going back . Sorry for intrupt but this information is necessary to do next process successfully for you .  <h5>Following field are currepted :</h5> ";
+    echo "</div>";
+    if(empty($_POST['event_name__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Event Name :  ";
+        echo $_POST['event_name__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['category__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Category : ";
+        echo $_POST['category__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['genre__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Genre :";
+        echo $_POST['genre__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['startdate__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Start Date : ";
+        echo $_POST['startdate__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['enddate__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> End Date : ";
+        echo $_POST['enddate__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['city__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> City : ";
+        echo $_POST['city__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['country__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Country : ";
+        echo $_POST['country__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['scope__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Scope :  ";
+        echo $_POST['scope__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['frequency__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6>  Happens Every : ";
+        echo $_POST['frequency__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['organization__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Organization : ";
+        echo $_POST['organization__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['event_email__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Event Email : ";
+        echo $_POST['event_name__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['currency__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Currency :";
+        echo $_POST['currency__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['sponsors__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6>  Sponsors Needed :";
+        echo $_POST['sponsors__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['total_audience_count__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Expected Audience : ";
+        echo $_POST['total_audience_count__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['contact_name__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6>  Contact Name : ";
+        echo $_POST['contact_name__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['contact_email__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6>  Contact Email :";
+        echo $_POST['contact_email__'];
+        echo "</h6></div>";
+    }
+    if(empty($_POST['contact_mob__'])){
+        echo "<div class='col s12 m12 l12 err-fname'><h6> Contact Mob : ";
+        echo $_POST['contact_mob__'];
+        echo "</h6></div>";
+    }
+
+    echo "<div class='col s12 m12 l12  center ' style='background:transparent;color:red;'>";
+    echo "<button type='button' onclick='goBack()' id='back-b' class='waves-effect waves-light btn-large center' style='align-self:center' ><i class='material-icons left' ><img  src='def_img/back.png' style='height:25px;'/></i> Go Back To Form</button>";
+    echo "</div><div class='col s12 m12 l12 card-panel center ' style='background:transparent;color:red;'>";
+    echo "Sorry ! we caught an error Field not valid or empty please complete form by going back . Sorry for intrupt but this information is necessary to do next process successfully for you .   Thanks <br>Jefto Team </br> ";
+    echo "</div></div></div>";
+}
+
+   /*echo$_POST['event_name__'];
+    echo$_POST['category__'];
+    echo$_POST['genre__'];
+    echo$_POST['startdate__'];
+    echo$_POST['enddate__'];
+    echo$_POST['city__'];
+    echo$_POST['country__'];
+    echo$_POST['scope__'];
+    echo$_POST['frequency__'];
+    echo$_POST['organization__'];
+    echo$_POST['event_email__'];
+    echo$_POST['currency__'];
+    echo$_POST['sponsors__'];
+    echo$_POST[''];
+    echo$_POST['total_audience_count__'];
+    echo$_POST['contact_name__']$_POST['contact_email__'];
+    echo$_POST['contact_mob__']))*/
+
+require_once("footer.php");
 ?>
+</body>
+</html>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
