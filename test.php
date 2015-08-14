@@ -11,4 +11,15 @@ isset)&&
 
 
 
-function 
+<script type="text/javascript">
+	
+	function check_requred (name) {
+
+		document.getElementsByName(name)
+	}
+
+</script>
+
+
+
+
