@@ -14,6 +14,8 @@ echo"<div class='container' style='height:100vh'>";
 //if(isset($_POST['event_name__'],$_POST['category__'],$_POST['genre__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['scope__'],$_POST['frequency__'],$_POST['organization__'],$_POST['event_email__'],$_POST['currency__'],$_POST['sponsors__'],$_POST['total_audience_count__'],$_POST['contact_name__'],$_POST['contact_email__'],$_POST['contact_mob__']) )
 if(!empty($_POST['event_name__'])&&!empty($_POST['category__'])&&!empty($_POST['genre__'])&&!empty($_POST['startdate__'])&&!empty($_POST['enddate__'])&&!empty($_POST['city__'])&&!empty($_POST['country__'])&&!empty($_POST['scope__'])&&!empty($_POST['frequency__'])&&!empty($_POST['organization__'])&&!empty($_POST['event_email__'])&&!empty($_POST['currency__'])&&!empty($_POST['sponsors__'])&&!empty($_POST['total_audience_count__'])&&!empty($_POST['contact_name__'])&&!empty($_POST['contact_email__'])&&!empty($_POST['contact_mob__']))
 {
+
+       echo "<div class='row'><div class='col s12 m12 l12'><p class='center'> Thank you for submitting your event</p></div><div class='col s12 m12 l12'><p class='center'>  We will shortly mail you your event's profile page. You can send it as a link in your proposal too. In a week or so, we will launch our beta version and after that you will be getting sponsors call surely if they like your event.</p></div></div>";
 //=================Form First DATA EXCEPT IMAGE ========================================
  			$_POST['event_name__'] 	= htmlspecialchars($_POST['event_name__']);
             $_POST['category__'] 	= htmlspecialchars($_POST['category__']);
