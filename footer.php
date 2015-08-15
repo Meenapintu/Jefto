@@ -44,7 +44,8 @@ $('#logo').css('height',($(".nav-wrapper").height()+'px'));
 $('.dh').css('height',$('.udh').height());
 function select_one(e){
   $(e).parent().siblings().children('#valtext').attr('value',e.value);
-  $(e).parent().siblings("#other").hide();  
+  $(e).parent().siblings("#other").hide();
+  $(e).parent().parent().siblings("p").attr('class','msg');
 }
 
 function select_mult(e){
@@ -77,6 +78,7 @@ function select_mult(e){
     }
   }
   $(e).parent().siblings().children('#valtext').attr('value',newval);
+  $(e).parent().parent().siblings("p").attr('class','msg');
 }
 
 function other_input(e){

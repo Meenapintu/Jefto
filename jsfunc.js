@@ -27,8 +27,8 @@ function subform_date(name,msg){
 	 	input+="<input type='date' class='datepicker' name="+name+" placeholder='mm/dd/yyyy'>";
 	return input;
 }
-function checkform(msg,name){
-	var check ="<input type = 'checkbox' id='"+name+msg+"' name = "+name+" value= '"+msg+"' class='checkbox' onchange='select_mult(this)'>";
+function checkform(msg,name,cid){
+	var check ="<input type = 'checkbox' id='"+name+msg+"' name = "+name+" value= '"+msg+"'  select_id = "+cid+" class='checkbox' onchange='select_mult(this)'>";
 		check+= "<label for='"+name+msg+"'>"+msg+"</label>";
 	return check;
 }
@@ -45,7 +45,7 @@ function multiform_radio(msg,name,val){
 		mform+= "<div class = 'row'style='margin:0px;padding:0px;'>"
 			for (var i = 0; i < val.length ; i++) {
 				mform+= "<div class = 'input-field col s12 m12 l12'style='margin:0px;padding:0px;'>"
-				mform+= checkform_radio(val[i],name+'_delete');
+				mform+= checkform_radio(val[i],name+'_delete','r');
 				mform+= "</div>";
 			}
 		mform+= "<div class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;'>"
@@ -68,11 +68,11 @@ function multiform(msg,name,val){
 		mform+= "<div class = 'row'style='margin:0px;padding:0px;'>"
 			for (var i = 0; i < val.length ; i++) {
 				mform+= "<div class = ' input-field col s12 m12 l12 wrap'style='margin:0px;padding:0px;'>";
-				mform+= checkform(val[i],i+'_delete');
+				mform+= checkform(val[i],i+'_delete',name);
 				mform+= "</div>";	
 			}
 		mform+= "<div class = 'col s12 m12 l12 'style='margin:0px;padding:0px;'>"
-		mform+= "<input type = 'checkbox' id='"+name+msg+"' name = 'other_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
+		mform+= "<input type = 'checkbox' id='"+name+msg+"' name = 'other_delete' value= '"+msg+"'  select_id = "+name+" class='checkbox  ' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>"
 		mform+= "<div id ='other' class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"

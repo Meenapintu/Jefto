@@ -358,7 +358,7 @@ $('#4_deleteFinancial').on('change',function () {
 var freq1 = "input[name=event_name__ ],input[name=startdate__],input[name=enddate__],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
 var freq2 = "input[name=total_audience_count__]";
 var freq3 = "input[name=contact_name__],input[name=contact_mob__],input[name=contact_email__],input[name=description__]";
-//$(freq1).attr('required',true);
+$(freq1).attr('required',true);
 
 function back(curr_id,e){
 	$(".active-f").attr('class','row current');
@@ -374,15 +374,12 @@ function back(curr_id,e){
 }
 
 
-//var f1mul = "input[name=category___delete],input[name=genre___delete],input[name=scope___delete],input[name=frequency___delete],input[name=sponsors___delete]";
 
 
-
-
-var fmul1 = new Array("input[name=category___delete]","input[name=genre___delete]","input[name=scope___delete]","input[name=frequency___delete]","input[name=sponsors___delete]");
+var fmul1 = new Array("input[name=category___delete]","input[name=genre___delete]","input[name=country___delete]","input[name=scope___delete]","input[name=frequency___delete]","input[name=currency___delete]","input[select_id=sponsors__]");
 var fmul2 = new Array();
 var fmul3 = new Array();
-function req_ch(f1mul){
+function req_ch(f1mul,f){
 	var y=false;
 	$(f1mul).each(function  () {
  		//console.log($(this));
@@ -391,7 +388,14 @@ function req_ch(f1mul){
  	});
  	if(y){
  		$(f1mul).parent().parent().siblings('p').attr('class','msg red');
- 		$(f1mul).parent().parent().siblings('p').focus();
+ 		if(f){
+ 			$(f1mul).parent().parent().siblings('p').focus();
+ 			$("html, body").animate({ scrollTop:$(f1mul).parent().parent().siblings('p').offset().top}, "fast");
+ 			
+ 			//alert(f);
+ 			//$("html, body").scrollTo($(f1mul).parent().parent().siblings('p'),800);
+ 			
+ 		}
  		return y;
  	}
 }
@@ -415,12 +419,13 @@ $('form').on('submit', function (e) {
 	if(curr_id!=3){
 	e.preventDefault();
 	var y=false;
+	var f = true;
 	$(eval('fmul'+thisid)).each(function(index,value){
 		
-			y = req_ch(value);
-			if(y)return false;
+			y = req_ch(value,f);
+			if(y)f=false;
 	});
-	if(!y){
+	if(f){
 	$(".active-f").attr('class','row current');
 	
 
