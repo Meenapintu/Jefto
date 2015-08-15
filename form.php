@@ -358,7 +358,7 @@ $('#4_deleteFinancial').on('change',function () {
 var freq1 = "input[name=event_name__ ],input[name=startdate__],input[name=enddate__],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
 var freq2 = "input[name=total_audience_count__]";
 var freq3 = "input[name=contact_name__],input[name=contact_mob__],input[name=contact_email__],input[name=description__]";
-$(freq1).attr('required',true);
+//$(freq1).attr('required',true);
 
 function back(curr_id,e){
 	$(".active-f").attr('class','row current');
@@ -372,6 +372,30 @@ function back(curr_id,e){
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 
 }
+
+
+//var f1mul = "input[name=category___delete],input[name=genre___delete],input[name=scope___delete],input[name=frequency___delete],input[name=sponsors___delete]";
+
+
+
+
+var fmul1 = new Array("input[name=category___delete]","input[name=genre___delete]","input[name=scope___delete]","input[name=frequency___delete]","input[name=sponsors___delete]");
+var fmul2 = new Array();
+var fmul3 = new Array();
+function req_ch(f1mul){
+	var y=false;
+	$(f1mul).each(function  () {
+ 		//console.log($(this));
+ 		if($(this).is(':checked')){ y=false;return false;}
+ 		y=true;
+ 	});
+ 	if(y){
+ 		$(f1mul).parent().parent().siblings('p').attr('class','msg red');
+ 		$(f1mul).parent().parent().siblings('p').focus();
+ 		return y;
+ 	}
+}
+
 
 
 $('form').on('submit', function (e) {
@@ -388,43 +412,25 @@ $('form').on('submit', function (e) {
 		return true;
 	}
 
-		/*
-		$.ajax({
-	   //page not relaoding
-	var thisid = $(this).children(".active-f").attr('id');
-	var curr_id= parseInt(thisid);
-	/*if(curr_id!=3){
-		/*$.ajax({
-            type: 'post',
-            url: 'in_ctrl.php',
-            data: $('form').serialize(),
-            success: function (data) {
-            	//$('#modal1').closeModal();
-            	alert(data);
-            	  if(data){
-					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
-            	  	//header('Location: Done.php');
-            	  	//$(location).attr('href','http://www.jefto.com/Done.php');
-            	  }
-            	  
-            	  else{
-            	  	alert("Sorry we got some error!");
-            	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
-            	 	 //header('Location: error.php');
-            	 	 $(location).attr('href','http://www.jefto.com/error.php');
-            	  }
-            }
-          });
-	}*/
 	if(curr_id!=3){
 	e.preventDefault();
+	var y=false;
+	$(eval('fmul'+thisid)).each(function(index,value){
+		
+			y = req_ch(value);
+			if(y)return false;
+	});
+	if(!y){
 	$(".active-f").attr('class','row current');
+	
+
 	$(eval('freq'+thisid)).attr('required',false);
 	$('div[id=' + ++curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
 	$(eval('freq'+curr_id.toString())).attr('required',true);
 	 $("html, body").animate({ scrollTop: 0 }, "slow");
 	return false;
+	}
 	}
 	else{return true;}
 });
@@ -460,7 +466,27 @@ function back_nav(curr_id){
 			});
 	$(eval('freq'+curr_id.toString())).attr('required',true);
 	$(eval('freq'+ ++curr_id.toString())).attr('required',false);
+
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 
 }
+
+
+/*$(document).ready(function(){
+
+
+	var y=true;
+	
+	$(f1mul).each(function  () {
+ 		//console.log($(this));
+ 		if($(this).is(':checked')){
+ 			y=false;
+ 		}
+ 		
+ 	});
+ 	if(y){
+ 		$(f1mul).parent().parent().siblings('p').attr('class','red');
+ 	}
+
+});*/
 </script>

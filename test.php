@@ -15,7 +15,8 @@ isset)&&
 	
 	function check_requred (name) {
 
-		document.getElementsByName(name)
+		var x= document.getElementsByName(name);
+		alert(x);
 	}
 
 </script>
