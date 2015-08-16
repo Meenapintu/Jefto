@@ -1,8 +1,7 @@
-
+<?php require_once("ep_ctrl.php"); ?>
 
 <?PHP
 	require_once("header.php");
-	require_once("ep_ctrl.php");
 	//$acolor = array("#226666","#A8383B","#AAA239","#363376","#AA7039","#5D2971","#3C8C2F","#882E61","#EA0B8C","#f15725","#fdee20","#00a587","#20a8e0","#00ff1a");
  	$acolor = array("#f15725","#20a8e0","#00a587","#fdee20","#00ff1a","#EA0B8C","#882E61","#3C8C2F","#5D2971","#AA7039","#363376","#AAA239","#A8383B","#226666");
  	$clenth =  sizeof($acolor)-1;
@@ -17,25 +16,6 @@ $offline_promotion = array("airplay","radio","Newspaper",'Bags','Conference Badg
 
  ?>
 
- <?php
-
-$query = "SELECT event.event_id,event.name,event.city,event.address,event.country,event.frequency,event.website,event.email,event.organizer,event.start_date,event.end_date,event.link_for_req,event.description,event.team_descritpion,event.budget,event.tags,eventplus.logo,eventplus.total_audience,eventplus.gender_ratio,eventplus.audience_description,event_contact.contact_name,event_contact.contact_email,event_contact.contact_mobile,event_contact.contact_office   FROM event left  JOIN eventplus ON event.event_id = eventplus.event_id left  JOIN event_contact ON event_contact.event_id=event.event_id WHERE event.event_id=$1";
-$query = "SELECT sponsorship.event_id, sponsorship.type,sponsorship_finance.fund from sponsorship  left JOIN sponsorship_finance  on sponsorship.event_id=sponsorship_finance.event_id where sponsorship.event_id=$1";
-$query = "SELECT event_id,low_age,ratio from age_group where event_id=$1";
-$query = "SELECT event_id,type_name,type_count from key_numbers where event_id=$1";
-$query = "SELECT event_id,type_name,type_count from demographics where event_id=$1";
-$query = "SELECT event_id,type_name,type_value from audience_demographics where event_id=$1";
-$query = "SELECT event_id,site_name,link from online_profile where event_id=$1";
-$query = "SELECT event_id,site_name,link from onlinepromotion where event_id=$1";
-$query = "SELECT event_id,names,description from offlinepromotion where event_id=$1";
-$query = "SELECT event_id,offer_id,offer_name,cost,currency,description,total from offers where event_id=$1";
-$query = "SELECT event_id,deliverable_id,deliverable_name,description,deliverable_image from deliverable where event_id=$1";
-$query = "SELECT event_id,offer_id,deliverable_id,quantity from offer_deliver where event_id=$1";
-
-
-//echo count($v);
-//echo"all done";
-?>
  <!--  END of of Navbar header  part  (# ENDT) -->
   <!--  This part for  profile  up  (#START) -->
 
@@ -142,13 +122,14 @@ function chart_rel(json) {
 }
 
 </script>
+
 <div class="container " >
 
 <div class="row card-panel" style="background:#EEEEEE;">
 	<div class="col s12 m12 m12 card-panel margin-0">
 		<div class="row margin-0 pd0 ">
 			<div class="col m12 s12 l12 card-panel margin-0" >
-				<h5 class="font-ml  flow-text" style=" font-size:xx-large;color:#26A69A"><?php echo  $event[0][name] ?></h5>
+				<h5 class="font-ml  flow-text" style=" font-size:xx-large;color:#26A69A" id='e_n'><?php echo  $event[0][name] ?></h5>
 			</div> 
 			<div class="col s12 m4 l4 " style="margin-top:1rem">
 				<div class="row margin-0 " > 
@@ -751,6 +732,7 @@ $(document).ready( function(){
        width= $(".chart").width(); 
        height = width;
     });
+  document.title = $("#e_n").html();
 });
 
   $(document).ready(function(){

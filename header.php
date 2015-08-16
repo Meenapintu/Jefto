@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="forms.css">
 
   <script src="materialize/js/jquery-2.1.4.min.js"></script> 
-
+ <?php  include_once('ganly.php');?>
 </head>
 <body>
   <nav>
