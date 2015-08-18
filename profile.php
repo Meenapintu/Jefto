@@ -273,7 +273,7 @@ function chart_rel(json) {
 					$i++;
 					}
 					
-					echo "<div class='col  s6 m".$s." l".$s." ' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".$value[type].".png'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
+					echo "<div class='col  s6 m".$s." l".$s." ' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".img_linker($value[type],$sponsor_needed).".png'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
 					
 			}
 		
@@ -536,7 +536,7 @@ function link_help($v,$s,$aimg,$l,$rs,$ap)
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
 		if ($v[$i][site_name] != ''){
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][site_name]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
+		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][link]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 		$next = $next+$s;
 		if($next ==12){ echo "</div></div>" ; $i++;link_help($v,$s,$aimg,$l,$l-$i,$i);
 		$i=$l;}
