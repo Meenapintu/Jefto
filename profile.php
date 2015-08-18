@@ -756,7 +756,7 @@ $(function () {
             success: function (data) {
             	//$('#modal1').closeModal();
             	
-            	  if(data =="true"){
+            	  if(data =="true" || data){
             	  	$('.modal-footer').css('background-color','#ffffff');
             	  	$('#cont_model').closeModal();
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
