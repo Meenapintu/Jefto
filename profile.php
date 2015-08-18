@@ -104,7 +104,9 @@ $offline_promotion = array("airplay","radio","Newspaper",'Bags','Conference Badg
 .hc{
 	color:#20a8e0;
 }
-
+body{
+	word-wrap: break-word;
+}
 
 </style>
 <script >
