@@ -503,7 +503,7 @@ function site_link_fire($v,$s,$aimg,$event){
 		$l =  sizeof($v);
 	}
 	if(!empty($event[website])){
-		$t_0 = array("site_name"=>$event[website]);
+		$t_0 = array("site_name"=>$event[website],"link"=>$event[website]);
 		array_unshift($v,$t_0);
 		$l++;
 	}
