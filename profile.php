@@ -104,10 +104,10 @@ $offline_promotion = array("airplay","radio","Newspaper",'Bags','Conference Badg
 .hc{
 	color:#20a8e0;
 }
-body{
+
+.wb{
 	word-wrap: break-word;
 }
-
 </style>
 <script >
 var sjson= <?php echo json_encode(json_encode_strval($demo)); ?>;
@@ -271,11 +271,11 @@ function chart_rel(json) {
 						if($l+1 <= $s){
 								$s = 12/($l+1);
 							}
-					echo "<div class='col s6 m".$s." l".$s." '><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value[ftype]."(".currency_fire($event[0][currency]).' '.$value[fund].")</h6></div></div></div>";
+					echo "<div class='col s6 m".$s." l".$s." wb'><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value[ftype]."(".currency_fire($event[0][currency]).' '.$value[fund].")</h6></div></div></div>";
 					$i++;
 					}
 					
-					echo "<div class='col  s6 m".$s." l".$s." ' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".img_linker($value[type],$sponsor_needed)."'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
+					echo "<div class='col  s6 m".$s." l".$s." wb' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".img_linker($value[type],$sponsor_needed)."'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
 					
 			}
 		
@@ -538,7 +538,7 @@ function link_help($v,$s,$aimg,$l,$rs,$ap)
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
 		if ($v[$i][site_name] != ''){
-		echo"<div class='col s".$s."  m".$s."  l".$s." center '><a href='http://".$v[$i][link]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
+		echo"<div class='col s".$s."  m".$s."  l".$s." center  wb'><a href='http://".$v[$i][link]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
 		$next = $next+$s;
 		if($next ==12){ echo "</div></div>" ; $i++;link_help($v,$s,$aimg,$l,$l-$i,$i);
 		$i=$l;}
@@ -571,7 +571,7 @@ function offline_help($v,$s,$aimg,$l,$rs,$ap)
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
 		if ($v[$i][names] != ''){
-		echo"<div class='col s".$s."  m".$s."  l".$s." left' ><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
+		echo"<div class='col s".$s."  m".$s."  l".$s." left wb' ><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
 		$next = $next+$s;
 		if($next ==12){ echo "</div></div>" ;$i++;offline_help($v,$s,$aimg,$l,$l-$i,$i);
 		$i=$l;}
