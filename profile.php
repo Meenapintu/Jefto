@@ -273,7 +273,7 @@ function chart_rel(json) {
 					$i++;
 					}
 					
-					echo "<div class='col  s6 m".$s." l".$s." ' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".img_linker($value[type],$sponsor_needed).".png'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
+					echo "<div class='col  s6 m".$s." l".$s." ' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".img_linker($value[type],$sponsor_needed)."'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
 					
 			}
 		
