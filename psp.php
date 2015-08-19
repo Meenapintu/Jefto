@@ -11,17 +11,7 @@ class dbms{
 		$this->conn = $connection;
 		
 
-	$query = "CREATE TABLE IF NOT EXISTS temp_rel(    /* there are name and count of them fields like key values */
-			event_id			bigserial  REFERENCES event ON DELETE CASCADE,
-			temp_id  			bigserial
-		)";
- 
- 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
-	   if(!$psql){
-	      echo pg_last_error($this->conn);
-	   } else {
-	      echo "Table  Tem_rep created successfully\n";
-	   }
+	
 		
 	$query = "CREATE TABLE IF NOT EXISTS event(		/*  for long time these fields are going to update rarely */
 			event_id   	bigserial  primary key,
@@ -52,6 +42,18 @@ class dbms{
 	      echo "Table  event created successfully\n";
 	   }
 
+
+	   $query = "CREATE TABLE IF NOT EXISTS temp_rel(    /* there are name and count of them fields like key values */
+			event_id			bigserial  REFERENCES event ON DELETE CASCADE,
+			temp_id  			bigserial
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  Tem_rep created successfully\n";
+	   }
 	 
 	$query = " CREATE TABLE IF NOT EXISTS  eventplus(				/* These fields may change every time */
 			event_id   		bigserial  REFERENCES event ON DELETE CASCADE,
