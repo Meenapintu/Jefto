@@ -85,7 +85,7 @@ function el_fire(arr){
 </script>
 
 
-<div class="container " style="height:100vh; " >
+<div class="container " style=" min-height:100vh; " >
 <div class="card-panel z-depth-2">
 <table class="bordered centered ">
           <tbody>
