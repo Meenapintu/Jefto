@@ -617,10 +617,10 @@ function key_fire_help($num,$name,$s){
 	?>
 		<div class="row  ">
 			<div class="col s12 m12 l12 center">
-				<h5 class="margin-0  font-ml  flow-text center"><?php echo $num; ?></h5>
+				<h5 class="margin-0  font-md  flow-text center"><?php echo $num; ?></h5>
 			</div>
 			<div class="col s12 m12 l12 center">
-				<h5 class="margin-0 font-ml  flow-text center"><?php echo $name ;?></h5>
+				<h5 class="margin-0 font-md  flow-text center"><?php echo $name ;?></h5>
 			</div>
 		</div>
 	</div>

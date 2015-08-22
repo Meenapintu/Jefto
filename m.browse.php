@@ -89,7 +89,7 @@ function el_fire(arr){
 <div class="card-panel z-depth-2">
 <table class="bordered centered ">
           <tbody>
-          <script > document.write(el_fire(ev)+el_fire(ev));</script>
+          <script > document.write(el_fire(ev));</script>
         </tbody>
       </table>
 </div>
