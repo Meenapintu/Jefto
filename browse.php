@@ -1,67 +1,106 @@
+
+
 <?PHP
-	require_once("header.php");
-	require_once("ep_ctrl.php");
+  require_once('device.php');
+  require_once("browse_ctrl.php");
+  require_once("header.php");
+	//require_once("ep_ctrl.php");
+
 
 
 ?>
-<div class="container" >
+<style type="text/css">
+   td img{
+    width:100%;
+    height: 100%;
+    background: red;
+  }
+ 
+ .mtb0{
+  margin-top: 0px;
+  margin-bottom: 0px;
+ }
+</style>
+ <script >
+var ev= <?php echo json_encode($event); ?>;
 
-<table>
+function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
+{
+  var def="<tr>\
+            <td >\
+              <div class='row margin-0'>\
+                <div class='col s12 m12 l12'>\
+                  <table >\
+                    <tr>\
+                      <td style='width:75px;height:75px;padding:0px;'>\
+                          <img src="+elogo+" >\
+                      </td>\
+                      <td>\
+                        <div class='row'>\
+                          <div class='col s12 m12 l12 margin-0'>\
+                            <h5 class='mtb0'><i class=' material-icons' style='vertical-align:middle;'></i><a href='/profile.php?e="+eid+"&&p=111' target='_blank' >"+ename+" </a></h5>\
+                          </div>\
+                          <div class='col s12 m12 l12 margin-0'>\
+                            <h6 class='mtb0' ><i class=' material-icons' style='vertical-align:middle;'>location_on</i><span style='vertical-align:middle;'>"+elocation+" </span></h6>\
+                          </div>\
+                        </div>\
+                      </td>\
+                    </tr>\
+                  </table>\
+                </div>\
+              </div>\
+            </td>\
+            <td>\
+              <h6>"+edate+"<h6>\
+            </td>\
+            <td>\
+              <h6>"+eex+"<h6>\
+            </td>\
+            <td>\
+              <h6>"+ebudget+"<h6>\
+            </td>\
+            <td>\
+              <h6>"+eminpack+"<h6>\
+            </td>\
+          </tr>";
+  return def;
+}
+var month = new Array("Jan ","Feb ","Mar ","Apr ","May ","Jun ","Jul ","Aug ","Sept ","Oct ","Nov ","Dec ");
+function el_fire(arr){
+  var l = arr.length;
+  var r='';
+  for (var i = 0; i < l; i++) {
+   d =  new Date(arr[i]['start_date']);
+   var y = d.getFullYear();
+    r+=eb_fire(arr[i]['event_id'],arr[i]['name'],arr[i]['logo'],arr[i]['city']+","+arr[i]['address'].replace("__",","),month[d.getMonth()]+d.getDate()+", "+y,arr[i]['total_audience'],arr[i]['budget'],arr[i]['budget']);
+  };
+  return r;
+}
+
+</script>
+
+
+<div class="container " style="height:100vh; " >
+<div class="card-panel z-depth-2">
+<table class="bordered responsive-table   ">
         <thead>
           <tr>
-              <th data-field="id">Event Details</th>
-              <th data-field="name">Date</th>
-              <th data-field="price">Expected Audience</th>
-              <th data-field="price">event Budget</th>
-              <th data-field="price">No of packets</th>
+            <th data-field="id">Event Details</th>
+            <th data-field="name"> Date</th>
+            <th data-field="name">Expected Audience</th>
+            <th data-field="price">event Budget</th>
+            <th data-field="price">Package  Starting </th>
           </tr>
         </thead>
-
         <tbody>
-          <tr>
-            <td>
-            	<div class="row">
-            		<div class="col s6 m6 l6">
-            		   <img src="def_img/jefto.png" style="background:rgba(34,43,34,0.5)">
-            		 </div>
-            		<div class="col s6 m6 l6"> 
-            			<div class="row">
-            				<div class="col s12 m12 l12">
-            				<i class="large material-icons">location_on</i>
-            				</div>
-            				<div class="col s12 m12 l12">
-            						<img src="def_img/flag.svg" style="background:rgba(34,43,34,0.5)">
-            				</div>
-            				<div class="col s12 m12 l12">
-            					<i class="large material-icons green">verified_user</i>
-            				</div>
-            				<div class="col s12 m12 l12">
-            				<i class="large material-icons green">today</i>
-            				<i class="large material-icons green">public</i>
-            				</div>
-            			</div>
-            		</div>
-            		<div class="col s12 m12 l12">
-            			EVENT NAME
-            		</div>
-            	</div>
-            </td>
-
-
-            <td>Eclair</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
+          <script > document.write(el_fire(ev));</script>
         </tbody>
       </table>
 </div>
+</div>
+
+<?php require_once('footer.php');?>
 </body>
+</html>
+
+
