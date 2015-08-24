@@ -2,7 +2,7 @@
 
 <?PHP
     require_once('device.php');
-  require_once("browse_ctrl.php");
+    require_once("browse_ctrl.php");
   require_once("header.php");
   //require_once("ep_ctrl.php");
 
@@ -45,7 +45,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
                 <td class='mtb0 left' style='padding:0px;'>\
                   <div class='row mtb0'>\
                     <div class='col s12 m12 l12 mtb0'>\
-                      <p href='/profile.php?e="+eid+"&&p=111' target='_blank' ><h5  class='mtb0 left' ><i class=' material-icons' style='vertical-align:middle;'></i>"+ename+" </h5> </a>\
+                      <a href='/profile.php?e="+eid+"&&p=111' target='_blank' ><h5  class='mtb0 left' ><i class=' material-icons' style='vertical-align:middle;'></i>"+ename+" </h5> </a>\
                     </div>\
                     <div class='col s12 m12 l12 mtb0 left'>\
                       <p class='mtb0 left' ><i class=' material-icons' style='vertical-align:middle;'>location_on</i><span style='vertical-align:middle;'>"+elocation+" </span></p>\
@@ -82,10 +82,26 @@ function el_fire(arr){
   return r;
 }
 
+
+
+
+$(document).ready( function(){
+  $(window).resize(function(){
+      if((window.location.pathname =='/browse.php') && ($(window).width() < 992)){
+        localStorage.setItem("redirected", true);
+        window.location.assign(window.location.href.replace(window.location.pathname,'/m.browse.php'));
+      }
+      if((window.location.pathname =='/m.browse.php') && ($(window).width() > 992)){
+        localStorage.setItem("redirected", true);
+        window.location.assign(window.location.href.replace(window.location.pathname,'/browse.php'));
+      }
+    });
+
+});
 </script>
 
 
-<div class="container " style=" min-height:100vh; " >
+<div class="container " id='content_cont'style=" min-height:100vh; " >
 <div class="card-panel z-depth-2">
 <table class="bordered centered ">
           <tbody>

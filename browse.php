@@ -38,7 +38,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
                       <td>\
                         <div class='row'>\
                           <div class='col s12 m12 l12 margin-0'>\
-                            <p class='mtb0'><i class=' material-icons' style='vertical-align:middle;'></i><a href='/profile.php?e="+eid+"&&p=111' target='_blank' >"+ename+" </a></h5>\
+                            <h5 class='mtb0'><i class=' material-icons' style='vertical-align:middle;'></i><a href='/profile.php?e="+eid+"&&p=111' target='_blank' >"+ename+" </a></h5>\
                           </div>\
                           <div class='col s12 m12 l12 margin-0'>\
                             <p class='mtb0' ><i class=' material-icons' style='vertical-align:middle;'>location_on</i><span style='vertical-align:middle;'>"+elocation+" </span></p>\
@@ -80,7 +80,7 @@ function el_fire(arr){
 </script>
 
 
-<div class="container " style=" min-height:100vh; " >
+<div class="container " id='content_cont' style=" min-height:100vh; " >
 <div class="card-panel z-depth-2">
 <table class="bordered responsive-table   ">
         <thead>
@@ -104,3 +104,19 @@ function el_fire(arr){
 </html>
 
 
+<script >
+  
+
+$(document).ready( function(){
+  $(window).resize(function(){
+      if((window.location.pathname =='/browse.php') && ($(window).width() < 992)){
+        localStorage.setItem("redirected", true);
+        window.location.assign(window.location.href.replace(window.location.pathname,'/m.browse.php'));
+      }
+      if((window.location.pathname =='/m.browse.php') && ($(window).width() > 992)){
+        window.location.assign(window.location.href.replace(window.location.pathname,'/browse.php'));
+      }
+    });
+
+});
+</script>
