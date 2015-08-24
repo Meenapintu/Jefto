@@ -77,7 +77,7 @@ function el_fire(arr){
   for (var i = 0; i < l; i++) {
    d =  new Date(arr[i]['start_date']);
    var y = d.getFullYear();
-    r+=eb_fire(arr[i]['event_id'],arr[i]['name'],arr[i]['logo'],arr[i]['city']+","+arr[i]['address'].substring(0,indexOf("__")),month[d.getMonth()]+d.getDate()+", "+y,arr[i]['total_audience'],arr[i]['budget'],arr[i]['budget']);
+    r+=eb_fire(arr[i]['event_id'],arr[i]['name'],arr[i]['logo'],arr[i]['city']+","+arr[i]['address'].substring(0,arr[i]['address'].indexOf("__")),month[d.getMonth()]+d.getDate()+", "+y,arr[i]['total_audience'],arr[i]['budget'],arr[i]['budget']);
   };
   return r;
 }
