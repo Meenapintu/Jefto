@@ -38,10 +38,10 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
                       <td>\
                         <div class='row'>\
                           <div class='col s12 m12 l12 margin-0'>\
-                            <h5 class='mtb0'><i class=' material-icons' style='vertical-align:middle;'></i><a href='/profile.php?e="+eid+"&&p=111' target='_blank' >"+ename+" </a></h5>\
+                            <p class='mtb0'><i class=' material-icons' style='vertical-align:middle;'></i><a href='/profile.php?e="+eid+"&&p=111' target='_blank' >"+ename+" </a></h5>\
                           </div>\
                           <div class='col s12 m12 l12 margin-0'>\
-                            <h6 class='mtb0' ><i class=' material-icons' style='vertical-align:middle;'>location_on</i><span style='vertical-align:middle;'>"+elocation+" </span></h6>\
+                            <p class='mtb0' ><i class=' material-icons' style='vertical-align:middle;'>location_on</i><span style='vertical-align:middle;'>"+elocation+" </span></p>\
                           </div>\
                         </div>\
                       </td>\
@@ -51,16 +51,16 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
               </div>\
             </td>\
             <td>\
-              <h6>"+edate+"<h6>\
+              <p>"+edate+"</p>\
             </td>\
             <td>\
-              <h6>"+eex+"<h6>\
+              <p>"+eex+"</p>\
             </td>\
             <td>\
-              <h6>"+ebudget+"<h6>\
+              <p>"+ebudget+"</p>\
             </td>\
             <td>\
-              <h6>"+eminpack+"<h6>\
+              <p>"+eminpack+"</p>\
             </td>\
           </tr>";
   return def;
@@ -72,7 +72,7 @@ function el_fire(arr){
   for (var i = 0; i < l; i++) {
    d =  new Date(arr[i]['start_date']);
    var y = d.getFullYear();
-    r+=eb_fire(arr[i]['event_id'],arr[i]['name'],arr[i]['logo'],arr[i]['city']+","+arr[i]['address'].replace("__",","),month[d.getMonth()]+d.getDate()+", "+y,arr[i]['total_audience'],arr[i]['budget'],arr[i]['budget']);
+    r+=eb_fire(arr[i]['event_id'],arr[i]['name'],arr[i]['logo'],arr[i]['city']+","+arr[i]['address'].substring(0,indexOf("__")),month[d.getMonth()]+d.getDate()+", "+y,arr[i]['total_audience'],arr[i]['budget'],arr[i]['budget']);
   };
   return r;
 }
