@@ -734,7 +734,7 @@ $(document).ready( function(){
        width= $(".chart").width(); 
        height = width;
 
-       $('.descme').attr('height',$('.with-header').height()-$('.collection-header').height());
+       $('.descme').attr('max-height',$('.with-header')[0].height()-$('.collection-header')[0].height());
     });
   document.title = $("#e_n").html();
 });
@@ -743,7 +743,7 @@ $(document).ready( function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     $('input#input_text, textarea#textarea1').characterCounter();
-    $('.descme').attr('height',$('.with-header').height()-$('.collection-header').height());
+    $('.descme').attr('max-height',$('.with-header')[0].height()-$('.collection-header')[0].height());
   });
      
 $('#Error1').hide();
