@@ -26,7 +26,7 @@ class dbms{
 			website     varchar(100) ,
 			email		varchar(50) ,
 			organizer   varchar(50) not null,
-			start_date		date not null
+			start_date		date not null,
 			end_date    	date not null,
 			link_for_req	text ,
 			description  	text not null,   /*   this is event description */ 
