@@ -644,7 +644,7 @@ function offer_fire( $v ,$der,$rel){
         			<div onclick='setdrop(this);' >
         				<i class='material-icons '>description</i> 
         				<div class="card-panel" id='descme' style='width:100%;height:auto;max-height:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;left:0px;z-index:2'>
-							<div class='row card-panel' style='background:rgba(34,53,53,0);overflow:none;width:100%;margin:0px;padding:0px;'>
+							<div class='row card-panel' style='background:rgba(34,53,53,0);width:100%;margin:0px;padding:0px;'>
 								<div class='col s12 m12 s12' style='background:rgba(34,53,3,0); color:green;margin-bottom:10px;'>
 								</div>
 							    <div  id='desc' class='col s12 m12 s12'   style='word-wrap: break-word;color:black;'> 
