@@ -587,6 +587,7 @@ require_once("footer.php");
 
 <script>
 function goBack() {
-    window.history.back();
+    //window.history.back();
+    window.Location.assign('http://www.jefto.com/form.php');
 }
 </script>
