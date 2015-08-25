@@ -32,7 +32,8 @@ class dbms{
 			description  	varchar(1500) not null,   /*   this is event description */ 
 			team_descritpion 	varchar(1500),
 			budget 				bigint,
-			tags 				varchar(100)
+			tags 				varchar(100),
+			verifiy 			boolean DEFAULT FALSE
 		)";
 	
 	$psql = pg_query($this->conn, $query) or die(pg_errormessage());
