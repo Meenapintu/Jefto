@@ -32,6 +32,7 @@
  h5{
   text-transform:capitalize;
  }
+  i{max-width: 24px;}
 
 </style>
  <script >

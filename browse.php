@@ -20,6 +20,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
  }
+  i{max-width: 24px;}
 </style>
  <script >
 var ev= <?php echo json_encode($event); ?>;
