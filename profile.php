@@ -734,7 +734,7 @@ $(document).ready( function(){
        width= $(".chart").width(); 
        height = width;
 
-       $('.descme').attr('max-height',($('.with-header').height()- $('.collection-header').height()).'px');
+       $('.descme').attr('max-height',($('.with-header').height()- $('.collection-header').height())+'px');
     });
   document.title = $("#e_n").html();
 });
@@ -882,7 +882,7 @@ return pie;
 
 
 
-$('.descme').attr('max-height',($('.with-header').height()- $('.collection-header').height()).'px');
+$('.descme').attr('max-height',($('.with-header').height()- $('.collection-header').height())+'px');
 $('.clist').hide();
 var done = true;
 $(window).scroll(function(event) {
