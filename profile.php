@@ -779,7 +779,9 @@ $(function () {
 
 
 $('.desc').each(function(){
-		$(this).html(unescape($(this).html()));
+		var v = unescape($(this).html());
+		$(this).html('');
+		$(this).append(v);
 });
 
 
