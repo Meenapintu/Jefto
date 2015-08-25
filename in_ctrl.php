@@ -238,7 +238,7 @@ if(!empty($_POST['event_name__'])&&!empty($_POST['category__'])&&!empty($_POST['
                 $_SESSION["event_id"] = pg_prepare_single_insert_v1($conn, $query,$insert_array);
                 $event_id= $_SESSION['event_id'];
 
-            if(isset($_FILES['logo__']))
+            if(!empty($_FILES['logo__']))
             {
                 $valid_file_extensions = array(".jpg", ".jpeg", ".gif", ".png");
                 $file_extension = strrchr($_FILES['logo__']["name"], ".");
