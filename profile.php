@@ -734,7 +734,7 @@ $(document).ready( function(){
        width= $(".chart").width(); 
        height = width;
 
-       $('.descme').attr('max-height',$('.with-header').height()- $('.collection-header').height());
+       $('.descme').attr('max-height',($('.with-header').height()- $('.collection-header').height()).'px');
     });
   document.title = $("#e_n").html();
 });
@@ -743,7 +743,7 @@ $(document).ready( function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     $('input#input_text, textarea#textarea1').characterCounter();
-    $('.descme').attr('max-height',$('.with-header').height()- $('.collection-header').height());
+    //$('.descme').attr('max-height',$('.with-header').height()- $('.collection-header').height());
   });
      
 $('#Error1').hide();
@@ -882,7 +882,7 @@ return pie;
 
 
 
-
+$('.descme').attr('max-height',($('.with-header').height()- $('.collection-header').height()).'px');
 $('.clist').hide();
 var done = true;
 $(window).scroll(function(event) {
