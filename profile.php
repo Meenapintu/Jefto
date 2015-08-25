@@ -907,6 +907,12 @@ $(window).scroll(function(event) {
 if($("#pieChart").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
     if(done){
     	if((sjson[0]['label']  !=null && sjson[0]['label'].length >0)  || (ijson[0]['label']  !=null && ijson[0]['label'].length >0)){
+    		if(sjson[0]['label']  ==null || sjson[0]['label'].length ==0 ){
+    			sjson= [{"label":'not specified',"value":100,"color":"#f15725"}];
+    		}
+    		if(ijson[0]['label']  ==null || ijson[0]['label'].length ==0 ){
+    			ijson= [{"label":'not specified',"value":100,"color":"#f15725"}];
+    		}
 	    setup("pieChart",sjson);
 		setup("pieChart_age",ijson);
 		$('.clist').show();
