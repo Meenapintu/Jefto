@@ -1,7 +1,5 @@
 <?php
-session_start();
-$connection_string = "host=localhost  dbname=jefto user=ram password=dfedderftrfr23";
-$conn = pg_connect($connection_string);
+require_once('connect.php');
 if($conn){}//echo "working on .... ";}
 	else echo " there is error ";
 require_once("header.php");

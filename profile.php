@@ -778,7 +778,9 @@ $(function () {
 
 
 
-
+$('.desc').each(function(){
+		alert($(this).html());
+});
 
 
 
@@ -931,9 +933,7 @@ $(window).ready(function(){
 	//$("svg").children('g')[0].attr('class',$("svg").children('g')[0].attr('class')+'pd0 margin-0 w100');
 
 });
-$('.desc').each(function(){
-		$(this).html($(this).html());
-});
+
 
 </script>
 
