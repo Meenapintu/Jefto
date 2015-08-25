@@ -648,7 +648,7 @@ function offer_fire( $v ,$der,$rel){
 								<div class='col s12 m12 s12' style='background:rgba(34,53,3,0); color:green;margin-bottom:10px;'>
 								</div>
 							    <div  id='desc' class='col s12 m12 s12'   style='word-wrap:break-word;color:black;overflow: auto;'> 
-							    	<p><?php echo $v[$i]['description'] ?> </p>
+							    	<?php echo $v[$i]['description'] ?> 
 							    </div>
 							    <div class='col s12 m12 s12 center ' id ='state'> 
 							     	<button style="" onclick='hide(this);' class="btn">Okay</button> 
