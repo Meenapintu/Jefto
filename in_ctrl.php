@@ -8,7 +8,7 @@ require_once("header.php");
 require_once('phpfunc.php');
 
 $i=0;
-$debug;
+$debug='';
 echo"<div class='container' >";
 
 //if(isset($_POST['event_name__'],$_POST['category__'],$_POST['genre__'],$_POST['startdate__'],$_POST['enddate__'],$_POST['city__'],$_POST['country__'],$_POST['scope__'],$_POST['frequency__'],$_POST['organization__'],$_POST['event_email__'],$_POST['currency__'],$_POST['sponsors__'],$_POST['total_audience_count__'],$_POST['contact_name__'],$_POST['contact_email__'],$_POST['contact_mob__']) )
