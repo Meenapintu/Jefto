@@ -325,6 +325,8 @@
 
 
 <script >
+
+
 del_len = delivers.length;
 for (var i = 1; i < del_len; i++) {
  add_benefit(delivers[i]);
@@ -494,4 +496,7 @@ function back_nav(curr_id){
  	}
 
 });*/
+
+$('#contact_mob__').attr('maxlength','15');
+$('#office___').attr('maxlength','15');
 </script>
