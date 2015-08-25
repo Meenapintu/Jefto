@@ -779,7 +779,7 @@ $(function () {
 
 
 $('.desc').each(function(){
-		alert(unescape($(this).html()));
+		$(this).html(unescape($(this).html()));
 });
 
 
