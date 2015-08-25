@@ -131,15 +131,15 @@ function chart_rel(json) {
 	<div class="col s12 m12 m12 card-panel margin-0">
 		<div class="row margin-0 pd0 ">
 			<div class="col m12 s12 l12 card-panel margin-0" >
-				<h5 class="font-ml  flow-text" style=" font-size:xx-large;color:#26A69A" id='e_n'><?php echo  $event[0][name] ?></h5>
+				<h5 class="font-ml  flow-text" style=" font-size:xx-large;color:#26A69A" id='e_n'><?php echo  $event[0]['name'] ?></h5>
 			</div> 
 			<div class="col s12 m4 l4 " style="margin-top:1rem">
 				<div class="row margin-0 " > 
 					<div class="col s2 m2 l2 "style='padding-right:0px;margin-right:0px;' >
 						<div class="margin-0 icon pd0"style="left:2px;"> 
 							<img src="def_img/sd_icon.png">
-									<?php $time = time_fire($event[0][end_date]);  ?> 
-									<?php $times = time_fire($event[0][start_date]);  ?> 
+									<?php $time = time_fire($event[0]['end_date']);  ?> 
+									<?php $times = time_fire($event[0]['start_date']);  ?> 
 				 		</div>
 				 	</div>
 				 	<div class="col s8 m8 l8 dh center  "style='padding:0px;margin:0px;' >
@@ -190,7 +190,7 @@ function chart_rel(json) {
 				<div class="row center_ml">
 					<div class="col s12 m12 l12 center ">
 						<h5 class="font-ml  flow-text hc"> <span> Expected Attendees </span></h5>
-						<h5><?php echo $event[0][total_audience] ?></h5>
+						<h5><?php echo $event[0]['total_audience'] ?></h5>
 					</div>
 				</div>
 			</div>
@@ -198,10 +198,10 @@ function chart_rel(json) {
 			<div class="col s12 m4 l4  right" style="margin-top:1rem" >
 				<div class="row margin-0 pd0">
 					<div class="col s12 m12 l12  ">
-						<h5 class="font-ml  flow-text" style="display:inline-block;"> <span class='hc'>City : </span></h5><?php echo  $event[0][city]." , " .$event[0][country] ?>
+						<h5 class="font-ml  flow-text" style="display:inline-block;"> <span class='hc'>City : </span></h5><?php echo  $event[0]['city']." , " .$event[0]['country'] ?>
 					</div>
 					<div class="col s12 m12 l12 ">
-						 <h5 class="font-ml  flow-text" style="display:inline-block;margin:0px;"><span class='hc' >Address :</span></h5> <?php  $exp = explode("__", $event[0][address]); echo $exp[0].", ".$exp[1]; ?>
+						 <h5 class="font-ml  flow-text" style="display:inline-block;margin:0px;"><span class='hc' >Address :</span></h5> <?php  $exp = explode("__", $event[0]['address']); echo $exp[0].", ".$exp[1]; ?>
 					</div>
 				</div>
 			</div>
@@ -211,7 +211,7 @@ function chart_rel(json) {
 	<div class="col  s12 m12 l12 card-panel">
 		<div class="row">
 			<div class="col s12 m4 l4 profile">
-				<img src="<?php echo $event[0][logo] ?>">
+				<img src="<?php echo $event[0]['logo'] ?>">
 			</div>
 			<div class="col s12 m8 l8">
 				<div class="row">
@@ -219,7 +219,7 @@ function chart_rel(json) {
 						<h5 class="font-ml  flow-text hc">Event Description</h5>
 					</div>
 					<div class="col  s12 m12 l12 over center">
-						<p style="margin-top:0px;"><?PHP echo $event[0][description] ?></p>
+						<p style="margin-top:0px;"><?PHP echo $event[0]['description'] ?></p>
 					</div>
 					<div class="col s12 m12 l12 over center">
 						<h5 class="font-ml  flow-text hc">Key Numbers</h5>
@@ -267,15 +267,15 @@ function chart_rel(json) {
 			}
 			foreach ($spon as $key => $value) {
 					
-					if( $i <1 &&$value[ftype] == 'Financial'){
+					if( $i <1 &&$value['ftype'] == 'Financial'){
 						if($l+1 <= $s){
 								$s = 12/($l+1);
 							}
-					echo "<div class='col s6 m".$s." l".$s." wb'><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value[ftype]."(".currency_fire($event[0][currency]).' '.$value[fund].")</h6></div></div></div>";
+					echo "<div class='col s6 m".$s." l".$s." wb'><div class='row'><div class='col s12 m12 l12' > <img src='def_img/Financial.png'></div><div class='col s12 m12 l12' > <h6>".$value['ftype']."(".currency_fire($event[0]['currency']).' '.$value['fund'].")</h6></div></div></div>";
 					$i++;
 					}
 					
-					echo "<div class='col  s6 m".$s." l".$s." wb' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".img_linker($value[type],$sponsor_needed)."'></div><div class='col s12 m12 l12' > <h6> ".$value[type]."</h6></div></div></div>";
+					echo "<div class='col  s6 m".$s." l".$s." wb' ><div class='row'><div class='col s12 m12 l12' ><img src='def_img/".img_linker($value['type'],$sponsor_needed)."'></div><div class='col s12 m12 l12' > <h6> ".$value['type']."</h6></div></div></div>";
 					
 			}
 		
@@ -296,7 +296,7 @@ function chart_rel(json) {
 			<div class="col s12 m12 l12 center card-panel ">
 				<h5 class="font-med  flow-text hc ">Attendee's Description </h5>
 			
-				<p><?PHP echo $event[0][audience_description] ?></p>
+				<p><?PHP echo $event[0]['audience_description'] ?></p>
 			</div>
 		
 			<div class="col s12 m12 l12 card-panel">
@@ -307,7 +307,7 @@ function chart_rel(json) {
 								<h5 class="font-ml  flow-text center ">Expected Attandance</h5>
 							</div>
 							<div class="col s12 m12 l12 center ">
-								<h5><?php echo $event[0][total_audience]?></h5>
+								<h5><?php echo $event[0]['total_audience']?></h5>
 							</div>
 						</div>	
 					</div> 
@@ -318,11 +318,11 @@ function chart_rel(json) {
 							</div>
 							<div class="col s6 m6 l6 center " style=" padding-right:0px;">
 								<img class="center " src="def_img/male.png">
-								<h6  style="margin:0px;"> Male <?php echo $event[0][gender_ratio];?>%</h6>
+								<h6  style="margin:0px;"> Male <?php echo $event[0]['gender_ratio'];?>%</h6>
 							</div>
 							<div class="col s6 m6 l6 center "style="padding-left:0px">
 								<img  class="center " src="def_img/female.png">
-								<h6 style="margin:0px;"> Female <?php echo 100-(int)$event[0][gender_ratio];?>%</h6>
+								<h6 style="margin:0px;"> Female <?php echo 100-(int)$event[0]['gender_ratio'];?>%</h6>
 							</div>
 						</div>	
 					</div>
@@ -410,22 +410,22 @@ function chart_rel(json) {
 	    <div class="modal-content"  style="margin:0px;padding:0px;">
 	      <div class="row"  style="margin:0px;padding:0px;">
 	      	<div class="col s12 m12 l12  blue white-t center  " style="margin:0px;">
-	      		<h5>Contact <?php echo $event[0][name] ?></h5>
+	      		<h5>Contact <?php echo $event[0]['name'] ?></h5>
 	      	</div>
 	      	<div class="col s12 m6 l6">
 	      		<div class="row">
 	      			<div class=" col s12 m12 l12 center ">
-	      				<img class='cimg'src="<?php echo $event[0][logo] ?>">
+	      				<img class='cimg'src="<?php echo $event[0]['logo'] ?>">
 	      			</div>
 	      			
 	      			<div class="col s12 m12 l12 center  ">
-	      				<h6><i class="material-icons left ">perm_identity</i><i class='left' style="width:111px" ><i class='right'  style="margin:0px">Name :</i></i><i class='left' ><?php echo $event[0][contact_name] ?></i></h6>
+	      				<h6><i class="material-icons left ">perm_identity</i><i class='left' style="width:111px" ><i class='right'  style="margin:0px">Name :</i></i><i class='left' ><?php echo $event[0]['contact_name'] ?></i></h6>
 	      			</div>
 	      			<div class="col s12 m12  l12 center  ">
-	      				<h6><i class="material-icons left ">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Personal Contact:</i></i><i class='left' ><?php echo $event[0][contact_mobile] ?></i></h6>
+	      				<h6><i class="material-icons left ">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Personal Contact:</i></i><i class='left' ><?php echo $event[0]['contact_mobile'] ?></i></h6>
 	      			</div>
 	      			<div class="col s12 m12 l12 center  ">
-	      				<h6><i class="material-icons left">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Office Contact:</i></i><i class='left' ><?php echo $event[0][contact_office] ?></i></h6>
+	      				<h6><i class="material-icons left">contact_phone</i><i class='left' style="width:111px" ><i class='right' style="margin:0px" >Office Contact:</i></i><i class='left' ><?php echo $event[0]['contact_office'] ?></i></h6>
 	      			</div>
 	      		</div>
 	      	</div>
@@ -501,11 +501,11 @@ function chart_rel(json) {
 
 function site_link_fire($v,$s,$aimg,$event){
 	
-	if ($v[0][site_name] != ''){
+	if ($v[0]['site_name'] != ''){
 		$l =  sizeof($v);
 	}
-	if(!empty($event[website])){
-		$t_0 = array("site_name"=>$event[website],"link"=>$event[website]);
+	if(!empty($event['website'])){
+		$t_0 = array("site_name"=>$event['website'],"link"=>$event['website']);
 		array_unshift($v,$t_0);
 		$l++;
 	}
@@ -520,7 +520,7 @@ function site_link_fire($v,$s,$aimg,$event){
 }
 function link_fire($v,$s,$aimg){
 	$l =  sizeof($v);
-	if ($v[0][site_name] != ''){
+	if ($v[0]['site_name'] != ''){
 	if($l <= $s){
 		$s = 12/$l;
 	}
@@ -537,8 +537,8 @@ function link_help($v,$s,$aimg,$l,$rs,$ap)
 	$next=0;
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
-		if ($v[$i][site_name] != ''){
-		echo"<div class='col s".$s."  m".$s."  l".$s." center  wb'><a href='http://".$v[$i][link]."' target='_blank' ><img src='def_img/".img_linker($v[$i][site_name],$aimg)."' ><h6 >".$v[$i][site_name]."</h6> </a></div>";
+		if ($v[$i]['site_name'] != ''){
+		echo"<div class='col s".$s."  m".$s."  l".$s." center  wb'><a href='http://".$v[$i]['link']."' target='_blank' ><img src='def_img/".img_linker($v[$i]['site_name'],$aimg)."' ><h6 >".$v[$i]['site_name']."</h6> </a></div>";
 		$next = $next+$s;
 		if($next ==12){ echo "</div></div>" ; $i++;link_help($v,$s,$aimg,$l,$l-$i,$i);
 		$i=$l;}
@@ -548,7 +548,7 @@ function link_help($v,$s,$aimg,$l,$rs,$ap)
 }
 
 function offline_fire($v,$s,$aimg){
-	if ($v[0][names] != ''){	
+	if ($v[0]['names'] != ''){	
 	$l =  sizeof($v);
 	
 	
@@ -570,8 +570,8 @@ function offline_help($v,$s,$aimg,$l,$rs,$ap)
 	$next=0;
 		echo "<div class='col s12 m12 l12'> <div class='row'>";
 	for ($i=$ap; $i < $l; $i++) { 
-		if ($v[$i][names] != ''){
-		echo"<div class='col s".$s."  m".$s."  l".$s." left wb' ><a href='".$v[$i][names]."' target='_blank' ><img src='def_img/".img_linker($v[$i][names],$aimg)."' ><h6 >".$v[$i][names]."</h6> </a></div>";
+		if ($v[$i]['names'] != ''){
+		echo"<div class='col s".$s."  m".$s."  l".$s." left wb' ><a href='".$v[$i]['names']."' target='_blank' ><img src='def_img/".img_linker($v[$i]['names'],$aimg)."' ><h6 >".$v[$i]['names']."</h6> </a></div>";
 		$next = $next+$s;
 		if($next ==12){ echo "</div></div>" ;$i++;offline_help($v,$s,$aimg,$l,$l-$i,$i);
 		$i=$l;}
@@ -587,7 +587,7 @@ function img_linker($name,$array){
 		//echo'<script>alert('.$name.')</script>';
 		return $name.'.png';
    	}
-   	else return $array[def].'.png';
+   	else return $array['def'].'.png';
 }
 
 function time_fire($d){
@@ -608,7 +608,7 @@ function key_fire($v){
 		$s = 12/$l;
 	}
    for ($i=0; $i < $l; $i++) { 
-   		key_fire_help($v[$i][type_count],$v[$i][type_name],$s);
+   		key_fire_help($v[$i]['type_count'],$v[$i]['type_name'],$s);
    }
 }
 
@@ -635,10 +635,10 @@ function offer_fire( $v ,$der,$rel){
         <li class="  collection-header  " style="background-color:#8d6e63;">
         	<div class="row center">
         		<div class="col s12 m12 l12">
-        			<h5 class="font-ml flow-text center white-t"><?php echo $v[$i][offer_name];?></h5>
+        			<h5 class="font-ml flow-text center white-t"><?php echo $v[$i]['offer_name'];?></h5>
         		</div>
         		<div class="col  s12 m12  l12 white-t">
-        			<h6><?php echo currency_fire($v[$i][currency]).' '.$v[$i][cost];?></h6>
+        			<h6><?php echo currency_fire($v[$i]['currency']).' '.$v[$i]['cost'];?></h6>
         		</div>
         		<div class="col s12 m12 l12 white-t pd0 margin-0">
         			<div onclick='setdrop(this);' >
@@ -648,7 +648,7 @@ function offer_fire( $v ,$der,$rel){
 								<div class='col s12 m12 s12' style='background:rgba(34,53,3,0); color:green;margin-bottom:10px;'>
 								</div>
 							    <div  id='desc' class='col s12 m12 s12'   style='word-wrap: break-word;color:black;'> 
-							    	<?php echo $v[$i][description] ?> 
+							    	<?php echo $v[$i]['description'] ?> 
 							    </div>
 							    <div class='col s12 m12 s12 center ' id ='state'> 
 							     	<button style="" onclick='hide(this);' class="btn">Okay</button> 
@@ -660,7 +660,7 @@ function offer_fire( $v ,$der,$rel){
         		</div>
         	</div>
         </li>
-	    <?php del_fire($der,$rel,$v[$i][offer_id]); ?>
+	    <?php del_fire($der,$rel,$v[$i]['offer_id']); ?>
       </ul>
       </div>
 <?php
@@ -676,15 +676,15 @@ function offer_fire( $v ,$der,$rel){
 function del_fire($v,$rel,$pk){
  $l =  sizeof($v);
    for ($i=0; $i < $l; $i++) { 
-   		echo "<li class='collection-item'>".$v[$i][deliverable_name]."   (".rel_fire($pk,$v[$i][deliverable_id],$rel).")</li>";
+   		echo "<li class='collection-item'>".$v[$i]['deliverable_name']."   (".rel_fire($pk,$v[$i]['deliverable_id'],$rel).")</li>";
    	}  	
 }
 
 function rel_fire($oid,$did,$rel){
 	$l =  sizeof($rel);
 	for ($i=0; $i <$l ; $i++) { 
-		if($rel[$i][offer_id] == $oid && $rel[$i][deliverable_id] == $did )
-			return $rel[$i][quantity];
+		if($rel[$i]['offer_id'] == $oid && $rel[$i]['deliverable_id'] == $did )
+			return $rel[$i]['quantity'];
 	}
 	return 0;
 }
@@ -697,7 +697,7 @@ function json_encode_strval($v){
    		//echo $GLOBALS['clenth']/($i+1)  . "  DIVIDI   ";
 	//$label = array('label' =>$v[$i][type_name] ,"value" =>$v[$i][type_value],"color"=>"red" );
 	//array_push($content, $label);
-	array_push($content,array('label' =>$v[$i][type_name] ,"value" =>(int)$v[$i][type_count],"color"=>$GLOBALS['acolor'][$i]  ));
+	array_push($content,array('label' =>$v[$i]['type_name'] ,"value" =>(int)$v[$i]['type_count'],"color"=>$GLOBALS['acolor'][$i]  ));
 	}	
 	return $content;				
 }
@@ -708,7 +708,7 @@ function json_encode_ageval($v){
 	$l =  sizeof($v);
    	for ($i=0; $i < $l; $i++) { 
 	//$label = array('label' =>$v[$i][type_name] ,"value" =>$v[$i][type_count],"color"=>"red" );
-	array_push($content,array("label" =>$age_rel[$v[$i][low_age]] ,"value" =>(int)$v[$i][ratio],"color"=>$GLOBALS['acolor'][$i]  ));
+	array_push($content,array("label" =>$age_rel[$v[$i]['low_age']] ,"value" =>(int)$v[$i]['ratio'],"color"=>$GLOBALS['acolor'][$i]  ));
 	}
 	return $content;					
 }
