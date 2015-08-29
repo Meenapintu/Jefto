@@ -72,7 +72,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
                   </div><div class='col s6 m6 l6 mtb0'>\
                     <p class='mtb0'></p>\
                   </div><div class='col s6 m6 l6 mtb0'>\
-                    <p class='mtb0'>Package min: "+get_offer($event_id,$offer)+"</p>\
+                    <p class='mtb0'>Package min: "+get_offer($eid,$offer)+"</p>\
                   </div></div>";
   return def+pvr;
 

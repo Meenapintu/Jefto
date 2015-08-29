@@ -9,7 +9,7 @@ $offer = pg_prepare_SELECT($conn,$query,$event_id);
 
 function get_offer($event_id,$offer){
 	$l = sizeof($offer);
-	for($i=0;$i<$l;i++){
+	for($i=0;$i<$l;$i++){
 		if($offer[$i]['event_id']==$event_id) return $offer[$i]['cost'];
 	}
 	return 0;
