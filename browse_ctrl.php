@@ -7,11 +7,5 @@ $event = pg_prepare_SELECT($conn,$query,$event_id);
 $query = "SELECT offers.event_id,MIN(offers.cost)as cost1,offers.currency from offers group by offers.event_id ,offers.currency";
 $offer = pg_prepare_SELECT($conn,$query,$event_id);
 
-function get_offer($event_id,$offer){
-	$l = sizeof($offer);
-	for($i=0;$i<$l;$i++){
-		if($offer[$i]['event_id']==$event_id) return $offer[$i]['cost1'];
-	}
-	return 0;
-}
+
 ?>

@@ -24,6 +24,15 @@
 </style>
  <script >
 var ev= <?php echo json_encode($event); ?>;
+var eo= <?php echo json_encode($offer); ?>;
+
+function get_offer(event_id,offer){
+  var l = offer.length;
+  for(var i=0;i<l;i++){
+    if(offer[i]['event_id']==event_id) return offer[i]['cost1'];
+  }
+  return 0;
+}
 
 function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
 {
@@ -61,7 +70,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
               <p>"+ebudget+"</p>\
             </td>\
             <td>\
-              <p>"+get_offer($eid,$offer)+"</p>\
+              <p>"+eminpack+"</p>\
             </td>\
           </tr>";
   return def;
@@ -73,7 +82,7 @@ function el_fire(arr){
   for (var i = 0; i < l; i++) {
    d =  new Date(arr[i]['start_date']);
    var y = d.getFullYear();
-    r+=eb_fire(arr[i]['event_id'],arr[i]['name'],arr[i]['logo'],arr[i]['city']+","+arr[i]['address'].substring(0,arr[i]['address'].indexOf("__")),month[d.getMonth()]+d.getDate()+", "+y,arr[i]['total_audience'],arr[i]['budget'],arr[i]['budget']);
+    r+=eb_fire(arr[i]['event_id'],arr[i]['name'],arr[i]['logo'],arr[i]['city']+","+arr[i]['address'].substring(0,arr[i]['address'].indexOf("__")),month[d.getMonth()]+d.getDate()+", "+y,arr[i]['total_audience'],arr[i]['budget'],get_offer(arr[i]['event_id'],eo));
   };
   return r;
 }
