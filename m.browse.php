@@ -52,6 +52,7 @@ function get_offer(event_id,offer){
   }
   return 0;
 }
+
 function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
 {
   var def="<table style='padding-top:15px;'><tbody  style='padding:0px;margin:0px'>\
@@ -80,7 +81,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
                   </div><div class='col s6 m6 l6 mtb0'>\
                     <p class='mtb0'></p>\
                   </div><div class='col s6 m6 l6 mtb0'>\
-                    <p class='mtb0'>Package min: "+get_offer($eid,$offer)+"</p>\
+                    <p class='mtb0'>Package min: "+eminpack+"</p>\
                   </div></div>";
   return def+pvr;
 
