@@ -139,11 +139,12 @@
 		document.write(subform_textarea("team_description__"," Team Description"));
 		document.write("</div>");
 		document.write("<div class='input-field col s12 m12 l12'>");
-	 	document.write(subform("budget__","Event Budget  ","number"));
+	 	
+	 	document.write(multiform_radio("Currency  ","currency__",currency)); 
 	 	document.write("</div>");
 	 	//===================
 	 	document.write("<div class='input-field col s12 l12'>"); 
-		document.write(multiform_radio("Currency  ","currency__",currency)); 
+		document.write(subform("budget__","Event Budget  ","number")); 
 		document.write("</div>");
 	 	//==================
 	 	document.write("<div class='input-field col s12 m12 l12'>");
@@ -247,7 +248,36 @@
 	//document.write("<div class='input-field col s12 m12'>");
 	//document.write(multiform("Off Line Promotion   ","off_line_promo__",offline_promotion));
 	//document.write("</div>"); 
+
 	</script>
+	<style>
+	th,td{
+		border-left: 1px solid #bdbdbd  ;
+    	border-collapse: collapse;
+
+	}
+	#tr-all-b{
+	border:1px solid  #bdbdbd;
+	border-collapse:collapse;
+	}
+	tbody{
+		
+		border: 1px solid #bdbdbd  ;
+
+		border-collapse:collapse;
+	}
+	#add_package{
+		border-right: 1px solid #bdbdbd  ;
+		border-collapse:collapse;
+	}
+	
+	#remove_button{
+		border-right: 1px solid #bdbdbd  ;
+		border-collapse:collapse;
+	}
+
+	
+	</style>
 	<div class='input-field col s12 m12 l12'>
 	<div class="row">
 	 <p class="msg"> Online Media Coverage  </p>
@@ -261,8 +291,8 @@
 		<p class="msg"> Available Offers  </p>
 	</div>
 	<div class='input-field col s12 m12 l12' style="overflow-x: scroll;">
-	<table style="width:100%;margin-bottom:10px;" id='matrix'>
-	<tr>
+	<table style="width:100%;margin:0px;" id='matrix' class=" centered ">
+	<tr id='tr-all-b'>
   		<th class ="bc">
   			<div >Deliverables Offering</div>
   			<div></div>
@@ -284,9 +314,9 @@
   document.write(add_benefit_help(deliver_name(deliver_next),delivers[0]));
   </script>
  <!-- ################################################################   -->
-    <tr>
+    <tr id='tr-bottom'>
     	<td>
-    		<i type="button" onclick="add_benefit('Deliver Name')" class="material-icons  center ">note_add</i>
+    		<a onclick="add_benefit('Deliver Name')" class="btn-floating btn waves-effect waves-light red"><i class="material-icons">add</i></a>
     	</td>
     </tr>
 	</table>
@@ -344,7 +374,7 @@ $('#4_deleteFinancial').on('change',function () {
 	if($(this).is(':checked')){
 		var h ="<div class='input-field col s6 m6 l6' id = 'finance_price_div' style='margin:0px;padding:0px;' >";
 		 	h+="<input type='number' id = 'finance_price__' name='finance_price__' >";
-	  		h+="<label for='finance_price__'> How much </label></div>";
+	  		h+="<label for='finance_price__'> How much <span class='cur_l'>("+cur_l+")</span></label></div>";
 
 	  	$(this).parent().attr('class','input-field col s6 m6 l6 wrap');
 
@@ -436,6 +466,7 @@ $('form').on('submit', function (e) {
 			});
 	$(eval('freq'+curr_id.toString())).attr('required',true);
 	 $("html, body").animate({ scrollTop: 0 }, "slow");
+	 
 	return false;
 	}
 	}
@@ -479,24 +510,17 @@ function back_nav(curr_id){
 }
 
 
-/*$(document).ready(function(){
+window.cur_l ='';
 
+$("input[name=currency__]").on('change',function() {
+    cur_l = $(this).attr('value');
+    $('.cur_l').html('('+cur_l+')');
+    $('span#budget__span').html('('+cur_l+')');
 
-	var y=true;
-	
-	$(f1mul).each(function  () {
- 		//console.log($(this));
- 		if($(this).is(':checked')){
- 			y=false;
- 		}
- 		
- 	});
- 	if(y){
- 		$(f1mul).parent().parent().siblings('p').attr('class','red');
- 	}
+});
 
-});*/
 
 $('#contact_mob__').attr('maxlength','15');
 $('#office___').attr('maxlength','15');
+$('#othercurrency__').attr('length',3);
 </script>

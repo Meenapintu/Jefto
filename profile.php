@@ -22,11 +22,10 @@ $offline_promotion = array("airplay","radio","Newspaper",'Bags','Conference Badg
 
 <style type="text/css">
 
-	.profile{
-		height: 261px
-	}
+	
 	.profile img{
 		width: 100%;
+		width:100%;
 	}
 
 	.mfix{
@@ -213,7 +212,7 @@ function chart_rel(json) {
 			<div class="col s12 m4 l4 profile">
 				<img src="<?php echo $event[0]['logo'] ?>">
 			</div>
-			<div class="col s12 m8 l8">
+			<div class="col s12 m8 l8 profile-d">
 				<div class="row">
 					<div class="col s12 m12 l12 over center">
 						<h5 class="font-ml  flow-text hc">Event Description</h5>
@@ -221,14 +220,14 @@ function chart_rel(json) {
 					<div class="col  s12 m12 l12 over center">
 						<p style="margin-top:0px;"><?PHP echo $event[0]['description'] ?></p>
 					</div>
-					<div class="col s12 m12 l12 over center">
-						<h5 class="font-ml  flow-text hc">Key Numbers</h5>
-					</div>
-					<div class="col s12 m12 l12 over2 ">
-						<div class="row">
-							<?php key_fire($keyn);?>
-						</div>
-					</div>
+				</div>
+			</div>
+			<div class="col s12 m12 l12 over center">
+				<h5 class="font-ml  flow-text hc">Key Numbers</h5>
+			</div>
+			<div class="col s12 m12 l12 over2 ">
+				<div class="row">
+					<?php key_fire($keyn);?>
 				</div>
 			</div>
 		</div>
@@ -617,10 +616,10 @@ function key_fire_help($num,$name,$s){
 	?>
 		<div class="row  ">
 			<div class="col s12 m12 l12 center">
-				<h5 class="margin-0  font-md  flow-text center"><?php echo $num; ?></h5>
+				<h6 class="margin-0  font-md  flow-text center"><?php echo $num; ?></h6>
 			</div>
 			<div class="col s12 m12 l12 center">
-				<h5 class="margin-0 font-md  flow-text center"><?php echo $name ;?></h5>
+				<h6 class="margin-0 font-md  flow-text center"><?php echo $name ;?></h6>
 			</div>
 		</div>
 	</div>
@@ -890,6 +889,12 @@ $(window).scroll(function(event) {
     	if(done){
     		//alert(sjson.length );
     		if((sjson[0]['label']  !=null && sjson[0]['label'].length >0)  || (ijson[0]['label']  !=null && ijson[0]['label'].length >0)){
+	    	if(sjson[0]['label']  ==null || sjson[0]['label'].length ==0 ||sjson[0]['label']  =='null' ){
+    			sjson= [{"label":'not specified',"value":100,"color":"#f15725"}];
+    		}
+    		if(ijson[0]['label']  ==null || ijson[0]['label'].length ==0 ||ijson[0]['label']  =='null'){
+    			ijson= [{"label":'not specified',"value":100,"color":"#f15725"}];
+    		}
 	    	setup("pieChart",sjson);
 			setup("pieChart_age",ijson);
 			$('.clist').show();
@@ -925,11 +930,9 @@ if($("#pieChart").offset().top < $(window).scrollTop() + $(window).outerHeight()
    
 }
 $(window).ready(function(){
-	//$("svg").attr('class','pd0 margin-0 w100');
-	//console.log($(".pieChart").children('.p0_pieChart'));
-		$("#dline").attr('style','position:absolute;top:52%;height:2px;padding:0px;margin:0px;width:100%;');
-	//$("svg").children('g')[0].attr('class',$("svg").children('g')[0].attr('class')+'pd0 margin-0 w100');
-
+	var h = $(".profile").width();
+	$('.profile-d').height(h+'px');
+	$('.profile').height(h+'px');
 });
 
 

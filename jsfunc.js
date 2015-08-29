@@ -1,7 +1,7 @@
 
 function subform(name,msg,type){
 	var input ="<input type= '"+type+"' name= "+name+" id='"+name+"' class='validate'>";
-	 	input+="<label data-error='wrong input' for='"+name+"'>"+msg+"</label>";
+	 	input+="<label data-error='wrong input' for='"+name+"'>"+msg+"<span id='"+name+"span'> </span></label>";
 	return input;
 }
 
@@ -52,8 +52,8 @@ function multiform_radio(msg,name,val){
 		mform+= "<input type = 'radio' id='"+name+msg+"' name = '"+name+"_delete' value= '"+msg+"' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>";
-		mform+= "<div id ='other' class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
-		mform+= "<input type='text' name='other' onblur='select_one(this)'>"
+		mform+= "<div id ='other' class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;margin-top:15px;'>"
+		mform+= "<input type='text' name='other' id='other"+name+"' onblur='select_one(this)' class='validate'><label for='other"+name+"' data-error='length exceeded' >Please Write here...</label>"
 		mform+= "</div>" ;
 		mform+= "<div class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
@@ -75,8 +75,8 @@ function multiform(msg,name,val){
 		mform+= "<input type = 'checkbox' id='"+name+msg+"' name = 'other_delete' value= '"+msg+"'  select_id = "+name+" class='checkbox  ' onchange = 'other_input(this);'>";
 		mform+= "<label for='"+name+msg+"' >Other</label>";
 		mform+= "</div>"
-		mform+= "<div id ='other' class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
-		mform+= "<input type='text' name='other' class='NOTCHECKD' onblur='select_mult(this)' >"
+		mform+= "<div id ='other' class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;margin-top:15px;'>"
+		mform+= "<input type='text' name='other' class='NOTCHECKD' onblur='select_mult(this)'id='other"+name+"' > <label for='other"+name+"' data-error='data length exceeded' >Please Write here...</label>"
 		mform+= "</div>"
 		mform+= "<div  class = 'input-field col s12 m12 l12' style='margin:0px;padding:0px;display:none;'>"
 		mform+= "<input type='text' name="+name+" id='valtext'>"
