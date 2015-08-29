@@ -46,7 +46,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
                 <td class='mtb0 left' style='padding:0px;'>\
                   <div class='row mtb0'>\
                     <div class='col s12 m12 l12 mtb0'>\
-                      <a href='/profile.php?e="+eid+"&&p=111' target='_blank' ><h5  class='mtb0 left' ><i class=' material-icons' style='vertical-align:middle;'></i>"+ename+" </h5> </a>\
+                      <a href='/profile.php?e="+eid+"&&p=111' target='_blank' ><h5  class='mtb0 left ellipsis' ><i class=' material-icons' style='vertical-align:middle;'></i>"+ename+" </h5> </a>\
                     </div>\
                     <div class='col s12 m12 l12 mtb0 left'>\
                       <p class='mtb0 left' ><i class=' material-icons' style='vertical-align:middle;'>location_on</i><span style='vertical-align:middle;'>"+elocation+" </span></p>\
