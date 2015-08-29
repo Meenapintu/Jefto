@@ -34,7 +34,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
                   <table >\
                     <tr>\
                       <td style='width:75px;height:75px;padding:0px;'>\
-                          <img src="+elogo+" >\
+                          <img src="+elogo+" style='width:75px;height:75px;padding:0px;margin:0px;'>\
                       </td>\
                       <td>\
                         <div class='row'>\
