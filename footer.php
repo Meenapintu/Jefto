@@ -169,6 +169,7 @@ $(document).ready( function(){
   $(window).resize(function(){
         $('#logo').css('height',($(".nav-wrapper").height()+'px'));
         $('.dh').css('height',$('.udh').height());
+        $('.ellipsis').width(($('.container').width()-90)+'px');
         //alert($(".p0_segmentMainLabel-outer").attr('id'));
     });
 
@@ -178,4 +179,8 @@ $(document).ready( function(){
     }
   });
 });
+$(window).ready(function(){
+  $('.ellipsis').width(($('.container').width()-90)+'px');
+});
+
 </script>
