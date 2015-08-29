@@ -112,14 +112,14 @@ function pg_prepare_select($conn,$query,$event_id){
     $sqlName = 'event_insert_q';
     if (!pg_prepare ($conn,$sqlName, $query))
     {
-         die("We are facing some technical difficulties, please bear with us.");
-        //die("Can't prepare '$sql': " . pg_last_error());
+         //die("We are facing some technical difficulties, please bear with us.");
+        die("Can't prepare '$sql': " . pg_last_error());
     }
     $rs = pg_execute($conn,$sqlName,$event_id);
     if($rs == FALSE){
          die("We are facing some technical difficulties, please bear with us.");
         ////echo"</br> THERE IS ERROR IN INSERT 1 </br>";
-       // die("Can't prepare '$sql': " . pg_last_error());
+        die("Can't prepare '$sql': " . pg_last_error());
         //echo false;
     }
     else{
