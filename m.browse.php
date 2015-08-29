@@ -25,14 +25,20 @@
   height: 0px;
   width: 0px;
  }
- th.custom img{
+ td.custom img{
   height: 100%;
   width: 100%;
+  min-height:70px;
+  min-width: 70px;
+  width:70px;
+  height:70px;
+  padding:0px;
+  margin:0px;'
  }
  h5{
   text-transform:capitalize;
  }
-  i{max-width: 24px;}
+  i{max-width: 24px; }
 
 </style>
  <script >
@@ -42,7 +48,7 @@ function eb_fire(eid ,ename,elogo,elocation,edate,eex,ebudget,eminpack)
 {
   var def="<table style='padding-top:15px;'><tbody  style='padding:0px;margin:0px'>\
             <tr style='padding:0px;'>\
-            <td data-field='idimg' class='custom' style='height:70px;width:70px;padding:0px;margin-top:0px;'><img src="+elogo+" style='width:70px;height:70px;padding:0px;margin:0px;' ></td>\
+            <td data-field='idimg' class='custom' style='height:70px;width:70px;padding:0px;margin-top:0px;'><img src="+elogo+"  ></td>\
                 <td class='mtb0 left' style='padding:0px;'>\
                   <div class='row mtb0'>\
                     <div class='col s12 m12 l12 mtb0'>\
