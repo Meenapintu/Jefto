@@ -62,4 +62,9 @@ table1, th1, td1{border:1px solid black;border-collapse:collapse;}
     overflow: hidden;
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    width: 100%;
+
 }
