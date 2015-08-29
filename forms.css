@@ -9,8 +9,6 @@
 input[type=checkbox]+label:before{background:transparent;border-color:#9E9E9E;width:15px;height:15px;top:2px;}
 input[type=checkbox]:checked+label:before{background:transparent;width:9px;height:20px;}
 .container{width:70%;margin-top:10px;}
-@media only screen and (max-device-width:480px){.container{width:99%;}
-}
 form{padding:10px;}
 li a{font-size:medium;}
 .nav-wrapper{background:#009688;}
@@ -27,6 +25,7 @@ main{flex:1 0 auto;}
 .font-med{font-size:medium;}
 .font-ml{font-size:medium;}
 .star{width:100%;}
+.container{width:99%;}
 }
 .hide{display:none;}
 .bg-trance{background:transparent;}
