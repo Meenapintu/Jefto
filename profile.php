@@ -25,7 +25,7 @@ $offline_promotion = array("airplay","radio","Newspaper",'Bags','Conference Badg
 	
 	.profile img{
 		width: 100%;
-		width:100%;
+		height:100%;
 	}
 
 	.mfix{
