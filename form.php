@@ -400,7 +400,7 @@ function back(curr_id,e){
 	$('div[id=' + curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
 	$(eval('freq'+curr_id.toString())).attr('required',true);
-	$(eval('freq'+ ++curr_id.toString())).attr('required',false);
+	$(eval('freq'+ ((++curr_id).toString()))).attr('required',false);
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 
 }
@@ -411,13 +411,21 @@ function back(curr_id,e){
 var fmul1 = new Array("input[name=category___delete]","input[name=genre___delete]","input[name=country___delete]","input[name=scope___delete]","input[name=frequency___delete]","input[name=currency___delete]","input[select_id=sponsors__]");
 var fmul2 = new Array();
 var fmul3 = new Array();
-function req_ch(f1mul,f){
+
+var fin1 = new Array("input[name=category__]","input[name=genre__]","input[name=country__]","input[name=scope__]","input[name=frequency__]","input[name=currency__]","input[name=sponsors__]");
+var fin2 = new Array();
+var fin3 = new Array();
+function req_ch(f1mul,fin,f){
 	var y=false;
-	$(f1mul).each(function  () {
- 		//console.log($(this));
- 		if($(this).is(':checked')){ y=false;return false;}
- 		y=true;
- 	});
+	//$(f1mul)
+ 		if($(f1mul).is(':checked')){ y=false; 
+ 			if($(fin).attr('value').length>0){
+				y=false;
+			}
+			else{y=true;}
+		}
+ 		else{y=true;}
+
  	if(y){
  		$(f1mul).parent().parent().siblings('p').attr('class','msg red');
  		if(f){
@@ -431,6 +439,8 @@ function req_ch(f1mul,f){
  		return y;
  	}
 }
+
+
 
 
 
@@ -452,9 +462,10 @@ $('form').on('submit', function (e) {
 	e.preventDefault();
 	var y=false;
 	var f = true;
+	var fh = eval('fin'+thisid);
 	$(eval('fmul'+thisid)).each(function(index,value){
-		
-			y = req_ch(value,f);
+			alert(value+" ---- "+fh[index]);
+			y = req_ch(value,fh[index],f);
 			if(y)f=false;
 	});
 	if(f){
@@ -462,7 +473,7 @@ $('form').on('submit', function (e) {
 	
 
 	$(eval('freq'+thisid)).attr('required',false);
-	$('div[id=' + ++curr_id +']').each(function(){$(this).attr('class','row active-f');
+	$('div[id=' + (++curr_id) +']').each(function(){$(this).attr('class','row active-f');
 			});
 	$(eval('freq'+curr_id.toString())).attr('required',true);
 	 $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -503,7 +514,7 @@ function back_nav(curr_id){
 	$('div[id=' + curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
 	$(eval('freq'+curr_id.toString())).attr('required',true);
-	$(eval('freq'+ ++curr_id.toString())).attr('required',false);
+	$(eval('freq'+ ((++curr_id).toString()))).attr('required',false);
 
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 

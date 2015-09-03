@@ -15,7 +15,9 @@
     height: 100%;
     background: red;
   }
- 
+  h5{
+  text-transform:capitalize;
+ }
  .mtb0{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -127,6 +129,14 @@ $(document).ready( function(){
         window.location.assign(window.location.href.replace(window.location.pathname,'/browse.php'));
       }
     });
+
+   if((window.location.pathname =='/browse.php') && ($(window).width() < 992)){
+        localStorage.setItem("redirected", true);
+        window.location.assign(window.location.href.replace(window.location.pathname,'/m.browse.php'));
+      }
+      if((window.location.pathname =='/m.browse.php') && ($(window).width() > 992)){
+        window.location.assign(window.location.href.replace(window.location.pathname,'/browse.php'));
+      }
 
 });
 </script>
