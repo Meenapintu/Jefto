@@ -464,7 +464,7 @@ $('form').on('submit', function (e) {
 	var f = true;
 	var fh = eval('fin'+thisid);
 	$(eval('fmul'+thisid)).each(function(index,value){
-			alert(value+" ---- "+fh[index]);
+			//alert(value+" ---- "+fh[index]);
 			y = req_ch(value,fh[index],f);
 			if(y)f=false;
 	});
