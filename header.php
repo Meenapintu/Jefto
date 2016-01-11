@@ -24,11 +24,13 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="form.php">Submit Event</a></li>
+	<li><a href="browse.php">Browse Events</a></li>
         <li><a href="index.php#whatwedo">What We Do </a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
          <li><a href="form.php">Submit Event</a></li>
+	<li><a href="browse.php">Browse Events</a></li>
          <li><a href="index.php#whatwedo">What We Do </a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>

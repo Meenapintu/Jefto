@@ -213,7 +213,7 @@ function chart_rel(json) {
 				<img src="<?php echo $event[0]['logo'] ?>">
 			</div>
 			<div class="col s12 m8 l8 profile-d">
-				<div class="row">
+				<div class="row" style="max-height:100%;overflow:auto;">
 					<div class="col s12 m12 l12 over center">
 						<h5 class="font-ml  flow-text hc">Event Description</h5>
 					</div>
