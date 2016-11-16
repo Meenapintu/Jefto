@@ -2,45 +2,37 @@
 <html lang="en">
 <head>
   <title>Jefto.com </title>
+  <link rel="icon" type="image/png" href="def_img/favicon.png"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <meta name="devloper" content="">
+  <meta name="copyright" content="jefto.com">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+  <link rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
- 
+  <link rel="stylesheet" href="forms.css">
 
-  <html>
- 
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      <link rel="stylesheet" href="materialize-tags.min.css">
-
+  <script src="materialize/js/jquery-2.1.4.min.js"></script> 
+ <?php  include_once('ganly.php');?>
 </head>
-<link rel="stylesheet" href="forms.css">
- <!--  Begining of Navbar Header part  (# START) -->
-
-
-
+<body>
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><img src="def_img/jefto.png" style="height:64px;position:relative" /></a>
+      <a href="/" class="brand-logo"><img src="def_img/jefto.png" id='logo' style="height:100%; max-height:64px;max-width:171px;position:relative" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="index.php">Home</a></li>
-        
+        <li><a href="form.php">Submit Event</a></li>
+	<li><a href="browse.php">Browse Events</a></li>
+        <li><a href="index.php#whatwedo">What We Do </a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="index.php">Home</a></li>
-       
+         <li><a href="form.php">Submit Event</a></li>
+	<li><a href="browse.php">Browse Events</a></li>
+         <li><a href="index.php#whatwedo">What We Do </a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
-
-<script >
-   $(".button-collapse").sideNav();
-</script>
-  <link rel="stylesheet" href="forms.css">
