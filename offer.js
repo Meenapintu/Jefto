@@ -10,7 +10,7 @@ var packs = new Array('Title', 'Gold', 'Silver');
 var deliver_next=0;
 
 function save_me(e){
-  $(e).parent().parent().parent().siblings('#description').attr('value',e.innerHTML);
+  $(e).parent().parent().parent().siblings('#description').attr('value',$(e).html());
 }
 function hide(e) {
   event.preventDefault();
@@ -26,26 +26,30 @@ function setdrop(e){
       $(e).children('#descme').css('display','block');
 }
 
-  
-    
-var desc1 = "<div class='row' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'> <div class='col s12 m12 s12' style='background:rgba(34,53,3,0.4); color:green;margin-bottom:10px;'></div>";
-      desc1+="<div  id='desc' class='col s12 m12 s12' contentEditable=true onblur='save_me(this);' style='word-wrap: break-word;background:white;'> Write Your Description here </div>";
-      desc1+="<div class='col s12 m12 s12' id ='state'> ";
-      desc1+="<button onclick='hide(this);'>Done</button>" ;    
-      desc1+="</div></div>";
+function desc_h(dn)  {
+var desc1 = "<div class='row z-depth-2 ' style='background:rgba(34,53,53,0.4);overflow:none;width:100%;margin:0px;padding:0px;'>";
+      desc1+="<div  id='desc' class=' input-field col s12 m12 s12'  style='background:white;padding:0px;margin:20px 0px 0px 0px;'> <textarea  onblur='hide(this);' id="+dn+" name="+dn+" class='materialize-textarea' style='margin:0px;'></textarea><label for="+dn+">Write About Packages </label></div>";
+      desc1+="<div class='col s12 m12 s12 margin-0 pd0' style='padding:0px;margin:0px;' id ='state'> ";
+      desc1+="<button onclick='hide(this);' class='waves-effect waves-light btn ' style='font-size:xx-small;margin:0px;width:100%;'> Hide this</button> </div>" ;    
+      desc1+="</div>";
+return desc1;
+}
  
 function pack_core(stri,packn,hname){
-	var pack = "<th id ='packth' class='"+stri+"' style='min-width: 135px;@media only screen and (max-device-width: 480px) { min-width: 100px;}' >";
-        pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>"+hname+"</div>";
-        pack+= "<input type='hidden' id ='packname' value='"+hname+"' name='"+packn+"' ></input>";
-  	    pack+= "<div contentEditable=true id='pack_price' onblur='setval(this);'>  Price </div>";
-        pack+= "<input type='hidden'  id='pack_price' name='price_"+packn+"' ></input>";
-        pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of Packages  </div>";
-        pack+= "<input type='hidden' id='packnum' name='pack_number_"+packn+"' ></input>";
-        pack+= "<div onclick='setdrop(this);' ><i class='material-icons '>description</i> Description ";
-        pack+= "<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>"+desc1+"</div></div>";
-        pack+= "<input type='hidden' id = 'description' name='descritpion_"+packn+"' ></input>";
-        pack+=  "<i id='remove_package' onclick='rmpack(this)' class='waves-effect waves-light btn-tiny center  bg-trance material-icons right'> delete</i>";
+	var pack = "<th id ='packth mtb0' class='"+stri+"' style='min-width: 135px;@media only screen and (max-device-width: 480px) { min-width: 100px;}'padding:0px; >";
+        //pack+= "<div contentEditable=true   id ='packname' onblur='setval(this);'>"+hname+"</div>";
+        pack+= "<div class=' input-field col s12 m12 l12 ' style='margin-bottom:0px;'><input type='text' class='ph' id ='na"+packn+"' style='border:none;padding:0px;margin:0px;' value='"+hname+"' name='"+packn+"' ></input>";
+        pack+= "<label for='na"+packn+"' data-error='wrong' data-success='right'  class='active'>Package Name</label></div>";
+  	    //pack+= "<div class='input-field ' contentEditable=true id='pack_price' onblur='setval(this);'><input type='int' placeholder='Price' value='Price'> </input> </div>";
+        pack+= "<div class=' input-field col s12 m12 l12 ' style='margin-bottom:0px;'><input type='number' class='ph'  id='p"+packn+"' style='border:none;height:30px;' placeholder='0' value='' name='price_"+packn+"' ></input>";
+         pack+= "<label for='p"+packn+"' data-error='wrong' data-success='right' class='active'>Price <span class='cur_l'>("+window.cur_l+")</span></label></div>";
+        //pack+= "<div contentEditable=true id='packnum' onblur='setval(this);'>  No of Packages  </div>";
+        pack+= "<div class=' input-field col s12 m12 l12 'style='margin-bottom:0px;'><input type='number'  class='ph' id='nu"+packn+"' style='border:none;height:30px;' value='' placeholder='0' name='pack_number_"+packn+"' ></input>";
+         pack+= "<label for='nu"+packn+"n' data-error='wrong' data-success='right' class='active'>Number of Package</label></div>";
+        pack+= "<div onclick='setdrop(this);'  class='col s12 m12 l12 mtb0'><a><i class='material-icons ' style='vertical-align:middle;'>description</i> Description </a>";
+        pack+= "<div id='descme' style='width:100%;margin:0px;padding:0px;position:absolute;display:none;background:white;z-index:2'>"+desc_h('descritpion_'+packn)+"</div></div>";
+        //pack+= "<input type='hidden' id = 'description' name='descritpion_"+packn+"' ></input>";
+        pack+=  "<i id='remove_package' onclick='rmpack(this)' class='waves-effect waves-light btn-tiny center  bg-trance material-icons right del'> delete</i>";
       	pack+= "</th>";
         pack+= "<th id ='add_pack'></th>";
     return pack;
@@ -68,15 +72,15 @@ function pack_class_name(){
 
 function pack_name (next) {
   //return "package___"+next;
-  return "package___[p"+next+"]";
+  return "package___["+next+"]";
 }
 function deliver_name(next){
-  return "deliver___[d"+next+"]";
+  return "deliver___["+next+"]";
   //return "deliver___"+next;
 }
 function element_name (p,d) {
   //alert(p+" "+d);
-  return "element___[p"+p+"][d"+d+"]";
+  return "element___["+p+"]["+d+"]";
   //return pack_name(p)+"___"+deliver_name(d);
 }
 function pack_class_name_deliver(addnum){
@@ -155,7 +159,7 @@ function add_benefit_help(delname,value){
                     benefit+= pack_register(pack_class_name_deliver(pack_array[0]),element_name(pack_array[0],deliver_next));
                 
                 benefit+= "<td id='remove_button' class='testing'><div>";
-				    	benefit+= "<i id='remove_deliver' onclick='rmdel(this)' class='"+delname+" waves-effect waves-light btn-tiny center  bg-trance material-icons center'>delete</i>";
+				    	benefit+= "<i id='remove_deliver' onclick='rmdel(this)' class='"+delname+" waves-effect waves-light btn-tiny center  bg-trance material-icons center del'>delete</i>";
 				benefit+= "</div></td>";
     	benefit+= "</tr>";
 
@@ -172,6 +176,5 @@ function add_benefit(value){
         $(".register_pack ").last().replaceWith(pack_register(pack_class_name_deliver(pack_array[i]),element_name(pack_array[i],deliver_next)));
     };
 }
-
 
 

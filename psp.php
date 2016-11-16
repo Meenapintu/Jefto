@@ -10,27 +10,30 @@ class dbms{
 	{
 		$this->conn = $connection;
 		
+
+	
 		
 	$query = "CREATE TABLE IF NOT EXISTS event(		/*  for long time these fields are going to update rarely */
 			event_id   	bigserial  primary key,
 			name 		varchar(100) not null,
-			category 	varchar(30) not null,
-			genre		varchar(30) not null,
-			city		varchar(30) not null,
+			category 	varchar(50) not null,
+			genre		varchar(50) not null,
+			city		varchar(50) not null,
 			address		varchar(500) not null,
-			country		varchar(30) not null,
-			scope		varchar(20) not null,
-			frequency   varchar(20) not null, 
-			website     varchar(50) ,
+			country		varchar(50) not null,
+			scope		varchar(50) not null,
+			frequency   varchar(50) not null, 
+			website     varchar(100) ,
 			email		varchar(50) ,
 			organizer   varchar(50) not null,
 			start_date		date not null,
 			end_date    	date not null,
 			link_for_req	text ,
-			description  	varchar(1500) not null,   /*   this is event description */ 
-			team_descritpion 	varchar(1500),
+			description  	text not null,   /*   this is event description */ 
+			team_descritpion 	text,
 			budget 				bigint,
-			tags 				varchar(100)
+			tags 				varchar(500),
+			verifiy 			boolean DEFAULT FALSE
 		)";
 	
 	$psql = pg_query($this->conn, $query) or die(pg_errormessage());
@@ -40,6 +43,18 @@ class dbms{
 	      echo "Table  event created successfully\n";
 	   }
 
+
+	   $query = "CREATE TABLE IF NOT EXISTS temp_rel(    /* there are name and count of them fields like key values */
+			event_id			bigserial  REFERENCES event ON DELETE CASCADE,
+			temp_id  			bigserial
+		)";
+ 
+ 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  Tem_rep created successfully\n";
+	   }
 	 
 	$query = " CREATE TABLE IF NOT EXISTS  eventplus(				/* These fields may change every time */
 			event_id   		bigserial  REFERENCES event ON DELETE CASCADE,
@@ -157,7 +172,7 @@ class dbms{
 	$query = "CREATE TABLE IF NOT EXISTS offlinepromotion(  /* There are  names for string of off line  medial news paper and some description of them also if */ 
 			event_id 			bigserial REFERENCES event ON DELETE CASCADE,
 			names 				varchar(500),
-			description  		varchar(1500)
+			description  		text
 		)";
 		$psql = pg_query($this->conn, $query)or die(pg_errormessage());
 	   if(!$psql){
@@ -167,8 +182,8 @@ class dbms{
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS event_contact(  /*  the contact information that have to be filled up as event require part */
 			event_id  bigserial REFERENCES event ON DELETE CASCADE,
-			password varchar(20),
-			contact_name varchar(30) not null,
+			password varchar(50),
+			contact_name varchar(50) not null,
 			contact_email	varchar(50) not null,
 			contact_mobile varchar(15) not null,
 			contact_office varchar(15)
@@ -192,6 +207,22 @@ class dbms{
 	   }
 
 	   //
+	   $query = "CREATE TABLE IF NOT EXISTS contact_mail(   /* user can add more contact information if he wish to do ..*/
+			event_id bigserial REFERENCES event ON DELETE CASCADE,
+			name	varchar(50),
+			mobile	varchar(15),
+			email	varchar(50),
+			company	varchar(50),
+			message	text	
+		)";
+	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
+	   if(!$psql){
+	      echo pg_last_error($this->conn);
+	   } else {
+	      echo "Table  event_contactplus created successfully\n";
+	   }
+
+
 
 	  $query = "CREATE TABLE IF NOT EXISTS subscription(
 	  	email  varchar(50),
@@ -212,7 +243,7 @@ class dbms{
 			offer_name varchar(15),
 			cost		int,
 			currency    varchar(5),
-			description  varchar(1500),
+			description  text,
 			deliverable	 text
 		)";*/
 	//$query = "DROP TABLE offers";
@@ -225,10 +256,11 @@ class dbms{
 		*/
 	$query = "CREATE TABLE IF NOT EXISTS offers(
 		event_id bigserial REFERENCES event ON DELETE CASCADE,
-		offer_name varchar(15),
+		offer_id  int,
+		offer_name varchar(50),
 		cost		int,
 		currency    varchar(5),
-		description  varchar(1500),
+		description  text,
 		total 	    int 
 	)";
 
@@ -240,8 +272,9 @@ class dbms{
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS deliverable(
 		event_id bigserial REFERENCES event ON DELETE CASCADE,
-		deliverable_name  varchar(30),
-		description  varchar(50),
+		deliverable_id  int,
+		deliverable_name  varchar(50),
+		description  varchar(500),
 		deliverable_image text
 	)";
 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
@@ -252,8 +285,8 @@ class dbms{
 	   }
 	$query = "CREATE TABLE IF NOT EXISTS offer_deliver(
 		event_id bigserial REFERENCES event ON DELETE CASCADE,
-		offer_name varchar(30),
-		deliverable_name varchar(30),
+		offer_id  int,
+		deliverable_id int,
 		quantity  int 
 	)";
 	$psql = pg_query($this->conn, $query)or die(pg_errormessage());
@@ -334,4 +367,8 @@ class dbms{
 	}
 }
 
+/*  table for login signup user */
+
+
 ?>
+

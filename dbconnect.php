@@ -1,6 +1,6 @@
 <?php 
 	require_once("psp.php");
-	$connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
+	$connection_string = "host=localhost  dbname=jefto user=ram password=dfedderftrfr23";
 	try {
 		$conn = pg_connect($connection_string);
 	} catch (Exception $e) {

@@ -5,15 +5,15 @@
 
  <div class="container-fluid">
  <div class="row" style="margin:0px;">
-	<div class='col s12 m12 l12' style="background:#607D8B;">
+	<div class='col s12 m12 l12' style="background:#E0E0E0;">
 		<div class="container" >
-			<div class="row">
+			<div class="row" style="background:#EEEEEE;">
 				<div class="col s12 m12 l12 card-panel bg-trance ">
 					<div class="row">
 						<!-- <div class="col s12 m2 l2 center">
 							<p style="font-size:x-large"> </p>
 						</div> -->
-						<div class="col s12 m12 l12 center font-med white-t flow-text" style="margin:0px;margin-bottom:5px;margin-top:5px;width:100%" >
+						<div class="col s12 m12 l12 center font-med  flow-text" style="margin:0px;margin-bottom:5px;margin-top:5px;width:100%" >
 							We are event listing company who analyse the data of an event and make it easier for 
 							sponsors to advertise their product.Today there are so many events that companies find 
 							it hard to which they should sponsor We make the sponsorship process easier for both 
@@ -53,7 +53,7 @@
 					   						<div class="home_col center bg-trance col s4 m4 l4" >
 					   							<div class=" row">
 					   								<div class="col s12 m12 l12 center">
-					   									<img src="def_img/star.png" alt="star" class="star">
+					   									<i class="material-icons  large" style="font-size: 100px;color:#EF6C00;">grade</i>
 					   								</div>
 					   								<div class="col s12 m12 l12 center ">
 					   									<p class="center font-med " style="color:#9E9E9B;">Event Effectiveness Index</p>
@@ -62,10 +62,10 @@
 					   						</div>
 					   						<div class="home_col center bg-trance col s4 m4 l4 " >
 					   							<div class=" row">
-					   								<div class="col s12 m12 l12 center">
-					   									<img src="def_img/star.png" alt="star" class="star" >
+					   								<div class="col s12 m12 l12 center ">
+					   									<i class="material-icons  large" style="font-size: 100px;color:#EF6C00;">grade</i>
 					   								</div>
-					   								<div class="col s12 m12 l12 center">
+					   								<div class="col s12 m12 l12 center ">
 					   									<p class="center font-med" style="color:#9E9E9B;">Audience Richness</p>
 					   								</div>
 					   							</div>
@@ -75,7 +75,7 @@
 					   						<div class="home_col center bg-trance col s4 m4 l4"  >
 					   							<div class=" row">
 					   								<div class="col s12 m12 l12 center">
-					   									<img src="def_img/star.png" alt="star" class="star">
+					   									<i class="material-icons  large " style="font-size: 100px;color:#EF6C00;">grade</i>
 					   								</div>
 					   								<div class="col s12 m12 l12 center">
 					   									<p class="center font-med " style="color:#9E9E9B;"> Sponsorship Readiness Index</p>
@@ -97,7 +97,7 @@
 				<div class="col s12 m12 l12 center card-panel " style="background:transparent;">
 					<form class="row" style="background:transparent;">
 						<div class=" col s12 m12 l12 center">
-								<p class="flow-text center white-t">Liked the idea? Wanna get in Touch? </p>
+								<p class="flow-text center white-t">Liked the idea? Wanna get in touch? </p>
 						</div>
 					   <div class="input-field col s12 m4 l4 ">
 					   	<input type='email' name='whoami' class="validate" id='whoami' />
@@ -174,7 +174,8 @@ $(function () {
             data: $('form').serialize(),
             success: function (data) {
             	//$('#modal1').closeModal();
-            	  if(data){
+            	//alert(data=='true');
+            	  if(data=='true'){
 					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
             	  }
             	  else{

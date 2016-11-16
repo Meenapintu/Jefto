@@ -1,8 +1,6 @@
 <?PHP
 require_once('phpfunc.php');
-session_start();
-$connection_string = "host=localhost  dbname=jefto user=ram password=ramchand";
-$conn = pg_connect($connection_string);
+require_once('connect.php');
 //if($conn){ echo "done ";}
 //	else echo " there is error ";
 
@@ -15,6 +13,6 @@ $email = pg_escape_string($_POST['whoami']);
 
 $query = "INSERT INTO subscription(email,user_type)VALUES($1,$2)";
 $insert_array = array($email,$type);
-pg_prepare_single_insert($conn, $query,$insert_array);
+echo pg_prepare_single_insert($conn, $query,$insert_array);
 //echo TRUE;
 ?>

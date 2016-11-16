@@ -15,7 +15,7 @@
  <div class="row current" id=3 >
  	<p class='flow-text center white-t font-ml' style="color:#26A69A;margin:0px;" >Submit Event: Part 3 of 3 </p>
  </div>
-<form  enctype="multipart/form-data" method="post" role="form"  class="card-panel">
+<form  enctype="multipart/form-data" action="in_ctrl.php" method="post" role="form"  class="card-panel">
 	<div class="row active-f" id=1>
    		<script type="text/javascript"> 
     	document.write("<div class='input-field  col s12 m12 l12' >");
@@ -51,7 +51,7 @@
 		 </script>
 	    <div class=" col s12 m12 l12">
 	    <div class="row">
-	    <div class='col m6 l6'>
+	    <div class='col s12 m6 l6'>
 	    <div class="row">
 	    <div class="col s12 m12 l12 msg"> Start Date</div>
 		<script type="text/javascript"> 
@@ -61,7 +61,7 @@
 		</script>
 		</div>
 		</div>
-		<div class='col m6 l6'>
+		<div class='col s12 m6 l6'>
 		<div class="row">
 		<div class="col s12 m12 l12 msg right" style='float:right'> End Date</div>
 		<script type="text/javascript"> 
@@ -87,7 +87,7 @@
 		document.write("</div>");
 
 		document.write("<div class='input-field col s12 m12 l12'>");
-		document.write(subform("pincode__"," Pin Code","number")); 
+		document.write(subform("pincode__","ZIP code/PIN Code","number")); 
 		document.write("</div>");
 
 		document.write("<div class='input-field col s12 m12 l12 '>");
@@ -139,11 +139,12 @@
 		document.write(subform_textarea("team_description__"," Team Description"));
 		document.write("</div>");
 		document.write("<div class='input-field col s12 m12 l12'>");
-	 	document.write(subform("budget__","Event Budget  ","number"));
+	 	
+	 	document.write(multiform_radio("Currency  ","currency__",currency)); 
 	 	document.write("</div>");
 	 	//===================
 	 	document.write("<div class='input-field col s12 l12'>"); 
-		document.write(multiform_radio("Currency  ","currency__",currency)); 
+		document.write(subform("budget__","Event Budget  ","number")); 
 		document.write("</div>");
 	 	//==================
 	 	document.write("<div class='input-field col s12 m12 l12'>");
@@ -160,11 +161,11 @@
   			<div class="row current" id=2 >
   				<div class="msg"> Number of  Audience Expected</div>
    				<script type="text/javascript"> 
-   					document.write("<div class='input-field col s12 l12'>"); 
+   					document.write("<div class='input-field col s12  m12 l12'>"); 
     					document.write(subform("total_audience_count__","Number","number"));
     				document.write("</div>");
    				</script>
-  				<div class='input-field col s12 l12'>
+  				<div class='input-field col s12  m12 l12'>
 					<div class="row">
 		 				<p class="msg"> Audience Type </p>
 						<script type="text/javascript"> 
@@ -174,7 +175,7 @@
 						<button type="button" name="target_audience" id="audience__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 					</div>
 				</div>
-				<div class='input-field col s12 l12'>
+				<div class='input-field col s12 m12 l12'>
 					<div class="row">
 		 				<p class="msg"> Age Based Ratio  </p>
 						<script type="text/javascript"> 
@@ -185,19 +186,19 @@
 					</div>
 				</div>
    				<script type="text/javascript">  
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12 m12 l12'>");
 						document.write(subform_range("gender_ratio__","Male female ratio"));
 					document.write("</div>"); 
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12 m12 l12'>");
 						document.write(multiform("Education Background  ","edu_background__",education_background)); 
 					document.write("</div>");
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12  m12 l12'>");
 						document.write(multiform("Professional Level  ","profession__",audience_category)); 
 					document.write("</div>");
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12  m12 l12'>");
 						document.write(multiform("Income Level   ","income_level__",income_level)); 
 					document.write("</div>");
-					document.write("<div class='input-field col s12 l12'>");
+					document.write("<div class='input-field col s12 m12 l12'>");
 						document.write(subform_textarea("audience_description__","Target Audience Description"));
 					document.write("</div>");
 				</script>
@@ -215,7 +216,7 @@
 
 
     <div class="row current" id=3>
-	<div class='input-field col s12 m12'>
+	<div class='input-field col s12 m12 l12'>
 	<div class="row">
 	 <p class="msg"> Your Social media links </p>
 	<script type="text/javascript">  
@@ -231,38 +232,67 @@
 	//document.write(selectform("non_media_explorer__",audience_number));
 	//document.write("</div>");
 
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(multiform("Non Media Exposure   ","non_media_explorer__",non_media_exposure));
 	document.write("</div>");
 
-    document.write("<div class='input-field col s12 m12'>");
+    document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("tele__","Television Coverage","text"));
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("radio__","Radio Coverage","text"));
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("print__","Print Media Coverage","text"));
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
-	document.write(multiform("Off Line Promotion   ","off_line_promo__",offline_promotion));
-	document.write("</div>"); 
+	//document.write("<div class='input-field col s12 m12'>");
+	//document.write(multiform("Off Line Promotion   ","off_line_promo__",offline_promotion));
+	//document.write("</div>"); 
+
 	</script>
-	<div class='input-field col s12 m12'>
+	<style>
+	th,td{
+		border-left: 1px solid #bdbdbd  ;
+    	border-collapse: collapse;
+
+	}
+	#tr-all-b{
+	border:1px solid  #bdbdbd;
+	border-collapse:collapse;
+	}
+	tbody{
+		
+		border: 1px solid #bdbdbd  ;
+
+		border-collapse:collapse;
+	}
+	#add_package{
+		border-right: 1px solid #bdbdbd  ;
+		border-collapse:collapse;
+	}
+	
+	#remove_button{
+		border-right: 1px solid #bdbdbd  ;
+		border-collapse:collapse;
+	}
+
+	
+	</style>
+	<div class='input-field col s12 m12 l12'>
 	<div class="row">
 	 <p class="msg"> Online Media Coverage  </p>
 	<script type="text/javascript">  
-	  document.write(key_numbers(social_media,"media_name__[0]","media_name__[1]","https://","text")) ;
+	  document.write(key_numbers(online_promotion,"media_name__[0]","media_name__[1]","https://","text")) ;
 	</script>
-	<button type="button" name="social_media" id="medial_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
+	<button type="button" name="online_promotion" id="media_name__" onclick="add_feild(this)" value=2 class="btn btn-success"> Add Another Field</button>
 	</div>
 	</div>
-	<div class='input-field col s12 m12 bott-margin-0'>
+	<div class='input-field col s12 m12  l12 bott-margin-0'>
 		<p class="msg"> Available Offers  </p>
 	</div>
-	<div class='input-field col s12 m12' style="overflow-x: scroll;">
-	<table style="width:100%;margin-bottom:10px;" id='matrix'>
-	<tr>
+	<div class='input-field col s12 m12 l12' style="overflow-x: scroll;">
+	<table style="width:100%;margin:0px;" id='matrix' class=" centered ">
+	<tr id='tr-all-b'>
   		<th class ="bc">
   			<div >Deliverables Offering</div>
   			<div></div>
@@ -284,27 +314,27 @@
   document.write(add_benefit_help(deliver_name(deliver_next),delivers[0]));
   </script>
  <!-- ################################################################   -->
-    <tr>
+    <tr id='tr-bottom'>
     	<td>
-    		<i type="button" onclick="add_benefit('Deliver Name')" class="material-icons  center ">note_add</i>
+    		<a onclick="add_benefit('Deliver Name')" class="btn-floating btn waves-effect waves-light red"><i class="material-icons">add</i></a>
     	</td>
     </tr>
 	</table>
 	</div>
 	<script type="text/javascript">
 	//====================================================================================
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("contact_name__","Your Name","text")); 
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("contact_mob__","Your Contact","text")); 
 	document.write("</div>");
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("contact_email__"," Email Address","email"));
 	document.write("</div>"); 
 
 	//subform("event_name","","text","input","placeholder= 'alter email id '"); 
-	document.write("<div class='input-field col s12 m12'>");
+	document.write("<div class='input-field col s12 m12 l12'>");
 	document.write(subform("office___","Office Contact","text")); 
 	document.write("</div>");
 	 </script>
@@ -325,6 +355,8 @@
 
 
 <script >
+
+
 del_len = delivers.length;
 for (var i = 1; i < del_len; i++) {
  add_benefit(delivers[i]);
@@ -335,12 +367,14 @@ for (var i = 1; i < def_pack; i++) {
 	add_package(packs[i]);
 };
 
+//var carr = array('1_deleteRadio',0_deleteTV,2_deleteNewspaper);
+ $(".sage_range__0").attr("readonly",true);
 
 $('#4_deleteFinancial').on('change',function () {
 	if($(this).is(':checked')){
 		var h ="<div class='input-field col s6 m6 l6' id = 'finance_price_div' style='margin:0px;padding:0px;' >";
 		 	h+="<input type='number' id = 'finance_price__' name='finance_price__' >";
-	  		h+="<label for='finance_price__'> How much </label></div>";
+	  		h+="<label for='finance_price__'> How much <span class='cur_l'>("+cur_l+")</span></label></div>";
 
 	  	$(this).parent().attr('class','input-field col s6 m6 l6 wrap');
 
@@ -353,7 +387,7 @@ $('#4_deleteFinancial').on('change',function () {
 		}
 });
 
-var freq1 = "input[name=event_name__ ],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
+var freq1 = "input[name=event_name__ ],input[name=startdate__],input[name=enddate__],input[name=city__],input[name=address__],input[name=pincode__],input[name=organization__],input[name=event_email__]";
 var freq2 = "input[name=total_audience_count__]";
 var freq3 = "input[name=contact_name__],input[name=contact_mob__],input[name=contact_email__],input[name=description__]";
 $(freq1).attr('required',true);
@@ -365,48 +399,139 @@ function back(curr_id,e){
 			});
 	$('div[id=' + curr_id +']').each(function(){$(this).attr('class','row active-f');
 			});
-	$(eval('freq'+curr_id.toString())).attr('required',true)
-	$(eval('freq'+ ++curr_id.toString())).attr('required',false)
+	$(eval('freq'+curr_id.toString())).attr('required',true);
+	$(eval('freq'+ ((++curr_id).toString()))).attr('required',false);
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 
 }
 
 
+
+
+var fmul1 = new Array("input[name=category___delete]","input[name=genre___delete]","input[name=country___delete]","input[name=scope___delete]","input[name=frequency___delete]","input[name=currency___delete]","input[select_id=sponsors__]");
+var fmul2 = new Array();
+var fmul3 = new Array();
+
+var fin1 = new Array("input[name=category__]","input[name=genre__]","input[name=country__]","input[name=scope__]","input[name=frequency__]","input[name=currency__]","input[name=sponsors__]");
+var fin2 = new Array();
+var fin3 = new Array();
+function req_ch(f1mul,fin,f){
+	var y=false;
+	//$(f1mul)
+ 		if($(f1mul).is(':checked')){ y=false; 
+ 			if($(fin).attr('value').length>0){
+				y=false;
+			}
+			else{y=true;}
+		}
+ 		else{y=true;}
+
+ 	if(y){
+ 		$(f1mul).parent().parent().siblings('p').attr('class','msg red');
+ 		if(f){
+ 			$(f1mul).parent().parent().siblings('p').focus();
+ 			$("html, body").animate({ scrollTop:$(f1mul).parent().parent().siblings('p').offset().top}, "fast");
+ 			
+ 			//alert(f);
+ 			//$("html, body").scrollTo($(f1mul).parent().parent().siblings('p'),800);
+ 			
+ 		}
+ 		return y;
+ 	}
+}
+
+
+
+
+
 $('form').on('submit', function (e) {
-	e.preventDefault();   //page not relaoding
+//	e.preventDefault();   //page not relaoding
 	var thisid = $(this).children(".active-f").attr('id');
 	var curr_id= parseInt(thisid);
 	if(curr_id==3){
-		$.ajax({
-            type: 'post',
-            url: 'in_ctrl.php',
-            data: $('form').serialize(),
-            success: function (data) {
-            	//$('#modal1').closeModal();
-            	  if(data){
-					Materialize.toast('<span style="text-align:center;margin:auto;">Well done</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;><a>', 5000);
-            	  	header('Location: Done.php');
-            	  }
-            	  
-            	  else{
-            	  	alert("Sorry we got some error!");
-            	  	//Materialize.toast('<span style="text-align:center;margin:auto;">Sorry we got some problem</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;#!&quot;>Undo<a>', 5000);
-            	 	 header('Location: error.php');
-            	  }
-            }
-          });
+		//e.preventDefault();
+		var inputs = document.getElementsByTagName("input");
+		for (var i = 0; i < inputs.length; i++) {
+ 			if(inputs[i].id.indexOf("delete") > 0)
+    		$(inputs[i]).remove();
+			}
+		return true;
 	}
+
+	if(curr_id!=3){
+	e.preventDefault();
+	var y=false;
+	var f = true;
+	var fh = eval('fin'+thisid);
+	$(eval('fmul'+thisid)).each(function(index,value){
+			//alert(value+" ---- "+fh[index]);
+			y = req_ch(value,fh[index],f);
+			if(y)f=false;
+	});
+	if(f){
 	$(".active-f").attr('class','row current');
-	$(eval('freq'+thisid)).attr('required',false)
-	$('div[id=' + ++curr_id +']').each(function(){$(this).attr('class','row active-f');
+	
+
+	$(eval('freq'+thisid)).attr('required',false);
+	$('div[id=' + (++curr_id) +']').each(function(){$(this).attr('class','row active-f');
 			});
-	$(eval('freq'+curr_id.toString())).attr('required',true)
+	$(eval('freq'+curr_id.toString())).attr('required',true);
 	 $("html, body").animate({ scrollTop: 0 }, "slow");
+	 
+	return false;
+	}
+	}
+	else{return true;}
+});
+
+//========================================================additional ===
+//window.onbeforeunload = function(event ) { e.preventDefault(); };
+
+
+$(window).on("back", function (event, data) {
+  var direction = data.state.direction;
+  if (direction == 'back') {
+    var thisid = $(".active-f").attr('id');
+    var curr_id= parseInt(thisid);
+    alert(curr_id);
+    if(curr_id==2){
+    	e.preventDefault();
+      back_nav(1);
+    }
+    else if (curr_id==3) {
+    	e.preventDefault();
+    	back_nav(2);
+    }
+  }
 });
 
 
+function back_nav(curr_id){
+	$(".active-f").attr('class','row current');
 
-  if ( $.browser ) {
-    alert( $.browser );
-  }
+	$('input[id=back-b]').each(function(){$(this).attr('class','waves-effect waves-light btn-large center');
+			});
+	$('div[id=' + curr_id +']').each(function(){$(this).attr('class','row active-f');
+			});
+	$(eval('freq'+curr_id.toString())).attr('required',true);
+	$(eval('freq'+ ((++curr_id).toString()))).attr('required',false);
+
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+
+}
+
+
+window.cur_l ='';
+
+$("input[name=currency__]").on('change',function() {
+    cur_l = $(this).attr('value');
+    $('.cur_l').html('('+cur_l+')');
+    $('span#budget__span').html('('+cur_l+')');
+
+});
+
+
+$('#contact_mob__').attr('maxlength','15');
+$('#office___').attr('maxlength','15');
+$('#othercurrency__').attr('length',3);
 </script>
