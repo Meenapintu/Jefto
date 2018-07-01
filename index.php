@@ -147,7 +147,7 @@
 	    <div class="modal-content" style="background:red;">
 	      <h4>ERROR </h4>
 	      <p>SORRY WE ARE NOT ABLE TO PROCESS YOUR REQUEST .</p>
-	      <p>There might be a case that you already registed or some internal error .</p>
+	      <p>There might be a case that you have already registed or some internal error .</p>
 	      <p>  THANK YOU , it will be more responsive soon  .</p>
 	    </div>
 	    <div class="modal-footer">
