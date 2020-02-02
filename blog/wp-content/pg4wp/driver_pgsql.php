@@ -89,8 +89,9 @@
 	function wpsql_select_db($dbname, $connection_id = 0)
 	{
 		$pg_connstr = $GLOBALS['pg4wp_connstr'].' dbname='.$dbname;
+		$connection_string = "host=ec2-54-217-250-0.eu-west-1.compute.amazonaws.com   dbname=d73g42v8d095dg user=fcmhpgjorxzufu password=02658abc9e07a08442bb2560b5e3e5726226f804e4bf4a9bff5e32d4770594cd";
 
-		$GLOBALS['pg4wp_conn'] = pg_connect($pg_connstr);
+		$GLOBALS['pg4wp_conn'] = pg_connect($connection_string);
 		
 		if( $GLOBALS['pg4wp_conn'])
 		{
